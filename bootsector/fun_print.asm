@@ -1,6 +1,13 @@
+[org 0x7c00]
 
+hex:
+ db '0x????', 0
+hexbet:
+ db '0123456789abcdef'
 
 print_h:
+ push bx
+ push si
  mov si, hex
 
  mov bx, dx		;bx -> 0x1234 since dx=0x1234
@@ -26,20 +33,28 @@ print_h:
  mov [hex+5], bl
 
 ; mov [hex], byte 'A'
- call print
+ call print_str
+ pop si
+ pop bx
  ret
 
-print:
- loop:
+print_str:
+ _loop:
   lodsb		;mov al,[si] ;lodsb load string buffer
   cmp al, 0
-  je end
+  je _end
   mov ah, 0x0e
   int 0x10
   ;inc si	; add si, 1
-  jmp loop
- end:
+  jmp _loop
+ _end:
  ;pop bx
  ;jmp bx
  ret ;equalent to above 2 lines
 
+print_char:
+ mov ah, 0x0e
+ int 0x10
+ mov ax, 'B'
+ add ax, 1
+ ret
