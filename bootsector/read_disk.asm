@@ -3,10 +3,14 @@
 mov bp, 0xffff
 mov sp, bp
 
-call read_disk
+push dx
 
-mov si, my_msg
-call print_str
+call print_h
+
+;call read_disk
+
+;mov si, my_msg
+;call print_str
 
 jmp $
 
