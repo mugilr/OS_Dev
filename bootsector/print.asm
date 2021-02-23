@@ -5,16 +5,13 @@ mov sp, bp
 
 ;mov si, hello
 ;call print
-mov dx, 0x3344
+mov dx, [0x7c00+510]	;address of magic no.
 call print_h
 
-%include "print_string.asm"
 
-print_h
- mov si, hex
- mov [hex], byte 'A'
- call print
- ret
+jmp $
+
+%include "fun_print.asm"
 
 %if 0
 print:
@@ -34,14 +31,14 @@ print:
 
 ;%include "print_string.asm"
 
-jmp $
-
 ;hello:
  ;db 'Hello_MR', 0
 ;hell:
  ;db 'Hello', 0
 hex:
  db '0x??1?', 0
+hexbet:
+ db '0123456789abcdef'
 
 times 510-($-$$) db 0
 dw 0xaa55
