@@ -1,0 +1,12 @@
+//build asm 
+nasm <fun.asm> -f bin -o bootsector.bin 
+//emulate a OS
+qemu-system-x86_64 bootsector.bin
+//hex editor 
+ghex <bootsector.bin>
+//c program complier
+//ffreestanding -> without adding any header
+// -m32 compile as a 32 bit file
+gcc -ffreestanding -c <file.c> -o <output.o> -m32
+//see the asm of c file
+objdump -M intel -d <output.o>
