@@ -1,0 +1,1299 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp1075071eja;
+        Sun, 7 Mar 2021 06:58:09 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJypxTCqIGgAmJbitadlJBt47kv28NMrNMAOmxX6kiBn14OTPKov2jCWyVcW8qZuM2ktepNL
+X-Received: by 2002:a17:90a:9303:: with SMTP id p3mr19325142pjo.201.1615129088682;
+        Sun, 07 Mar 2021 06:58:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615129088; cv=none;
+        d=google.com; s=arc-20160816;
+        b=UXtLix0CBW0RuVgONVGLAYD3jMHCxbg/GteLf5sL6FhiqHlQu/QfxTwo1VbSfPschF
+         D3DHkXT/nWYLgGQMc8gRnMzUweoH/jKIXHy3d2eGW+FVH4VXqIOo9UDyPi1t6ZX9qK5l
+         Z/D5nvtNBF5Ul4g8hCDTry2kI/2U2lnT0EdpnSUyJPA7rqV+7bFRacQDbPZcPrIil2U/
+         lPsxV9KLsrbO5Ct6bk4mSEcERQEnO+Zw+kxEgkVEDSc+iN1JnWEqZGhEtjqlR2UiLYhz
+         FFhdZ8zE6+mWAR5gmPheBB6OAOwKvSGYl0wyhu408V5uPte2O62TsID0W5GfitYjwPlr
+         M1AQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:subject:mime-version:date:message-id:to:dkim-signature;
+        bh=0sxqlnF7Gn8MO50DXgfqMl+92guxHOqQLCHrQeKliXg=;
+        b=jnheX4pnHJnp3LrNI0nOhyBhznlZ2a/rAXaTGewJikJ9/MBRehE1LoCmyetzstmOGt
+         QC9O6TDVordx89NK27qDu9kabB8wvxBdzhTjyHPhA0WSbC3HGDjiok+jBZLlqyON6clK
+         njCyXs/Qgj7IjCVw1SQporuGoQMWm6m1133IpAqr/Gv8Y3YOSMQ5MPxVCRUXCuBoSmk5
+         TPyKUqPiWpRVOHzupMFQG5r5B4lqE1ZWqu/3Kxi9coUStQoExtG0kBYPRD6ccdGbb3G7
+         NPdqLl2Kd3fZpZjgbHg9zqgW+Mw37qQA2D5ebhiORk7QLqah9fN0bR0UEz80Bc0+tKhF
+         4kTg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@news.edx.org header.s=scph1120 header.b=dzebbjLA;
+       spf=pass (google.com: domain of msprvs1=18700axhklrhx=bounces-266693-64@news.edx.org designates 156.70.13.156 as permitted sender) smtp.mailfrom="msprvs1=18700AXHklRhx=bounces-266693-64@news.edx.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=edx.org
+Return-Path: <msprvs1=18700AXHklRhx=bounces-266693-64@news.edx.org>
+Received: from mta-70-13-156.sparkpostmail.com (mta-70-13-156.sparkpostmail.com. [156.70.13.156])
+        by mx.google.com with ESMTPS id i186si5893866pge.166.2021.03.07.06.58.08
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 07 Mar 2021 06:58:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of msprvs1=18700axhklrhx=bounces-266693-64@news.edx.org designates 156.70.13.156 as permitted sender) client-ip=156.70.13.156;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@news.edx.org header.s=scph1120 header.b=dzebbjLA;
+       spf=pass (google.com: domain of msprvs1=18700axhklrhx=bounces-266693-64@news.edx.org designates 156.70.13.156 as permitted sender) smtp.mailfrom="msprvs1=18700AXHklRhx=bounces-266693-64@news.edx.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=edx.org
+X-MSFBL: PAYSWEBzDCJP2CAIJwHS3AEaJACHKU6fppecbFG8MhU=|eyJyIjoiZG11Z2lsMjA
+	wMEBnbWFpbC5jb20iLCJ0ZW5hbnRfaWQiOiJzcGMiLCJjdXN0b21lcl9pZCI6IjI
+	2NjY5MyIsIm1lc3NhZ2VfaWQiOiI2MDNmZmZlOTQ0NjBhYjZkYWVlZiIsInN1YmF
+	jY291bnRfaWQiOiI2NCJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=news.edx.org;
+	s=scph1120; t=1615129087; i=@news.edx.org;
+	bh=0sxqlnF7Gn8MO50DXgfqMl+92guxHOqQLCHrQeKliXg=;
+	h=To:Message-ID:Date:Content-Type:Subject:From;
+	b=dzebbjLATmYSp3G9X1LVax36j2zx3Hcg4GqanRo7xgrLtrXQ0+tcgvEyY5wCYR4XM
+	 O5mu57yEaVNgg/XULLjyvuxwbU7Ja+qOWhnMKRv+hplRnDjYnXNYtlxVk9JMpAT9Py
+	 KWSY37FbzaCUJBfTkC5SSK+u/38yg/UTyZ/Kw9KQ=
+To: dmugil2000@gmail.com
+Message-ID: <EA.FE.03844.FF9E4406@aa.mta1vrest.cc.prd.sparkpost>
+Date: Sun, 07 Mar 2021 14:58:07 +0000
+Content-Type: multipart/alternative; boundary="_----+jv7b8fEbyaz26040Mz5aQ===_AA/FE-03844-FF9E4406"
+MIME-Version: 1.0
+Subject: Inspire a new chapter in your life
+From: "Lucy at edX" <edX@news.edx.org>
+
+--_----+jv7b8fEbyaz26040Mz5aQ===_AA/FE-03844-FF9E4406
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+The edX Roundup=0A=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C=0A=0AedX ( https://clicks.edx.org/f/a/=
+6_cBlXQCCQJ-HegtP6aBRA~~/AAQRxQA~/RgRiJ27_P0QUaHR0cHM6Ly93d3cuZWR4Lm9yZy9XA=
+3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )           Cou=
+rses =0A( https://clicks.edx.org/f/a/Wd4i9C62c349s2g2ugnqaw~~/AAQRxQA~/RgRi=
+J27_P0QaaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2VXA3NwY0IKYD__6URgq22u71IUZG11Z2l=
+sMjAwMEBnbWFpbC5jb21YBAAAAEA~ ) / Programs =0A( https://clicks.edx.org/f/a/=
+3c4sjVW7IJyrmtq8BkziWg~~/AAQRxQA~/RgRiJ27_P0QmaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb=
+3Vyc2U_cHJvZ3JhbT1hbGxXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21Y=
+BAAAAEA~ ) / My Account =0A( https://clicks.edx.org/f/a/y0QhgrtMprQZu4i4Ci9=
+Lgw~~/AAQRxQA~/RgRiJ27_P0QdaHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvbG9naW5XA3NwY0IK=
+YD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A=E2=80=9COnline=
+ learning provides all the flexibility I look for as well=0Aas an access to=
+ subjects which would be otherwise difficult to=0Astudy in the city I live.=
+=E2=80=9D - Jana, Switzerland =0A( https://clicks.edx.org/f/a/Le1fIz4j7Mvbf=
+-S43czd7Q~~/AAQRxQA~/RgRiJ27_P0RRaHR0cHM6Ly9ibG9nLmVkeC5vcmcvYS1uZXctbGlmZS=
+1jaGFwdGVyLWRpc2NvdmVyZWQtaW4tYW4tb25saW5lLXNoYWtlc3BlYXJlLWNsYXNzVwNzcGNCC=
+mA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA )=0A=0A=0AJana, a forme=
+r lawyer from Switzerland, has more time to plan for=0Aa new professional e=
+xperience now that her children are older.=0AShe turned to online learning =
+to discover new interests=E2=80=94including=0Aa newfound enthusiasm for Sha=
+kespeare. Keep reading =0A( https://clicks.edx.org/f/a/Le1fIz4j7Mvbf-S43czd=
+7Q~~/AAQRxQA~/RgRiJ27_P0RRaHR0cHM6Ly9ibG9nLmVkeC5vcmcvYS1uZXctbGlmZS1jaGFwd=
+GVyLWRpc2NvdmVyZWQtaW4tYW4tb25saW5lLXNoYWtlc3BlYXJlLWNsYXNzVwNzcGNCCmA__-lE=
+YKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA )=0A to find out how her learn=
+ing experience inspired a new chapter=0Ain her life as a Shakespearean writ=
+er and educator.=0A=0AFind your course ( https://clicks.edx.org/f/a/-SAUkgb=
+u27mGBK_zzM-rog~~/AAQRxQA~/RgRiJ27_P0QlaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_=
+dGFiPWNvdXJzZVcDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~=
+~ )=0A=0A-------------=0AFrom our blog=0A-------------=0A=0APurdue Civil En=
+gineering: The Future-Forward Degree =0A( https://clicks.edx.org/f/a/enuAlX=
+049eKhBl5NYBkG_g~~/AAQRxQA~/RgRiJ27_P0RHaHR0cHM6Ly9ibG9nLmVkeC5vcmcvcHVyZHV=
+lLWNpdmlsLWVuZ2luZWVyaW5nLXRoZS1mdXR1cmUtZm9yd2FyZC1kZWdyZWVXA3NwY0IKYD__6U=
+Rgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A=0A------------------=
+--------------------------------------=0APurdue Civil Engineering: The Futu=
+re-Forward Degree (  )=0A--------------------------------------------------=
+------=0A=0AWhat are some of the pathways for civil engineers looking to=0A=
+advance to new levels=3F One option to consider is an online=0Amaster=E2=80=
+=99s in civil engineering, a flexible and affordable,=0Atransformational ed=
+ucational experience for busy professionals.=0A=0AKeep reading =0A( https:/=
+/clicks.edx.org/f/a/enuAlX049eKhBl5NYBkG_g~~/AAQRxQA~/RgRiJ27_P0RHaHR0cHM6L=
+y9ibG9nLmVkeC5vcmcvcHVyZHVlLWNpdmlsLWVuZ2luZWVyaW5nLXRoZS1mdXR1cmUtZm9yd2Fy=
+ZC1kZWdyZWVXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=
+=0A=0A=0ATop Business Careers and Skills in 2021 + 11 Programs to Match =0A=
+( https://clicks.edx.org/f/a/bZ5_2VeSMRIX9kUQ2QvYKQ~~/AAQRxQA~/RgRiJ27_P0RR=
+aHR0cHM6Ly9ibG9nLmVkeC5vcmcvdG9wLWJ1c2luZXNzLWNhcmVlcnMtYW5kLXNraWxscy1pbi0=
+yMDIxLTExLXByb2dyYW1zLXRvLW1hdGNoVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ2=
+1haWwuY29tWAQAAABA )=0A=0A=0A----------------------------------------------=
+-------------------=0ATop Business Careers and Skills in 2021 + 11 Programs=
+ to Match (=0A)=0A---------------------------------------------------------=
+--------=0A=0AFrom strategic management and modern finance to Lean Six Sigm=
+a=0Aand business analytics, read on to learn more about equipping=0Ayoursel=
+f with in-demand skills and explore 11 edX business and=0Amanagement progra=
+ms that will help you thrive in this pivotal=0Ayear.=0A=0ALearn more =0A( h=
+ttps://clicks.edx.org/f/a/bZ5_2VeSMRIX9kUQ2QvYKQ~~/AAQRxQA~/RgRiJ27_P0RRaHR=
+0cHM6Ly9ibG9nLmVkeC5vcmcvdG9wLWJ1c2luZXNzLWNhcmVlcnMtYW5kLXNraWxscy1pbi0yMD=
+IxLTExLXByb2dyYW1zLXRvLW1hdGNoVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21ha=
+WwuY29tWAQAAABA )=0A=0A=0A----------------------=0AWeekly course features=
+=0A----------------------=0A=0ARecommender Systems: Behind the Screen=0A=0A=
+Recommender Systems: Behind the Screen (  )=0A-----------------------------=
+--------------=0A=0AUMontrealX=0A=0AEnroll Today =0A( https://clicks.edx.or=
+g/f/a/G4ySHEkxEfpEjwjtE6vSKA~~/AAQRxQA~/RgRiJ27_P0RAaHR0cHM6Ly93d3cuZWR4Lm9=
+yZy9jb3Vyc2UvcmVjb21tZW5kZXItc3lzdGVtcy1iZWhpbmQtdGhlLXNjcmVlblcDc3BjQgpgP_=
+_pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=0A=0ARhetoric: The =
+Art of Persuasive Writing and Public Speaking=0A=0ARhetoric: The Art of Per=
+suasive Writing and Public Speaking (  )=0A--------------------------------=
+--------------------------------=0A=0AHarvardX=0A=0AEnroll Today =0A( https=
+://clicks.edx.org/f/a/xSdxxZNBOi6o8X8Lt1niJw~~/AAQRxQA~/RgRiJ27_P0RNaHR0cHM=
+6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvcmhldG9yaWMtYXJ0LW9mLXBlcnN1YXNpdmUtd3JpdGluZy=
+1wdWJsaWMtc3BlYWtpbmdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YB=
+AAAAEA~ )=0A=0A=0ABasic Spanish 1: Getting Started=0A=0ABasic Spanish 1: Ge=
+tting Started (  )=0A-------------------------------------=0A=0AUPValenciaX=
+=0A=0AEnroll Today =0A( https://clicks.edx.org/f/a/InYf_MPOUp9XXTN12K4PXA~~=
+/AAQRxQA~/RgRiJ27_P0Q6aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvYmFzaWMtc3Bhbmlza=
+C0xLWdldHRpbmctc3RhcnRlZFcDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNv=
+bVgEAAAAQA~~ )=0A=0AThe Science of Happiness=0A=0AThe Science of Happiness =
+(  )=0A-----------------------------=0A=0ABerkeleyX=0A=0AEnroll Today =0A( =
+https://clicks.edx.org/f/a/5_BgkhtL6EZtzIghS-RuYg~~/AAQRxQA~/RgRiJ27_P0Q1aH=
+R0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvdGhlLXNjaWVuY2Utb2YtaGFwcGluZXNzLTNXA3NwY=
+0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0AView All Cou=
+rses ( https://clicks.edx.org/f/a/-SAUkgbu27mGBK_zzM-rog~~/AAQRxQA~/RgRiJ27=
+_P0QlaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_dGFiPWNvdXJzZVcDc3BjQgpgP__pRGCrba=
+7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=0A-----------------------=
+=0AWeekly program features=0A-----------------------=0A=0A-----------------=
+------------------------------------------------=0AMicroBachelors=C2=AE Pro=
+grams =0A( https://clicks.edx.org/f/a/XNoMYquURonmMLZMUlVKag~~/AAQRxQA~/RgR=
+iJ27_P0RFaHR0cHM6Ly93d3cuZWR4Lm9yZy9taWNyb2JhY2hlbG9ycy9ueXV4LWNvbXB1dGVyLX=
+NjaWVuY2UtZnVuZGFtZW50YWxzVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY=
+29tWAQAAABA )=0A=0A--------------------------------------------------------=
+---------=0A=0AMarketing Essentials =0A( https://clicks.edx.org/f/a/6P-di89=
+KPSA-64NTI8m_iw~~/AAQRxQA~/RgRiJ27_P0Q-aHR0cHM6Ly93d3cuZWR4Lm9yZy9taWNyb2Jh=
+Y2hlbG9ycy9kb2FuZXgtbWFya2V0aW5nLWVzc2VudGlhbHNXA3NwY0IKYD__6URgq22u71IUZG1=
+1Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A-------------------------------------=
+----------------------------=0A=0A3 College Credits=0A=0A------------------=
+-------------------------------------=0AMaster's Degrees on edX ( https://c=
+licks.edx.org/f/a/tspNNzkENOkkCFaTqM_WGQ~~/AAQRxQA~/RgRiJ27_P0QbaHR0cHM6Ly9=
+3d3cuZWR4Lm9yZy9tYXN0ZXJzVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY2=
+9tWAQAAABA )=0A-------------------------------------------------------=0A=
+=0AMaster of Science in Nutritional Sciences =0A( https://clicks.edx.org/f/=
+a/RuxjdqOjizT2HpNHdWL8lQ~~/AAQRxQA~/RgRiJ27_P0RKaHR0cHM6Ly93d3cuZWR4Lm9yZy9=
+tYXN0ZXJzL29ubGluZS1tYXN0ZXItaW4tbnV0cml0aW9uYWwtc2NpZW5jZXMtdXRhdXN0aW5XA3=
+NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A---------=
+--------------------------------------------------------=0A=0ANext Start: F=
+all 2021=0A=0A-------------------------------------------------------------=
+----=0AProfessional Certificate Programs =0A( https://clicks.edx.org/f/a/T1=
+gz7z11K0moy6KGP06gxQ~~/AAQRxQA~/RgRiJ27_P0QsaHR0cHM6Ly93d3cuZWR4Lm9yZy9wcm9=
+mZXNzaW9uYWwtY2VydGlmaWNhdGVXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC=
+5jb21YBAAAAEA~ )=0A--------------------------------------------------------=
+---------=0A=0AFinTech =0A( https://clicks.edx.org/f/a/GTdr5N-1hBRiA-IEINMM=
+3w~~/AAQRxQA~/RgRiJ27_P0Q5aHR0cHM6Ly93d3cuZWR4Lm9yZy9wcm9mZXNzaW9uYWwtY2Vyd=
+GlmaWNhdGUvaGt1eC1maW50ZWNoVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwu=
+Y29tWAQAAABA )=0A----------------------------------------------------------=
+-------=0A=0ASelf-Paced=0A=0A----------------------------------------------=
+-------------=0AMicroMasters=C2=AE Programs ( https://clicks.edx.org/f/a/Yn=
+jYTfiTbLe4tvYqxXWZfQ~~/AAQRxQA~/RgRiJ27_P0QgaHR0cHM6Ly93d3cuZWR4Lm9yZy9taWN=
+yb21hc3RlcnNXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=
+=0A-----------------------------------------------------------=0A=0AMBA Cor=
+e Curriculum =0A( https://clicks.edx.org/f/a/rHIhEu2s9StOF06qlNXbqw~~/AAQRx=
+QA~/RgRiJ27_P0Q9aHR0cHM6Ly93d3cuZWR4Lm9yZy9taWNyb21hc3RlcnMvVVNNeC1VTUQtTUJ=
+BLUNvcmUtQ3VycmljdWx1bVcDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbV=
+gEAAAAQA~~ )=0A------------------------------------------------------------=
+-----=0A=0A7 Courses=0A=0ATwitter ( https://clicks.edx.org/f/a/ud6aplUJScb5=
+wQFsicdK5w~~/AAQRxQA~/RgRiJ27_P0QdaHR0cHM6Ly90d2l0dGVyLmNvbS9lZFhPbmxpbmVXA=
+3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0ALinkedIn ( =
+https://clicks.edx.org/f/a/Um475ygDQ-BEtd2uSXCbkA~~/AAQRxQA~/RgRiJ27_P0QjaH=
+R0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9lZHhXA3NwY0IKYD__6URgq22u71IUZG11Z=
+2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )  Facebook =0A( https://clicks.edx.org/f/a=
+/dmBTt_fRHVFhdUzf5fj3Xw~~/AAQRxQA~/RgRiJ27_P0QhaHR0cDovL3d3dy5mYWNlYm9vay5j=
+b20vRWR4T25saW5lVwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAAB=
+A )  Instagram =0A( https://clicks.edx.org/f/a/D0b3i_Q5kr-QestdGYHD1A~~/AAQ=
+RxQA~/RgRiJ27_P0QkaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9lZHhvbmxpbmUvVwNzcGNCC=
+mA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA )  Reddit =0A( https://=
+clicks.edx.org/f/a/5wZLBBrCJ5CztKFo-1cHCQ~~/AAQRxQA~/RgRiJ27_P0QbaHR0cDovL3=
+d3dy5yZWRkaXQuY29tL3IvZWR4VwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY=
+29tWAQAAABA )               Download edX's App =0A( https://clicks.edx.org/=
+f/a/ACpZH6miFxwBBZUPozt3uQ~~/AAQRxQA~/RgRiJ27_P0QmaHR0cHM6Ly9lZHguYXBwLmxpb=
+msvZW1haWwtYXBwLWluc3RhbGxXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5j=
+b21YBAAAAEA~ )  Download edX's Google=0APlay App ( https://clicks.edx.org/f=
+/a/ACpZH6miFxwBBZUPozt3uQ~~/AAQRxQA~/RgRiJ27_P0QmaHR0cHM6Ly9lZHguYXBwLmxpbm=
+svZW1haWwtYXBwLWluc3RhbGxXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb=
+21YBAAAAEA~ )=0ASave 10% on select programs! Click here. =0A( https://click=
+s.edx.org/f/a/tepAcFjh0dIFe7otp2S4Yw~~/AAQRxQA~/RgRiJ27_P0QoaHR0cHM6Ly93d3c=
+uZWR4Lm9yZy9iZW5lZml0cy1vZi1idW5kbGluZ1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMD=
+AwQGdtYWlsLmNvbVgEAAAAQA~~ )      edX for Business=0A=E2=80=94 eLearning So=
+lutions for Your Company =0A( https://clicks.edx.org/f/a/otqna-ZbDBm_HlaWE0=
+5nJw~~/AAQRxQA~/RgRiJ27_P0QZaHR0cHM6Ly9idXNpbmVzcy5lZHgub3JnL1cDc3BjQgpgP__=
+pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )      =C2=A9 2021 edX In=
+c. All rights=0Areserved.      Unsubscribe ( https://clicks.edx.org/f/a/eFE=
+y7vdqaWlW1v-SQ9wErw~~/AAQRxQA~/RgRiJ27_P4SnAWh0dHBzOi8vZGFzaGJvYXJkLTA2LmJy=
+YXplLmNvbS9lbmNfdXNlci91bnN1YnNjcmliZT9kPVRpQ21oT2dqeElNUktzTk11M2tUWWclM0Q=
+lM0QlMjR5WWs4eDdHdXZQdVpoZGNRZ1REJTJGSmY5Q0NoMG1LaG5tVkI0cWlwSEVVVFR1NjB0eU=
+1sdlFpdWZCMkkwMiUwQU5QM2V4WU56Vkx5dVRSU2lsZTVrQyUyQmpKSFcyUnBDOCUyRk1oajY4a=
+WRGTmM0ZyUyRm0lMkJJTjZkOG1ueXd0UGUyJTBBYm5JWndlM0hDaTZIQk1GZ05ub1hWNVhOTzZK=
+YkozYkp6TDJCJTJGOHM4ekJZVWpJdURzSHhlSVlQQ2VyYnYlMEFpOSUyQk9Jd280a0tySmVjeTV=
+kRFlSc3JnNHNHODRPTSUyQkN0ZkYlMkZtT25YUXI1eXh3VXB6WWIxVE5lVnQ0VnQlMEFkSzJRRU=
+lBd3V3RGlLNXFTYzhMdHdzT3pwUGtiZ0xOMm9ZOFhkSDdDS2xoenM5NiUyQjJxcUZmRGhEVTM0J=
+TNEJjE9MVcDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=
+=0A| Update Preference ( https://clicks.edx.org/f/a/ELFWf9ZuHW1Bo_BTk5Tm8w~=
+~/AAQRxQA~/RgRiJ27_P4QIAmh0dHBzOi8vMDYuZW1haWxpbmJvdW5kcHJvY2Vzc2luZy5jb20v=
+ZW1haWwvbWFuYWdlX3N1YnNjcmlwdGlvbnMvODJINGhSJTJCdG1lY091U2xveWtpWVFRJTNEJTN=
+EJTI0Q0RUYjF0eUVhTiUyRmlEY0x6UmlVSnRwWFk2RkNYM1lUSVl5RiUyQjVEcGkwVU0lM0Q_ZD=
+1UaUNtaE9nanhJTVJLc05NdTNrVFlnJTNEJTNEJTI0eVlrOHg3R3V2UHVaaGRjUWdURCUyRkpmO=
+UNDaDBtS2hubVZCNHFpcEhFVVRUdTYwdHlNbHZRaXVmQjJJMDIlMEFOUDNleFlOelZMeXVUUlNp=
+bGU1a0MlMkJqSkhXMlJwQzglMkZNaGo2OGlkRk5jNGclMkZtJTJCSU42ZDhtbnl3dFBlMiUwQWJ=
+uSVp3ZTNIQ2k2SEJNRmdObm9YVjVYTk82SmJKM2JKekwyQiUyRjhzOHpCWVVqSXVEc0h4ZUlZUE=
+NlcmJ2JTBBaTklMkJPSXdvNGtLckplY3k1ZERZUnNyZzRzRzg0T00lMkJDdGZGJTJGbU9uWFFyN=
+Xl4d1VwelliMVROZVZ0NFZ0JTBBZEsyUUVJQXd1d0RpSzVxU2M4THR3c096cFBrYmdMTjJvWThY=
+ZEg3Q0tsaHpzOTYlMkIycXFGZkRoRFUzNCUzRCYxPTFXA3NwY0IKYD__6URgq22u71IUZG11Z2l=
+sMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A141 Portland St. 9th Floor, Cambridge, MA=
+ 02139
+--_----+jv7b8fEbyaz26040Mz5aQ===_AA/FE-03844-FF9E4406
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html style=3D"width:100%;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-siz=
+e-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0"><head><meta htt=
+p-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><meta chars=
+et=3D"UTF-8"><meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=
+=3D"viewport"><meta name=3D"x-apple-disable-message-reformatting"><meta htt=
+p-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta content=3D"telephon=
+e=3Dno" name=3D"format-detection"><title>Inspire a new chapter in your life=
+</title> <!--[if (mso 16)]><style type=3D"text/css">     a {text-decoration=
+: none;}     </style><![endif]--> <!--[if gte mso 9]><style>sup { font-size=
+: 100% !important; }</style><![endif]--> <!--[if gte mso 9]><xml> <o:Office=
+DocumentSettings> <o:AllowPNG></o:AllowPNG> <o:PixelsPerInch>96</o:PixelsPe=
+rInch> </o:OfficeDocumentSettings> </xml><![endif]--><style type=3D"text/cs=
+s">#outlook a {=09padding:0;}.ExternalClass {=09width:100%;}.ExternalClass,=
+.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td=
+,.ExternalClass div {=09line-height:100%;}.es-button {=09mso-style-priority=
+:100!important;=09text-decoration:none!important;}a[x-apple-data-detectors]=
+ {=09color:inherit!important;=09text-decoration:none!important;=09font-size=
+:inherit!important;=09font-family:inherit!important;=09font-weight:inherit!=
+important;=09line-height:inherit!important;}.es-desk-hidden {=09display:non=
+e;=09float:left;=09overflow:hidden;=09width:0;=09max-height:0;=09line-heigh=
+t:0;=09mso-hide:all;}td .es-button-border:hover a.es-button-1 {=09backgroun=
+d:#1E7AD9!important;=09border-color:#1E7AD9!important;=09color:#ffffff!impo=
+rtant;}td .es-button-border-2:hover {=09background:#1E7AD9!important;=09bor=
+der-color:#1E7AD9 #1E7AD9 #1E7AD9 #1E7AD9!important;}td .es-button-border-3=
+:hover {=09border-color:#02c7eb #02c7eb #02c7eb #02c7eb!important;=09backgr=
+ound:#02c7eb!important;}td .es-button-border:hover a.es-button-4 {=09backgr=
+ound:#02c7eb!important;=09border-color:#02c7eb!important;}td .es-button-bor=
+der-5:hover {=09border-color:#dc5950 #dc5950 #dc5950 #dc5950!important;=09b=
+ackground:#ffffff!important;}@media only screen and (max-width:600px) {p, u=
+l li, ol li, a { line-height:150%!important } h1 { font-size:30px!important=
+; text-align:left; line-height:120%!important } h2 { font-size:26px!importa=
+nt; text-align:left; line-height:120%!important } h3 { font-size:20px!impor=
+tant; text-align:left; line-height:120%!important } h1 a { text-align:left =
+} .es-header-body h1 a, .es-content-body h1 a, .es-footer-body h1 a { font-=
+size:30px!important } h2 a { text-align:left } .es-header-body h2 a, .es-co=
+ntent-body h2 a, .es-footer-body h2 a { font-size:26px!important } h3 a { t=
+ext-align:left } .es-header-body h3 a, .es-content-body h3 a, .es-footer-bo=
+dy h3 a { font-size:20px!important } .es-menu td a { font-size:14px!importa=
+nt } .es-header-body p, .es-header-body ul li, .es-header-body ol li, .es-h=
+eader-body a { font-size:14px!important } .es-content-body p, .es-content-b=
+ody ul li, .es-content-body ol li, .es-content-body a { font-size:14px!impo=
+rtant } .es-footer-body p, .es-footer-body ul li, .es-footer-body ol li, .e=
+s-footer-body a { font-size:12px!important } .es-infoblock p, .es-infoblock=
+ ul li, .es-infoblock ol li, .es-infoblock a { font-size:11px!important } *=
+[class=3D"gmail-fix"] { display:none!important } .es-m-txt-c, .es-m-txt-c h=
+1, .es-m-txt-c h2, .es-m-txt-c h3 { text-align:center!important } .es-m-txt=
+-r, .es-m-txt-r h1, .es-m-txt-r h2, .es-m-txt-r h3 { text-align:right!impor=
+tant } .es-m-txt-l, .es-m-txt-l h1, .es-m-txt-l h2, .es-m-txt-l h3 { text-a=
+lign:left!important } .es-m-txt-r img, .es-m-txt-c img, .es-m-txt-l img { d=
+isplay:inline!important } .es-button-border { display:inline-block!importan=
+t } .es-btn-fw { border-width:10px 0px!important; text-align:center!importa=
+nt } .es-adaptive table, .es-btn-fw, .es-btn-fw-brdr, .es-left, .es-right {=
+ width:100%!important } .es-content table, .es-header table, .es-footer tab=
+le, .es-content, .es-footer, .es-header { width:100%!important; max-width:6=
+00px!important } .es-adapt-td { display:block!important; width:100%!importa=
+nt } .adapt-img { width:100%!important; height:auto!important } .es-m-p0 { =
+padding:0!important } .es-m-p0r { padding-right:0!important } .es-m-p0l { p=
+adding-left:0!important } .es-m-p0t { padding-top:0!important } .es-m-p0b {=
+ padding-bottom:0!important } .es-m-p20b { padding-bottom:20px!important } =
+.es-mobile-hidden, .es-hidden { display:none!important } tr.es-desk-hidden=
+, td.es-desk-hidden, table.es-desk-hidden { width:auto!important; overflow:=
+visible!important; float:none!important; max-height:inherit!important; line=
+-height:inherit!important } tr.es-desk-hidden { display:table-row!important=
+ } table.es-desk-hidden { display:table!important } td.es-desk-menu-hidden =
+{ display:table-cell!important } .es-menu td { width:1%!important } table.e=
+s-table-not-adapt, .esd-block-html table { width:auto!important } table.es-=
+social { display:inline-block!important } table.es-social td { display:inli=
+ne-block!important } .es-m-p5 { padding:5px!important } .es-m-p5t { padding=
+-top:5px!important } .es-m-p5b { padding-bottom:5px!important } .es-m-p5r {=
+ padding-right:5px!important } .es-m-p5l { padding-left:5px!important } .es=
+-m-p10 { padding:10px!important } .es-m-p10t { padding-top:10px!important }=
+ .es-m-p10b { padding-bottom:10px!important } .es-m-p10r { padding-right:10=
+px!important } .es-m-p10l { padding-left:10px!important } .es-m-p15 { paddi=
+ng:15px!important } .es-m-p15t { padding-top:15px!important } .es-m-p15b { =
+padding-bottom:15px!important } .es-m-p15r { padding-right:15px!important }=
+ .es-m-p15l { padding-left:15px!important } .es-m-p20 { padding:20px!import=
+ant } .es-m-p20t { padding-top:20px!important } .es-m-p20r { padding-right:=
+20px!important } .es-m-p20l { padding-left:20px!important } .es-m-p25 { pad=
+ding:25px!important } .es-m-p25t { padding-top:25px!important } .es-m-p25b =
+{ padding-bottom:25px!important } .es-m-p25r { padding-right:25px!important=
+ } .es-m-p25l { padding-left:25px!important } .es-m-p30 { padding:30px!impo=
+rtant } .es-m-p30t { padding-top:30px!important } .es-m-p30b { padding-bott=
+om:30px!important } .es-m-p30r { padding-right:30px!important } .es-m-p30l =
+{ padding-left:30px!important } .es-m-p35 { padding:35px!important } .es-m-=
+p35t { padding-top:35px!important } .es-m-p35b { padding-bottom:35px!import=
+ant } .es-m-p35r { padding-right:35px!important } .es-m-p35l { padding-left=
+:35px!important } .es-m-p40 { padding:40px!important } .es-m-p40t { padding=
+-top:40px!important } .es-m-p40b { padding-bottom:40px!important } .es-m-p4=
+0r { padding-right:40px!important } .es-m-p40l { padding-left:40px!importan=
+t } a.es-button, button.es-button { font-size:18px!important; display:inlin=
+e-block!important } }</style></head>=0A<body style=3D"width:100%;font-famil=
+y:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:1=
+00%;-ms-text-size-adjust:100%;padding:0;Margin:0"><span style=3D"display:no=
+ne !important;font-size:0px;line-height:0;color:#FFFFFF;visibility:hidden;o=
+pacity:0;height:0;width:0;mso-hide:all">The edX Roundup</span>             =
+              <!-- Suppress text after pre-header in inbox only -->=0A     =
+                      <tr>=0A                              <td align=3D"cen=
+ter" valign=3D"top" style=3D"font-family:sans-serif;color:#F5F5F5;font-size=
+:1px;line-height:1px;">=0A=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=0A                              =
+</td>=0A                           </tr>=0A                           <!-- =
+end of text suppression -->=0A<div class=3D"es-wrapper-color" style=3D"back=
+ground-color:#F7F7F7"> <!--[if gte mso 9]><v:background xmlns:v=3D"urn:sche=
+mas-microsoft-com:vml" fill=3D"t"> <v:fill type=3D"tile" color=3D"#f7f7f7">=
+</v:fill> </v:background><![endif]--><table class=3D"es-wrapper" width=3D"1=
+00%" cellspacing=3D"0" cellpadding=3D"0" style=3D"mso-table-lspace:0pt;mso-=
+table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Marg=
+in:0;width:100%;height:100%;background-repeat:repeat;background-position:ce=
+nter top"><tr style=3D"border-collapse:collapse"><td valign=3D"top" style=
+=3D"padding:0;Margin:0"><table class=3D"es-content" cellspacing=3D"0" cellp=
+adding=3D"0" align=3D"center" style=3D"mso-table-lspace:0pt;mso-table-rspac=
+e:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !impor=
+tant;width:100%"><tr style=3D"border-collapse:collapse"><td class=3D"es-ada=
+ptive" align=3D"center" style=3D"padding:0;Margin:0"><table class=3D"es-con=
+tent-body" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collap=
+se:collapse;border-spacing:0px;background-color:#EEEEEE;width:600px" cellsp=
+acing=3D"0" cellpadding=3D"0" bgcolor=3D"#eeeeee" align=3D"center"><tr styl=
+e=3D"border-collapse:collapse"><td align=3D"left" bgcolor=3D"#f7f7f7" style=
+=3D"padding:10px;Margin:0;background-color:#F7F7F7"><table cellspacing=3D"0=
+" cellpadding=3D"0" width=3D"100%" style=3D"mso-table-lspace:0pt;mso-table-=
+rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr style=3D"border=
+-collapse:collapse"><td align=3D"left" style=3D"padding:0;Margin:0;width:58=
+0px">               <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0">=0A                <tr>=0A                  <td width=3D"5" class=3D"wid=
+th_20">&nbsp;</td>=0A                  <td align=3D"left" valign=3D"top">=
+=0A                    <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0">=0A                      <tr>=0A                        <td align=3D=
+"left" valign=3D"top">=0A                          <table cellpadding=3D"10=
+" cellspacing=3D"0" align=3D"left" class=3D"w100">=0A                      =
+      <tr><td align=3D"center" valign=3D"top"><a href=3D"https://clicks.edx=
+.org/f/a/6jCm3VzubK_MThhDZXwUqw~~/AAQRxQA~/RgRiJ27_P0RiaHR0cHM6Ly93d3cuZWR=
+4Lm9yZy8_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW=
+5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwM=
+EBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank"><img src=3D"https://appboy-image=
+s.com/appboy/communication/assets/image_assets/images/5fc568622213594dcbda2=
+623/original.png=3F1606772834" width=3D"110" height=3D"57" border=3D"0" sty=
+le=3D"display:block;" alt=3D"edX" id=3D"logo"></a></td></tr>=0A            =
+              </table>=0A                          <!--[if mso]>=0A        =
+                    </td>=0A                            <td align=3D"left" =
+valign=3D"top">=0A                          <![endif]-->=0A                =
+          <table cellpadding=3D"0" cellspacing=3D"0" align=3D"right" class=
+=3D"w100">=0A                            <tr>=0A                           =
+   <td height=3D"52" align=3D"center" valign=3D"bottom" class=3D"nav_height=
+">=0A                                <table cellpadding=3D"0" cellspacing=
+=3D"0">=0A                                  <tr>=0A                        =
+            <td align=3D"left" valign=3D"top"><a href=3D"https://clicks.edx=
+.org/f/a/GTIvwFG8C57ho5EWbRbhvw~~/AAQRxQA~/RgRiJ27_P0RoaHR0cHM6Ly93d3cuZWR=
+4Lm9yZy9jb3Vyc2U_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYW=
+lnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z=
+2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank" style=3D"font-family:'in=
+ter',Arial,sans-serif;font-size:18px;line-height:21px;text-decoration:none;=
+color:#00262B;" class=3D"font_15"><span style=3D"color:#00262B;">Courses</s=
+pan></a></td>=0A                                    <td align=3D"left" vali=
+gn=3D"top" style=3D"font-family:'inter',Arial,sans-serif;font-size:18px;lin=
+e-height:21px;color:#D23228;padding:0 7px;" class=3D"font_15">/</td>=0A    =
+                                <td align=3D"left" valign=3D"top"><a href=
+=3D"https://clicks.edx.org/f/a/aKYZoYj5Fex-JdvtCYktVg~~/AAQRxQA~/RgRiJ27_P0=
+R0aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U_cHJvZ3JhbT1hbGwmdXRtX3NvdXJjZT1icmF6Z=
+SZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAy=
+MTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" targe=
+t=3D"_blank" style=3D"font-family:'inter',Arial,sans-serif;font-size:18px;l=
+ine-height:21px;text-decoration:none;color:#00262B;" class=3D"font_15"><spa=
+n style=3D"color:#00262B;">Programs</span></a></td>=0A                     =
+               <td align=3D"left" valign=3D"top" style=3D"font-family:'inte=
+r',Arial,sans-serif;font-size:18px;line-height:21px;color:#D23228;padding:0=
+ 7px;" class=3D"font_15">/</td>=0A                                    <td a=
+lign=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/qvMKeLyz=
+O8EkohFfRyXqEQ~~/AAQRxQA~/RgRiJ27_P0RraHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvbG9na=
+W4_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlf=
+Q291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWF=
+pbC5jb21YBAAAAEA~" target=3D"_blank" style=3D"font-family:'inter',Arial,san=
+s-serif;font-size:18px;line-height:21px;text-decoration:none;color:#00262B;=
+" class=3D"font_15"><span style=3D"color:#00262B;">My Account</span></a></t=
+d>=0A                                  </tr>=0A                            =
+    </table>=0A                              </td>=0A                      =
+      </tr>=0A                          </table>=0A                        =
+</td>=0A                      </tr>=0A                    </table>=0A      =
+            </td>=0A                  <td width=3D"5" class=3D"width_20">&n=
+bsp;</td>=0A                </tr>=0A              </table>=0A <table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#f7f7f7" style=3D"=
+mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-s=
+pacing:0px;background-color:#F7F7F7" role=3D"presentation"></table></td>=0A=
+</tr></table></td></tr></table></td>=0A</tr></table><table cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"es-content" align=3D"center" data-ol-has-click=
+-handler style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse=
+:collapse;border-spacing:0px;table-layout:fixed !important;width:100%"><tr =
+style=3D"border-collapse:collapse"><td align=3D"center" bgcolor=3D"#f7f7f7"=
+ style=3D"padding:0;Margin:0;background-color:#F7F7F7"><table class=3D"es-c=
+ontent-body" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-coll=
+apse:collapse;border-spacing:0px;background-color:#F7F7F7;width:600px" cell=
+spacing=3D"0" cellpadding=3D"0" bgcolor=3D"#f7f7f7" align=3D"center"><tr da=
+ta-ol-has-click-handler style=3D"border-collapse:collapse"><td style=3D"pad=
+ding:0;Margin:0;background-repeat:no-repeat" align=3D"left"><table width=3D=
+"100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"mso-table-lspace:0pt;ms=
+o-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr data-ol=
+-has-click-handler style=3D"border-collapse:collapse"><td valign=3D"top" al=
+ign=3D"center" style=3D"padding:0;Margin:0;width:600px"><table width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacin=
+g:0px"><tr style=3D"border-collapse:collapse"><td align=3D"center" style=3D=
+"padding:0;Margin:0;font-size:0px"><a target=3D"_blank" href=3D"https://cli=
+cks.edx.org/f/a/iYZmdOmVRb-vbqJWr5LMBQ~~/AAQRxQA~/RgRiJ27_P0SfaHR0cHM6Ly9ib=
+G9nLmVkeC5vcmcvYS1uZXctbGlmZS1jaGFwdGVyLWRpc2NvdmVyZWQtaW4tYW4tb25saW5lLXNo=
+YWtlc3BlYXJlLWNsYXNzP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2F=
+tcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-lEYKttru9SFG=
+RtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" style=3D"-webkit-text-size-adjust:none;=
+-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:unde=
+rline;color:#3D5CA3;font-size:14px"><img class=3D"adapt-img" src=3D"https:/=
+/fzvpwi.stripocdn.email/content/guids/CABINET_3bf1ee9e988ae96dd6d98ec446dd6=
+840/images/95761614955893167.png" alt=3D"=E2=80=9COnline learning provides =
+all the flexibility I look for as well as an access to subjects which would=
+ be otherwise difficult to study in the city I live.=E2=80=9D - Jana, Switz=
+erland" style=3D"display:block;border:0;outline:none;text-decoration:none;-=
+ms-interpolation-mode:bicubic" width=3D"600" title=3D"=E2=80=9COnline learn=
+ing provides all the flexibility I look for as well as an access to subject=
+s which would be otherwise difficult to study in the city I live.=E2=80=9D =
+- Jana, Switzerland"></a></td>=0A</tr><tr data-ol-has-click-handler style=
+=3D"border-collapse:collapse"><td align=3D"left" bgcolor=3D"#ffffff" style=
+=3D"padding:20px;Margin:0"><p style=3D"Margin:0;-webkit-text-size-adjust:no=
+ne;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helve=
+tica, 'helvetica neue', arial, verdana, sans-serif;line-height:24px;color:#=
+333333;font-size:16px">Jana, a former lawyer from Switzerland, has more tim=
+e to plan for a new professional experience now that her children are older=
+. She turned to online learning to discover new interests=E2=80=94includin=
+g a newfound enthusiasm for Shakespeare. <a target=3D"_blank" style=3D"-web=
+kit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:ex=
+actly;text-decoration:none;color:#D03529;font-size:16px;font-family:helveti=
+ca, 'helvetica neue', arial, verdana, sans-serif" href=3D"https://clicks.ed=
+x.org/f/a/iYZmdOmVRb-vbqJWr5LMBQ~~/AAQRxQA~/RgRiJ27_P0SfaHR0cHM6Ly9ibG9nLmV=
+keC5vcmcvYS1uZXctbGlmZS1jaGFwdGVyLWRpc2NvdmVyZWQtaW4tYW4tb25saW5lLXNoYWtlc3=
+BlYXJlLWNsYXNzP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ=
+249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-lEYKttru9SFGRtdWdp=
+bDIwMDBAZ21haWwuY29tWAQAAABA">Keep reading</a> to find out how her learning=
+ experience inspired a new chapter in her life as a Shakespearean writer an=
+d educator.</p>=0A</td></tr><tr data-ol-has-click-handler style=3D"border-c=
+ollapse:collapse"><td align=3D"left" bgcolor=3D"#ffffff" style=3D"padding:0=
+;Margin:0;padding-left:20px;padding-right:20px;padding-bottom:40px"><span c=
+lass=3D"es-button-border" style=3D"border-style:solid;border-color:#D03529;=
+background:#D03529;border-width:2px;display:inline-block;border-radius:0px;=
+width:auto"><a href=3D"https://clicks.edx.org/f/a/wTCB59IqNhA7YWXEAGUEIw~~/=
+AAQRxQA~/RgRiJ27_P0RzaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_dGFiPWNvdXJzZSZ1dG=
+1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3Vyc=
+2VfUm91bmR1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNv=
+bVgEAAAAQA~~" class=3D"es-button" target=3D"_blank" style=3D"mso-style-prio=
+rity:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-=
+text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:=
+16px;border-style:solid;border-color:#D03529;border-width:10px 15px;display=
+:inline-block;background:#D03529;border-radius:0px;font-family:helvetica, '=
+helvetica neue', arial, verdana, sans-serif;font-weight:normal;font-style:n=
+ormal;line-height:19px;width:auto;text-align:center">Find your course</a></=
+span></td></tr></table></td>=0A</tr></table></td>=0A</tr><tr data-ol-has-cl=
+ick-handler style=3D"border-collapse:collapse"><td style=3D"padding:20px;Ma=
+rgin:0;background-color:#EFEFEF" bgcolor=3D"#efefef" align=3D"left"><table =
+width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr=
+ data-ol-has-click-handler style=3D"border-collapse:collapse"><td valign=3D=
+"top" align=3D"center" style=3D"padding:0;Margin:0;width:560px"><table widt=
+h=3D"100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px"><tr data-ol-has-click-handler style=3D"border-collapse:coll=
+apse"><td align=3D"left" style=3D"padding:0;Margin:0"><h2 style=3D"Margin:0=
+;line-height:38px;mso-line-height-rule:exactly;font-family:helvetica, 'helv=
+etica neue', arial, verdana, sans-serif;font-size:32px;font-style:normal;fo=
+nt-weight:normal;color:#F2F0EF;text-align:left"><span style=3D"color:#D0352=
+9">From</span>&nbsp;<span style=3D"color:#00262B">our blog</span></h2>=0A</=
+td></tr></table></td></tr></table></td></tr></table></td>=0A</tr></table><t=
+able cellpadding=3D"0" cellspacing=3D"0" class=3D"es-content" align=3D"cent=
+er" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse;border-spacing:0px;table-layout:fixed !important;width:100%"><tr style=
+=3D"border-collapse:collapse"><td align=3D"center" bgcolor=3D"#f7f7f7" styl=
+e=3D"padding:0;Margin:0;background-color:#F7F7F7"><table class=3D"es-conten=
+t-body" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#f7f7f7" align=3D"ce=
+nter" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:co=
+llapse;border-spacing:0px;background-color:#F7F7F7;width:600px"><tr style=
+=3D"border-collapse:collapse"><td align=3D"left" bgcolor=3D"#efefef" style=
+=3D"Margin:0;padding-top:15px;padding-left:20px;padding-right:20px;padding-=
+bottom:25px;background-color:#EFEFEF"> <!--[if mso]><table style=3D"width:5=
+60px" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"width:270px" val=
+ign=3D"top"><![endif]--><table cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"left" class=3D"es-left" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt=
+;border-collapse:collapse;border-spacing:0px;float:left"><tr style=3D"borde=
+r-collapse:collapse"><td class=3D"es-m-p20b" align=3D"center" valign=3D"top=
+" style=3D"padding:0;Margin:0;width:270px"><table cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" bgcolor=3D"#ffffff" style=3D"mso-table-lspace:0pt=
+;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;backgroun=
+d-color:#FFFFFF;box-shadow:4px 7px 9px 0px #D6D5D5" role=3D"presentation"><=
+tr style=3D"border-collapse:collapse"><td align=3D"center" class=3D"es-m-tx=
+t-c" style=3D"Margin:0;padding-bottom:10px;padding-left:15px;padding-right:=
+15px;padding-top:20px;font-size:0px"><a target=3D"_blank" href=3D"https://c=
+licks.edx.org/f/a/LrPcr22i2pqb_FaxstqbpA~~/AAQRxQA~/RgRiJ27_P0SVaHR0cHM6Ly9=
+ibG9nLmVkeC5vcmcvcHVyZHVlLWNpdmlsLWVuZ2luZWVyaW5nLXRoZS1mdXR1cmUtZm9yd2FyZC=
+1kZWdyZWU_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1Td=
+W5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAw=
+MEBnbWFpbC5jb21YBAAAAEA~" style=3D"-webkit-text-size-adjust:none;-ms-text-s=
+ize-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;colo=
+r:#3D5CA3;font-size:14px"><img src=3D"https://fzvpwi.stripocdn.email/conten=
+t/guids/CABINET_3bf1ee9e988ae96dd6d98ec446dd6840/images/20431614873123840.p=
+ng" alt=3D"Purdue Civil Engineering: The Future-Forward Degree" style=3D"di=
+splay:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mo=
+de:bicubic" width=3D"240" title=3D"Purdue Civil Engineering: The Future-For=
+ward Degree"></a></td>=0A</tr><tr style=3D"border-collapse:collapse"><td al=
+ign=3D"center" class=3D"es-m-txt-c" style=3D"Margin:0;padding-top:5px;paddi=
+ng-bottom:10px;padding-left:10px;padding-right:10px"><h2 style=3D"Margin:0;=
+line-height:26px;mso-line-height-rule:exactly;font-family:helvetica, 'helve=
+tica neue', arial, verdana, sans-serif;font-size:22px;font-style:normal;fon=
+t-weight:normal;color:#333333"><strong><a target=3D"_blank" style=3D"-webki=
+t-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exac=
+tly;text-decoration:none;color:#333333;font-size:22px;font-family:helvetica=
+, 'helvetica neue', arial, verdana, sans-serif" href=3D"">Purdue Civil Engi=
+neering: The Future-Forward Degree</a></strong></h2></td>=0A</tr><tr style=
+=3D"border-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" sty=
+le=3D"Margin:0;padding-top:5px;padding-left:10px;padding-right:10px;padding=
+-bottom:20px"><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-s=
+ize-adjust:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvet=
+ica neue', arial, verdana, sans-serif;line-height:21px;color:#333333;font-s=
+ize:14px">What are some of the pathways for civil engineers looking to adva=
+nce to new levels=3F One option to consider is an online master=E2=80=99s i=
+n civil engineering, a flexible and affordable, transformational educationa=
+l experience for busy professionals.<br><br></p>=0A<p style=3D"Margin:0;-we=
+bkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:e=
+xactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;=
+line-height:21px;color:#333333;font-size:14px"><br><strong><a target=3D"_bl=
+ank" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-l=
+ine-height-rule:exactly;text-decoration:underline;color:#D03529;font-size:1=
+4px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif" hr=
+ef=3D"https://clicks.edx.org/f/a/LrPcr22i2pqb_FaxstqbpA~~/AAQRxQA~/RgRiJ27_=
+P0SVaHR0cHM6Ly9ibG9nLmVkeC5vcmcvcHVyZHVlLWNpdmlsLWVuZ2luZWVyaW5nLXRoZS1mdXR=
+1cmUtZm9yd2FyZC1kZWdyZWU_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV=
+9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u7=
+1IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~">Keep reading</a></strong></p></td>=
+</tr></table></td></tr></table> <!--[if mso]></td><td style=3D"width:20px">=
+</td>=0A<td style=3D"width:270px" valign=3D"top"><![endif]--><table cellpad=
+ding=3D"0" cellspacing=3D"0" class=3D"es-right" align=3D"right" style=3D"ms=
+o-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spa=
+cing:0px;float:right"><tr style=3D"border-collapse:collapse"><td align=3D"c=
+enter" valign=3D"top" style=3D"padding:0;Margin:0;width:270px"><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" bgcolor=3D"#ffffff" style=3D"=
+mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-s=
+pacing:0px;background-color:#FFFFFF;box-shadow:4px 7px 9px 0px #D6D5D5" rol=
+e=3D"presentation"><tr style=3D"border-collapse:collapse"><td align=3D"cent=
+er" class=3D"es-m-txt-c" style=3D"Margin:0;padding-bottom:10px;padding-left=
+:15px;padding-right:15px;padding-top:20px;font-size:0px"><a target=3D"_blan=
+k" href=3D"https://clicks.edx.org/f/a/YOFFBYEHunbdtGry0g9MGg~~/AAQRxQA~/RgR=
+iJ27_P0SfaHR0cHM6Ly9ibG9nLmVkeC5vcmcvdG9wLWJ1c2luZXNzLWNhcmVlcnMtYW5kLXNraW=
+xscy1pbi0yMDIxLTExLXByb2dyYW1zLXRvLW1hdGNoP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZ=
+Gl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNz=
+cGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" style=3D"-webkit-=
+text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactl=
+y;text-decoration:underline;color:#3D5CA3;font-size:14px"><img src=3D"https=
+://fzvpwi.stripocdn.email/content/guids/CABINET_3bf1ee9e988ae96dd6d98ec446d=
+d6840/images/29791614873924801.png" alt=3D"Top Business Careers and Skills =
+in 2021 + 11 Programs to Match" style=3D"display:block;border:0;outline:non=
+e;text-decoration:none;-ms-interpolation-mode:bicubic" width=3D"240" title=
+=3D"Top Business Careers and Skills in 2021 + 11 Programs to Match"></a></t=
+d>=0A</tr><tr style=3D"border-collapse:collapse"><td align=3D"center" class=
+=3D"es-m-txt-c" style=3D"Margin:0;padding-top:5px;padding-bottom:10px;paddi=
+ng-left:10px;padding-right:10px"><h2 style=3D"Margin:0;line-height:26px;mso=
+-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, v=
+erdana, sans-serif;font-size:22px;font-style:normal;font-weight:normal;colo=
+r:#333333"><strong><a target=3D"_blank" style=3D"-webkit-text-size-adjust:n=
+one;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:=
+none;color:#333333;font-size:22px;font-family:helvetica, 'helvetica neue', =
+arial, verdana, sans-serif" href=3D"">Top Business Careers and Skills in 20=
+21 + 11 Programs to Match</a></strong></h2></td>=0A</tr><tr style=3D"border=
+-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" style=3D"Marg=
+in:0;padding-top:5px;padding-left:10px;padding-right:10px;padding-bottom:20=
+px"><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust=
+:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue',=
+ arial, verdana, sans-serif;line-height:21px;color:#333333;font-size:14px">=
+From strategic management and modern finance to Lean Six Sigma and business=
+ analytics, read on to learn more about equipping yourself with in-demand s=
+kills and explore 11 edX business and management programs that will help yo=
+u thrive in this pivotal year.&nbsp;</p>=0A<p style=3D"Margin:0;-webkit-tex=
+t-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;f=
+ont-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-hei=
+ght:21px;color:#333333;font-size:14px"><br><strong><a target=3D"_blank" sty=
+le=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-heig=
+ht-rule:exactly;text-decoration:underline;color:#D03529;font-size:14px;font=
+-family:helvetica, 'helvetica neue', arial, verdana, sans-serif" href=3D"ht=
+tps://clicks.edx.org/f/a/YOFFBYEHunbdtGry0g9MGg~~/AAQRxQA~/RgRiJ27_P0SfaHR0=
+cHM6Ly9ibG9nLmVkeC5vcmcvdG9wLWJ1c2luZXNzLWNhcmVlcnMtYW5kLXNraWxscy1pbi0yMDI=
+xLTExLXByb2dyYW1zLXRvLW1hdGNoP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbC=
+Z1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-lEY=
+Kttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA">Learn more</a></strong></p></t=
+d></tr></table></td></tr></table> <!--[if mso]></td></tr></table><![endif]-=
+-></td></tr></table></td>=0A</tr></table><table class=3D"es-content" cellsp=
+acing=3D"0" cellpadding=3D"0" align=3D"center" style=3D"mso-table-lspace:0p=
+t;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-la=
+yout:fixed !important;width:100%"><tr style=3D"border-collapse:collapse"><t=
+d align=3D"center" style=3D"padding:0;Margin:0"><table class=3D"es-content-=
+body" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff" align=3D"cent=
+er" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse;border-spacing:0px;background-color:#FFFFFF;width:600px"><tr data-ol-h=
+as-click-handler style=3D"border-collapse:collapse"><td style=3D"Margin:0;p=
+adding-bottom:20px;padding-left:20px;padding-right:20px;padding-top:25px;ba=
+ckground-color:#FFFFFF" bgcolor=3D"#ffffff" align=3D"left"><table width=3D"=
+100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"mso-table-lspace:0pt;mso=
+-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr data-ol-=
+has-click-handler style=3D"border-collapse:collapse"><td valign=3D"top" ali=
+gn=3D"center" style=3D"padding:0;Margin:0;width:560px"><table width=3D"100%=
+" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-ta=
+ble-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing=
+:0px"><tr data-ol-has-click-handler style=3D"border-collapse:collapse"><td =
+align=3D"left" style=3D"padding:0;Margin:0"><h2 style=3D"Margin:0;line-heig=
+ht:38px;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue=
+', arial, verdana, sans-serif;font-size:32px;font-style:normal;font-weight:=
+normal;color:#F2F0EF;text-align:left"><span style=3D"color:#D03529">Weekly<=
+/span>&nbsp;<span style=3D"color:#00262B">course features</span></h2>=0A</t=
+d></tr></table></td></tr></table></td></tr></table></td>=0A</tr></table><ta=
+ble class=3D"es-content" cellspacing=3D"0" cellpadding=3D"0" align=3D"cente=
+r" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:colla=
+pse;border-spacing:0px;table-layout:fixed !important;width:100%"><tr style=
+=3D"border-collapse:collapse"><td align=3D"center" style=3D"padding:0;Margi=
+n:0"><table class=3D"es-content-body" cellspacing=3D"0" cellpadding=3D"0" b=
+gcolor=3D"#ffffff" align=3D"center" style=3D"mso-table-lspace:0pt;mso-table=
+-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#F=
+FFFFF;width:600px"><tr style=3D"border-collapse:collapse"><td align=3D"left=
+" style=3D"padding:20px;Margin:0"> <!--[if mso]><table style=3D"width:560px=
+" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"width:160px" valign=
+=3D"top"><![endif]--><table class=3D"es-left" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"left" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;bo=
+rder-collapse:collapse;border-spacing:0px;float:left"><tr style=3D"border-c=
+ollapse:collapse"><td class=3D"es-m-p0r es-m-p20b" valign=3D"top" align=3D"=
+center" style=3D"padding:0;Margin:0;width:160px"><table width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">=
+<tr style=3D"border-collapse:collapse"><td align=3D"center" style=3D"paddin=
+g:0;Margin:0;font-size:0px"><img class=3D"adapt-img" src=3D"https://fzvpwi.=
+stripocdn.email/content/guids/CABINET_3bf1ee9e988ae96dd6d98ec446dd6840/imag=
+es/7271614869316719.jpg" alt=3D"Recommender Systems: Behind the Screen" sty=
+le=3D"display:block;border:0;outline:none;text-decoration:none;-ms-interpol=
+ation-mode:bicubic;font-size:12px" width=3D"160" title=3D"Recommender Syste=
+ms: Behind the Screen"></td>=0A</tr></table></td></tr></table> <!--[if mso]=
+></td><td style=3D"width:20px"></td>=0A<td style=3D"width:380px" valign=3D"=
+top"><![endif]--><table cellspacing=3D"0" cellpadding=3D"0" align=3D"right"=
+ style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collaps=
+e;border-spacing:0px"><tr style=3D"border-collapse:collapse"><td align=3D"l=
+eft" style=3D"padding:0;Margin:0;width:380px"><table width=3D"100%" cellspa=
+cing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr=
+ data-ol-has-click-handler style=3D"border-collapse:collapse"><td align=3D"=
+left" style=3D"padding:0;Margin:0"><h3 style=3D"Margin:0;line-height:24px;m=
+so-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial,=
+ verdana, sans-serif;font-size:20px;font-style:normal;font-weight:normal;co=
+lor:#333333"><a target=3D"_blank" style=3D"-webkit-text-size-adjust:none;-m=
+s-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;c=
+olor:#333333;font-size:20px;font-family:helvetica, 'helvetica neue', arial,=
+ verdana, sans-serif" href=3D"">Recommender Systems: Behind the Screen</a><=
+/h3>=0A</td></tr><tr style=3D"border-collapse:collapse"><td align=3D"left" =
+style=3D"padding:0;Margin:0"><p style=3D"Margin:0;-webkit-text-size-adjust:=
+none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:hel=
+vetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color=
+:#333333;font-size:14px"><span class=3D"product-description">UMontrealX</sp=
+an></p></td>=0A</tr><tr style=3D"border-collapse:collapse"><td align=3D"lef=
+t" style=3D"padding:0;Margin:0;padding-top:5px;padding-bottom:5px"><p style=
+=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-li=
+ne-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans=
+-serif;line-height:21px;color:#333333;font-size:14px"><a href=3D"https://cl=
+icks.edx.org/f/a/XulARMdwKCsf148P1k28vg~~/AAQRxQA~/RgRiJ27_P0SOaHR0cHM6Ly93=
+d3cuZWR4Lm9yZy9jb3Vyc2UvcmVjb21tZW5kZXItc3lzdGVtcy1iZWhpbmQtdGhlLXNjcmVlbj9=
+1dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3=
+Vyc2VfUm91bmR1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsL=
+mNvbVgEAAAAQA~~" target=3D"_blank" style=3D"-webkit-text-size-adjust:none;-=
+ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:under=
+line;color:#D03529;font-size:14px;font-family:helvetica, 'helvetica neue', =
+arial, verdana, sans-serif">Enroll Today</a></p></td></tr></table></td></tr=
+></table> <!--[if mso]></td></tr></table><![endif]--></td>=0A</tr><tr style=
+=3D"border-collapse:collapse"><td align=3D"left" style=3D"Margin:0;padding-=
+top:10px;padding-bottom:15px;padding-left:20px;padding-right:20px"> <!--[if=
+ mso]><table style=3D"width:560px" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td style=3D"width:160px" valign=3D"top"><![endif]--><table class=3D"es-lef=
+t" cellspacing=3D"0" cellpadding=3D"0" align=3D"left" style=3D"mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;f=
+loat:left"><tr style=3D"border-collapse:collapse"><td class=3D"es-m-p0r es-=
+m-p20b" valign=3D"top" align=3D"center" style=3D"padding:0;Margin:0;width:1=
+60px"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collap=
+se:collapse;border-spacing:0px"><tr style=3D"border-collapse:collapse"><td =
+align=3D"center" style=3D"padding:0;Margin:0;font-size:0px"><img class=3D"a=
+dapt-img" src=3D"https://fzvpwi.stripocdn.email/content/guids/CABINET_3bf1e=
+e9e988ae96dd6d98ec446dd6840/images/7981614869448796.png" alt=3D"Rhetoric: T=
+he Art of Persuasive Writing and Public Speaking" style=3D"display:block;bo=
+rder:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;fon=
+t-size:12px" width=3D"160" title=3D"Rhetoric: The Art of Persuasive Writing=
+ and Public Speaking"></td>=0A</tr></table></td></tr></table> <!--[if mso]>=
+</td><td style=3D"width:20px"></td>=0A<td style=3D"width:380px" valign=3D"t=
+op"><![endif]--><table cellspacing=3D"0" cellpadding=3D"0" align=3D"right" =
+style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse=
+;border-spacing:0px"><tr style=3D"border-collapse:collapse"><td align=3D"le=
+ft" style=3D"padding:0;Margin:0;width:380px"><table width=3D"100%" cellspac=
+ing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr =
+data-ol-has-click-handler style=3D"border-collapse:collapse"><td align=3D"l=
+eft" style=3D"padding:0;Margin:0"><h3 style=3D"Margin:0;line-height:24px;ms=
+o-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, =
+verdana, sans-serif;font-size:20px;font-style:normal;font-weight:normal;col=
+or:#333333"><a target=3D"_blank" style=3D"-webkit-text-size-adjust:none;-ms=
+-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;co=
+lor:#333333;font-size:20px;font-family:helvetica, 'helvetica neue', arial, =
+verdana, sans-serif" href=3D"">Rhetoric: The Art of Persuasive Writing and =
+Public Speaking</a></h3>=0A</td></tr><tr style=3D"border-collapse:collapse"=
+><td align=3D"left" style=3D"padding:0;Margin:0"><p style=3D"Margin:0;-webk=
+it-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exa=
+ctly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;li=
+ne-height:21px;color:#333333;font-size:14px"><span class=3D"product-descrip=
+tion">HarvardX</span></p></td>=0A</tr><tr style=3D"border-collapse:collapse=
+"><td align=3D"left" style=3D"padding:0;Margin:0;padding-top:5px;padding-bo=
+ttom:5px"><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-=
+adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue=
+', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px"><a =
+href=3D"https://clicks.edx.org/f/a/pzeVIQuoZ4FsJKSANvqMoQ~~/AAQRxQA~/RgRiJ2=
+7_P0SbaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvcmhldG9yaWMtYXJ0LW9mLXBlcnN1YXNpd=
+mUtd3JpdGluZy1wdWJsaWMtc3BlYWtpbmc_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVt=
+YWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD_=
+_6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank" style=
+=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height=
+-rule:exactly;text-decoration:underline;color:#D03529;font-size:14px;font-f=
+amily:helvetica, 'helvetica neue', arial, verdana, sans-serif">Enroll Today=
+</a></p></td></tr></table></td></tr></table> <!--[if mso]></td></tr></table=
+><![endif]--></td>=0A</tr><tr style=3D"border-collapse:collapse"><td align=
+=3D"left" style=3D"Margin:0;padding-top:10px;padding-bottom:20px;padding-le=
+ft:20px;padding-right:20px"> <!--[if mso]><table style=3D"width:560px" cell=
+padding=3D"0" cellspacing=3D"0"><tr><td style=3D"width:160px" valign=3D"top=
+"><![endif]--><table class=3D"es-left" cellspacing=3D"0" cellpadding=3D"0" =
+align=3D"left" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-co=
+llapse:collapse;border-spacing:0px;float:left"><tr style=3D"border-collapse=
+:collapse"><td class=3D"es-m-p0r es-m-p20b" valign=3D"top" align=3D"center"=
+ style=3D"padding:0;Margin:0;width:160px"><table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0p=
+t;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr sty=
+le=3D"border-collapse:collapse"><td align=3D"center" style=3D"padding:0;Mar=
+gin:0;font-size:0px"><img class=3D"adapt-img" src=3D"https://fzvpwi.stripoc=
+dn.email/content/guids/CABINET_3bf1ee9e988ae96dd6d98ec446dd6840/images/9339=
+1614869524449.jpg" alt=3D"Basic Spanish 1: Getting Started" style=3D"displa=
+y:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:b=
+icubic;font-size:12px" width=3D"160" title=3D"Basic Spanish 1: Getting Star=
+ted"></td>=0A</tr></table></td></tr></table> <!--[if mso]></td><td style=3D=
+"width:20px"></td>=0A<td style=3D"width:380px" valign=3D"top"><![endif]--><=
+table cellspacing=3D"0" cellpadding=3D"0" align=3D"right" style=3D"mso-tabl=
+e-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0=
+px"><tr style=3D"border-collapse:collapse"><td align=3D"left" style=3D"padd=
+ing:0;Margin:0;width:380px"><table width=3D"100%" cellspacing=3D"0" cellpad=
+ding=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rs=
+pace:0pt;border-collapse:collapse;border-spacing:0px"><tr data-ol-has-click=
+-handler style=3D"border-collapse:collapse"><td align=3D"left" style=3D"pad=
+ding:0;Margin:0"><h3 style=3D"Margin:0;line-height:24px;mso-line-height-rul=
+e:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-ser=
+if;font-size:20px;font-style:normal;font-weight:normal;color:#333333"><a ta=
+rget=3D"_blank" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust=
+:none;mso-line-height-rule:exactly;text-decoration:none;color:#333333;font-=
+size:20px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-ser=
+if" href=3D"">Basic Spanish 1: Getting Started</a></h3>=0A</td></tr><tr sty=
+le=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;Margi=
+n:0"><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjus=
+t:none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue'=
+, arial, verdana, sans-serif;line-height:21px;color:#333333;font-size:14px"=
+><span class=3D"product-description">UPValenciaX</span></p></td>=0A</tr><tr=
+ style=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;M=
+argin:0;padding-top:5px;padding-bottom:5px"><p style=3D"Margin:0;-webkit-te=
+xt-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px=
+;color:#333333;font-size:14px"><a href=3D"https://clicks.edx.org/f/a/MyPICh=
+NbSyAGOCxlcBHJGg~~/AAQRxQA~/RgRiJ27_P0SIaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U=
+vYmFzaWMtc3BhbmlzaC0xLWdldHRpbmctc3RhcnRlZD91dG1fc291cmNlPWJyYXplJnV0bV9tZW=
+RpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3Vyc2VfUm91bmR1cF8yMDIxMDMwN1cDc=
+3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_bla=
+nk" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-li=
+ne-height-rule:exactly;text-decoration:underline;color:#D03529;font-size:14=
+px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif">Enr=
+oll Today</a></p></td></tr></table></td></tr></table> <!--[if mso]></td></t=
+r></table><![endif]--></td>=0A</tr><tr style=3D"border-collapse:collapse"><=
+td align=3D"left" style=3D"Margin:0;padding-top:10px;padding-bottom:15px;pa=
+dding-left:20px;padding-right:20px"> <!--[if mso]><table style=3D"width:560=
+px" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"width:160px" valig=
+n=3D"top"><![endif]--><table class=3D"es-left" cellspacing=3D"0" cellpaddin=
+g=3D"0" align=3D"left" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;b=
+order-collapse:collapse;border-spacing:0px;float:left"><tr style=3D"border-=
+collapse:collapse"><td class=3D"es-m-p0r es-m-p20b" valign=3D"top" align=3D=
+"center" style=3D"padding:0;Margin:0;width:160px"><table width=3D"100%" cel=
+lspacing=3D"0" cellpadding=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"=
+><tr style=3D"border-collapse:collapse"><td align=3D"center" style=3D"paddi=
+ng:0;Margin:0;font-size:0px"><img class=3D"adapt-img" src=3D"https://fzvpwi=
+.stripocdn.email/content/guids/CABINET_3bf1ee9e988ae96dd6d98ec446dd6840/im=
+ages/27901614869585019.jpg" alt=3D"The Science of Happiness" style=3D"displ=
+ay:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:=
+bicubic;font-size:12px" width=3D"160" title=3D"The Science of Happiness"></=
+td>=0A</tr></table></td></tr></table> <!--[if mso]></td><td style=3D"width:=
+20px"></td>=0A<td style=3D"width:380px" valign=3D"top"><![endif]--><table c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"right" style=3D"mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr=
+ style=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;M=
+argin:0;width:380px"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0p=
+t;border-collapse:collapse;border-spacing:0px"><tr data-ol-has-click-handle=
+r style=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;=
+Margin:0"><h3 style=3D"Margin:0;line-height:24px;mso-line-height-rule:exact=
+ly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font=
+-size:20px;font-style:normal;font-weight:normal;color:#333333"><a target=3D=
+"_blank" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;m=
+so-line-height-rule:exactly;text-decoration:none;color:#333333;font-size:20=
+px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif" hre=
+f=3D"">The Science of Happiness</a></h3>=0A</td></tr><tr style=3D"border-co=
+llapse:collapse"><td align=3D"left" style=3D"padding:0;Margin:0"><p style=
+=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-li=
+ne-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verd=
+ana, sans-serif;line-height:21px;color:#333333;font-size:14px"><span class=
+=3D"product-description">BerkeleyX</span></p></td>=0A</tr><tr style=3D"bord=
+er-collapse:collapse"><td align=3D"left" style=3D"padding:0;Margin:0;paddin=
+g-top:5px;padding-bottom:5px"><p style=3D"Margin:0;-webkit-text-size-adjust=
+:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:ar=
+ial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333=
+;font-size:14px"><a href=3D"https://clicks.edx.org/f/a/ZVpy1cdXH1e98j5JHJrz=
+mQ~~/AAQRxQA~/RgRiJ27_P0SDaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvdGhlLXNjaWVuY=
+2Utb2YtaGFwcGluZXNzLTM_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9j=
+YW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71I=
+UZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank" style=3D"-webkit-t=
+ext-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly=
+;text-decoration:underline;color:#D03529;font-size:14px;font-family:helveti=
+ca, 'helvetica neue', arial, verdana, sans-serif">Enroll Today</a></p></td>=
+</tr></table></td></tr></table> <!--[if mso]></td></tr></table><![endif]-->=
+</td>=0A</tr><tr style=3D"border-collapse:collapse"><td class=3D"es-m-p10t =
+es-m-p10r es-m-p10l" align=3D"left" style=3D"padding:20px;Margin:0"><table =
+cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr=
+ style=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;M=
+argin:0;width:560px"><table width=3D"100%" cellspacing=3D"0" cellpadding=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0pt;mso-table-rspace:0p=
+t;border-collapse:collapse;border-spacing:0px"><tr style=3D"border-collapse=
+:collapse"><td class=3D"es-m-txt-l es-m-p10l" align=3D"center" style=3D"pad=
+ding:0;Margin:0;padding-bottom:5px;padding-left:15px;padding-right:20px"><s=
+pan class=3D"es-button-border" style=3D"border-style:solid;border-color:#D0=
+3529;background:#FFFFFF;border-width:2px;display:inline-block;border-radius=
+:0px;width:auto"><a href=3D"https://clicks.edx.org/f/a/wTCB59IqNhA7YWXEAGUE=
+Iw~~/AAQRxQA~/RgRiJ27_P0RzaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_dGFiPWNvdXJzZ=
+SZ1dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9D=
+b3Vyc2VfUm91bmR1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWl=
+sLmNvbVgEAAAAQA~~" class=3D"es-button" target=3D"_blank" style=3D"mso-style=
+-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none=
+;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#D03529;font-=
+size:16px;border-style:solid;border-color:#FFFFFF;border-width:10px 15px;di=
+splay:inline-block;background:#FFFFFF;border-radius:0px;font-family:helveti=
+ca, 'helvetica neue', arial, verdana, sans-serif;font-weight:normal;font-st=
+yle:normal;line-height:19px;width:auto;text-align:center">View All Courses<=
+/a></span></td>=0A</tr></table></td></tr></table></td>=0A</tr><tr data-ol-h=
+as-click-handler style=3D"border-collapse:collapse"><td style=3D"padding:20=
+px;Margin:0;background-color:#EFEFEF" bgcolor=3D"#efefef" align=3D"left"><t=
+able width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"mso-table-=
+lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px=
+"><tr data-ol-has-click-handler style=3D"border-collapse:collapse"><td vali=
+gn=3D"top" align=3D"center" style=3D"padding:0;Margin:0;width:560px"><table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" role=3D"presentation" s=
+tyle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;=
+border-spacing:0px"><tr data-ol-has-click-handler style=3D"border-collapse:=
+collapse"><td align=3D"left" style=3D"padding:0;Margin:0"><h2 style=3D"Marg=
+in:0;line-height:38px;mso-line-height-rule:exactly;font-family:helvetica, '=
+helvetica neue', arial, verdana, sans-serif;font-size:32px;font-style:norma=
+l;font-weight:normal;color:#F2F0EF;text-align:left"><span style=3D"color:#D=
+03529">Weekly</span>&nbsp;<span style=3D"color:#00262B">program features</s=
+pan></h2>=0A</td></tr></table></td></tr></table></td></tr></table></td>=0A<=
+/tr></table><table cellpadding=3D"0" cellspacing=3D"0" class=3D"es-content"=
+ align=3D"center" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border=
+-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:1=
+00%"><tr style=3D"border-collapse:collapse"><td align=3D"center" style=3D"p=
+adding:0;Margin:0"><table class=3D"es-content-body" align=3D"center" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"mso-table-lspace:0pt;mso-table-rspac=
+e:0pt;border-collapse:collapse;border-spacing:0px;background-color:#D9E1F9;=
+width:600px" bgcolor=3D"#d9e1f9"><tr style=3D"border-collapse:collapse"><td=
+ align=3D"left" bgcolor=3D"#efefef" style=3D"Margin:0;padding-bottom:10px;p=
+adding-left:20px;padding-right:20px;padding-top:25px;background-color:#EFEF=
+EF"> <!--[if mso]><table style=3D"width:560px" cellpadding=3D"0" cellspacin=
+g=3D"0"><tr><td style=3D"width:270px" valign=3D"top"><![endif]--><table cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"es-left" align=3D"left" style=3D"=
+mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-s=
+pacing:0px;float:left"><tr style=3D"border-collapse:collapse"><td class=3D"=
+es-m-p20b" align=3D"left" style=3D"padding:0;Margin:0;width:270px"><table c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgcolor=3D"#ffffff" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;background-color:#FFFFFF" role=3D"presentation"><tr style=3D=
+"border-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" bgcolo=
+r=3D"#00262B" style=3D"Margin:0;padding-top:15px;padding-bottom:15px;paddin=
+g-left:20px;padding-right:20px"><h2 style=3D"Margin:0;line-height:24px;mso-=
+line-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, ve=
+rdana, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color=
+:#FFFFFF;text-align:center"><em><a target=3D"_blank" href=3D"https://clicks=
+.edx.org/f/a/KRfQqGOwMA8WA7PzVpUpSQ~~/AAQRxQA~/RgRiJ27_P0STaHR0cHM6Ly93d3c=
+uZWR4Lm9yZy9taWNyb2JhY2hlbG9ycy9ueXV4LWNvbXB1dGVyLXNjaWVuY2UtZnVuZGFtZW50YW=
+xzP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249U3VuZGF5X=
+0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21h=
+aWwuY29tWAQAAABA" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adju=
+st:none;mso-line-height-rule:exactly;text-decoration:none;color:#FFFFFF;fon=
+t-size:20px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-s=
+erif">MicroBachelors=C2=AE Programs</a></em></h2>=0A</td></tr><tr style=3D"=
+border-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" style=
+=3D"padding:20px;Margin:0"><h3 style=3D"Margin:0;line-height:22px;mso-line-=
+height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana=
+, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#333=
+333;text-align:center"><strong><a target=3D"_blank" href=3D"https://clicks.=
+edx.org/f/a/A1oyTE5fjdSudh1gKBDyow~~/AAQRxQA~/RgRiJ27_P0SMaHR0cHM6Ly93d3cuZ=
+WR4Lm9yZy9taWNyb2JhY2hlbG9ycy9kb2FuZXgtbWFya2V0aW5nLWVzc2VudGlhbHM_dXRtX3Nv=
+dXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1J=
+vdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBA=
+AAAEA~" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;ms=
+o-line-height-rule:exactly;text-decoration:none;color:#333333;font-size:18p=
+x;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif">Mark=
+eting Essentials</a></strong></h3><p style=3D"Margin:0;-webkit-text-size-ad=
+just:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-famil=
+y:arial, 'helvetica neue', helvetica, sans-serif;line-height:12px;color:#33=
+3333;font-size:8px"><br></p>=0A<p style=3D"Margin:0;-webkit-text-size-adjus=
+t:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:h=
+elvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:17px;col=
+or:#333333;font-size:14px;text-align:center"><br><br>3 College Credits</p><=
+/td></tr></table></td></tr></table> <!--[if mso]></td><td style=3D"width:20=
+px"></td>=0A<td style=3D"width:270px" valign=3D"top"><![endif]--><table cel=
+lpadding=3D"0" cellspacing=3D"0" class=3D"es-right" align=3D"right" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;float:right"><tr style=3D"border-collapse:collapse"><td clas=
+s=3D"es-m-p20b" align=3D"left" style=3D"padding:0;Margin:0;width:270px"><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgcolor=3D"#ffffff" =
+style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse=
+;border-spacing:0px;background-color:#FFFFFF" role=3D"presentation"><tr sty=
+le=3D"border-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" b=
+gcolor=3D"#00262B" style=3D"Margin:0;padding-left:20px;padding-right:20px;p=
+adding-bottom:25px;padding-top:30px"><h2 style=3D"Margin:0;line-height:24px=
+;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', aria=
+l, verdana, sans-serif;font-size:20px;font-style:normal;font-weight:normal;=
+color:#FFFFFF;text-align:center"><em><a target=3D"_blank" href=3D"https://c=
+licks.edx.org/f/a/yhzFIGYor8IbRbTEwIEcRw~~/AAQRxQA~/RgRiJ27_P0RpaHR0cHM6Ly9=
+3d3cuZWR4Lm9yZy9tYXN0ZXJzP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG=
+1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-lEYKttr=
+u9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" style=3D"-webkit-text-size-adjust:=
+none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration=
+:none;color:#FFFFFF;font-size:20px;font-family:helvetica, 'helvetica neue',=
+ arial, verdana, sans-serif">Master's Degrees on edX</a></em></h2>=0A</td><=
+/tr><tr style=3D"border-collapse:collapse"><td align=3D"center" class=3D"es=
+-m-txt-c" style=3D"Margin:0;padding-top:10px;padding-left:15px;padding-righ=
+t:15px;padding-bottom:20px"><h3 style=3D"Margin:0;line-height:22px;mso-line=
+-height-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdan=
+a, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#33=
+3333;text-align:center"><strong><a target=3D"_blank" href=3D"https://clicks=
+.edx.org/f/a/JWR--HeeN5os0f_5NwQg7g~~/AAQRxQA~/RgRiJ27_P0SYaHR0cHM6Ly93d3c=
+uZWR4Lm9yZy9tYXN0ZXJzL29ubGluZS1tYXN0ZXItaW4tbnV0cml0aW9uYWwtc2NpZW5jZXMtdX=
+RhdXN0aW4_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1Td=
+W5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAw=
+MEBnbWFpbC5jb21YBAAAAEA~" style=3D"-webkit-text-size-adjust:none;-ms-text-s=
+ize-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#33=
+3333;font-size:18px;font-family:helvetica, 'helvetica neue', arial, verdana=
+, sans-serif">Master of Science in Nutritional Sciences</a></strong></h3>=
+=0A<p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:=
+none;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', =
+arial, verdana, sans-serif;line-height:17px;color:#333333;font-size:14px"><=
+br><br><em>Next Start:</em> Fall&nbsp;2021</p></td></tr></table></td></tr><=
+/table> <!--[if mso]></td></tr></table><![endif]--></td>=0A</tr><tr style=
+=3D"border-collapse:collapse"><td align=3D"left" bgcolor=3D"#efefef" style=
+=3D"Margin:0;padding-top:20px;padding-left:20px;padding-right:20px;padding-=
+bottom:25px;background-color:#EFEFEF"> <!--[if mso]><table style=3D"width:5=
+60px" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"width:270px" val=
+ign=3D"top"><![endif]--><table cellpadding=3D"0" cellspacing=3D"0" class=3D=
+"es-left" align=3D"left" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt=
+;border-collapse:collapse;border-spacing:0px;float:left"><tr style=3D"borde=
+r-collapse:collapse"><td class=3D"es-m-p20b" align=3D"left" style=3D"paddin=
+g:0;Margin:0;width:270px"><table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" bgcolor=3D"#ffffff" style=3D"mso-table-lspace:0pt;mso-table-rspac=
+e:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF"=
+ role=3D"presentation"><tr style=3D"border-collapse:collapse"><td align=3D"=
+center" class=3D"es-m-txt-c" bgcolor=3D"#00262B" style=3D"Margin:0;padding-=
+top:15px;padding-bottom:15px;padding-left:20px;padding-right:20px"><h2 styl=
+e=3D"Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:hel=
+vetica, 'helvetica neue', arial, verdana, sans-serif;font-size:20px;font-st=
+yle:normal;font-weight:normal;color:#FFFFFF;text-align:center"><em><a targe=
+t=3D"_blank" href=3D"https://clicks.edx.org/f/a/xFe-EoUPSLNjm8tlOuitnw~~/AA=
+QRxQA~/RgRiJ27_P0R6aHR0cHM6Ly93d3cuZWR4Lm9yZy9wcm9mZXNzaW9uYWwtY2VydGlmaWNh=
+dGU_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXl=
+fQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbW=
+FpbC5jb21YBAAAAEA~" style=3D"-webkit-text-size-adjust:none;-ms-text-size-ad=
+just:none;mso-line-height-rule:exactly;text-decoration:none;color:#FFFFFF;f=
+ont-size:20px;font-family:helvetica, 'helvetica neue', arial, verdana, sans=
+-serif">Professional Certificate Programs</a></em></h2>=0A</td></tr><tr sty=
+le=3D"border-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" s=
+tyle=3D"Margin:0;padding-left:15px;padding-right:15px;padding-top:20px;padd=
+ing-bottom:20px"><h3 style=3D"Margin:0;line-height:22px;mso-line-height-rul=
+e:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sans-ser=
+if;font-size:18px;font-style:normal;font-weight:normal;color:#333333;text-a=
+lign:center"><strong><a target=3D"_blank" href=3D"https://clicks.edx.org/f/=
+a/Li27FpERF5TJicOageU2pg~~/AAQRxQA~/RgRiJ27_P0SHaHR0cHM6Ly93d3cuZWR4Lm9yZy9=
+wcm9mZXNzaW9uYWwtY2VydGlmaWNhdGUvaGt1eC1maW50ZWNoP3V0bV9zb3VyY2U9YnJhemUmdX=
+RtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwM=
+zA3VwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" style=3D"-=
+webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule=
+:exactly;text-decoration:none;color:#333333;font-size:18px;font-family:helv=
+etica, 'helvetica neue', arial, verdana, sans-serif">FinTech</a></strong></=
+h3><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:=
+none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helv=
+etica, sans-serif;line-height:12px;color:#333333;font-size:8px"><br></p>=0A=
+<p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:non=
+e;mso-line-height-rule:exactly;font-family:helvetica, 'helvetica neue', ari=
+al, verdana, sans-serif;line-height:17px;color:#333333;font-size:14px;text-=
+align:center"><br><em><br>Self-Paced</em></p></td></tr></table></td></tr></=
+table> <!--[if mso]></td><td style=3D"width:20px"></td>=0A<td style=3D"widt=
+h:270px" valign=3D"top"><![endif]--><table cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"es-right" align=3D"right" style=3D"mso-table-lspace:0pt;mso-ta=
+ble-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right"><tr=
+ style=3D"border-collapse:collapse"><td class=3D"es-m-p20b" align=3D"left" =
+style=3D"padding:0;Margin:0;width:270px"><table cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" bgcolor=3D"#ffffff" style=3D"mso-table-lspace:0pt;m=
+so-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-=
+color:#FFFFFF" role=3D"presentation"><tr style=3D"border-collapse:collapse"=
+><td align=3D"center" class=3D"es-m-txt-c" bgcolor=3D"#00262B" style=3D"Mar=
+gin:0;padding-left:20px;padding-right:20px;padding-bottom:25px;padding-top:=
+30px"><h2 style=3D"Margin:0;line-height:24px;mso-line-height-rule:exactly;f=
+ont-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-siz=
+e:20px;font-style:normal;font-weight:normal;color:#FFFFFF;text-align:center=
+"><em><a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/V6eq-a3MImAua=
+NlwL9GEgw~~/AAQRxQA~/RgRiJ27_P0RuaHR0cHM6Ly93d3cuZWR4Lm9yZy9taWNyb21hc3Rlcn=
+M_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ=
+291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFp=
+bC5jb21YBAAAAEA~" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adju=
+st:none;mso-line-height-rule:exactly;text-decoration:none;color:#FFFFFF;fon=
+t-size:20px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-s=
+erif">MicroMasters=C2=AE Programs</a></em></h2>=0A</td></tr><tr style=3D"bo=
+rder-collapse:collapse"><td align=3D"center" class=3D"es-m-txt-c" style=3D"=
+padding:20px;Margin:0"><h3 style=3D"Margin:0;line-height:22px;mso-line-heig=
+ht-rule:exactly;font-family:helvetica, 'helvetica neue', arial, verdana, sa=
+ns-serif;font-size:18px;font-style:normal;font-weight:normal;color:#333333;=
+text-align:center"><strong><a target=3D"_blank" href=3D"https://clicks.edx.=
+org/f/a/T55VTbWTUl7WOmJErvMFqg~~/AAQRxQA~/RgRiJ27_P0SLaHR0cHM6Ly93d3cuZWR4L=
+m9yZy9taWNyb21hc3RlcnMvVVNNeC1VTUQtTUJBLUNvcmUtQ3VycmljdWx1bT91dG1fc291cmNl=
+PWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3Vyc2VfUm91bmR=
+1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA=
+~~" style=3D"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-li=
+ne-height-rule:exactly;text-decoration:none;color:#333333;font-size:18px;fo=
+nt-family:helvetica, 'helvetica neue', arial, verdana, sans-serif">MBA Core=
+ Curriculum</a></strong></h3><p style=3D"Margin:0;-webkit-text-size-adjust:=
+none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:ari=
+al, 'helvetica neue', helvetica, sans-serif;line-height:12px;color:#333333;=
+font-size:8px"><br></p>=0A<p style=3D"Margin:0;-webkit-text-size-adjust:non=
+e;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:helvet=
+ica, 'helvetica neue', arial, verdana, sans-serif;line-height:17px;color:#3=
+33333;font-size:14px;text-align:center"><br><br>7 Courses</p></td></tr></ta=
+ble></td></tr></table> <!--[if mso]></td></tr></table><![endif]--></td></tr=
+></table></td>=0A</tr></table><table cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"es-content" align=3D"center" style=3D"mso-table-lspace:0pt;mso-table=
+-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed =
+!important;width:100%"><tr style=3D"border-collapse:collapse"><td align=3D"=
+center" style=3D"padding:0;Margin:0"><table class=3D"es-content-body" style=
+=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;bord=
+er-spacing:0px;background-color:#EEEEEE;width:600px" cellspacing=3D"0" cell=
+padding=3D"0" bgcolor=3D"#eeeeee" align=3D"center"><tr style=3D"border-coll=
+apse:collapse"><td align=3D"left" bgcolor=3D"#f7f7f7" style=3D"padding:0;Ma=
+rgin:0;padding-left:20px;padding-right:20px;background-color:#F7F7F7"><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"mso-table-lsp=
+ace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><=
+tr style=3D"border-collapse:collapse"><td align=3D"center" valign=3D"top" s=
+tyle=3D"padding:0;Margin:0;width:560px"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" role=3D"presentation" style=3D"mso-table-lspace:0pt;=
+mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"><tr style=
+=3D"border-collapse:collapse"><td align=3D"left" style=3D"padding:0;Margin:=
+0"><p style=3D"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:=
+none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helv=
+etica, sans-serif;line-height:21px;color:#333333;font-size:14px">=0A</p><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=0A=09<tbody>=0A=09=
+=09<tr>=0A=09=09=09<td class=3D"height_20" height=3D"10" style=3D"line-heig=
+ht:1px;font-size:1px;"></td>=0A=09=09</tr>=0A=09=09<tr>=0A=09=09=09<td alig=
+n=3D"left" class=3D"paddingsides_20" valign=3D"top">=0A=09=09=09<table cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%">=0A=09=09=09=09<tbody>=0A=09=
+=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"30" style=3D"line-height=
+:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<!-- soc=
+ial -->=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" valign=
+=3D"top">=0A=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0">=
+=0A=09=09=09=09=09=09=09<tbody>=0A=09=09=09=09=09=09=09=09<tr>=0A=09=09=09=
+=09=09=09=09=09=09<td width=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td a=
+lign=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/j824TIJg=
+j7HQupWSyosmZQ~~/AAQRxQA~/RgRiJ27_P0RraHR0cHM6Ly90d2l0dGVyLmNvbS9lZFhPbmxpb=
+mU_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlf=
+Q291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWF=
+pbC5jb21YBAAAAEA~" target=3D"_blank"><img alt=3D"Twitter" border=3D"0" src=
+=3D"https://media.sailthru.com/595/1k2/b/7/5be3395300a00.png" style=3D"disp=
+lay:block;height:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=
+=09<td width=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left" v=
+align=3D"top"><a href=3D"https://clicks.edx.org/f/a/Nk7QBNZp7nhxv65CTcP8MQ~=
+~/AAQRxQA~/RgRiJ27_P0RxaHR0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9lZHg_dXRt=
+X3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnN=
+lX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb2=
+1YBAAAAEA~" target=3D"_blank"><img alt=3D"LinkedIn" border=3D"0" src=3D"htt=
+ps://media.sailthru.com/595/1k2/b/7/5be3397de9f8e.png" style=3D"display:blo=
+ck;height:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=09<td wi=
+dth=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"=
+top"><a href=3D"https://clicks.edx.org/f/a/faHTsZGL3-fAG3BYOEHUPg~~/AAQRxQA=
+~/RgRiJ27_P0RvaHR0cDovL3d3dy5mYWNlYm9vay5jb20vRWR4T25saW5lP3V0bV9zb3VyY2U9Y=
+nJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVw=
+XzIwMjEwMzA3VwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" t=
+arget=3D"_blank"><img alt=3D"Facebook" border=3D"0" src=3D"https://media.sa=
+ilthru.com/595/1k2/b/7/5be339a32fc31.png" style=3D"display:block;height:aut=
+o;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=09<td width=3D"15"></=
+td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=
+=3D"https://clicks.edx.org/f/a/7VJWdq9qYJC6_E9ckRajBQ~~/AAQRxQA~/RgRiJ27_P0=
+RyaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9lZHhvbmxpbmUvP3V0bV9zb3VyY2U9YnJhemUmd=
+XRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEw=
+MzA3VwNzcGNCCmA__-lEYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D=
+"_blank"><img alt=3D"Instagram" border=3D"0" src=3D"https://media.sailthru.=
+com/595/1k3/5/3/5ccc7c9a76b04.jpg" style=3D"display:block;height:auto;" wid=
+th=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=09<td width=3D"15"></td>=0A=
+=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"htt=
+ps://clicks.edx.org/f/a/N040ZEfonlJoR20zBa4Ggg~~/AAQRxQA~/RgRiJ27_P0RpaHR0c=
+DovL3d3dy5yZWRkaXQuY29tL3IvZWR4P3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFp=
+bCZ1dG1fY2FtcGFpZ249U3VuZGF5X0NvdXJzZV9Sb3VuZHVwXzIwMjEwMzA3VwNzcGNCCmA__-l=
+EYKttru9SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank"><img alt=
+=3D"Reddit" border=3D"0" src=3D"https://media.sailthru.com/595/1k2/b/7/5be3=
+39cbc452e.png" style=3D"display:block;height:auto;" width=3D"40"></a></td>=
+=0A=09=09=09=09=09=09=09=09</tr>=0A=09=09=09=09=09=09=09</tbody>=0A=09=09=
+=09=09=09=09</table>=0A=09=09=09=09=09=09</td>=0A=09=09=09=09=09</tr>=0A=09=
+=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"10" style=3D"line-height=
+:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<!-- app=
+s -->=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" valign=
+=3D"top">=0A=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0">=
+=0A=09=09=09=09=09=09=09<tbody>=0A=09=09=09=09=09=09=09=09<tr>=0A=09=09=09=
+=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"https://clic=
+ks.edx.org/f/a/qBeILF0J9z6wQLOCHLNXzA~~/AAQRxQA~/RgRiJ27_P0R0aHR0cHM6Ly9lZH=
+guYXBwLmxpbmsvZW1haWwtYXBwLWluc3RhbGw_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtP=
+WVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDdXA3NwY0IK=
+YD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank"><im=
+g alt=3D"Download edX's App" border=3D"0" src=3D"https://media.sailthru.com=
+/595/1k2/b/7/5be338f1d96e3.png" style=3D"display:block;height:auto;" width=
+=3D"126"></a></td>=0A=09=09=09=09=09=09=09=09=09<td width=3D"15"></td>=0A=
+=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"htt=
+ps://clicks.edx.org/f/a/qBeILF0J9z6wQLOCHLNXzA~~/AAQRxQA~/RgRiJ27_P0R0aHR0c=
+HM6Ly9lZHguYXBwLmxpbmsvZW1haWwtYXBwLWluc3RhbGw_dXRtX3NvdXJjZT1icmF6ZSZ1dG1f=
+bWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBfMjAyMTAzMDd=
+XA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_b=
+lank"><img alt=3D"Download edX's Google Play App" border=3D"0" src=3D"https=
+://media.sailthru.com/595/1k2/b/7/5be33880e3f90.png" style=3D"display:block=
+;height:auto;" width=3D"126"></a></td>=0A=09=09=09=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09=09=09</tbody>=0A=09=09=09=09=09=09</table>=0A=09=09=09=09=
+=09=09</td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=
+=09<td height=3D"30" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=
+=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"2=
+0" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><=
+a href=3D"https://clicks.edx.org/f/a/W4u-NKo0ki4qyAUIr1X9UA~~/AAQRxQA~/RgRi=
+J27_P0R2aHR0cHM6Ly93d3cuZWR4Lm9yZy9iZW5lZml0cy1vZi1idW5kbGluZz91dG1fc291cmN=
+lPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3Vyc2VfUm91bm=
+R1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQ=
+A~~" style=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14px;line-=
+height:17px;text-decoration:none;color:#414141;font-weight:bold;" target=3D=
+"_blank"><span style=3D"color:#414141;">Save 10% on select programs!</span>=
+ <span style=3D"color:#00262b;">Click here</span><span style=3D"color:#0075=
+B4">.</span></a></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=
+=09=09=09=09<td height=3D"20" style=3D"line-height:1px;font-size:1px;"></td=
+>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td alig=
+n=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/HkNzCQd-PC7=
+VfAXp-LaStw~~/AAQRxQA~/RgRiJ27_P0RnaHR0cHM6Ly9idXNpbmVzcy5lZHgub3JnLz91dG1f=
+c291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db3Vyc2V=
+fUm91bmR1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbV=
+gEAAAAQA~~" style=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14p=
+x;line-height:17px;text-decoration:none;color:#707070;" target=3D"_blank"><=
+span style=3D"color:#00262b;">edX for Business</span><span style=3D"color:#=
+707070;"> =E2=80=94 eLearning Solutions for Your Company</span></a></td>=0A=
+=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=
+=3D"20" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</t=
+r>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" style=3D"fo=
+nt-family:'Open Sans',Arial,sans-serif;color:#707070;font-size:14px;line-he=
+ight:17px;" valign=3D"top">=C2=A9 2021 edX Inc. All rights reserved.</td>=
+=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td heigh=
+t=3D"20" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</=
+tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" style=3D"f=
+ont-family:'Open Sans',Arial,sans-serif;color:#707070;font-size:14px;line-h=
+eight:17px;" valign=3D"top"><span style=3D'font-family: "Open Sans", Arial,=
+ sans-serif; font-size: 14px; line-height: 17px; text-decoration: none; col=
+or: rgb(112, 112, 112);'><a href=3D"https://clicks.edx.org/f/a/EmhAgTJjd4mc=
+qyOKNEdKnw~~/AAQRxQA~/RgRiJ27_P4T1AWh0dHBzOi8vZGFzaGJvYXJkLTA2LmJyYXplLmNvb=
+S9lbmNfdXNlci91bnN1YnNjcmliZT9kPVRpQ21oT2dqeElNUktzTk11M2tUWWclM0QlM0QlMjR5=
+WWs4eDdHdXZQdVpoZGNRZ1REJTJGSmY5Q0NoMG1LaG5tVkI0cWlwSEVVVFR1NjB0eU1sdlFpdWZ=
+CMkkwMiUwQU5QM2V4WU56Vkx5dVRSU2lsZTVrQyUyQmpKSFcyUnBDOCUyRk1oajY4aWRGTmM0Zy=
+UyRm0lMkJJTjZkOG1ueXd0UGUyJTBBYm5JWndlM0hDaTZIQk1GZ05ub1hWNVhOTzZKYkozYkp6T=
+DJCJTJGOHM4ekJZVWpJdURzSHhlSVlQQ2VyYnYlMEFpOSUyQk9Jd280a0tySmVjeTVkRFlSc3Jn=
+NHNHODRPTSUyQkN0ZkYlMkZtT25YUXI1eXh3VXB6WWIxVE5lVnQ0VnQlMEFkSzJRRUlBd3V3RGl=
+LNXFTYzhMdHdzT3pwUGtiZ0xOMm9ZOFhkSDdDS2xoenM5NiUyQjJxcUZmRGhEVTM0JTNEJjE9MT=
+91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVN1bmRheV9Db=
+3Vyc2VfUm91bmR1cF8yMDIxMDMwN1cDc3BjQgpgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWls=
+LmNvbVgEAAAAQA~~" style=3D"font-family:'Open Sans',Arial,sans-serif;font-si=
+ze:14px;line-height:17px;text-decoration:none;color:#707070;" target=3D"_bl=
+ank">Unsubscribe</a>=C2=A0| <a href=3D"https://clicks.edx.org/f/a/TrdPSNOns=
+IW8eCykcXcpfg~~/AAQRxQA~/RgRiJ27_P4RWAmh0dHBzOi8vMDYuZW1haWxpbmJvdW5kcHJvY2=
+Vzc2luZy5jb20vZW1haWwvbWFuYWdlX3N1YnNjcmlwdGlvbnMvODJINGhSJTJCdG1lY091U2xve=
+WtpWVFRJTNEJTNEJTI0Q0RUYjF0eUVhTiUyRmlEY0x6UmlVSnRwWFk2RkNYM1lUSVl5RiUyQjVE=
+cGkwVU0lM0Q_ZD1UaUNtaE9nanhJTVJLc05NdTNrVFlnJTNEJTNEJTI0eVlrOHg3R3V2UHVaaGR=
+jUWdURCUyRkpmOUNDaDBtS2hubVZCNHFpcEhFVVRUdTYwdHlNbHZRaXVmQjJJMDIlMEFOUDNleF=
+lOelZMeXVUUlNpbGU1a0MlMkJqSkhXMlJwQzglMkZNaGo2OGlkRk5jNGclMkZtJTJCSU42ZDhtb=
+nl3dFBlMiUwQWJuSVp3ZTNIQ2k2SEJNRmdObm9YVjVYTk82SmJKM2JKekwyQiUyRjhzOHpCWVVq=
+SXVEc0h4ZUlZUENlcmJ2JTBBaTklMkJPSXdvNGtLckplY3k1ZERZUnNyZzRzRzg0T00lMkJDdGZ=
+GJTJGbU9uWFFyNXl4d1VwelliMVROZVZ0NFZ0JTBBZEsyUUVJQXd1d0RpSzVxU2M4THR3c096cF=
+BrYmdMTjJvWThYZEg3Q0tsaHpzOTYlMkIycXFGZkRoRFUzNCUzRCYxPTE_dXRtX3NvdXJjZT1ic=
+mF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1TdW5kYXlfQ291cnNlX1JvdW5kdXBf=
+MjAyMTAzMDdXA3NwY0IKYD__6URgq22u71IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" s=
+tyle=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14px;line-height=
+:17px;text-decoration:none;color:#707070;" target=3D"_blank">Update Prefere=
+nce</a></span></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=
+=09=09=09=09<td height=3D"20" style=3D"line-height:1px;font-size:1px;"></td=
+>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td alig=
+n=3D"left" style=3D"font-family:'Open Sans',Arial,sans-serif;color:#707070;=
+font-size:14px;line-height:17px;" valign=3D"top">141 Portland St. 9th Floor=
+, Cambridge, MA 02139</td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=
+=09=09=09=09=09=09<td height=3D"30" style=3D"line-height:1px;font-size:1px;=
+"></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09</tbody>=0A=09=09=09</table>=
+=0A=09=09=09</td>=0A=09=09</tr>=0A=09</tbody>=0A</table>=0A=0A</td></tr></t=
+able></td></tr></table></td></tr></table></td></tr></table></td></tr></tabl=
+e></div>=0D=0A<img border=3D"0" width=3D"1" height=3D"1" alt=3D"" src=3D"ht=
+tps://clicks.edx.org/q/qpt44qexrfvyroOLNwM5Ng~~/AAQRxQA~/RgRiJ27_PlcDc3BjQg=
+pgP__pRGCrba7vUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~">=0D=0A</body></html=
+>
+--_----+jv7b8fEbyaz26040Mz5aQ===_AA/FE-03844-FF9E4406--
+

@@ -1,0 +1,272 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp2716211ejf;
+        Sun, 14 Mar 2021 01:03:16 -0800 (PST)
+X-Received: by 2002:ac8:424d:: with SMTP id r13mr18629014qtm.196.1615712596767;
+        Sun, 14 Mar 2021 01:03:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615712596; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jT/u/9qMXy4pg55uUifoJjpt8m4eDHQQQB9e5nCJuCCvwDDbUD4qytkvoVgUfkq0Bu
+         RsfVs+Oo/t/75EGA0n2vYt3hrmYbC8WWJDVinwyBlmXVOGI2dsVVmYHLzp7stP+f+pWM
+         ExmOkhBPZeiv9RuYvIQsR2QBi9UTvbzix1CzKw8MgbbjvoCs1NDE9fT6cJqnzoBxk3aE
+         pnhjhttsdP8pR0uThBCuqvEW+RbwWgvgo8820+lDr7jU/kWYBg4V2gKujQ83EZefumaW
+         QQQQEh+ZDmwG131qLVP9PRku4sc/S5CSIDlGPhq/jpcfY5qqsMB9k3lGNr4Ub73qCEYl
+         v9FA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=dAHhhsAovk0niCrbKEdwCoNMWVpnM8q33s+8iCFI/ac=;
+        b=eWL8nuMRhKz2c31Y0hO/89qqkGZ+WVP3fz9o6oRc/idmpqpUiRFiXDQ3U8QRFqtFpU
+         99e2TG+F/0+xo6At9T2Zq5eh2S60cuo/sTK7oaWhEo79+t6iHpRLSHBLDwdUEIWVqeZR
+         d+kpxhXXSof6+TN0ZT1xlHgVmp5xIqWXnkyASXISZOuKVCvFwL7JyBDFxFUXQijPCJD0
+         j2+9ERH4V7cZ30IpyDM3huHk7Mp9o1cxzD8FoMshaBplK2htLcb1Sqs0PBw0tAFcPtRv
+         I9ibz2PirG2FODAamn+bqgYbHY4RcS8mYGdpSNFqfu6DUNLmIkkia3EEqQgheAUZd8VC
+         CU1A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=osdFOvey;
+       spf=pass (google.com: domain of dmugilbp2000@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dmugilbp2000@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <dmugilbp2000@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id x5sor4212666qkp.152.2021.03.14.01.03.16
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Sun, 14 Mar 2021 01:03:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of dmugilbp2000@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=osdFOvey;
+       spf=pass (google.com: domain of dmugilbp2000@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dmugilbp2000@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=dAHhhsAovk0niCrbKEdwCoNMWVpnM8q33s+8iCFI/ac=;
+        b=osdFOveyoU5bmE8L8SRi92bE8Gaus3uDpvuXSuPiaEqBIrZo87we8D8lsOjRWqqYK1
+         MIEG4RxC5udk1h25eUvdBgTX4yaF1wb+nsR+q2eGNAZhhlHHWBTAy6bT3EjeOoGKpkC/
+         jt65QW2k3Rqj4zoTUeLLT+aGnhaHKHacCIoxb+jHI3TDar0PWcY21tAJQhi4fYw2BDfl
+         U1jDfyZJMAqyLiwGodkXuXW1TwZ7fzEOtVHOe3enTNLRwWuTiyjcYwimAJhN02r7G4uf
+         4Vfc12Uw9g+rywSX3ZxkyqcaIvgYGhdnZMek/NFFgyBhkfclVdHi8mmESW9WbVbxYTUN
+         R7Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=dAHhhsAovk0niCrbKEdwCoNMWVpnM8q33s+8iCFI/ac=;
+        b=VI4KP1/VT6xONZmyGaa8Ix5ip+9OkRmpZ0tkk52mwTVjU2b2BKPNrCy5f21sG89d2Q
+         TBrGvr53fS8kFLuB2eIR1U9OV556MIh/P53UVxwB15OREcfHvGg4sOuFaurX5hIV21YK
+         28sOceOOAP9CP6ZDLfGKlIyzsEiwiCRTuyUaB6UhNQ4Dv7A7CbshIpg1sdnkJaEXcP4L
+         i3LGDa+YGvHnuAD/0EKHVrlYkoDTtBdtHzFzJ69nb4cESwfvzc16DrsnpyOg6XsjvW81
+         e1xNfmkcmIXHnP9eRrFbSueSlNDdNDqlvrjHHLqH6lWj8LqcEhlTc8L9u7XFKuJlPojn
+         EcuQ==
+X-Gm-Message-State: AOAM5324HdSS6akA3/WPdmXUDS+e2qCII45bytusDmPRSQ/IfCW8otRx
+	OxCgkrLSMHtf8AU5R6veIv1q+W7F7NBnt48K4tzJI4gk
+X-Google-Smtp-Source: ABdhPJw3wjvVruWm/zBT+vcEYGsYigTKjublvCDvAwXnUO4GopMwOp6V7qCf6aeZDvli+cerDqm21r1OXu4BQXqVRDA=
+X-Received: by 2002:a37:46c5:: with SMTP id t188mr20674427qka.47.1615712596263;
+ Sun, 14 Mar 2021 01:03:16 -0800 (PST)
+MIME-Version: 1.0
+References: <20210314083943.GA8070@mugil-Nitro-AN515-52> <CAMr4FP6hCm8_rRsbO+qU=tRBED0rkysUN-MRKn4Ji2Ei0bRwHA@mail.gmail.com>
+ <b015c5d0-7a85-9106-9527-f09da751b984@gmail.com> <CAMr4FP7bJNTYKxiXmOWjVRi3sPoxwFmm45jvNEgTWroaczdHvw@mail.gmail.com>
+ <20210314085451.GA8581@mugil-Nitro-AN515-52> <CAMr4FP4BgHyHMSh7-9nNNh5d_2irXrcGwq=k1cudLUAvwhbjgQ@mail.gmail.com>
+ <20210314090211.GA8869@mugil-Nitro-AN515-52>
+In-Reply-To: <20210314090211.GA8869@mugil-Nitro-AN515-52>
+From: Mugil Raj <dmugilbp2000@gmail.com>
+Date: Sun, 14 Mar 2021 14:33:00 +0530
+Message-ID: <CAMr4FP4Kvt=9EjVb7WY3bo+mK5yexORuae8gDriFH7q1qJec1Q@mail.gmail.com>
+Subject: Re: [PATCH] iio:dac:max517: Use devm_iio_device_register()
+To: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000005c05b405bd7b67c7"
+
+--0000000000005c05b405bd7b67c7
+Content-Type: text/plain; charset="UTF-8"
+
+On Sun, Mar 14, 2021, 2:32 PM Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+wrote:
+
+> On Sun, Mar 14, 2021 at 02:26:13PM +0530, Mugil Raj wrote:
+> >
+> > On Sun, Mar 14, 2021, 2:24 PM Mugilraj <dmugil2000@gmail.com> wrote:
+> >
+> > > On Sun, Mar 14, 2021 at 02:16:51PM +0530, Mugil Raj wrote:
+> > > >
+> > > > On Sun, Mar 14, 2021, 2:16 PM Mugilraj D <dmugil2000@gmail.com>
+> wrote:
+> > > >
+> > > > >
+> > > > >
+> > > > > On 14/03/21 2:11 pm, Mugil Raj wrote:
+> > > > > > Applied thanks
+> > > > > >
+> > > > > > On Sun, Mar 14, 2021, 2:09 PM Mugilraj Dhavachelvan <
+> > > > > dmugil2000@gmail.com>
+> > > > > > wrote:
+> > > > > >
+> > > > > >> Use devm_iio_device_register() to avoid remove function and drop
+> > > > > explicit
+> > > > > >> call to iio_device_unregister().
+> > > > > >>
+> > > > > >> Signed-off-by: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+> > > > > >> ---
+> > > > > >>  drivers/iio/dac/max517.c | 9 +--------
+> > > > > >>  1 file changed, 1 insertion(+), 8 deletions(-)
+> > > > > >>
+> > > > > >> diff --git a/drivers/iio/dac/max517.c b/drivers/iio/dac/max517.c
+> > > > > >> index 7e01838ef4d0..5f72f126162d 100644
+> > > > > >> --- a/drivers/iio/dac/max517.c
+> > > > > >> +++ b/drivers/iio/dac/max517.c
+> > > > > >> @@ -189,13 +189,7 @@ static int max517_probe(struct i2c_client
+> > > *client,
+> > > > > >>                         data->vref_mv[chan] =
+> > > > > platform_data->vref_mv[chan];
+> > > > > >>         }
+> > > > > >>
+> > > > > >> -       return iio_device_register(indio_dev);
+> > > > > >> -}
+> > > > > >> -
+> > > > > >> -static int max517_remove(struct i2c_client *client)
+> > > > > >> -{
+> > > > > >> -       iio_device_unregister(i2c_get_clientdata(client));
+> > > > > >> -       return 0;
+> > > > > >> +       retu
+> > > >
+> > > > Mudu
+> > > >
+> > > sari pa
+> > >
+> > Savu
+> >
+> ok peace then
+>
+Onaku enna pa
+
+> > > > > devm_iio_device_register(&client->dev, indio_dev);
+> > > > > >>  }
+> > > > > ok da
+> > > > > >>
+> > > > > >>  static const struct i2c_device_id max517_id[] = {
+> > > > > >> @@ -214,7 +208,6 @@ static struct i2c_driver max517_driver = {
+> > > > > >>                 .pm     = &max517_pm_ops,
+> > > > > >>         },
+> > > > > >>         .probe          = max517_probe,
+> > > > > >> -       .remove         = max517_remove,
+> > > > > >>         .id_table       = max517_id,
+> > > > > >>  };
+> > > > > >>  module_i2c_driver(max517_driver);
+> > > > > >> --
+> > > > > >> 2.25.1
+> > > > > >>
+> > > > > >>
+> > > > > >
+> > > > >
+> > >
+>
+
+--0000000000005c05b405bd7b67c7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
+class=3D"gmail_attr">On Sun, Mar 14, 2021, 2:32 PM Mugilraj Dhavachelvan &l=
+t;<a href=3D"mailto:dmugil2000@gmail.com">dmugil2000@gmail.com</a>&gt; wrot=
+e:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;bo=
+rder-left:1px #ccc solid;padding-left:1ex">On Sun, Mar 14, 2021 at 02:26:13=
+PM +0530, Mugil Raj wrote:<br>
+&gt; <br>
+&gt; On Sun, Mar 14, 2021, 2:24 PM Mugilraj &lt;<a href=3D"mailto:dmugil200=
+0@gmail.com" target=3D"_blank" rel=3D"noreferrer">dmugil2000@gmail.com</a>&=
+gt; wrote:<br>
+&gt; <br>
+&gt; &gt; On Sun, Mar 14, 2021 at 02:16:51PM +0530, Mugil Raj wrote:<br>
+&gt; &gt; &gt;<br>
+&gt; &gt; &gt; On Sun, Mar 14, 2021, 2:16 PM Mugilraj D &lt;<a href=3D"mail=
+to:dmugil2000@gmail.com" target=3D"_blank" rel=3D"noreferrer">dmugil2000@gm=
+ail.com</a>&gt; wrote:<br>
+&gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt; On 14/03/21 2:11 pm, Mugil Raj wrote:<br>
+&gt; &gt; &gt; &gt; &gt; Applied thanks<br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt; &gt; On Sun, Mar 14, 2021, 2:09 PM Mugilraj Dhavachelva=
+n &lt;<br>
+&gt; &gt; &gt; &gt; <a href=3D"mailto:dmugil2000@gmail.com" target=3D"_blan=
+k" rel=3D"noreferrer">dmugil2000@gmail.com</a>&gt;<br>
+&gt; &gt; &gt; &gt; &gt; wrote:<br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; Use devm_iio_device_register() to avoid remove=
+ function and drop<br>
+&gt; &gt; &gt; &gt; explicit<br>
+&gt; &gt; &gt; &gt; &gt;&gt; call to iio_device_unregister().<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; Signed-off-by: Mugilraj Dhavachelvan &lt;<a hr=
+ef=3D"mailto:dmugil2000@gmail.com" target=3D"_blank" rel=3D"noreferrer">dmu=
+gil2000@gmail.com</a>&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; ---<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 drivers/iio/dac/max517.c | 9 +--------<b=
+r>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 1 file changed, 1 insertion(+), 8 deleti=
+ons(-)<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; diff --git a/drivers/iio/dac/max517.c b/driver=
+s/iio/dac/max517.c<br>
+&gt; &gt; &gt; &gt; &gt;&gt; index 7e01838ef4d0..5f72f126162d 100644<br>
+&gt; &gt; &gt; &gt; &gt;&gt; --- a/drivers/iio/dac/max517.c<br>
+&gt; &gt; &gt; &gt; &gt;&gt; +++ b/drivers/iio/dac/max517.c<br>
+&gt; &gt; &gt; &gt; &gt;&gt; @@ -189,13 +189,7 @@ static int max517_probe(s=
+truct i2c_client<br>
+&gt; &gt; *client,<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0data-&gt;vref_mv[chan] =3D<br>
+&gt; &gt; &gt; &gt; platform_data-&gt;vref_mv[chan];<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0return iio_device_=
+register(indio_dev);<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -}<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -static int max517_remove(struct i2c_client *c=
+lient)<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -{<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0iio_device_unregis=
+ter(i2c_get_clientdata(client));<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0return 0;<br>
+&gt; &gt; &gt; &gt; &gt;&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0retu<br>
+&gt; &gt; &gt;<br>
+&gt; &gt; &gt; Mudu<br>
+&gt; &gt; &gt;<br>
+&gt; &gt; sari pa<br>
+&gt; &gt;<br>
+&gt; Savu<br>
+&gt; <br>
+ok peace then<br></blockquote></div></div><div dir=3D"auto">Onaku enna pa=
+=C2=A0</div><div dir=3D"auto"><div class=3D"gmail_quote"><blockquote class=
+=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padd=
+ing-left:1ex">
+&gt; &gt; &gt; &gt; devm_iio_device_register(&amp;client-&gt;dev, indio_dev=
+);<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 }<br>
+&gt; &gt; &gt; &gt; ok da<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 static const struct i2c_device_id max517=
+_id[] =3D {<br>
+&gt; &gt; &gt; &gt; &gt;&gt; @@ -214,7 +208,6 @@ static struct i2c_driver m=
+ax517_driver =3D {<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0.pm=C2=A0 =C2=A0 =C2=A0=3D &amp;max517_pm_ops,<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0},<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0.probe=C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =3D max517_probe,<br>
+&gt; &gt; &gt; &gt; &gt;&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0.remove=C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0=3D max517_remove,<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0.id_table=C2=
+=A0 =C2=A0 =C2=A0 =C2=A0=3D max517_id,<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 };<br>
+&gt; &gt; &gt; &gt; &gt;&gt;=C2=A0 module_i2c_driver(max517_driver);<br>
+&gt; &gt; &gt; &gt; &gt;&gt; --<br>
+&gt; &gt; &gt; &gt; &gt;&gt; 2.25.1<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;&gt;<br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt;<br>
+</blockquote></div></div></div>
+
+--0000000000005c05b405bd7b67c7--

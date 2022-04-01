@@ -1,0 +1,182 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp218911ejf;
+        Wed, 10 Mar 2021 22:56:44 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxlFHgMjjfwQ4QgvD9xxQvLxWeYd+tUFslghOKw4tViDboNji4YRDFvgLW4Q+mgBs7CHYj6
+X-Received: by 2002:a02:817:: with SMTP id 23mr2183300jac.23.1615445804400;
+        Wed, 10 Mar 2021 22:56:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615445804; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Xg5lhx634Qcz6PVkm2us31Dj2htIkJ99r1YNidyXIeeYWew4uJLgX5p1SKAs2fDBXz
+         XysHYxxN9Xtcks5zD6MUq+jKwdAdI8I2mXRAvouXwsr++N5NVzyMKWmcitadIdHXUkaS
+         B1S8vS136FzFhwQbqJxTgsr1TVc0yf3sUJ2pggWZ8vQOBT07ta/GAtxVsj/YJFa9wwSu
+         MLIImkJsecIxplwpDe+PIR2UdBEejLbNAu2wwx0SplxCCAmrmHS9cpWR8fnI1nPD9SNy
+         wdb8NggqWW7hnGs00KPAsxC6EJxrHeevcVGljVpoQgn4VW2whwcFocOExa25INGBIM5s
+         YC2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:content-transfer-encoding:mime-version:auto-submitted:to
+         :subject:from:date;
+        bh=liwqk20yFFRC3GhiiT95UbkI/eHIL5+g7VLUlcSK5iQ=;
+        b=tLF1B4z4a3rHz31NUISTN5OizpHyP84rYefO3mCtu0aXHGA4Rqad3x8BnuKdABT8LJ
+         XvAUL8bSf1XUj+lQdoSQk689CPbV62+2e1zhrAyUzwr2Be1IQsv7umTn4j7/d8NVNtyg
+         3LUFSR1OpPCULohGFvTA04ptNKlVICJzU/dT2+dGJS1nZz/GDGigFwa6tD8tVeIGBLVv
+         GB5DDD9DbGrcHRIUI+x2bkjprury+isxAHnrZalsUrk5YYziFdQsQCppfkubNuG9zAEq
+         zULuPhgiQzgy54aaUoVNZyHLrkayA5Lb/G5QkzmCh766q+nncj2Qlqvxb6iwXsgZ2aTx
+         Yv7w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: best guess record for domain of postmaster@lindbergh.monkeyblade.net designates 2620:137:e000::1:18 as permitted sender) smtp.helo=lindbergh.monkeyblade.net;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=monkeyblade.net
+Return-Path: <>
+Received: from lindbergh.monkeyblade.net (lindbergh.monkeyblade.net. [2620:137:e000::1:18])
+        by mx.google.com with ESMTPS id t1si2045224iog.2.2021.03.10.22.56.44
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Mar 2021 22:56:44 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of postmaster@lindbergh.monkeyblade.net designates 2620:137:e000::1:18 as permitted sender) client-ip=2620:137:e000::1:18;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of postmaster@lindbergh.monkeyblade.net designates 2620:137:e000::1:18 as permitted sender) smtp.helo=lindbergh.monkeyblade.net;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=monkeyblade.net
+Received: by lindbergh.monkeyblade.net (Postfix)
+	id 04B51C061760; Wed, 10 Mar 2021 22:56:43 -0800 (PST)
+Date: Wed, 10 Mar 2021 22:56:43 -0800 (PST)
+From: MAILER-DAEMON@lindbergh.monkeyblade.net (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: dmugil2000@gmail.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="7077CC061574.1615445803/lindbergh.monkeyblade.net"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20210311065643.04B51C061760@lindbergh.monkeyblade.net>
+
+This is a MIME-encapsulated message.
+
+--7077CC061574.1615445803/lindbergh.monkeyblade.net
+Content-Description: Notification
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+This is the mail system at host lindbergh.monkeyblade.net.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<linux-iio@vger.kernel.org>: host 23.128.96.18[23.128.96.18] said: 550 5.7.1
+    Content-Policy reject msg: The message contains HTML subpart, therefore we
+    consider it SPAM or Outlook Virus.  TEXT/PLAIN is accepted.! BF:<U 0.5>;
+    S229862AbhCKG4m (in reply to end of DATA command)
+
+--7077CC061574.1615445803/lindbergh.monkeyblade.net
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; lindbergh.monkeyblade.net
+X-Postfix-Queue-ID: 7077CC061574
+X-Postfix-Sender: rfc822; dmugil2000@gmail.com
+Arrival-Date: Wed, 10 Mar 2021 22:56:42 -0800 (PST)
+
+Final-Recipient: rfc822; linux-iio@vger.kernel.org
+Original-Recipient: rfc822;linux-iio@vger.kernel.org
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; 23.128.96.18
+Diagnostic-Code: smtp; 550 5.7.1 Content-Policy reject msg: The message
+    contains HTML subpart, therefore we consider it SPAM or Outlook Virus.
+    TEXT/PLAIN is accepted.! BF:<U 0.5>; S229862AbhCKG4m
+
+--7077CC061574.1615445803/lindbergh.monkeyblade.net
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+Content-Transfer-Encoding: 8bit
+
+Return-Path: <dmugil2000@gmail.com>
+Received: from mail-ej1-x631.google.com (mail-ej1-x631.google.com [IPv6:2a00:1450:4864:20::631])
+	by lindbergh.monkeyblade.net (Postfix) with ESMTPS id 7077CC061574
+	for <linux-iio@vger.kernel.org>; Wed, 10 Mar 2021 22:56:42 -0800 (PST)
+Received: by mail-ej1-x631.google.com with SMTP id r17so43872897ejy.13
+        for <linux-iio@vger.kernel.org>; Wed, 10 Mar 2021 22:56:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=BhOvI4rOabsgz59xbly3PJPFyGbIt8GyxY8EY16i0C0=;
+        b=i0bcSLU19c4cxqyiLIKxUhya0RcUMUVvegWxL+PFfehFWkzEIBfYn4wiRNtkVGQtp6
+         210HvdkyjPrpomdmk6/wN2OYqvvZsT4nELvk1DhTSWgXNLlo1PfI06cXHUUPYkAY285y
+         cVq/M1ApHFW4H4kJK13pEzreWbtjqTYi+tRvHdxQsQA6+ou5VlACqi4HeS9QKQEw8Ptp
+         PJffrQIjlqzwZXOtWTMCK0Gxoct6A0CF4lFnLqv7atzOLtr8S85q1q+KGO3BBkkuVDot
+         8MW9l6AKh3sSVY15RnXmdp0GYt6aZwUg1TrGb07cb2/wNZopXX0nsUix3fSSYkZG8F/x
+         6hbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=BhOvI4rOabsgz59xbly3PJPFyGbIt8GyxY8EY16i0C0=;
+        b=GlSjp1a+f8CBjEzPxOQRASVknzHD6qbVh0nBk0FsOWyDt3hrxKe89Pc90Bn1IuWtsW
+         quQ+OpT3i8WTK51ATKDrdnnnTkKHvOCJgNdJLAWfjz22/m+oByThBzvqaMERDo7A/ahH
+         bSCiYzliodKjr+cOrLOgcTUPyFcdjw5TjnNHErsgWW7Rd+wcBjPFTDG6KclmayEaIR7h
+         RspXzhItr4TK6nC8Cub8IR3Tn/CZatXqfoTOB8KamquVBlTgQW42tvZDmqgiC4U7cYJR
+         5+lZ3sUL9gAWtF6S1PkuJZg2fPpBryDKhI/ds1ZC7MPGrBZTD+CHW834H/TjINVRq2Wr
+         297w==
+X-Gm-Message-State: AOAM530NXnA9BF6vGKMWX9OWUjjwajLeewpA1R3/mWXg4B5WM7dLMgYZ
+	M6cLzFG/y+4+eobnXv8VW+YwTMfuN5S2hRtJmOltzAvzgDCt0A==
+X-Google-Smtp-Source: ABdhPJy5lkTDJe6Pd5ayL0KMLVmZ5Cnuhh7KOIEtqAhGX75xVrF7flVA1sxjg36Fvw1WeDdiegd6tQ/SnXfQuwID+Pw=
+X-Received: by 2002:a17:906:4747:: with SMTP id j7mr1580505ejs.221.1615445800674;
+ Wed, 10 Mar 2021 22:56:40 -0800 (PST)
+MIME-Version: 1.0
+From: Mugil Raj <dmugil2000@gmail.com>
+Date: Thu, 11 Mar 2021 12:26:28 +0530
+Message-ID: <CAOgtOjPi0BtLcRip4-1Av1RCp_37TtkOoxe_86zZDBGcpCiWBQ@mail.gmail.com>
+Subject: GSoC IIO project: Mugil
+To: linux-iio@vger.kernel.org, dragos.bogdan@analog.com
+Content-Type: multipart/alternative; boundary="0000000000001a680105bd3d491f"
+
+--0000000000001a680105bd3d491f
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+This is Mugilraj, an undergrad at NIT Trichy, India. I'm applying to
+GSoC'21 for the project IIO driver. So, I need help from you guys with the
+application process and finding the device to develop a driver. I've done
+few exercises on patch submissions and completed a Linux Foundations
+course, "A beginners guide to Linux kernel development (LFD103)". I found
+this "https://kernelnewbies.org/IIO_tasks" task for beginners, and now I'm
+doing that also If anyone suggests some fixes to develop, that would be
+helpful for me.
+
+Is there any IRC channel for IIO?
+
+Thanks,
+Mugil
+
+
+=E1=90=A7
+
+--0000000000001a680105bd3d491f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi, <br>This is Mugilraj, an undergrad at NIT Trichy, Indi=
+a. I&#39;m applying to GSoC&#39;21 for the project IIO driver. So, I need h=
+elp from you guys with the application process and finding the device to de=
+velop a driver. I&#39;ve done few exercises=C2=A0on patch submissions and c=
+ompleted a Linux Foundations course, &quot;A beginners guide to Linux kerne=
+l development (LFD103)&quot;. I found this &quot;<a href=3D"https://kerneln=
+ewbies.org/IIO_tasks">https://kernelnewbies.org/IIO_tasks</a>&quot; task fo=
+r beginners, and now I&#39;m doing that also If anyone suggests some fixes =
+to develop, that would be helpful for me.=C2=A0<div><br></div><div>Is there=
+ any IRC channel for IIO?<div><br></div><div>Thanks,</div><div>Mugil<br><di=
+v><br></div><div><br></div></div></div></div><div hspace=3D"streak-pt-mark"=
+ style=3D"max-height:1px"><img alt=3D"" style=3D"width:0px;max-height:0px;o=
+verflow:hidden" src=3D"https://mailfoogae.appspot.com/t?sender=3DaZG11Z2lsM=
+jAwMEBnbWFpbC5jb20%3D&amp;type=3Dzerocontent&amp;guid=3D0b100546-2f83-430b-=
+bb48-17a391e2ca72"><font color=3D"#ffffff" size=3D"1">=E1=90=A7</font></div=
+>
+
+--0000000000001a680105bd3d491f--
+
+--7077CC061574.1615445803/lindbergh.monkeyblade.net--

@@ -1,0 +1,77 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp1919495ejf;
+        Fri, 12 Mar 2021 21:16:37 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzUOOb6ab6VcvgX5ywKfRKkbZUB0n21479BE93Jmt6UPwUNqvH7m2z0pn0BfNQxmnftGT0P
+X-Received: by 2002:a17:903:1c3:b029:e6:a15:751f with SMTP id e3-20020a17090301c3b02900e60a15751fmr1923047plh.44.1615612597272;
+        Fri, 12 Mar 2021 21:16:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615612597; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mQOyRLjKS1oOx6IFCSqTsNnKCzgjK3brI/Irp73fiI3HFzq5tjRSrNJ0wcgIF3mhIV
+         /PXLch8MVBkfJWuP94b3vAYZsgGDz7URgH3sx2gQBQc38VagwArl07n0zv8EfYM9/l2S
+         bpU3CDDCBL4vQUNHvSpOMyGCOk9s//jnc62gJYZq9DsljtjT9nTSWDcVlv7oWTGh5TA/
+         gR53WBaEL6DvO6khfvEk6GGTRW+bcR8q26EtfUCU1LNGP4uEecqQHaiiOW48qH75gLMO
+         HSu804Z0n6C6FznDEqtJma5wPigOxBhf6AR5T5se67BwR7zQyfO8i4r43ZMsRwxPi35o
+         xJdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-disposition:mime-version:user-agent:in-reply-to:references
+         :subject:to:from:message-id:date;
+        bh=nF9qT9wglE/PpjAilfdWcbf2AVs3V7pB3C7TszP5PDo=;
+        b=zNxCePIx9nCxhTv/jIgkhU+xu5cWDexqTk2ZoTlDInHBAZSPJJndc56qHv2e5gBpo0
+         lJ1hbQlBBigSmVKf3hnV78eEvf+aHHm7F1KKd27O4tJAvL2KIq5xfLDNfpEktFtY0ASE
+         FX7qQJWaqp5S8NS0IWM2oU2USmkkZJsypuuEn/hhMan5cNOtNd+Bix3/w5fs/uDZUzQ3
+         QwK0s3ef/vqqkhvS7QYRK+b1owrSx2qBJT9/+R8QjrJj2Tn/Hgxo2iU5nOIlhty+tS1t
+         8MiKLFCdW6FcEZHczpmizzqFUarvBchNC0XHOrJqtkDKUMc9uAcsf3ns4b/T3qQKT41X
+         eqBA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117099@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Return-Path: <110117099@nitt.edu>
+Received: from snwl1.nitt.edu (students.nitt.edu. [203.129.195.134])
+        by mx.google.com with ESMTPS id t12si4436029pjw.120.2021.03.12.21.16.36
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Mar 2021 21:16:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) client-ip=203.129.195.134;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117099@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Received: from snwl1.nitt.edu (127.0.0.1) id h9h5ei0171sb for <dmugil2000@gmail.com>; Sat, 13 Mar 2021 10:47:27 +0530 (envelope-from <110117099@nitt.edu>)
+Received: from webmail.nitt.edu ([10.0.0.173])
+	by snwl1.nitt.edu ([10.0.0.186]) (SonicWall 10.0.6.3447)
+	with ESMTP id o202103130517270096912-7; Sat, 13 Mar 2021 10:47:27 +0530
+Received: by webmail.nitt.edu (Postfix, from userid 48)
+	id A21BB124B420; Sat, 13 Mar 2021 10:46:41 +0530 (IST)
+Received: from 157.51.20.194 ([157.51.20.194]) by webmail.nitt.edu (Horde
+ Framework) with HTTP; Sat, 13 Mar 2021 10:46:41 +0530
+Date: Sat, 13 Mar 2021 10:46:41 +0530
+Message-ID: <20210313104641.Horde.XUqYA-7J3MvzsCqgJJllKg5@webmail.nitt.edu>
+From: 110117099@nitt.edu
+To: Mugilraj <dmugil2000@gmail.com>
+Subject: Re: adasda
+References: <20210313104128.Horde.nF_RHiJg8OrSy5y9scfqGw1@webmail.nitt.edu>
+ <20210313051549.GA54655@mugil-Nitro-AN515-52>
+In-Reply-To: <20210313051549.GA54655@mugil-Nitro-AN515-52>
+User-Agent: Internet Messaging Program (IMP) H5 (6.1.7)
+Content-Type: text/plain; charset=UTF-8; format=flowed; DelSp=Yes
+MIME-Version: 1.0
+Content-Disposition: inline
+X-Mlf-DSE-Version: 6389
+X-Mlf-Rules-Version: s20210113164351; ds20200715013501;
+	di20210112201524; ri20160318003319; fs20200615142104
+X-Mlf-Smartnet-Details: 202103130517270096912
+X-Mlf-Smartnet-Version: 20210114204658
+X-Mlf-Version: 10.0.6.3447
+X-Mlf-License: BSV_C_AP_T_R
+X-Mlf-UniqueId: o202103130517270096912
+
+
+Quoting Mugilraj <dmugil2000@gmail.com>:
+
+> On Sat, Mar 13, 2021 at 10:41:28AM +0530, 110117099@nitt.edu wrote:
+>>
+>> asdasdasdasdsdasd
+> ok da i'll manage
+
+
+
+dad adsad

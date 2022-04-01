@@ -1,0 +1,65 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp1917303ejf;
+        Fri, 12 Mar 2021 21:11:29 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwkfHgJwazMTodqh1rdqaQPmYJxrUsJ8GZKwXxyRNr8SAly7TcPznuqXh8gmxAHn/KbfHGc
+X-Received: by 2002:a17:902:ce88:b029:e6:3a3c:2f65 with SMTP id f8-20020a170902ce88b02900e63a3c2f65mr1869424plg.66.1615612289259;
+        Fri, 12 Mar 2021 21:11:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615612289; cv=none;
+        d=google.com; s=arc-20160816;
+        b=AVjeAqrrZQitHO63qfiiWPIAAMULNu19wYPtO+EzkOBG9BpQ5JCfoAg8fIr2JioIwm
+         XeAFN1QzgXXFcLvNRyQXGnt7BvTJzhHbFJrioY0Z9LmrY7D0/iAy7bj6CD0g+UystxgX
+         Eju9dkmaH2o7kkfkkARvAgK2W98uFaVkXE08+XNIhrF8dE2mx9wDCaJsWT+mJxS7d71X
+         WN4AtlvquV574GFjDq/d1F4x/mJmQKMMIWp0LmM/hq9QlzUsd9diLiECsQMjiAGDUQLh
+         5X81I0HGsBhcb2zK1XnIoC+7bZC7uk60xjnoOlYAwoGBVBtswTdmAq01NzxKL5FnEn4j
+         071Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-disposition:mime-version:user-agent:subject:to:from
+         :message-id:date;
+        bh=w/xOHd0M+0Si/5dl/X0NFDLWFNKd//piBRN8qoiBwtE=;
+        b=hAxl1tSwJ1M7iy0jyr4Rwk7lwW8bEF8ITHvJEEMGUqR6Fe0W9mPYwNJusnCY1Wo6TY
+         HzmSfv25vwC2wNCCR1vEoGvV1TEewY0kXDf6QBMqWf5jmhzhzSBEeR7vHzPV75uOBu1D
+         x8t/VZ3VrDxjPutPl+R4TowVbhpHNQlVgRM+RvSpOQmS+6pYqnLztHa08VUaQ3xQ3Csd
+         uFzzKXKUbkG59OfKigubEqKcqfw+vzsGWH13JeBkYE3v29mOhxZya8IrtDxPPSNV2XGg
+         mLfeWTesao+u30TStG2kXhOsXnCF79T1RYe/beMbFFiLhzhQrwsRQHtsLErIHLLPLt5d
+         Hn2w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117099@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Return-Path: <110117099@nitt.edu>
+Received: from snwl1.nitt.edu (students.nitt.edu. [203.129.195.134])
+        by mx.google.com with ESMTPS id h11si805216pfh.15.2021.03.12.21.11.28
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Mar 2021 21:11:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) client-ip=203.129.195.134;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of 110117099@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117099@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Received: from snwl1.nitt.edu (127.0.0.1) id h9h4ra0171s7 for <dmugil2000@gmail.com>; Sat, 13 Mar 2021 10:42:19 +0530 (envelope-from <110117099@nitt.edu>)
+Received: from webmail.nitt.edu ([10.0.0.173])
+	by snwl1.nitt.edu ([10.0.0.186]) (SonicWall 10.0.6.3447)
+	with ESMTP id o202103130512140096896-7; Sat, 13 Mar 2021 10:42:14 +0530
+Received: by webmail.nitt.edu (Postfix, from userid 48)
+	id 9B0C6124B6C4; Sat, 13 Mar 2021 10:41:28 +0530 (IST)
+Received: from 157.51.20.194 ([157.51.20.194]) by webmail.nitt.edu (Horde
+ Framework) with HTTP; Sat, 13 Mar 2021 10:41:28 +0530
+Date: Sat, 13 Mar 2021 10:41:28 +0530
+Message-ID: <20210313104128.Horde.nF_RHiJg8OrSy5y9scfqGw1@webmail.nitt.edu>
+From: 110117099@nitt.edu
+To: dmugil2000@gmail.com
+Subject: adasda
+User-Agent: Internet Messaging Program (IMP) H5 (6.1.7)
+Content-Type: text/plain; charset=UTF-8; format=flowed; DelSp=Yes
+MIME-Version: 1.0
+Content-Disposition: inline
+X-Mlf-DSE-Version: 6389
+X-Mlf-Rules-Version: s20210113164351; ds20200715013501;
+	di20210112201524; ri20160318003319; fs20200615142104
+X-Mlf-Smartnet-Details: 202103130512140096896
+X-Mlf-Smartnet-Version: 20210114204658
+X-Mlf-Version: 10.0.6.3447
+X-Mlf-License: BSV_C_AP_T_R
+X-Mlf-UniqueId: o202103130512140096896
+
+
+asdasdasdasdsdasd

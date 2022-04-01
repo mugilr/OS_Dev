@@ -1,0 +1,89 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp460798ejf;
+        Thu, 11 Mar 2021 05:36:36 -0800 (PST)
+X-Received: by 2002:a67:e87:: with SMTP id 129mr1217362vso.40.1615469796176;
+        Thu, 11 Mar 2021 05:36:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615469796; cv=none;
+        d=google.com; s=arc-20160816;
+        b=lPV30iRKh4RXnQs92uEOPevZ5mOsRmTwYv9iBwZ94GWCTHZWjqLXuvvRcCXhqVYVpI
+         3Cudg21Kh0L7krBjIyDsP3OzRKWGjkVFlu267EdNJr3GAW4rzPe4Fpihe/WuQyR35c8T
+         n7zqJ+rkPeWQlSt2AddcsEERJAkG4ddS87D+xjAOlgdEJY2y9XTUer0s7sEBS7DQ2YdC
+         kdMR7JqCbmQrbOIE/TQB2dfEh5TkdGgxZpHgBaw2cnn3DVJccoIEI6F8YGNfvf4rsafU
+         za7zI/kgMV7QaxnK9EzBYpFgBma+N+QLX88mqE6rbBSAF6+NveZsNr+4qAUv8z67vsfX
+         pfAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=G/1QZBYmot+dReLC3nYUPdA1vHH/0ilFTHam+J/Fz70=;
+        b=bsepemQb9oOG0kaU7uClHD8lyi48dl5rIt1YcNJtA0iSDT5oneh0y2SnDgNCB9sby8
+         vHnw5Br/f3H/H4x6d14H4VTc0LEvOi4N3TJ1lL3HYPz+BoourLFo57Fc2AeZeLvk5l3T
+         pQJMfIhPyHgeCvzUUkn1Hu/lLpBd5Sg6sMuzrmxXcQWa64eBn+RLMFq0sQb/VickUmCa
+         95zvqB4nnKusjBxjZk+F7s2kw3/JOFbFvi4f3nmQAUEINFBs2MM7nigdaOBWxrKBlF8W
+         n5Tk5EIY8KNYwRYejbUA3pO5QDUoEkvHfECFrcOy3i1HU/cPS7YPr94/P2Ci7I/W969i
+         jGPw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qQf6LUeg;
+       spf=pass (google.com: domain of utkarshverma294@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=utkarshverma294@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <utkarshverma294@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d199sor628379vsc.50.2021.03.11.05.36.36
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Thu, 11 Mar 2021 05:36:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of utkarshverma294@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qQf6LUeg;
+       spf=pass (google.com: domain of utkarshverma294@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=utkarshverma294@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=G/1QZBYmot+dReLC3nYUPdA1vHH/0ilFTHam+J/Fz70=;
+        b=qQf6LUeg06gG8m7j+gFPBORkXjtT4B8DaxQCt+bZcCkDEdd1prxRWabBNXJbg9PaeD
+         bj1It08HOG03AB5NafcUhtQ4+MO7/s7i0E82ByyhzM2HzuzboEtx4S4vvCg1Xt25jenU
+         ZUobG/az1E3HeuaP2XY4yuN7JEeNdN5djEY4MepCIZyVaK50agUr9uuBljLvjJXndetK
+         DKUpqe8uhNFwXr2lutN68J1Sm9BOpcU0/2K86lA3OWB6JD/M2Ut407MVe6hTz48RDPQF
+         MA1IiEAATlnqE4xh0U2dvFyOtOr2xX0mKevIpI4w6bz5yFA/pT8BD1IYdKq+Fpk4k/kD
+         Gf/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=G/1QZBYmot+dReLC3nYUPdA1vHH/0ilFTHam+J/Fz70=;
+        b=TuoolByq0yedcojXt57N9iBKsVZyrfaeDi/vqYS4W0a3nCRo1N3cvCDF01JScG6pFV
+         gx6cqYb8NS5GHhdf9ijzfE/Ep0+Kc+/jYNo2bDVd2Q+Egdzw5jfzon1sG1ATNry+G1IN
+         HOjWuOMPFOfxO34j9u21pBzNwgNeU5ZAYnIOJxxn2VQg9YFYU1evUY6qXz76YDK50Puz
+         qPUuU+FEYoqJygSaln/Ybwtgm0a/Y1zLYfdgyzQEafhRgVzuV78uzGLT4W/OZjps6lRe
+         Z/AwkL25yQidSCcoWFfYaVOuyY+SD0x2h7yNhrYzoW1LUUtJwMQHdZf4TmOS+spdajKa
+         R74A==
+X-Gm-Message-State: AOAM532g+QhA7CXFafxYx28fEXf5eQZFkkskXhySfQPn+Rs/oAOcvYBL
+	Z1Hl4Gaehz0evg/RIU/l+7qsePFki5KSgKUREU2nEyAeVq18aw==
+X-Google-Smtp-Source: ABdhPJwnDnXPaobIINry9AtxiqdfDGOtN6IDjehpgdJOC3YRMtGzavlbsTfc6xcCjx817qKEx2vrFB9EQdh+GcO7Axk=
+X-Received: by 2002:a67:ee5a:: with SMTP id g26mr5110798vsp.30.1615469795407;
+ Thu, 11 Mar 2021 05:36:35 -0800 (PST)
+MIME-Version: 1.0
+From: Utkarsh Verma <utkarshverma294@gmail.com>
+Date: Thu, 11 Mar 2021 19:06:23 +0530
+Message-ID: <CANBZqrE-ghTSCcAD-F8LoNQwwWmh7SMhJ6ZTdJqt=d9gvPsRFg@mail.gmail.com>
+Subject: 
+To: dmugil2000@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+
+Hey Mugil,
+this is Utkarsh Verma. I am Btech Undergrad from HBTU Kanpur. I saw
+that you are trying for GSOC in Linux-iio. I was also interested in
+contributing to the Linux-iio subsystem, one of the contributors of
+Linux-iio suggested us to do some conversions to devm_iio_variant.
+So did you found out something that you can submit patches for? I am
+still stuck in understanding the code base and was having one
+confusion for which I sent you this mail. That is how are we going to
+do the testing of some specific hardware. Like if I make some changes
+to the 'drivers/platform/x86/toshiba_acpi.c' file then how will we
+test that our changes work because we don't have that Toshiba Libretto
+laptop.
+I thought that asking such a question on the mailing list would sound
+very naive, and also I didn't want to spend a lot of time searching
+for it. So I thought to ask it from you, as you would also be working
+on the task.
+
+Regards,
+Utkarsh Verma

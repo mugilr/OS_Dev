@@ -1,0 +1,207 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp2592607ejf;
+        Mon, 9 Aug 2021 00:58:31 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzv64RI+7S2sGmyUho2ljmycIZqcAFUvOzmcE/qhl3l/8uWrvpYhsecGRUjdb3EOAi1ry7/
+X-Received: by 2002:a25:a546:: with SMTP id h64mr30767360ybi.81.1628495911405;
+        Mon, 09 Aug 2021 00:58:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628495911; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=q4R+1EMsDgV7/uWrTPrMXXjs3+pOBFmo2qDrkq0kU/Hn43VwjtWjJn9W56U1O1dPjt
+         MqhtdQwH/aWmu9Uf3Kb+BHhH+xRuum1gZvS3ND/4s4j2vr4gzQsR2c996QrSsZv3tb3F
+         4jjreMNWCeRqhQ7Yzbv2CVHbSSoxN7m/yAt9Pg7Zc7xZ3xfcfmTa4nag5LrglxLCHimX
+         hy2RiragnC1CMF3As0LuubsojpoLeR3pBOkiIWMEEro9BUv0AYDOL7dJbcR+vemGnXBx
+         GXZk/df5gRJYFxArJG2gmk5eOXFAFVH1+Tm2WuWTzfwMBf4yuM3eS/jMzDjbTNVyLgS2
+         s6tQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:auto-submitted:in-reply-to:references:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=4D6q5TuDqG30nFIjHYDY8eUZJPpy6Ylvf3WtafFvjls=;
+        b=UCa/Ol9MNsLGXVhIIrVBlupkwTXLk0QNQlop3WeKCqzbxt7OiULXdZo/zOfDx0L+cI
+         ZWQgieLzP0T7LJDkV+nRrYPA8JmunesaiFHVidRIoYEprfSR/i7iE6/oa+fdjVAshc7D
+         lIRxOCkYmw74nS3/gq3cT6OlY/EPuJF/A+kC/qoV/ntxYSVKdY1l9kTh70QxUhV+M5mm
+         pHGXdCAnwBBVNed+/JcRmeTkJNWPT2IatG60vn+CxKDcy22Ef3NsoTJecQctQ6qcAU1F
+         rjG9OayVdqeyC+07GpIZOYlzaoHIu78RcJe0mGeRs0kHl6VniXOqLaUc7+DbODWWSXO6
+         9ekg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@analog.onmicrosoft.com header.s=selector2-analog-onmicrosoft-com header.b=AKKLH8Gh;
+       arc=pass (i=1 spf=pass spfdomain=mw4pr03mb6457.namprd03.prod.outlook.com dkim=pass dkdomain=analog.com dmarc=pass fromdomain=analog.com);
+       spf=pass (google.com: best guess record for domain of postmaster@mx0b-00128a01.pphosted.com designates 148.163.139.77 as permitted sender) smtp.helo=mx0b-00128a01.pphosted.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Return-Path: <>
+Received: from mx0b-00128a01.pphosted.com (mx0b-00128a01.pphosted.com. [148.163.139.77])
+        by mx.google.com with ESMTPS id s9si11768123ybo.195.2021.08.09.00.58.31
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 09 Aug 2021 00:58:31 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of postmaster@mx0b-00128a01.pphosted.com designates 148.163.139.77 as permitted sender) client-ip=148.163.139.77;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@analog.onmicrosoft.com header.s=selector2-analog-onmicrosoft-com header.b=AKKLH8Gh;
+       arc=pass (i=1 spf=pass spfdomain=mw4pr03mb6457.namprd03.prod.outlook.com dkim=pass dkdomain=analog.com dmarc=pass fromdomain=analog.com);
+       spf=pass (google.com: best guess record for domain of postmaster@mx0b-00128a01.pphosted.com designates 148.163.139.77 as permitted sender) smtp.helo=mx0b-00128a01.pphosted.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 1797tCGe023257
+	for <dmugil2000@gmail.com>; Mon, 9 Aug 2021 03:58:31 -0400
+Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10lp2100.outbound.protection.outlook.com [104.47.58.100])
+	by mx0b-00128a01.pphosted.com with ESMTP id 3aaxqx07pg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <dmugil2000@gmail.com>; Mon, 09 Aug 2021 03:58:31 -0400
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Ugf0kI87SogMTlESX1k+KTgSVu79GZlNd9HKvOSzOs4kfvU6AJQu/eJtmfQQ1otwYYlPg0nbUWxsJ0/Pm3QrcnZaBGYnIMVAqmrY68IXu0kfVjMr2Tw3z5Z2yxOoKfYacZ9i0YsU6X2gFCtY7Eey0NVUnVICRDpHybMGNfEm73Y7hwvxiWZHTjjAvaV3QAkcYthbmZQ2U2nXDfNCCStg2/2hm3zjjbdfY2IcmzlabIvW/XfDdLSG24Aj59EyDM6ziCSNIK2FnOxwsGafUj8QIMxVuafLEQFYK27sy7ziNZyuGuqViWRpDAS2+oZm6QE4OqZhJ5JubvIOvSqS/UlKIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4D6q5TuDqG30nFIjHYDY8eUZJPpy6Ylvf3WtafFvjls=;
+ b=az0FTgvi1/vbQXcisxDluzipx4DAxGToazhHR0pjzdZJExBjVLnj43Izz70ysJUKRlPwRoPrnfXTg1C8JZaaTz2pt0ObaCJq7TtsJvHPXBFipSxazvBoZ5E/dmmE5DlLDDfBt/WsQydLll7hh4ywIgjHhwltDyMG6mvJj4fOTgGzeCBkdH7qgnXxjDJr69iNy4CC5OOiWSOJq1dZG9myhpnuUBqG64UhAdo+BOFpDIeI8I4rIfl0mpKgKvr5ZQYjKcPAkSmKGrd6oh9VfZPwv627qf9vcp2ViApDn/0LPmkaWf6ftaUxka/W9b8s4nXHoOnSgeIZg6i9sLMFXazU8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.helo=mw4pr03mb6457.namprd03.prod.outlook.com; dmarc=pass action=none
+ header.from=analog.com; dkim=pass header.d=analog.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=analog.onmicrosoft.com; s=selector2-analog-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4D6q5TuDqG30nFIjHYDY8eUZJPpy6Ylvf3WtafFvjls=;
+ b=AKKLH8GhjJv/0vYTaMhekrgc7dYQfexCWIO3+zG7s9uvNyVypLn11ZZNWKVoH3w4tOOAvqouseD6pVQqBgVTmiMgZ2jl3vxOaMHU3GMSVuNzUa3B06dsD6156SoVvkdWYpcVyTcgtQh6CWFeO2Es1UFvijVQKyn5qcosMaZ71zs=
+Received: from MW4PR03MB6457.namprd03.prod.outlook.com (2603:10b6:303:120::9)
+ by MW4PR03MB6553.namprd03.prod.outlook.com (2603:10b6:303:124::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4331.26; Mon, 9 Aug
+ 2021 07:58:28 +0000
+Received: from MW4PR03MB6457.namprd03.prod.outlook.com ([::1]) by
+ MW4PR03MB6457.namprd03.prod.outlook.com ([fe80::7974:6f2d:3e67:8a5b%7]) with
+ Microsoft SMTP Server id 15.20.4394.023; Mon, 9 Aug 2021 07:58:28 +0000
+From: "Bogdan, Dragos" <Dragos.Bogdan@analog.com>
+To: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Subject: Automatic reply: [PATCH v2 0/2] iio: potentiometer: Add driver
+ support for AD5110
+Thread-Topic: [PATCH v2 0/2] iio: potentiometer: Add driver support for AD5110
+Thread-Index: AQHXjPRWYsx/3Go5Hke+I5n7MG7/5qtqzsV9
+Date: Mon, 9 Aug 2021 07:58:28 +0000
+Message-ID: 
+ <243462d9907c4fe1aa70a1971b8c89c7@MW4PR03MB6457.namprd03.prod.outlook.com>
+References: <20210809075745.160042-1-dmugil2000@gmail.com>
+In-Reply-To: <20210809075745.160042-1-dmugil2000@gmail.com>
+X-MS-Has-Attach: 
+X-Auto-Response-Suppress: All
+X-MS-Exchange-Inbox-Rules-Loop: Dragos.Bogdan@analog.com
+X-MS-TNEF-Correlator: 
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=analog.com;
+x-ms-exchange-parent-message-id: 
+ <20210809075745.160042-1-dmugil2000@gmail.com>
+auto-submitted: auto-generated
+x-ms-exchange-generated-message-source: Mailbox Rules Agent
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: e918d6ac-56bd-4b22-eca9-08d95b0b795a
+x-ms-traffictypediagnostic: MW4PR03MB6553:
+x-microsoft-antispam-prvs: 
+ <MW4PR03MB6553834A0588CB50A7585390B8F69@MW4PR03MB6553.namprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:8273;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ 7yTww5RgBuLINGNp0aOY90JmDf0HyBmIJWdRWACAeQFWqOupR6dEQfC4iGO8AmXBk7YMj+WyEbNDF0pRsd8x5Dp5ImAe8aTjtf3QSmaElCCYuXox9mq2VZ+zNVCwawUTSY6newoupBtI2ZRZYETlZ098+0CDGedX4WyN+dpJte+L5CWVstA+O9yShwFIqHPPQR6IFbGtHpxe7+AiHioBAKRTMNDx0eDhN5b0I1IhCB6v4VJ3lfCugALtggmHjmtgrg4/s7iFz+6zcvuTQluvZGp7TUiHnH+U6Dh5mbO96SDDdVOZwp/0dY9Gao5uoF2MeVYWCg0IWvg2e6K4GiESyH03S/qDM7cVX2EvlM1BQSaSsg9mzChVQq/MPrPEy5P9Np62VgUidhYvzB3whcnW+1pFL33cQ/WBGaaqTL5uVVQMINONjeepNqipCTn7tMP2lzWeIXP9SHbfi1MUqsvWZzZCX+Y0K7u15vcQC3HDuE4J2vGAjKFjhOWp34ehrz2pdDLwufyNPvDu0jwD+8xz0OaXc12c5MLx3c6CpxfHQth/VYKHT4Fj/veo/1ztIek0u0IxalYeeidMUEtZf6BHlEiHyuk53lu8YOROqan/oy1hvP/drId4DPMd8Ag8Lbuv
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR03MB6457.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(50650200002)(376002)(39860400002)(396003)(366004)(136003)(346002)(2906002)(558084003)(8936002)(316002)(6916009)(88996005)(122000001)(78352004)(42882007)(55016002)(9686003)(8676002)(5660300002)(83380400001)(498600001)(66556008)(7696005)(6506007)(66476007)(66446008)(64756008)(108616005)(24736004)(71200400001)(66946007)(111220200005)(80100003);DIR:OUT;SFP:1501;
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_243462d9907c4fe1aa70a1971b8c89c7MW4PR03MB6457namprd03pr_"
+MIME-Version: 1.0
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR03MB6457.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e918d6ac-56bd-4b22-eca9-08d95b0b795a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Aug 2021 07:58:28.7698
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR03MB6553
+X-Proofpoint-ORIG-GUID: KGp_ecjyrhZ_lEeyC6cyxW8FvSoeC5ky
+X-Proofpoint-GUID: KGp_ecjyrhZ_lEeyC6cyxW8FvSoeC5ky
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-08-09_01:2021-08-06,2021-08-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 ndrscore=0 impostorscore=0
+ mlxscore=0 suspectscore=0 lowpriorityscore=0 clxscore=1031 adultscore=0
+ mlxlogscore=784 bulkscore=0 adjustscore=0 malwarescore=0 spamscore=0
+ priorityscore=1501 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2107140000 definitions=main-2108090064
+
+--_000_243462d9907c4fe1aa70a1971b8c89c7MW4PR03MB6457namprd03pr_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Thank you for your email.
+
+Please be advised that I am out of the office with limited access to email,=
+ returning on August 16th 2021.
+
+Best regards,
+Dragos
+
+--_000_243462d9907c4fe1aa70a1971b8c89c7MW4PR03MB6457namprd03pr_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:w=3D"urn:sc=
+hemas-microsoft-com:office:word" xmlns:m=3D"http://schemas.microsoft.com/of=
+fice/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Segoe UI",sans-serif;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif">Thank you for your e=
+mail.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif"><o:p>&nbsp;</o:p></s=
+pan></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif">Please be advised th=
+at I am out of the office with limited access to email, returning on August=
+ 16th 2021.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif"><o:p>&nbsp;</o:p></s=
+pan></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif">Best regards,<o:p></=
+o:p></span></p>
+<p class=3D"MsoNormal" style=3D"text-autospace:none"><span style=3D"font-si=
+ze:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif">Dragos<o:p></o:p></s=
+pan></p>
+</div>
+</body>
+</html>
+
+--_000_243462d9907c4fe1aa70a1971b8c89c7MW4PR03MB6457namprd03pr_--

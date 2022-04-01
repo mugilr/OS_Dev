@@ -1,0 +1,132 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp2778304ejf;
+        Sun, 14 Mar 2021 04:08:04 -0700 (PDT)
+X-Received: by 2002:a02:9042:: with SMTP id y2mr5832201jaf.94.1615720084176;
+        Sun, 14 Mar 2021 04:08:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615720084; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XWcnK54snAR/axXec/6EHNhfWY7MQhbiNhkyHD6uoGwg249JOQn3tDDCb2qjSlv09X
+         AnuKNIklz4bjHU7Rgnl4MP+WwAqJq3AwXi304PhgXMHGvN7hQ7xUHczcDJ1hT+fIGoLn
+         J4SOYGQ0aDl7R0tryAjKMEY7ZupoyC0eOibcREsyHUsfikmGPb646CF2k+SpfUI+2PhG
+         AX9YThybKgOxJ65oJKZbu/NjZ6vVwePGpslr76ThhwmNOxH7CHhA4YdfPwxph2/oI472
+         /Nuylw2UdOlOk4BoAsXf6GsOSsnNQHwtPcw+BG7OYNjCrI1zP7DMWOkyvb70Dpi7JVPQ
+         YSfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=c2gJVCiOzZRSOU8yuw0xGh2d/ty3OmRn7TDCBELtPRw=;
+        b=dUt5TMOD8BcsRSRhpRHOCT9Y9boORHsEEpFyCOYb0N5EGBQkv0uCh7FToC/zFXffSo
+         AGA3JMagMe485lLdd5wRzUl9dKGAoXfMByH/yQiqA7LlxyR7VTSWrYnKW1Ejju68Mwhr
+         SOHyfFa8hnLxB8u/3JOJ3heR0IJdi3x4yQCQ0ZBAU0/j0nOwkUwtZachfSeN/DBlPQ50
+         TTQ5f3WWZ58cJO7A2zmPaxAlmDwmBW3WuC6NOJ4VkUf10iY6zpvd9qDyYaz27YU9NbXr
+         xY6IOVUaODf8fgRJfqQkLznAW7U7W3F7iMg55ZaLkPWO0w4utFzcZ/2PcJeWoic/xhC1
+         QR/A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PUBewag3;
+       spf=pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ardeleanalex@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <ardeleanalex@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id j8sor4504485ilr.119.2021.03.14.04.08.03
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Sun, 14 Mar 2021 04:08:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PUBewag3;
+       spf=pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ardeleanalex@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=c2gJVCiOzZRSOU8yuw0xGh2d/ty3OmRn7TDCBELtPRw=;
+        b=PUBewag3El8v206Nhk0atvmek2BUNWAPufAsSR2oFncOGGqfyNv7vAEsE508yviQfA
+         n5FGHWLw0byj3iMYTL4/2+GP7CfPDWHGQNgY/XmlQ88CNaGlm6tPK+fyKFaHe84+3Fn0
+         dWpe4RqrQondbTZ9U7FHy0RAXu1QD+zWeDL352Vc0/j+vswzAj1OoZ6Gea8lrLg+qybq
+         J/PHZzVjafdO3woIfsLANMVipxpYsbmoCdX8jwP7ihawUg9gp6d2dFbxMk+Ywmjp5pvq
+         eLdPgW8sN3EiSG2XRnks4Jj+81N457OrzYREhZzOGnSS6Kn6nRvm5Ruxad159ceO0Xre
+         /CYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=c2gJVCiOzZRSOU8yuw0xGh2d/ty3OmRn7TDCBELtPRw=;
+        b=ch1Cvb8n7OAk6PuT8u8t4VKCHtURUPp0UXhuzmvBGlA1yRCxyi5QHHnBVIGjc6TUbO
+         bUTCWAsJpPfX4Brfq0BiwtFQlLsYjRSe1LNPVoNflEivC0nsgJLHruxK09fpMIFrbh7+
+         WN6wr4DvhHslOdpsBFxuioTcuDWwuCf32yBIyTzEpu0Sl0c3omwoKQVdy+RugRn4Ct6a
+         RU1z1JH0/a6BoPJEgTN9h+9MgL75HGd2/qTMoFKFSs04EnrjRoH3IMJMOqqrLZslgGWj
+         dz+tQv4SjEZqReeoJQXw+OHQTqpr/QRSXdrkj5tdKqsjN3I7xaL+waVqfA3tRlBUG9JS
+         IV9A==
+X-Gm-Message-State: AOAM533ktjCok7zlyU6iOyj1mEs17gUzmeglraJR+WEwK5fTtopjS/dp
+	QOcre0JsAHPlAc4378G1oXz085B0NQT9GzfoGly8Ldq0/w8qrg==
+X-Google-Smtp-Source: ABdhPJwybSdTGkZm7YJAMqXFYWPwEvQytGccmmznnyQod+aeJmwsGhJLE6r6AFZtaZndTOAAbR+HVZRPbgBmZFCrWfQ=
+X-Received: by 2002:a92:3652:: with SMTP id d18mr8662777ilf.100.1615720083436;
+ Sun, 14 Mar 2021 04:08:03 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210314093356.10609-1-dmugil2000@gmail.com>
+In-Reply-To: <20210314093356.10609-1-dmugil2000@gmail.com>
+From: Alexandru Ardelean <ardeleanalex@gmail.com>
+Date: Sun, 14 Mar 2021 13:07:52 +0200
+Message-ID: <CA+U=DspBephozOheNQYBX9jG6bdwm4FeOTF_9tEggOWNvTQ32Q@mail.gmail.com>
+Subject: Re: [PATCH] iio:dac:max517: Use devm_iio_device_register()
+To: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Hartmut Knaack <knaack.h@gmx.de>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Peter Meerwald-Stadler <pmeerw@pmeerw.net>, 
+	linux-iio <linux-iio@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+
+On Sun, Mar 14, 2021 at 11:34 AM Mugilraj Dhavachelvan
+<dmugil2000@gmail.com> wrote:
+>
+> Use devm_iio_device_register() to avoid remove function and
+> drop explicit call to iio_device_unregister().
+>
+> Signed-off-by: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+> ---
+>  drivers/iio/dac/max517.c | 9 +--------
+>  1 file changed, 1 insertion(+), 8 deletions(-)
+>
+> diff --git a/drivers/iio/dac/max517.c b/drivers/iio/dac/max517.c
+> index 7e01838ef4d0..5f72f126162d 100644
+> --- a/drivers/iio/dac/max517.c
+> +++ b/drivers/iio/dac/max517.c
+> @@ -189,13 +189,7 @@ static int max517_probe(struct i2c_client *client,
+>                         data->vref_mv[chan] = platform_data->vref_mv[chan];
+>         }
+>
+> -       return iio_device_register(indio_dev);
+> -}
+> -
+
+In this case you can also remove the line with
+     i2c_set_clientdata(client, indio_dev);
+
+A lot of times, when functions like i2c_get_clientdata() get removed,
+the i2c_set_clientdata() function becomes useless.
+i.e. it stores some data that will never be used in the lifetime of the driver.
+
+It isn't always the case that you can do that; so, some care must be
+taken to avoid special cases.
+But in this case, you can remove the i2c_set_clientdata() call.
+
+
+> -static int max517_remove(struct i2c_client *client)
+> -{
+> -       iio_device_unregister(i2c_get_clientdata(client));
+> -       return 0;
+> +       return devm_iio_device_register(&client->dev, indio_dev);
+>  }
+>
+>  static const struct i2c_device_id max517_id[] = {
+> @@ -214,7 +208,6 @@ static struct i2c_driver max517_driver = {
+>                 .pm     = &max517_pm_ops,
+>         },
+>         .probe          = max517_probe,
+> -       .remove         = max517_remove,
+>         .id_table       = max517_id,
+>  };
+>  module_i2c_driver(max517_driver);
+> --
+> 2.25.1
+>

@@ -1,0 +1,145 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp53260ejf;
+        Wed, 10 Mar 2021 17:13:59 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzKvUDnJ0pRbd1ppH7oI8hDyuEB8hkzYE7d9tNbdxpk09+kGlwlb4tll/oSl0NrywqNJ2ky
+X-Received: by 2002:a37:6491:: with SMTP id y139mr5486535qkb.483.1615425239466;
+        Wed, 10 Mar 2021 17:13:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615425239; cv=none;
+        d=google.com; s=arc-20160816;
+        b=uXwuO9SE4o6m3814O3dx6CFbtIalUg5xzdPm6R6nNtt+RIntgIY0SEUvPOq655B3Lu
+         t1Xu8ddnBFWX39u01qKUySJkuLt9RYnC93neNwF0RI66S5FaPm+7d2AC2hQHvcjeaI3Y
+         mc2FCvRtibmg9c8ebjotKahLEzVzl0zIieQvybTJbOtQzPD3JLLG0leFb1WawxJTF4G/
+         CpJEH91xqyoq13vV6KsgjNBHDflchTHv9Zi8WqbraRWbYu1uOD4trT1PpCXZxdaHUB5w
+         rgjvxa7z2AzD0Yjml7I7knbGerCmqc1bTcmK2YYYjgkeub0xKTelj2nhLs5pLg/LnP/K
+         Cvbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:content-transfer-encoding:subject:date:to
+         :from:mime-version:dkim-signature:dkim-signature;
+        bh=V/zg+nBi6fUjP/5E9CvHuMyeW5uRuLrNhZUY6rY7JUo=;
+        b=DdNeYC+nYdfNLBqsL9N7H4woyaF1TtYFrhQDCSgBMLCbu//Fl3uEQorg8PFdZlQ8gO
+         JBa13hCW0JNU/WsEpwVpf6f5jdviNPwdsHS1n0lluz8PJNge3Lo+4VVHKiZmGJW96fjo
+         PU96xultmCfINwIsZZdlFeMFEeAnXWyDnJ4/SCUmpxQ/yj22C6iGsG7G8sdyb/VoOwU7
+         KUHAQ14THOK+GSY+G9H6F45aJM+8wF3/PrYds74WQIOkUBOr00ZK9uMA84+BsTzlRE7H
+         3fviDOBkO9vAUNoUUlMlJrjSA0ZM84hB1D3ZuMARdmFxLSn+1MZjWkdWCbm1PrQ9L/Cr
+         uE0Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@runexam.net header.s=zs2r6kamivim7xittvmczkotn5ok4k55 header.b=foVgbwhx;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=Wph7M1eD;
+       spf=neutral (google.com: 54.240.8.221 is neither permitted nor denied by best guess record for domain of 010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net) smtp.mailfrom=010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net
+Return-Path: <010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net>
+Received: from a8-221.smtp-out.amazonses.com (a8-221.smtp-out.amazonses.com. [54.240.8.221])
+        by mx.google.com with ESMTPS id g7si711029qke.348.2021.03.10.17.13.59
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Wed, 10 Mar 2021 17:13:59 -0800 (PST)
+Received-SPF: neutral (google.com: 54.240.8.221 is neither permitted nor denied by best guess record for domain of 010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net) client-ip=54.240.8.221;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@runexam.net header.s=zs2r6kamivim7xittvmczkotn5ok4k55 header.b=foVgbwhx;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=Wph7M1eD;
+       spf=neutral (google.com: 54.240.8.221 is neither permitted nor denied by best guess record for domain of 010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net) smtp.mailfrom=010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@notifications.runexam.net
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=zs2r6kamivim7xittvmczkotn5ok4k55; d=runexam.net; t=1615425239;
+	h=MIME-Version:From:To:Date:Subject:Content-Type:Content-Transfer-Encoding:Message-ID;
+	bh=l3ixH0nhHF0n8atr2TMUXl5VZyqZC0H/uArc/X52nnY=;
+	b=foVgbwhxzS9srtbIxzkdkPz/WZR+rp5N5GIU2fQ7nDdNRPpwOyGpTldL/qHKg95b
+	QnKiB5qZyBA7Vc6fv4h/mM9ABRRXJS5JcPYpWb4EvMX+iUdnlUialnp98P7pFTSZdGY
+	OiPrTerK9G5ROI99HCySrAhPFqf/8LnJCstVLd1U=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1615425239;
+	h=MIME-Version:From:To:Date:Subject:Content-Type:Content-Transfer-Encoding:Message-ID:Feedback-ID;
+	bh=l3ixH0nhHF0n8atr2TMUXl5VZyqZC0H/uArc/X52nnY=;
+	b=Wph7M1eDaWk70x6QiX5llXWSDZWGC4f3jNt46FcywWmTMcPC1BZA2G9HmDT6ZQ11
+	2qj9g1pxM3D+wznWTlQtVugQfM9ZS4vK44X3AnEPgNG5kuqAXNN6FpjOIhr63VFsoIy
+	VZcJnj3Inu3VFOA7j/x66MpcmXuJoi+QwyUFh+SI=
+MIME-Version: 1.0
+From: "Standav Corp." <noreply@runexam.net>
+To: dmugil2000@gmail.com
+Date: Thu, 11 Mar 2021 01:13:59 +0000
+Subject: Your Exam Information (Standav Campus Drive 2021- Round 1)
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010001781ed8f804-51be19fb-aa03-4ef2-9a6a-a883e7720f26-000000@email.amazonses.com>
+X-SES-Outgoing: 2021.03.11-54.240.8.221
+Feedback-ID: 1.us-east-1.quavkJzk0GWT99lIA++s5zLyeqbE+XIW1Mr2YCd4Lys=:AmazonSES
+
+<div class=3D"main_box" style=3D"width: 600px; background-color: =
+#ffffff; padding: 20px 10px; margin: 0px auto;">=0A<h1 style=3D"t=
+ext-align: center; color: #e8b621; font-size: 26px; margin-bottom=
+: 2px;">Standav</h1>=0A<h2 style=3D"text-align: center; color: #c=
+ccccc; font-size: 18px; margin-top: 0px;">Your upcoming exam info=
+rmation</h2>=0A</div>=0A<table class=3D"main_box" style=3D"width:=
+ 600px; background-color: #ffffff; padding: 20px 10px; margin: 0p=
+x auto;" cellspacing=3D"0" cellpadding=3D"0">=0A<tbody>=0A<tr>=0A=
+<td>&nbsp;Dear Mugilraj D, <br />=0A<table class=3D"table" style=3D=
+"width: 100%; font-size: 12px;" cellspacing=3D"0" cellpadding=3D"=
+0">=0A<tbody>=0A<tr>=0A<td class=3D"first" style=3D"padding: 10px=
+ 5px; border-bottom: dotted 1px #cccccc; text-align: left; width:=
+ 70%; font-weight: normal; font-size: 14px;" colspan=3D"2">Please=
+ see details of your upcoming exam, you can start your exam betwe=
+en the time mentioned below.</td>=0A</tr>=0A<tr>=0A<td style=3D"p=
+adding: 8px 5px 8px 5px; border-bottom: dotted 1px #cccccc; text-=
+align: right; width: 30%;">Exam Name:</td>=0A<td style=3D"padding=
+: 8px 5px 8px 5px; border-bottom: dotted 1px #cccccc; font-weight=
+: bold; width: 70%;">Standav Campus Drive 2021- Round 1</td>=0A</=
+tr>=0A<tr>=0A<td style=3D"padding: 8px 5px 8px 5px; border-bottom=
+: dotted 1px #cccccc; text-align: right; width: 30%;">Avaibility:=
+</td>=0A<td style=3D"padding: 8px 5px 8px 5px; border-bottom: dot=
+ted 1px #cccccc; font-weight: bold; width: 70%;">From Mar 11 2021=
+  9:00AM to Mar 11 2021  9:47AM</td>=0A</tr>=0A<tr>=0A<td style=3D=
+"padding: 8px 5px 8px 5px; border-bottom: dotted 1px #cccccc; tex=
+t-align: right; width: 30%;">Duration (hh:mm):</td>=0A<td style=3D=
+"padding: 8px 5px 8px 5px; border-bottom: dotted 1px #cccccc; fon=
+t-weight: bold; width: 70%;">00:45</td>=0A</tr>=0A<tr>=0A<td styl=
+e=3D"padding: 8px 5px 8px 5px; border-bottom: dotted 1px #cccccc;=
+ text-align: right; width: 30%;">Number of questions:</td>=0A<td =
+style=3D"padding: 8px 5px 8px 5px; border-bottom: dotted 1px #ccc=
+ccc; font-weight: bold; width: 70%;">28</td>=0A</tr>=0A<tr>=0A<td=
+ class=3D"last" style=3D"padding: 8px 5px 8px 5px; border-bottom:=
+ none; text-align: right; width: 30%;">Result Type:</td>=0A<td cl=
+ass=3D"last" style=3D"padding: 8px 5px 8px 5px; border-bottom: no=
+ne; font-weight: bold; width: 70%;"><table></table></td>=0A</tr>=0A=
+</tbody>=0A</table>=0A<br /><br /><br /><span style=3D"margin-lef=
+t: 5%; display: inline-block;">You can sign in to your candidate =
+account by using below credentials.<br />Please note that the exa=
+m will be visible in your "Upcoming Exam" tab on your dashboard o=
+n the time specified.</span> <br /><br />=0A<div class=3D"url_box=
+" style=3D"width: 90%; margin-left: 2%; padding: 1% 3%; color: #b=
+2b2b2;">=0A<table class=3D"table" style=3D"width: 100%; font-size=
+: 14px;" cellspacing=3D"0" cellpadding=3D"0">=0A<tbody>=0A<tr>=0A=
+<td style=3D"padding: 5px 5px 5px 5px; border-bottom: dotted 1px =
+#cccccc; text-align: right; width: 30%; border: none; background-=
+color: #f2f2f2; font-family: Courier New;">URL:</td>=0A<td style=3D=
+"padding: 5px 5px 5px 5px; border-bottom: dotted 1px #cccccc; fon=
+t-weight: normal; width: 70%; border: none; background-color: #f2=
+f2f2; font-family: Courier New;"><a target=3D'_blank' href=3Dhttp=
+s://candidate.speedexam.net/signin.aspx?site=3Dstandavcorp>Your C=
+andidate Site</a></td>=0A</tr>=0A<tr>=0A<td style=3D"padding: 5px=
+ 5px 5px 5px; border-bottom: dotted 1px #cccccc; text-align: righ=
+t; width: 30%; border: none; background-color: #f2f2f2; font-fami=
+ly: Courier New;">Username:</td>=0A<td style=3D"padding: 5px 5px =
+5px 5px; border-bottom: dotted 1px #cccccc; font-weight: normal; =
+width: 70%; border: none; background-color: #f2f2f2; font-family:=
+ Courier New;">dmugil2000@gmail.com</td>=0A</tr>=0A<tr>=0A<td cla=
+ss=3D"last" style=3D"padding: 5px 5px 5px 5px; border-bottom: non=
+e; text-align: right; width: 30%; border: none; background-color:=
+ #f2f2f2; font-family: Courier New;">Password:</td>=0A<td class=3D=
+"last" style=3D"padding: 5px 5px 5px 5px; border-bottom: none; fo=
+nt-weight: normal; width: 70%; border: none; background-color: #f=
+2f2f2; font-family: Courier New;">dmugil2000</td>=0A</tr>=0A</tbo=
+dy>=0A</table>=0A</div>=0A<br /><br />=0A<div style=3D"padding: 0=
+px 10px;"><strong><span style=3D"text-decoration: underline;">Ple=
+ase read these instructions carefully:</span></strong><br /><br /=
+>1. This system supports major popular browsers like Firefox(Vers=
+ion 24 or above), Chrome ((Version 18 or above), Safari ((Version=
+ 6 or above) and Internet Explorer ((Version 11 or above).<br /><=
+br />2. You can check your browser, system and network compatibil=
+ity, go to dashboard and click "Check system compatibility" butto=
+n located on right side. <br /><br />3. Do NOT press "Back" butto=
+n on your browser during your exam.<br /><br />4. Check out this =
+candidate video tutorial for more information https://www.youtube=
+.com/watch?v=3DuTDVvqZtIic#t=3D162 <br /><br />5. If you have any=
+ questions, please do not hesitate to contact us at hr-sgs@standa=
+v.com</div>=0A<div style=3D"padding: 0px 10px;"><br /><br />Best =
+of luck,<br />Kind Regards,<br />Exam Manager,<br /><strong>Stand=
+av.</strong></div>=0A</td>=0A</tr>=0A</tbody>=0A</table>
+

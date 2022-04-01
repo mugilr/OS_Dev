@@ -1,0 +1,124 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp1462229ejf;
+        Wed, 11 Aug 2021 00:04:26 -0700 (PDT)
+X-Received: by 2002:a17:90a:de16:: with SMTP id m22mr36183944pjv.54.1628665466437;
+        Wed, 11 Aug 2021 00:04:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628665466; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gca+uwfJ32PgPc5iucttZCfBa1241TinZE9gJ9Y74GtQC57henLBLEtVQeTEYcPp+1
+         d5XuFhCE2+9C4l/O0c/mjTIOTMducOQEl9DCNg1ERgCfGi+/oDL73qOtFgTXa0XJqjUt
+         JCdP1SaV3wmWBhcI9g/jT6J+4OBHcF/F+nQybHAjKz7KKdMlJMrNrqWy1IyFEUIksu5r
+         RITrC187EiQdTnETIop4zfBZgms2VoPSK74TKZsDXshOsWekmdyqmUKEiNX6pgEKBQv4
+         doyzxc8fAZzg0c6FtQf9CrfuJ47iBQsXrhrU26dl0d/6i0x3pow/BoGFJv4jU1ow+pCV
+         iynQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xzgav6eUnQmltf8HkdcWS198foTYa67bhyoLNro+l84=;
+        b=PqAkq3TqV8gwHa8L8UHxfmp20IGRiAjwAjMI4fEgKeKK22wx7SXLTCnHeET+rsVn/L
+         bfraW5LrwfLN4jGEvEJ6LIcyfv0yEXlWsW3jNmnfdoVfTOO6PwK0sa364PYph/kK3y9q
+         bktIdomYUYf7uDXBsl/DDBMrJzRkhXhuC7ru2zrz0QpzcImGzAsNEIeSHTwAXcimF9e6
+         B7xFntd5SddCcksxrH/EvNP1AVSUizsRpLCW+/KwAmiF9aLX+t9StlXiqwZyDsFER3Yn
+         lNFTn9mVS+Rh+hX3628mKGhp4ypFyvv0M0FCVHDeUS3TUFQFLnP+TyOkI4jBhseH1x+A
+         dEyg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="WYCt/2Bq";
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <andy.shevchenko@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 22sor11814875pja.8.2021.08.11.00.04.26
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Wed, 11 Aug 2021 00:04:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="WYCt/2Bq";
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding;
+        bh=xzgav6eUnQmltf8HkdcWS198foTYa67bhyoLNro+l84=;
+        b=WYCt/2BqlX22QNRrnllXEQcMGmu2Oz0+4wRl2uUVD6Mb2pcmozRVSJaDsgjplbD48v
+         3v0W7+0jNX8finaIFxZWJgmYllxvUDX9IqyMfhsmdcbibshAm+3n/WOp+WoR9sOxz2ww
+         paNcBTn3GYHvUpB+G17QkdxFrMxT/koGcUROUv1KLRaYhw//1OgxwImNS59vw2frC0dG
+         0vLQjTDIEFgiLcav5nEPn+upsOigDdm5AXdyJalpP4RbcCc0t2TmIc+sOwc8meNXiGNo
+         YQXhjDUk+W2/aFL5Lb2qwjcLAN56K6zQ06bO4pELxDQLTXT8GFcMZeolqHcXO7n3Zayb
+         XJUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding;
+        bh=xzgav6eUnQmltf8HkdcWS198foTYa67bhyoLNro+l84=;
+        b=fsJ79Mol5G4X2UKUSfdJDFIX3Q73/F9l4gr4AMHUJj9L4/4nxuFboH2vGhHsN0i4Ys
+         B5H2I2xvCJT79s5ecXET8za5iN0ucoaidDT9Eer4KEJU/Pw1kEoZv5VCTVYZppsSZg60
+         hPhhLZkOlw7iH4C92qW9un/pjcwzPHEAlvsjXz1eFjvk283FLhZoesuiK2OuTkJxP/U1
+         +Z7JfBObdoKXfsjk4TS5BR6l/RIThr9Pj9IAO3lmwMwnoJgcPR3Ji5XvoY6p2FSnVpXb
+         Gn4lhKZotayB789YUFZKL17UKAQ8E/WeWFZAHxmVBFU7wf4+7vXBJHuT2LwbdULt/KMl
+         4njw==
+X-Gm-Message-State: AOAM531WtLAUm5QkV2OMLrpupLxUcEo7LbZMSo+bMSumCqJFebLISzPV
+	NgK/bppsM7hsMt/zqFXwoUaJ7GX9CqnTskWdoH+6gYWVu/0ECcOp
+X-Google-Smtp-Source: ABdhPJwBtkUzFoV8eh3aIXrSMcAt78o66IvJ2x6Gx9IfY5ZJ9PObuCbUjlyKBswnUU6oXboq8dG5YFu0WvtfymT1bKA=
+X-Received: by 2002:a17:90b:33c5:: with SMTP id lk5mr9253206pjb.129.1628665465692;
+ Wed, 11 Aug 2021 00:04:25 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210809075745.160042-1-dmugil2000@gmail.com> <20210809075745.160042-3-dmugil2000@gmail.com>
+ <CAHp75Ve=D1d5wFZgNseP=wGpteEkZHnmAi7j9ykKC+u_NrR5xw@mail.gmail.com> <20210811054558.GA3826@mugil-Nitro-AN515-52>
+In-Reply-To: <20210811054558.GA3826@mugil-Nitro-AN515-52>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 11 Aug 2021 10:03:49 +0300
+Message-ID: <CAHp75VfaeEzodmPPmxxDoScPQzE2+5D_czEHfF0pq6oOVh-6nw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] iio: potentiometer: Add driver support for AD5110
+To: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Cc: "Bogdan, Dragos" <Dragos.Bogdan@analog.com>, Darius <Darius.Berghe@analog.com>, 
+	Rob Herring <robh+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
+	Guenter Roeck <linux@roeck-us.net>, Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+	Slawomir Stepien <sst@poczta.fm>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree <devicetree@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-iio <linux-iio@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Aug 11, 2021 at 8:46 AM Mugilraj Dhavachelvan
+<dmugil2000@gmail.com> wrote:
+> On Tue, Aug 10, 2021 at 03:49:52PM +0300, Andy Shevchenko wrote:
+> > On Mon, Aug 9, 2021 at 10:59 AM Mugilraj Dhavachelvan
+> > <dmugil2000@gmail.com> wrote:
+
+...
+
+> > > +       data->tol =3D data->cfg->kohms * (val & GENMASK(6, 0)) * 10 /=
+ 8;
+> > > +       if (!(val & BIT(7)))
+> > > +               data->tol *=3D -1;
+> >
+> > Shouldn't you simple use corresponding sign_extend*()?
+> >
+> I'm not able see any sign_extend for 16 bit. Is there any other way?
+
+So, then add it in bitops.h the same way it's done for s32 and s64.
+
+...
+
+> > > +       if (!data->cfg)
+> > > +               data->cfg =3D &ad5110_cfg[i2c_match_id(ad5110_id, cli=
+ent)->driver_data];
+> >
+> > Not sure this is not a dead code since you are using ->probe_new().
+> >
+> Even I'm suspecting that and also removing id_table. But I'm not sure of
+> it so just left as it is.
+
+I=C2=B2C ID table is good to have without direct use, but ->probe_new() is
+called if and only if there is a compatible string or ACPI ID match.
+In such case data->cfg may be NULL if and only if the corresponding
+table missed it, but this will be a bug anyway, so the above code will
+rather hide the bug. Hence, please remove it.
+
+
+--=20
+With Best Regards,
+Andy Shevchenko

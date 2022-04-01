@@ -1,0 +1,288 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp2724043ejf;
+        Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+X-Received: by 2002:a17:90a:ce0d:: with SMTP id f13mr7171768pju.85.1615713583698;
+        Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615713583; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xcblIFUuYqKqr3uM1WriNOBx5Aj6WPFVQqLmbV1MWjOf2iak1KzuzVuGwn5liSc14X
+         hDp1t561IrcDbW3qk4N5V5LJMx1GrUrox+bR2XKVxPscbfNTrkieGEXKPKZbjUVZv30S
+         0/i9BO90a7azF633rIUVppbhsVvA10Xg6CwX7jyRrRBclCppSrXAQdUwVJx5Gi463aFF
+         YgO2Rfb745rhF+cbmxu09X0XHtd5Z4xnThhHbzHiQRNmE4TFDeHtQ05p2ZjilT0AN6kp
+         HJJNhV6QgxBZvy6sqTxOoqcvAoN0sM3S1UICTCGD+N7xZm+gro2d3WHQ1JmiwcBks0wt
+         BQtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=nEj6KBe6AKChLcH1MPJwmxzUZgVuga3b6lYv9m2Q7WU=;
+        b=Zq2fi+3Pd0lsBqK4cmxs9VwgUu7trlZo3iDCQBb9MydrRWodB7M3vjDDioi/vxqriX
+         KHJedf5QmgwfIo+TqNNiMkH6QbxNOyAxck2AIeGY+9Fv8WIhgAE4gVX9bOtDYNyxX2y3
+         OVSSDlyVsqeEhD3LNI5gadzubxNzbWeN8qfHTZbrnl5SpoyLM445WA8tTKnhGAra3oaC
+         xBpHTbdLLWshA3B8UmanB9ZMc3g8MVrBXhLDPQ22kuEBtqIjtlE1O6s29h+6v4Sm67jP
+         NsrZC4WrYCy8l16lrK21us9kGQkJ5ALjtBxRQxKXew4fvW6uv6C7ahEndnerD8g0kCRN
+         OWfw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20161025 header.b="QTk/YS/m";
+       spf=pass (google.com: best guess record for domain of postmaster@mail-sor-f69.google.com designates 209.85.220.69 as permitted sender) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id o145sor4115141pfd.58.2021.03.14.01.19.43
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of postmaster@mail-sor-f69.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20161025 header.b="QTk/YS/m";
+       spf=pass (google.com: best guess record for domain of postmaster@mail-sor-f69.google.com designates 209.85.220.69 as permitted sender) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20161025;
+        h=to:auto-submitted:message-id:date:from:subject:references
+         :in-reply-to;
+        bh=nEj6KBe6AKChLcH1MPJwmxzUZgVuga3b6lYv9m2Q7WU=;
+        b=QTk/YS/mjFT/637Nxn2VXkjuKlSzo5kBFRm+snKT48VBu0R7KkfMkO7NX+4O+QTf5J
+         EFjw7gT6R5/X2QS5+bY8UL/ARU2WmXUuk4NAceEQx0HsjJC6tqBPXeZ1FexkYBju/MrP
+         KqOt/SmlMRer0pU0wBGaWF8Rg9o3Ga1Y8PWgAdwy1xLk8Q7nr7Z9Kt+SyyAt9sxyD/z4
+         cLqqIfMLPWu44afwMYQEdvpy3f8BhLwRFFo4gRnGJjrWLotQCgfhVMFbL3C1zGZqJRhN
+         CvRcDa5J3Ut0AAdQS50WQFeV2k3whXY9420phVAQoiR7uzkBXEcmNOny17RDiXYGqP2j
+         Z5eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:to:auto-submitted:message-id:date:from:subject
+         :references:in-reply-to;
+        bh=nEj6KBe6AKChLcH1MPJwmxzUZgVuga3b6lYv9m2Q7WU=;
+        b=CyCRr8pW5Ulu3Dpo4PTIlvGlyuGmTTNv00W9u/D2V/aVE4mSGLwtLkp/tJhx62kj7G
+         H8mLoiuMrInPs0DvOsCzmRf+v+M+Mx211hbjlgRrvSkIgOHFz49qf79zJdlNxr56ssZc
+         ytBKSyNUJgA9+1ottYbFV3FWUx8Ci6XeNjUmqpg7oNIK1Q6t0T7Dg5EaJg/zU9033uB9
+         IZmYf7hhpODexaEV3j6CJw/sb+Zs33yVd0AqwEKs8gWIB32w0ZYWfTm9tE4F9uTSYLhO
+         OMdDJxmJPjwJ1LYdAdgmB4jKkMu+0IQxOs/8CCpuKGT+pNBg0u3L/b3g1Uy0b10BYNuY
+         QSqw==
+X-Gm-Message-State: AOAM5339x+YhH6NBlYQ0jwhX3ijsdrQQ29grYAUNXq9vv3rPbYwYL+x+
+	nX/k7kagbJ28iXc0Cw1cLPQahVk2q771QNB6e/XxMw==
+X-Google-Smtp-Source: ABdhPJw/lODySB3K3a2bYKYZwcp3biscrkYruew0mUm4FpBj2IjJoDrHHhMVqfWNcNZ67DfFbDk8RJfV+v+Ure/fXOaMSWPN4JQB3Ig=
+X-Received: by 2002:a62:485:0:b029:1ef:2110:d91d with SMTP id 127-20020a6204850000b02901ef2110d91dmr5870841pfe.43.1615713583299;
+        Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+Content-Type: multipart/report; boundary="00000000000030ec0e05bd7ba2a5"; report-type=delivery-status
+To: dmugil2000@gmail.com
+Received: by 2002:a62:485:0:b029:1ef:2110:d91d with SMTP id
+ 127-20020a6204850000b02901ef2110d91dmr4398827pfe.43; Sun, 14 Mar 2021
+ 01:19:43 -0800 (PST)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <604dd52f.1c69fb81.909d1.d009.GMR@mx.google.com>
+Date: Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <20210314091910.9648-1-dmugil2000@gmail.com>
+In-Reply-To: <20210314091910.9648-1-dmugil2000@gmail.com>
+X-Failed-Recipients: dmugil2000@gmal.com
+
+--00000000000030ec0e05bd7ba2a5
+Content-Type: multipart/related; boundary="00000000000030f91d05bd7ba2ab"
+
+--00000000000030f91d05bd7ba2ab
+Content-Type: multipart/alternative; boundary="00000000000030f92805bd7ba2ac"
+
+--00000000000030f92805bd7ba2ac
+Content-Type: text/plain; charset="UTF-8"
+
+
+** Address not found **
+
+Your message wasn't delivered to dmugil2000@gmal.com because the domain gmal.com couldn't be found. Check for typos or unnecessary spaces and try again.
+
+
+
+The response was:
+
+DNS Error: 18689149 DNS type 'mx' lookup of gmal.com responded with code NOERROR
+18689149 DNS type 'mx' lookup of gmal.com had no relevant answers.
+18689149 DNS type 'aaaa' lookup of gmal.com responded with code NOERROR
+18689149 DNS type 'aaaa' lookup of gmal.com had no relevant answers.
+18689149 DNS type 'a' lookup of gmal.com responded with code NOERROR
+18689149 DNS type 'a' lookup of gmal.com had no relevant answers.
+
+--00000000000030f92805bd7ba2ac
+Content-Type: text/html; charset="UTF-8"
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" class="email-wrapper" style="padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=0 cellspacing=0><tbody>
+<tr><td style="max-width:560px;padding:24px 24px 32px;background-color:#fafafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style="padding:0 24px 16px 0;float:left" width=72 height=72 alt="Error Icon" src="cid:icon.png">
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Address not found
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+Your message wasn't delivered to <a style='color:#212121;text-decoration:none'><b>dmugil2000@gmal.com</b></a> because the domain gmal.com couldn't be found. Check for typos or unnecessary spaces and try again.
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style="border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align="left" style="padding:48px 10px">
+The response was:<br/>
+<p style="font-family:monospace">
+DNS Error: 18689149 DNS type &#39;mx&#39; lookup of gmal.com responded with code NOERROR
+18689149 DNS type &#39;mx&#39; lookup of gmal.com had no relevant answers.
+18689149 DNS type &#39;aaaa&#39; lookup of gmal.com responded with code NOERROR
+18689149 DNS type &#39;aaaa&#39; lookup of gmal.com had no relevant answers.
+18689149 DNS type &#39;a&#39; lookup of gmal.com responded with code NOERROR
+18689149 DNS type &#39;a&#39; lookup of gmal.com had no relevant answers.
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--00000000000030f92805bd7ba2ac--
+--00000000000030f91d05bd7ba2ab
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNrsnD9sFEcUh5+PRMqZ
+yA0SPhAUQAQFUkyTgiBASARo6QApqVIkfdxGFJFSgGhJAUIiBaQB0ZIOKVCkwUgURjIg2fxL4kS+
+YDvkbC/388bi8N16Z4/d7J/5PsniuD3fyePP772ZeTsDQRAYQL/UGAJAIEAgQCBAIAAEAgQCBAIE
+AkAgyJT3Mv+Eq7vYK8mTE+MDRCAghQECAeRQA5V2ZOpmg5vDx3NPzRbmGRMEcmTrEbNNB8zWfRD+
+f/Efs2e3zCZvMjaksBg27TfbcuSNPEKP9ZyuAQKtHX2O9ncNgWC57umMPKvRNb0GEKgnLoUyxTQC
+rcns0/6uIRAs8/hGf9cQCJZpTpjdO2f25/03z+mxntM1eLtsZAgiUtX4JcaBCAQIBAgECARQ8CJa
+G5jab4J4pm4WZmO3OALVh802fIwcLkyPkcKAGggAgQCBAIEAgQCBABAIEAjKA/1AnahhbO5FdOOY
+VsrrDbPBYcYKgf5D2wLaV3p+22xh1u17tO3S+DTcvxvagUDeivPgx/a/95J/73w7Sj26Hn4pKo2M
+ehuV/KyBJM6d0f7k6RKx/R63vvL2tmf/ItDdM2ZTP6f7nkp9Y2fDx1v9akmpIU+KSCLVUghUQfSL
+zVKeTklbLxGoctw/nzC5rw8L5KRNbkpnKq6pgSqEClzNnFzY+XnYWrt6VpVk1vbwWvg+RKCKMOUw
+Q1LEOXA+/MX3mpJvGDHb265xtnzmFoUK1HaKQGlMtePYM+q2KKjXuaS1NJYIEKgI8jhEgqHt4cqy
+Ky53j3hyHz2bqSLp2o2LbJ7MxKovkGqXteoWpaOk96O9/yF/dF7NwlS36AuIQIBA5celQK4PIxBE
+4LLzrtoLgaALdSy6CJRkWQCBPGLsTHznomZ9nszUECgJ2ml3WWHe+QVFNPSQx6UdZNtxr9pbEShN
+eTTz8mQXHoHSlke7+Z+c9m6VGoHSkEfs/trLW3wQKApN1V3lGfnGu2Z6BFoLtYCs3GWBPAiUCLVh
+/HoaeRCoT9R873KLM/IgUBfapnCpe5AHgXry4pf412ihEHkQqCdxd5VqrcezhUIESsJMTJ+Pdthp
+Z0WgyNlXXPHc2Mc4IVAELl2Gnh8mhUDvCkfbIVAkcbf/aOoO3fMKhqAD3frTa4quwpn0hUDOkQhI
+YYBAgECAQAAU0QlYObl+5Ug8NcprZkZxjUCxRPVA6zmtEXHCBykskrhjgHXN09PoEcgFl4M4H11j
+nBAoApcj6ZoPGScEAgTKApcDoTw5sgWB+sGlz1n90IBAPdE6j1o21PfcC11jLagL1oFWRyGlKU3p
+OxcSJQ7NZAjkhHp/uG2HFAYIBAgECASAQIBAgECAQAAIBOkxEARBtp9wdVfAMOfIifEBIhCQwgCB
+ABAI0oV2jhxZ+nfBatuPZfgBCy0Eqqo8c01b+uu51XZvzOgDWoHNTGR+pCwpLEd5svuAZXlO2uEr
+PyEQ8hRWHgRCHmqg0sjTnLalv6crJQ8C/U8stqNO0I4+VZOHFIY8COS1PGL2ybd5yUMKK7s8zYmL
+dujyd3n+nESgcsvzZd4/KwIhDwIhT35QA6UyE1qyxZnfvJMHgdKS549JC1qvvJOHFIY8CFR5eV5O
+XimqPAhUdHnmfx+zgxdOFXkoqIGKKs/cswnb/8Oeog8HEai48nxUhiFBIORBIOShBioskkbySCLk
+IQIhDwIhj28p7FApR6b1qlEbHGpkO/rr6215vi/zH1r2x7tApSGFAQIBAgECAQIBIBAgECAQIBBA
+LK8FGADCTxYrr+EVJgAAAABJRU5ErkJggg==
+--00000000000030f91d05bd7ba2ab--
+--00000000000030ec0e05bd7ba2a5
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; dmugil2000@gmail.com
+Arrival-Date: Sun, 14 Mar 2021 01:19:42 -0800 (PST)
+X-Original-Message-ID: <20210314091910.9648-1-dmugil2000@gmail.com>
+
+Final-Recipient: rfc822; dmugil2000@gmal.com
+Action: failed
+Status: 4.0.0
+Diagnostic-Code: smtp; DNS Error: 18689149 DNS type 'mx' lookup of gmal.com responded with code NOERROR
+ 18689149 DNS type 'mx' lookup of gmal.com had no relevant answers.
+ 18689149 DNS type 'aaaa' lookup of gmal.com responded with code NOERROR
+ 18689149 DNS type 'aaaa' lookup of gmal.com had no relevant answers.
+ 18689149 DNS type 'a' lookup of gmal.com responded with code NOERROR
+ 18689149 DNS type 'a' lookup of gmal.com had no relevant answers.
+Last-Attempt-Date: Sun, 14 Mar 2021 01:19:43 -0800 (PST)
+
+--00000000000030ec0e05bd7ba2a5
+Content-Type: message/rfc822
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=mR5+My2zJ6S2FVbnbtsPdBrCp76rQJzRPQToIWomYbQ=;
+        b=d/vxlGaEKXwiG9mBguZIBX/pn+oYU7QeNCCdBWT6xl/5YlOBQHA0j8z78qSLtCt7nu
+         V5/AXFRveLueB2DM/IBGeTcXlU/cPV+MndRpNKgrUp13VjT+3FFuzTW9IOCKambsbsAP
+         r7C9cIUdPiLqBpNLzZSfsMN3OQcEbD85gjS5IvIfxGsiBX6AsddwFYhOeQr5d6m4lNPf
+         ug4Dy9UHPYrBjOuCRunzCzedsGJnvys6fNNIXCGq37u/0LBtqTTrbN3QwSBpI9bNLb25
+         MArdDR0ysphWG80Ds+vkcSrqahjgaPu+0Lo9Kp9xuz1bVzD2Ym/PxL+sngmPDP2ngdmj
+         UnhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=mR5+My2zJ6S2FVbnbtsPdBrCp76rQJzRPQToIWomYbQ=;
+        b=tCwrZ6Cv4ehvrrTqisZNxzwHQcsfzLPkavllN4wERXe9JIv34KJGSucXhu2s0tyZXI
+         tE2IwdZuNHSoGLLRUHC9LEzoqwS7kEg04fCKNSfviqg9pLqcuTDhAnNVjt6lMIHp/AXg
+         43vGDWvKGifjtg+DjFOmg4ONFZKOecfL50OBElAT6nhIlApnIei1lvQZ7NcNQTnqryMU
+         BtW1+lBduy3f3x57BLTcFcHuPf+n6v4OIAsmUdlVeNb1/G+rWTmj2mzW5aRjljBwunZZ
+         5vosQzbXkJadxcGSxn403TmXGLJ6Yy4VJ01DxCoslW2Q7qRv36pBJ/Z6aI50tBwZYH8p
+         BA9w==
+X-Gm-Message-State: AOAM533iIyC8apPnw8+EU71xbYC/wNSndHAMRmdjvUvp09a/1Didn8+T
+	PIrcfb12LuZwGf3U2KWLU8A4qw7Hm7/655I/
+X-Google-Smtp-Source: ABdhPJwU/+avgYlR95CqxRocHN2UCIkE+tIeRLo21HDSe0an1WaN2d7xIZLI+fZzOyqWcPyxVuuEsQ==
+X-Received: by 2002:a62:485:0:b029:1ef:2110:d91d with SMTP id 127-20020a6204850000b02901ef2110d91dmr5870813pfe.43.1615713582567;
+        Sun, 14 Mar 2021 01:19:42 -0800 (PST)
+Return-Path: <dmugil2000@gmail.com>
+Received: from localhost.localdomain ([2409:4072:61a:47fe:52e6:571b:e80a:141e])
+        by smtp.googlemail.com with ESMTPSA id 35sm9854409pgm.64.2021.03.14.01.19.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 14 Mar 2021 01:19:42 -0800 (PST)
+From: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+To: dmugil2000@gmal.com
+Cc: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Subject: [PATCH] iio:dac:max517: Use devm_iio_device_register()
+Date: Sun, 14 Mar 2021 14:49:10 +0530
+Message-Id: <20210314091910.9648-1-dmugil2000@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+Use devm_iio_device_register() to avoid remove function and drop explicit call to iio_device_unregister().
+
+Signed-off-by: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+---
+ drivers/iio/dac/max517.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/drivers/iio/dac/max517.c b/drivers/iio/dac/max517.c
+index 7e01838ef4d0..5f72f126162d 100644
+--- a/drivers/iio/dac/max517.c
++++ b/drivers/iio/dac/max517.c
+@@ -189,13 +189,7 @@ static int max517_probe(struct i2c_client *client,
+ 			data->vref_mv[chan] = platform_data->vref_mv[chan];
+ 	}
+ 
+-	return iio_device_register(indio_dev);
+-}
+-
+-static int max517_remove(struct i2c_client *client)
+-{
+-	iio_device_unregister(i2c_get_clientdata(client));
+-	return 0;
++	return devm_iio_device_register(&client->dev, indio_dev);
+ }
+ 
+ static const struct i2c_device_id max517_id[] = {
+@@ -214,7 +208,6 @@ static struct i2c_driver max517_driver = {
+ 		.pm	= &max517_pm_ops,
+ 	},
+ 	.probe		= max517_probe,
+-	.remove		= max517_remove,
+ 	.id_table	= max517_id,
+ };
+ module_i2c_driver(max517_driver);
+-- 
+2.25.1
+
+
+--00000000000030ec0e05bd7ba2a5--

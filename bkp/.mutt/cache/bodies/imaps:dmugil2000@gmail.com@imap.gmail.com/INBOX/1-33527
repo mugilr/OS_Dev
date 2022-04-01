@@ -1,0 +1,267 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp2505411ejf;
+        Sun, 8 Aug 2021 22:20:06 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyEiCyIIYWAjoMVbHI+jclhew8JMGCkO21bFdUdUO9hwo6p/3CK8Ez5JlwaBn5D1RoS5nYJ
+X-Received: by 2002:a63:4f51:: with SMTP id p17mr87090pgl.29.1628486406601;
+        Sun, 08 Aug 2021 22:20:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628486406; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=q5lR8HDNcs7WXYG0kNqTK0OG5P+eVa3TyjAmoDxjxlfXWLHQtzohofCgyBLCi8BPHw
+         XsxbYYUVZfyYqE9yXMF0oXkS+L6kCscJdpV3pOwoYtZmfsoHYVBVvp1aVt7U4VcD7/YR
+         rPn33JUSM9FqPrub+8JD6B18qu1jxvA08oweX5rWzbtVDFES+Kn1nrYKhOndOKPJTQnn
+         kKszcUeaLZ+XJ9VINZC6aOgNhne8eZztFnW4Nkz4k66A4lP3Skw+UDzxoXO0X+ZCSx+b
+         KRefg56hXwRxyVydLb1RyfuWckYhI7QMSTVAkuAdIG/5+f149SCxdRqjvjp1xiZz4lHL
+         y2ew==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=C5yhlUNkZ6sJii/x0zpASABeBfg1csukGEHxJOdxXyU=;
+        b=B4rvpklV1DNKQN6LCsktUr/r9OFSvu+srAtryVw8IO0iyhxzpTEwz/BLyn744BMv53
+         DuKCFHfUb5pm+zZ7uHMYOqmGkwiJqn/kTBwSUpsozbesqk571nyoZxUWyGNMyNJDx6AQ
+         rflDX++7Z7ywwIyZ599U02G66xwiRQjLZOvx+GECTi2DDTSa0FNsIvfVHMXDcXwV5za6
+         FpyuZ+AqP0PQQRR9E48tp5UvcQoQnETO9F7WxUmu6RDAwLQaO8deee+iViWDY5iq5paI
+         ufPXmABNrGHpnlNZkE4SL32JAsLQiUdTITGFdjRfvK5ROdm3+R9JT6g6ugSiUhdrDdGG
+         EFAg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@infoedge.onmicrosoft.com header.s=selector2-infoedge-onmicrosoft-com header.b=yRw96ArU;
+       arc=pass (i=1 spf=pass spfdomain=firstnaukri.com dkim=pass dkdomain=firstnaukri.com dmarc=pass fromdomain=firstnaukri.com);
+       spf=pass (google.com: domain of prathamesh.mone@firstnaukri.com designates 2a01:111:f400:fea5::724 as permitted sender) smtp.mailfrom=prathamesh.mone@firstnaukri.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=firstnaukri.com
+Return-Path: <prathamesh.mone@firstnaukri.com>
+Received: from IND01-BO1-obe.outbound.protection.outlook.com (mail-bo1ind01on0724.outbound.protection.outlook.com. [2a01:111:f400:fea5::724])
+        by mx.google.com with ESMTPS id j17si8391935pfh.27.2021.08.08.22.20.05
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 08 Aug 2021 22:20:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prathamesh.mone@firstnaukri.com designates 2a01:111:f400:fea5::724 as permitted sender) client-ip=2a01:111:f400:fea5::724;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@infoedge.onmicrosoft.com header.s=selector2-infoedge-onmicrosoft-com header.b=yRw96ArU;
+       arc=pass (i=1 spf=pass spfdomain=firstnaukri.com dkim=pass dkdomain=firstnaukri.com dmarc=pass fromdomain=firstnaukri.com);
+       spf=pass (google.com: domain of prathamesh.mone@firstnaukri.com designates 2a01:111:f400:fea5::724 as permitted sender) smtp.mailfrom=prathamesh.mone@firstnaukri.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=firstnaukri.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ebzsmWU3wn/x/lZZWJ5gxa3Rzcr+gliOak82yQ7Q29APt3FQuwTg+pPlOq3u5BINIWpAFOS8BzZj0wMD3XUHuHkEQeKtRvpKtaNYt9id29isMAUVEIQpGApTxuqFwTF68LFziJAHdvg/NjgeETEwxTNUy7yvLaePsaXu6vZDd1j/RpH3AkoWHXaExiNY3pzr6xQHrKZdjGbsjzB23fdcvFOYiu8xivipHh2ielHPLQFF985eRifrg/ESxBeLbjYjPCZlPdk9dNxzCf2vDgUF0wnCm1PsXmRbTWUNUB50dJy0Udm9s3jBHkn3LxPfXniu1YVdM/aYXDiRe1917SeQIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C5yhlUNkZ6sJii/x0zpASABeBfg1csukGEHxJOdxXyU=;
+ b=EjG8JrmXX/c14xS52M8dLDLFNKDJUb4qc18xh/Ox6AYc5AC5U5btURYrUx72vu7boH5WlNeWcBd1LRU8uXuD2cs6isDdMAjZUtejILOHxi5qB+qN8wFlwQEe2Sj1Fz/cnjagQRMQW39yIdkvQsfvLBGdF2X4txJrLlTYAb0cftZu+MVxHNxbHyzRr/QxVkcMSPl4xhqSs8+K+Mu4rygt4FYcvGyl7cp/tApBMmQoWgknryPDmHiZzxOSVeQvzRIxXfzKMVCYaGUaAr5I/3hvUvMFPEPUrw+7cEkbSHyBD3sAUZadroe8m8Apbr+TMHhZVLvsyrJprG39rFEqjUXxJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=firstnaukri.com; dmarc=pass action=none
+ header.from=firstnaukri.com; dkim=pass header.d=firstnaukri.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=infoedge.onmicrosoft.com; s=selector2-infoedge-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C5yhlUNkZ6sJii/x0zpASABeBfg1csukGEHxJOdxXyU=;
+ b=yRw96ArUkh6hJftecAoIbhLZL4uL4/ZxHMRW6MZg66WL6s09sPJ79ohvnvFG21QKTpcx2oarsVgBMc38UKFxRpDPS/AaUS6BPTThw7l5sopWEQI+vm7er9w1i76ZlE/cFhSFrU2vdwHXyOjn7rnCfa1w34Z9zjiSuVCBmD8gJFw=
+Received: from PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:5d::13)
+ by PNZPR01MB4911.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:32::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.21; Mon, 9 Aug
+ 2021 05:20:03 +0000
+Received: from PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::6cfa:c519:15bc:b859]) by PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::6cfa:c519:15bc:b859%5]) with mapi id 15.20.4394.022; Mon, 9 Aug 2021
+ 05:20:03 +0000
+From: Prathamesh Sudhir Mone <prathamesh.mone@firstnaukri.com>
+To: "dmugil2000@gmail.com" <dmugil2000@gmail.com>
+Subject: Firstnaukri.com | Parallel Wireless Webinar - 12 Aug
+Thread-Topic: Firstnaukri.com | Parallel Wireless Webinar - 12 Aug
+Thread-Index: AdeM3gciXVH5SbK4T9647Pn8zYFjng==
+Date: Mon, 9 Aug 2021 05:18:47 +0000
+Message-ID:
+ <PN2PR01MB50793BC34F0FF8DCD088269FEFF69@PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=firstnaukri.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: c0e2d725-36a9-45b2-4bee-08d95af55804
+x-ms-traffictypediagnostic: PNZPR01MB4911:
+x-microsoft-antispam-prvs:
+ <PNZPR01MB49112C13B436577640DAD27FEFF69@PNZPR01MB4911.INDPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:4941;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ +6ncw8r7M3pDp119WA/Kcn5U1G0rwZB0Xk+5+/UBJovv9/m+W9ZTL7NkE/UVv0PORS/rfyeqJGMWg7tnUJymVdOB+1cx/XTUNHo5KBLJSLZv2WRFsM3mQ2zCvXUCPuZcappsG9YARJIh8OuUHtQldl5vCsAAzi+YI1bOjhJHv0yYCezKe3onviDNc95RoAFJBfrWLhWHupuMfySFqfSE2KdKpRoG0BEoYucDNUPu1jeeyykGOL9eDbycgiWIHLy9cAWuCcLQQwJedD0PbMlEk2bywVncnJyiDFR1Or26HQerrOr1RMQAUPeV4nFrxzBpVXSM/u+IGK6wLG9I4c8BPMIGdTrV4ugSHqx5wa3HpbY1OCAN5xod5AOpfYoAfZVy9mC+LGw7RSDye8IkVR254CA5CmcuAuwY1bLw4pfngCFfakWm0ywkN9BKE0rxG9tvq5p0MYp8iJETYXuXukgBB1O7Lm3tzOmf4tnBLZpxuWJDTNl3/ASNP1thxgcaiapzUgu0LKJuZkDWWFVux2i9DXtUzK8gH6f8ruQHmS0LyQ2nDc8pBS8+tEwlLZJgOJuNpu5Hy3jHIe5OO9pVhuMgVpnxULBUkoacHyiaDKC6CLcSIx6bvPZ3iBGo+cL0XkzeR1fKwGzpJhmM3nCF3a9xbw==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(4636009)(366004)(8936002)(316002)(66556008)(66446008)(66476007)(2906002)(9686003)(55016002)(64756008)(508600001)(6666004)(8676002)(71200400001)(52536014)(38100700002)(122000001)(6916009)(5660300002)(88996005)(6506007)(66946007)(7696005)(26005)(186003)(86362001)(33656002)(966005)(21615005)(83380400001)(166002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ IJyYxvunu8WrBfJ7iGfG+JMHVbz3gLxiv84K0vzxmncs3qtLEsj4Cy1DA098HW1cLl1xBrvL3Sgoz2KH8mcfmqa1x0buyNwVbmlC4+q6JvdXeewedEcXhBaIJtqIvXogV8uZ9vbEo9dRSyH+QN2rRA==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_PN2PR01MB50793BC34F0FF8DCD088269FEFF69PN2PR01MB5079INDP_"
+MIME-Version: 1.0
+X-OriginatorOrg: firstnaukri.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN2PR01MB5079.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0e2d725-36a9-45b2-4bee-08d95af55804
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Aug 2021 05:18:47.0267
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0ee9b5f9-52b3-4351-8198-c4804cd66b68
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: swTJwnsmkBcBpKFX+ICRRtVI5H3ujYiP8Ta+r9eJghSUJFcrsuth4TJ3CSOJeyt6+ZlAQoMdZKeVn/3y/T19F1DlGZksN5o11M61a6uhfYs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNZPR01MB4911
+
+--_000_PN2PR01MB50793BC34F0FF8DCD088269FEFF69PN2PR01MB5079INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Candidates,
+
+You have already applied for the Parallel Wireless Hiring Process. We are g=
+lad to inform you about the Parallel Wireless webinar on 12th Aug for 2021 =
+Batch candidates.
+
+PFB the link to register for the same:
+https://www.firstnaukri.com/careers/customised/mailers/parallel-wireless/in=
+dex.html
+
+Webinar Details:
+Date: 12th Aug
+Time: 2 pm to 3 pm
+
+Request you to kindly register on the above and attend the webinar.
+
+Thanks & Regards,
+Prathamesh Mone
+Group Manager - Client Servicing
+DISCLAIMER
+This email and any files transmitted with it are intended solely for the pe=
+rson or the entity to whom they are addressed and may contain information w=
+hich is Confidential and Privileged. Any misuse of the information containe=
+d in this email, including but not limited to retransmission or disseminati=
+on of the said information by person or entities other than the intended re=
+cipient is unauthorized and strictly prohibited. If you are not the intende=
+d recipient of this email, please delete this email and contact the sender =
+immediately.
+
+--_000_PN2PR01MB50793BC34F0FF8DCD088269FEFF69PN2PR01MB5079INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 14 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style>
+</head>
+<body lang=3D"EN-US" link=3D"blue" vlink=3D"purple">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Dear Candidates,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">You have already applied for the Parallel Wireless H=
+iring Process. We are glad to inform you about the Parallel Wireless webina=
+r on 12<sup>th</sup> Aug for 2021 Batch candidates.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">PFB the link to register for the same:<o:p></o:p></p=
+>
+<p class=3D"MsoNormal"><a href=3D"https://www.firstnaukri.com/careers/custo=
+mised/mailers/parallel-wireless/index.html">https://www.firstnaukri.com/car=
+eers/customised/mailers/parallel-wireless/index.html</a><span style=3D"colo=
+r:#1F497D"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Webinar Details:<o:p></o:p></p>
+<p class=3D"MsoNormal">Date: 12<sup>th</sup> Aug<o:p></o:p></p>
+<p class=3D"MsoNormal">Time: 2 pm to 3 pm<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Request you to kindly register on the above and atte=
+nd the webinar.
+<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-IN">Thanks &a=
+mp; Regards,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-IN">Prathames=
+h Mone<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:EN-IN">Group Man=
+ager - Client Servicing<span style=3D"color:#1F497D"><o:p></o:p></span></sp=
+an></p>
+</div>
+<meta name=3D"Generator" content=3D"Microsoft Word 14 (filtered)">
+<style>=0A=
+<!--=0A=
+ /* Font Definitions */=0A=
+ @font-face=0A=
+	{font-family:Calibri;=0A=
+	panose-1:2 15 5 2 2 2 4 3 2 4;}=0A=
+ /* Style Definitions */=0A=
+ p.MsoNormal, li.MsoNormal, div.MsoNormal=0A=
+	{margin:0in;=0A=
+	margin-bottom:.0001pt;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Calibri","sans-serif";}=0A=
+.MsoChpDefault=0A=
+	{font-family:"Calibri","sans-serif";}=0A=
+.MsoPapDefault=0A=
+	{margin-bottom:10.0pt;=0A=
+	line-height:115%;}=0A=
+@page WordSection1=0A=
+	{size:8.5in 11.0in;=0A=
+	margin:1.0in 1.0in 1.0in 1.0in;}=0A=
+div.WordSection1=0A=
+	{page:WordSection1;}=0A=
+-->=0A=
+</style>
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:7.5pt;font-family:&quot;Ari=
+al&quot;,&quot;sans-serif&quot;;=0A=
+color:gray">DISCLAIMER
+</span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:7.5pt;font-family:&quot;Ari=
+al&quot;,&quot;sans-serif&quot;;=0A=
+color:gray">This email and any files transmitted with it are intended solel=
+y for the person or the entity to whom they are addressed and may contain i=
+nformation which is Confidential
+ and Privileged. Any misuse of the information contained in this email, inc=
+luding but not limited to retransmission or dissemination of the said infor=
+mation by person or entities other than the intended recipient is unauthori=
+zed and strictly prohibited. If
+ you are not the intended recipient of this email, please delete this email=
+ and contact the sender immediately.</span></p>
+</div>
+</body>
+</html>
+
+--_000_PN2PR01MB50793BC34F0FF8DCD088269FEFF69PN2PR01MB5079INDP_--

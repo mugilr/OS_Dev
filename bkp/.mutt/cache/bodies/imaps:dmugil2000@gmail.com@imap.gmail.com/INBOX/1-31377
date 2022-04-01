@@ -1,0 +1,188 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp4417202ejk;
+        Mon, 1 Mar 2021 22:13:15 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxEe5l6wV2BDNei9VgY0Ly8xyauTEsz+svxUQO93Bigokh55rIukDUu16qBNh4z55mOBDTS
+X-Received: by 2002:a05:6402:2683:: with SMTP id w3mr19177742edd.378.1614665594881;
+        Mon, 01 Mar 2021 22:13:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614665594; cv=none;
+        d=google.com; s=arc-20160816;
+        b=S1HeTvUyLKiS0wamCw/PwsuaAkY2Pkv1vK4PJxUJNp05Un4WJ9lCmxbC7Ht2EfKrG4
+         KultvgbX96hvE8Filb1blKNMwGSCFYOJX4lZRX0PIT4vqg/cXIcCxIXaR0jeNJ4sC3Wr
+         GwWXXUq5w7uMRWAacwnK/arNc3k7EPSOSy8feWSibTY68uCHvjc3ima7yqWOh4ewav5I
+         zUIiIPOnM6XSXYkH2h0/wP661tByIm1vkKnZwl3fvKixjKl1nOTyZ4JC2gRtogbt4FLw
+         +q6iAZ7GxrMyL0m6U2oo8hgStMvx80g6b3ovmiJ94FHE+yf109jW56kmgJ45u3MRJhbq
+         6wJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:message-id:to:reply-to:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=5FG2uUDCxJT3mku0AeddMg3HNSwGLaoPP5gCd/YbLPA=;
+        b=LCOsb1fGVymQi5YkVkKJKt6PvRTNvcElQp6lZsI3od4pPqXaND9T9m9dHWyvR23vf8
+         c8cx4bmMdpZvop6rUSxl0S1T5fXGMcDtyNQTdgOlRzuiX+j8oICi+83e5uUKkIyru7Mv
+         OrA+5tdO782yrusl59HDOsrPrkp08+bh5VG9uH0X6+nFly1dvHfe2DQpcsynfjqLdn5d
+         OwGauF00DGo1Qmbn0dilplA6Lk/YD3kfFtSpty9Vj2o6Q8dEOQe0B/UCAkufofZL1zWA
+         gbmdw06nt2n2dfCsPfjjWuFzqyUpHi/jPT1bLpwI1WRdeLRuqwD829CIzWLnCU6rVgpE
+         GOAQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@zoom.us header.s=sg header.b=lXSDu2YR;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=H4Ss0KF5;
+       spf=pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.196.70 as permitted sender) smtp.mailfrom="bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us
+Return-Path: <bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us>
+Received: from o2.sg.zoom.us (o2.sg.zoom.us. [149.72.196.70])
+        by mx.google.com with ESMTPS id ca23si12696774edb.96.2021.03.01.22.13.14
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 01 Mar 2021 22:13:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.196.70 as permitted sender) client-ip=149.72.196.70;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@zoom.us header.s=sg header.b=lXSDu2YR;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=H4Ss0KF5;
+       spf=pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.196.70 as permitted sender) smtp.mailfrom="bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zoom.us; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject; 
+	s=sg; bh=5FG2uUDCxJT3mku0AeddMg3HNSwGLaoPP5gCd/YbLPA=; b=lXSDu2Y
+	RT2prsx8YVHP9BwGjQuJMhJeCajZnP2EoRUrAdkgnfS8T5sNLW+ZfNEjM35nZANO
+	K2omZbF15Q6k3bB8G15Ex3q3knuuzkVyq5LyA8050jHp+jduMxajJ+775BvAMYkR
+	RrStS+9eO2lf5WVZXOYiXa5HwoLDiUTa0YBnPYkLVb2SrntCY1GaeeK6XugdH3nk
+	+cvaZdvikSxFCvq1gYHesXNgpFLgTGI/6r8hGWq9gl5H0kFLX7WTgvbylPLIeOJV
+	bmFgRhtMTpvznk1XxbvjDjx4fOpAFW3K2iWLRtZOLz6V9Tn2TfnLdDZ0BaHcLMZs
+	+vujsZhmOmMWAJA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject:x-feedback-id; 
+	s=smtpapi; bh=5FG2uUDCxJT3mku0AeddMg3HNSwGLaoPP5gCd/YbLPA=; b=H4
+	Ss0KF5WQJMFDWbRKYZPru3wXQp9C4yn286ga9axn4xjd7WK6zPtUK3/CzOowQ5RN
+	tSI+ZxwZNMI+i1M2HAtdLdgPJLaAXXNgUAnX9+Q75wTEozPMLMfS4k/+zUwAnHrY
+	VyIDNQmJ+q67bDWhHCet6dU+RL2yteGBxFqc8oXiQ=
+Received: by filter1836p1iad2.sendgrid.net with SMTP id filter1836p1iad2-8274-603DD777-6
+        2021-03-02 06:13:11.292515165 +0000 UTC m=+296649.877924171
+Received: from MTU1NzAzODg (unknown)
+	by ismtpd0087p1mdw1.sendgrid.net (SG) with HTTP id uBasUYORT52aT5XYx_WORg
+	Tue, 02 Mar 2021 06:13:11.267 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 02 Mar 2021 06:13:11 +0000 (UTC)
+From: "The Linux Foundation Webinar" <no-reply@zoom.us>
+Mime-Version: 1.0
+Reply-to: "The Linux Foundation Webinar" <lf-events-webinar@linuxfoundation.org>
+To: dmugil2000@gmail.com
+Message-ID: <uBasUYORT52aT5XYx_WORg@ismtpd0087p1mdw1.sendgrid.net>
+Subject: LF Live Mentorship Session: Fuzzing Linux Kernel Confirmation
+X-SG-EID: 8cHo1McgdtsgsC/v+00RjBch0nZ0lYxprs9RXAE8SB3VQ+6crQqRRdPh5N+js5iTfhS9iksCZAX440
+ k6tTVNWCJW3EyyQoDdoYAIQRa0zv0fLevTiAQeeHhu2DHYysnVwBMkiJ910z3e8TKATushR1MwHWiD
+ fi6+g+ov4mC1IXeZjuIlg4+9JFUhMQi+lDWpFnlSWSCwwKWRsKVE+q10om/PjTDb22q5JXxgFt8Oso
+ WjWX1N915FuzMaMyeQLWmC
+X-SG-ID: FQe39T3hAAZVe+nLebR7eF4z1zICzYSnprHuLPD6htCAuvgmgdntv5ey/yAghBsqfnyhTMAkUgkEJI
+ xdd7fYOkAvrZMyZm1gEtmWJlpmKIKzu1I04EX/nwI+cAhtEVEdyUjudQBFOXMiykbbgqHqhJbmDAxB
+ 3i3j/WxbsBfQiSpd9DIXxogcWuC5HY2jM+9T01+UzoxasKwiut5z0BxQkxtftKrB+uUx1g9gCgvy9J
+ q/sFOWfH0nwx4rGhVvsT5s4MAKZwEtdpeHh+t5LPDlaEt6CW35tEHzXM4gni79OiJk3Wyner7nSQAQ
+ DGBBMWyuVI05vmYG/dTYPfz5ejP9X/arpfXHvGalQtID0/r3JBYn4QKnbka75tSYjYyQR8ALar3B43
+ OR0zlR9NR391ZKrqUN3wrqPXaMNbgutYxyH+HSRNicg71GwcT733uuzy8ihdefx0UoxRLZfjyxJlfH
+ 5iQVAypYGaT8gxf7Y9bNdvfcq+h/P/XyGHCVw5QkcPcHUzC4rjJQF3PQWo4qEl4HNiPCahs4VmMn+Y
+ /XI57soQbG07gHKd7OMiFb4WRs/PR1
+X-Entity-ID: mDhfxq9OikvIkQieTwdfQA==
+X-Feedback-ID: 15570388:Uurqdr1pO8QgovenBUEXF3ujE2ekchWZ5iORBorzPoE=:olyyjZJcOGH2FbVritG/OfKyQJF5F69sjgvXs9HGGwUfywr+an3n57FAB+Ioj7vq:SG
+
+<html>
+<head>
+	<style>
+	html,body{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+	}
+	.custom_logo {
+		margin: 0 auto;
+		max-width:640px;
+	}
+	.img-responsive {
+		display: block;
+		height: auto;
+		max-height: 200px;
+		align: middle;
+	}
+	.custom_image {
+		float: right;
+		margin: 10px 0 10px 10px;
+		max-width:100px;
+	}
+	.cssTab{
+	    margin-left:24px;
+	}
+	</style>
+	<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+</head>
+<body>=20
+<table style=3D"width:100%;background-color:#fff">
+<tr>
+	<td  >Hi MUGILRAJ D,  <br>
+<br>
+Thank you for registering for "LF Live Mentorship Session: Fuzzing Linux Ke=
+rnel".
+<br>
+
+<br>
+Please submit any questions to: lf-events-webinar@linuxfoundation.org<br>
+<br>
+Date Time: Mar 2, 2021 07:30 AM Pacific Time (US and Canada) <br>
+<br>
+Join from a PC, Mac, iPad, iPhone or Android device: <br>
+<div class=3D"cssTab">
+    <a href=3D"https://zoom.us/w/92635285312?tk=3DEBHAcUT6Z4mkQ66JbAwJLGYmb=
+veim99oW1lSwmFrTpA.DQIAAAAVkX5HQBY2bGhVeEhJMFE3R3pvc0wyM25UVURRAAAAAAAAAAAA=
+AAAAAAAAAAAAAAAA&pwd=3Da3NjRGVtaEtBNEF6ODVpdTRPNU1ZZz09&uuid=3DWN_ys_2SHOpS=
+cSfkhh4phI98Q">Click Here to Join</a><br>
+Note: This link should not be shared with others; it is unique to you.<br>
+Passcode: 895241<br>
+    <a href=3D"https://zoom.us/webinar/tJYrdOyqpj4pG9ZrLOxnRW4pKeEUCuEfr_R0=
+/ics?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=3Dicalendar">Add to Calendar</a>=
+ &nbsp;  <a href=3D"https://zoom.us/webinar/tJYrdOyqpj4pG9ZrLOxnRW4pKeEUCuE=
+fr_R0/calendar/google/add?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=3Dgoogle">A=
+dd to Google Calendar</a> &nbsp; <a href=3D"https://zoom.us/webinar/tJYrdOy=
+qpj4pG9ZrLOxnRW4pKeEUCuEfr_R0/ics?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=3Dy=
+ahoo">Add to Yahoo Calendar</a>
+</div>
+    Description: Fuzzing (or Fuzz Testing) is an automated process of findi=
+ng bugs by feeding random inputs into a program.<br/>
+<br/>
+In this session, Andrey will explain how to apply fuzzing to the Linux kern=
+el and what kind of kernel interfaces a fuzzer can target. He will briefly =
+cover the existing ready-to-use fuzzers (such as Trinity and syzkaller) but=
+ mainly focus on the underlying ideas and approaches: writing fuzzing harne=
+sses, generating inputs, and collecting coverage (via kcov).
+<br/>
+<br>
+Or iPhone one-tap :<br>
+<div class=3D"cssTab">
+    US: +16699006833,,92635285312#  or +12532158782,,92635285312#=20
+</div>
+<br>
+Or Telephone:<br>
+<div class=3D"cssTab">
+    Dial(for higher quality, dial a number based on your current location):
+	&nbsp;&nbsp;&nbsp;&nbsp;<br>US: +1 669 900 6833  or +1 253 215 8782  or +1=
+ 346 248 7799  or +1 929 205 6099  or +1 301 715 8592  or +1 312 626 6799=
+=20
+	<br>
+    Webinar ID: 926 3528 5312 <br>
+    International numbers available: <a href=3D"https://zoom.us/u/aea9rNFPd=
+C">https://zoom.us/u/aea9rNFPdC</a>
+</div>
+<br>
+<br>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+<br>
+You can <a href=3D"https://zoom.us/webinar/register/tJYrdOyqpj4pG9ZrLOxnRW4=
+pKeEUCuEfr_R0/success?act=3Dcancel&user_id=3D6lhUxHI0Q7GzosL23nTUDQ" target=
+=3D"_blank">cancel</a> your registration at any time.
+
+</td>=09
+</tr>
+
+<tr style=3D"height:40px">
+	<td>&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>=

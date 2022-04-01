@@ -1,0 +1,336 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp3616141ejf;
+        Tue, 3 Aug 2021 21:48:02 -0700 (PDT)
+X-Received: by 2002:a6b:610b:: with SMTP id v11mr361200iob.70.1628052482556;
+        Tue, 03 Aug 2021 21:48:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628052482; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mjbF2tBpstG8gOGKpWMlHLas4Qpwjo+VSoFj9IIXZ4MAmddIr0M/61m/rF/YEjRo1a
+         AR1r8GcvuarPCxjEX/+QE5j7eggIs5xoUdyDPuiyVowrUfFf48qXDr12AF/2Wc++fKHD
+         /awN/N8qsiKFbMnHd5mQvTU6/gnvLnLUhC/5u+vHaArJF3+32fCXCwiH/0jE8buPfPIx
+         0k7sZd+Q/kLPl8CYifUgXojCtajJg9NauYLis0m+6VcBuRy/WQqyTEnGYooIqv/BZy7r
+         fP3mCRLYPBnt+gg8SQHIkffP3/10fVdMfmfwWbATwfPottmMtgXK0e1fHmhjo8pGJsX1
+         QWVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:date:mime-version:dkim-signature;
+        bh=V2hQHXAUXvPAPf5nTK4BHzZE+kmtxxjzgkwIR6nsEJs=;
+        b=XG7toNceoWpK9oZz/o5CDDD4j4jVCHkdTBOyMXHVTXbYiQiGuoN9KscsPb+pHYOymV
+         PpQirw7GAhNslUDKcuvGABwZ0xDXVG3TeWxZ8ZeraMIEQsfG8oHbHOeHCXKMk5ePU4Cn
+         orDDp4WPY+C09yTqdffettmiwaWIIVlA+zhVn2sYr24xUTkYEfQ4zH2C8NpBhkRLnC71
+         34mhrVbb1OWcdxfASvi2m3IPyyjwoL/qhAlDEHCDPlunsUClU3XcMONeyJ8WCcBPIuYD
+         IuXZ4G/Khk3YrCkZOClW/YYNHbIKJfjYofp8aY4cdkthuDLVZLVLNYUAq1oabKuiQojY
+         AOkA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=U4Stkl5D;
+       spf=pass (google.com: domain of 3ahwkyrebahehjbbtgdurdst-egdspeexs.vddvatjhtgrdcitci.rdb@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3AhwKYREbAHEhjbbTgdURdST-egdSPeeXS.VddVaTjhTgRdciTci.Rdb@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3AhwKYREbAHEhjbbTgdURdST-egdSPeeXS.VddVaTjhTgRdciTci.Rdb@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id s2sor532396iol.88.2021.08.03.21.48.02
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Tue, 03 Aug 2021 21:48:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3ahwkyrebahehjbbtgdurdst-egdspeexs.vddvatjhtgrdcitci.rdb@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=U4Stkl5D;
+       spf=pass (google.com: domain of 3ahwkyrebahehjbbtgdurdst-egdspeexs.vddvatjhtgrdcitci.rdb@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3AhwKYREbAHEhjbbTgdURdST-egdSPeeXS.VddVaTjhTgRdciTci.Rdb@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:message-id:subject:from:to;
+        bh=V2hQHXAUXvPAPf5nTK4BHzZE+kmtxxjzgkwIR6nsEJs=;
+        b=U4Stkl5D3/YvV3MLrs6zrJ/+fUa890HOr/p3bNhilOOgZGyUjDS3ofJ5utIDD9dyTm
+         myqwmwbTkDEGGV5rNIZyr/CZecBUVBO5HaHNDoEHebw3jdkOSWK1FGMa5r4VLQjmW2CR
+         pnHAXf7v06Cf6A4nlrd6qoCPN1sjQc7DwmUhyXtuwxBy2xNI0H1l18aY7kP86HREYr6H
+         kedzeJco46qmcJLKWAY33Uc7SItRGfjkdMknt0K1e0CfXAcjsnVGzCjk+JQwR34ji83i
+         LkqJREEMaJnEdKmFw7Ex5wMW7oTS3YsaCjy2mUXPMEuN/Jz35awjhqPPLtx2L2X8lwNr
+         c8ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:message-id:subject:from:to;
+        bh=V2hQHXAUXvPAPf5nTK4BHzZE+kmtxxjzgkwIR6nsEJs=;
+        b=TjV7HKh7UA+V7hJERL3qA7h4LVFN9L686wUOf6cclwvkKv57nAutQzrrYMZo9MPDS2
+         1bARALT6PX7MEblPUJSOLuF1YOp0xAqSuOAEuE+JW9kEC3e8ND4ZxFybF2HHRJFDofUs
+         Vulmp40eITw2cGG18N/RAzc+2lNtOvN5xRZ7ASx9czDb30wJ75sh4vyH4IcK4eHMNZ7A
+         SiwMYVzFsCO3O05jRr1sPSFQHw15uBQ+jrulZGd62i5DcQJftdZs/nhsls6/dhvr5UhY
+         BF2YEADkseai3wlm9iukGcIiYZjZUIlRRVi76uihMO+AcL3dsAUAavLXnIqBexCG4Pg2
+         S84A==
+X-Gm-Message-State: AOAM532ci07W1x5NJXwojOaLzLmXnD5JMPX3m6D58rnDF62A12DYKZ0Z
+	j+TYIWdaDkqWHefym1/hG8/2ENBwCRMkMyZUgcoCzHudogb1
+X-Google-Smtp-Source: ABdhPJz+Yiwd4XFNfDtFMP4gIgcsOGrLEXQcVQgfGQvNXppJWhAywswmuotPA31Svbh+c1KlEa237U4408GSyYjYpc0fv85g8B5d
+MIME-Version: 1.0
+X-Received: by 2002:a5d:938a:: with SMTP id c10mr1488017iol.0.1628052482231;
+ Tue, 03 Aug 2021 21:48:02 -0700 (PDT)
+Date: Tue, 03 Aug 2021 21:48:02 -0700
+X-Google-Appengine-App-Id: s~summerofcode-prod
+X-Google-Appengine-App-Id-Alias: summerofcode-prod
+Message-ID: <000000000000e1129c05c8b4814d@google.com>
+Subject: GSoC 2021: IMPORTANT Project Submission Guidelines for Final Evaluation
+From: Google Summer of Code <summerofcode-noreply@google.com>
+To: dmugil2000@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000e1128805c8b4814a"
+
+--000000000000e1128805c8b4814a
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Hi Mugilraj D,
+Congratulations you are now in the final, most exciting phase of the Google=
+ Summer of Code program. Be sure to make the most out of these last 2 weeks=
+ of GSoC 2021!
+Work Product Submission Guidelines
+Be sure to read the Work Product Submission Guidelines (https://developers.=
+google.com/open-source/gsoc/help/work-product) so that you are prepared for=
+ the Final Evaluation phase starting August 16th.
+Be sure to discuss with your mentor the best options for your project. Each=
+ organization will have their own preference on how they want you to show y=
+our work product. These next couple of weeks are a very important time to b=
+e sure you are communicating regularly with your mentors.
+Remember Final Evaluations open up for students on August 16th at 18:00 UTC=
+ and the deadline to submit your Final Evaluation is August 23rd at 18:00 U=
+TC. And the final evaluation is not just an evaluation of your mentor, you =
+must include a URL to the work you have produced in GSoC - be sure to read =
+the Work Product Submission Guidelines thoroughly for all of the details.
+Important Upcoming Deadlines - ADD TO YOUR CALENDARS now!
+August 16 - 23: Students submit their code, write tests and documentation, =
+and submit a final evaluation of their Mentor
+August 23 18:00 UTC: Deadline to submit your code and your evaluation of yo=
+ur mentor. Do not wait until the last minute to submit, if you miss the dea=
+dline your project will fail. Be sure to communicate with your mentor as th=
+ey will likely require you to merge your code sooner than this deadline so =
+they can evaluate your work. Mentor evaluations of students begin August 23=
+. All work must be submitted before August 23 at 18:00 UTC. Anything submit=
+ted after that will not be considered in your mentor's evaluation of your w=
+ork.
+August 23 - 30: Mentors submit final evaluations of students
+August 27: Student Online Summit - 1500 - 2000 UTC (invites and more info c=
+oming later this week)
+August 31: Students passing GSoC 2021 are announced
+August 31: Students who pass receive their final payment (55%)
+Important Links
+GSoC 2021 Student Emails (https://docs.google.com/document/d/16jpmv6TP3ZAvJ=
+h7BKhnh7C25Jy4H1PFPmqOT7gnAWdw/edit?usp=3Dsharing)
+Roles and Responsibilities (https://developers.google.com/open-source/gsoc/=
+help/responsibilities)
+GSoC Student Guide (https://google.github.io/gsocguides/student/)
+Need to contact Google Administrators? Please contact us at gsoc-support@go=
+ogle.com (mailto:gsoc-support@google.com).
+
+This email was sent to dmugil2000@gmail.com.
+
+You are receiving this email because of your participation in Google Summer=
+ of Code 2021. https://summerofcode.withgoogle.com (https://summerofcode.wi=
+thgoogle.com)
+
+To leave the program and stop receiving all emails, you can go to your prof=
+ile (https://summerofcode.withgoogle.com/dashboard/profile/) and request de=
+letion of your program profile.
+
+For any questions, please contact gsoc-support@google.com.
+Replies to this message go to an unmonitored mailbox.
+
+=C2=A9 2021 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043,=
+ USA
+
+--000000000000e1128805c8b4814a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;">
+<head>
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width">
+	<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+	<title>Google Summer of Code</title>
+</head>
+<body bgcolor=3D"#f6f6f6" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; marg=
+in: 0; padding: 0; -webkit-font-smoothing: antialiased; height: 100%; -webk=
+it-text-size-adjust: none; width: 100%;">
+	<!-- body -->
+	<table class=3D"body-wrap" bgcolor=3D"#f6f6f6" style=3D"font-family: 'Helv=
+etica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; li=
+ne-height: 1.6em; margin: 0; padding: 20px 20px 10px 20px; width: 100%;">
+		<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;">
+			<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Aria=
+l, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;"=
+></td>
+			<td class=3D"container" bgcolor=3D"#FFFFFF" style=3D"font-family: 'Helve=
+tica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; lin=
+e-height: 1.6em; margin: 0; padding: 20px 20px 20px 20px; border: 1px solid=
+ #f0f0f0; clear: both; display: block; Margin: 0 auto; max-width: 600px;">
+				<table class=3D"logo-wrap" width=3D"100%" style=3D"font-family: 'Helvet=
+ica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; line=
+-height: 1.6em; margin: 0; padding: 0; width: 100%; border-bottom: 2px soli=
+d #f0f0f0; margin-bottom: 20px;">
+					<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ar=
+ial, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0=
+;">
+						<td align=3D"center" style=3D"font-family: 'Helvetica Neue', 'Helveti=
+ca', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; mar=
+gin: 0; padding: 0;">
+							<img class=3D"logo" width=3D"280" height=3D"150" alt=3D"Google Summe=
+r of Code" src=3D"https://storage.googleapis.com/gsoc-static/summer-of-code=
+-logo-email.png" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helve=
+tica, Arial, sans-serif; line-height: 1.6em; margin: 0; padding: 0; max-wid=
+th: 600px; font-size: 32px; width: auto; margin-bottom: 10px; text-align: c=
+enter; font-weight: bold; color: #666666;">
+						</td>
+					</tr>
+				</table>
+				<!-- content -->
+				<div class=3D"content" style=3D"font-family: 'Helvetica Neue', 'Helveti=
+ca', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; pad=
+ding: 0; margin: 0 auto; display: block; max-width: 600px;">
+					<table style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica,=
+ Arial, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding=
+: 0; width: 100%;">
+						<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, A=
+rial, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: =
+0;">
+							<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding:=
+ 0;">
+									<p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica,=
+ Arial, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-size: 1=
+4px; font-weight: normal; margin-bottom: 10px;">Hi Mugilraj D,</p>
+	<p>Congratulations you are now in the final, most exciting phase of the Go=
+ogle Summer of Code program. Be sure to make the most out of these last 2 w=
+eeks of GSoC 2021!</p>
+<h3>Work Product Submission Guidelines</h3>
+<p><strong>Be sure to read the <a href=3D"https://developers.google.com/ope=
+n-source/gsoc/help/work-product">Work Product Submission Guidelines</a> so =
+that you are prepared for the Final Evaluation phase starting August 16th</=
+strong>.</p>
+<p>Be sure to discuss with your mentor the best options for your project. E=
+ach organization will have their own preference on how they want you to sho=
+w your work product. These next couple of weeks are a very important time t=
+o be sure you are communicating regularly with your mentors.</p>
+<p>Remember Final Evaluations open up for students on August 16th at 18:00 =
+UTC and the deadline to submit your Final Evaluation is August 23rd at 18:0=
+0 UTC. And the final evaluation is not just an evaluation of your mentor, y=
+ou must include a URL to the work you have produced in GSoC - be sure to re=
+ad the Work Product Submission Guidelines thoroughly for all of the details=
+.</p>
+<h3>Important Upcoming Deadlines - ADD TO YOUR CALENDARS now!</h3>
+<p><strong>August 16 - 23</strong>: Students submit their code, write tests=
+ and documentation, and submit a final evaluation of their Mentor<br>
+<strong>August 23 18:00 UTC</strong>: <strong>Deadline to submit your code =
+and your evaluation of your mentor</strong>. Do not wait until the last min=
+ute to submit, if you miss the deadline your project will fail. Be sure to =
+communicate with your mentor as they will likely require you to merge your =
+code sooner than this deadline so they can evaluate your work. Mentor evalu=
+ations of students begin August 23. All work must be submitted before Augus=
+t 23 at 18:00 UTC. Anything submitted after that will not be considered in =
+your mentor's evaluation of your work.<br>
+<strong>August 23 - 30</strong>: Mentors submit final evaluations of studen=
+ts<br>
+<strong>August 27:</strong> Student Online Summit - 1500 - 2000 UTC (invite=
+s and more info coming later this week)<br>
+<strong>August 31</strong>: Students passing GSoC 2021 are announced<br>
+<strong>August 31:</strong> Students who pass receive their final payment (=
+55%)</p>
+<h3>Important Links</h3>
+<p><a href=3D"https://docs.google.com/document/d/16jpmv6TP3ZAvJh7BKhnh7C25J=
+y4H1PFPmqOT7gnAWdw/edit?usp=3Dsharing">GSoC 2021 Student Emails</a><br>
+<a href=3D"https://developers.google.com/open-source/gsoc/help/responsibili=
+ties">Roles and Responsibilities</a><br>
+<a href=3D"https://google.github.io/gsocguides/student/">GSoC Student Guide=
+</a></p>
+<p>Need to contact Google Administrators? Please contact us at <a href=3D"m=
+ailto:gsoc-support@google.com">gsoc-support@google.com</a>.</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- /content -->
+			</td>
+			<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Aria=
+l, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;"=
+></td>
+		</tr>
+	</table>
+	<!-- /body -->
+<!-- footer -->
+<table class=3D"footer-wrap" bgcolor=3D"#f6f6f6" style=3D"font-family: 'Hel=
+vetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; l=
+ine-height: 1.6em; margin: 0; padding: 0 40px; width: 100%; clear: both;">
+  <tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;">
+	<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial,=
+ sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;"><=
+/td>
+	<td class=3D"container" style=3D"font-family: 'Helvetica Neue', 'Helvetica=
+', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; margi=
+n: 0; padding: 0; clear: both; display: block; Margin: 0 auto; max-width: 6=
+00px;">
+	  <!-- content -->
+	  <div class=3D"content" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; padd=
+ing: 0; margin: 0 auto; display: block; max-width: 540px;">
+		<table style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ar=
+ial, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0=
+; width: 100%;">
+		  <tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;=
+">
+			<td align=3D"center" style=3D"font-family: 'Helvetica Neue', 'Helvetica'=
+, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; margin=
+: 0; padding: 0;">
+			  <p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-weight: nor=
+mal; margin-bottom: 10px; font-size: 11px; color: #666666;">
+			  	This email was sent to dmugil2000@gmail.com.
+			  </p>
+			  <p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-weight: nor=
+mal; margin-bottom: 10px; font-size: 11px; color: #666666;">
+			  You are receiving this email because of your participation in Google S=
+ummer of Code 2021. <br style=3D"font-family: 'Helvetica Neue', 'Helvetica'=
+, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6em; margin=
+: 0; padding: 0;"><a href=3D"https://summerofcode.withgoogle.com" style=3D"=
+font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; l=
+ine-height: 1.6em; margin: 0; padding: 0; color: #348eda; font-size: 11px;"=
+>https://summerofcode.withgoogle.com</a>
+			  </p>
+			  <p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-weight: nor=
+mal; margin-bottom: 10px; font-size: 11px; color: #666666;">
+			  To leave the program and stop receiving all emails, you can go to your=
+ <a href=3D"https://summerofcode.withgoogle.com/dashboard/profile/" style=
+=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-seri=
+f; line-height: 1.6em; margin: 0; padding: 0; color: #348eda; font-size: 11=
+px;">profile</a> and request deletion of your program profile.
+			  </p>
+			  <p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-weight: nor=
+mal; margin-bottom: 10px; font-size: 11px; color: #666666;">
+			  For any questions, please contact gsoc-support@google.com.
+			  Replies to this message go to an unmonitored mailbox.
+			  </p>
+			  <p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; line-height: 1.6em; margin: 0; padding: 0; font-weight: nor=
+mal; margin-bottom: 10px; font-size: 11px; color: #666666;">
+				=C2=A9 2021 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94=
+043, USA
+			  </p>
+			</td>
+		  </tr>
+		</table>
+	  </div>
+	  <!-- /content -->
+	</td>
+	<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial,=
+ sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0;"><=
+/td>
+  </tr>
+</table>
+<!-- /footer -->
+</body>
+</html>
+
+--000000000000e1128805c8b4814a--

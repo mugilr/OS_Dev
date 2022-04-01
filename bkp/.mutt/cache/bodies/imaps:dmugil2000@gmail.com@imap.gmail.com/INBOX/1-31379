@@ -1,0 +1,1016 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp4445004ejk;
+        Mon, 1 Mar 2021 23:09:19 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyRU+h9cx/cm7E640/a2cq9Iz+PEz0QwflCfkCdu/1M2mrlKu5QwQnZnFm/GAie72anB8d+
+X-Received: by 2002:a25:3291:: with SMTP id y139mr29610931yby.248.1614668959683;
+        Mon, 01 Mar 2021 23:09:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614668959; cv=none;
+        d=google.com; s=arc-20160816;
+        b=zblfDDALZcQe6SiftwKRsvlW9sqgxnUwaNfOrpa6H+oTEKSFrjUl/vPXt/v72iG3zo
+         V4gAOJl00WyJ6K8IkkwLsA+xX8DQ5LHaCAY6rKtVV+50ZqebFFqjLBs+VLa0oGlCHERp
+         vUBIQg9zu4+7Ykpf6Fu4nhY/ExF4iKthk2NE2NGk8/MCJjNOndOF6mmpDQvi7FDiEB34
+         8Lqy3sJqp2A2t3QhaIphTz4NM2T9lXPoDKUlms94KDABjXZ288PEzYHj3semuaNEZR+1
+         HVJVVe8LGIGR8emQBwSiKUi9CPyW4Rqf6BBk9KdRQKPuhHx9uSvjt9NRfVkhxO5PF2tz
+         8WCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:message-id:to:subject:from:dkim-signature
+         :dkim-signature;
+        bh=SplwvmVYPaOXmRGqBIK0hPAA/EsJUyBgeQ5gUqK/rM4=;
+        b=UxaIfQTclM5qoKU9c64Tj05KYLoj6HnD5jY7mmuuimjSe5zQc/BwyPTpqHENFQwstV
+         66pF0qypxI1Tu2wZC0l5uACey1bIjiVbTuBcdoccnoB//8oPD/vZRDodU9nFmMXhvICV
+         MzZhJ5qh6uggEXGKxvwQB2zGsfFuobKObOF6Vc+Ja+IN/lTZiOitupN3vYOm33mf/9Dl
+         G5IZjg7Ykdtmyoa8bf+AD8Ybrco2zB3jq50CjzlWeSv/+NzsKI+3TOWg30UH0Pov3dvz
+         mQMjX4xB+wrQc14QyOJyLsSjj6ayDvycKnQRq8pwU+Jgn0/J14eQwUaVjUZIjB6iPdnR
+         muLw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@lfx.linuxfoundation.org header.s=mandrill header.b=VYMq20bN;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=kUUkuBgZ;
+       spf=pass (google.com: domain of bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com designates 198.2.186.3 as permitted sender) smtp.mailfrom=bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Return-Path: <bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com>
+Received: from mail186-3.suw21.mandrillapp.com (mail186-3.suw21.mandrillapp.com. [198.2.186.3])
+        by mx.google.com with ESMTPS id s12si17880796ybk.337.2021.03.01.23.09.19
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 01 Mar 2021 23:09:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com designates 198.2.186.3 as permitted sender) client-ip=198.2.186.3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@lfx.linuxfoundation.org header.s=mandrill header.b=VYMq20bN;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=kUUkuBgZ;
+       spf=pass (google.com: domain of bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com designates 198.2.186.3 as permitted sender) smtp.mailfrom=bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mandrill; d=lfx.linuxfoundation.org;
+ h=From:Subject:To:Message-Id:Date:MIME-Version:Content-Type; i=noreply@lfx.linuxfoundation.org;
+ bh=SplwvmVYPaOXmRGqBIK0hPAA/EsJUyBgeQ5gUqK/rM4=;
+ b=VYMq20bNXdJE90O6rya5sC9WSiK3qquU2AH++mHMG6F9Ne4DBeoQ79LvF168OqHdTP5/jPf1EgRw
+   MTtZB4/rvnU9zBi7KdyUJRsFIrryjd75IrTXa4TQtOL1JfhfypvmvOyomqfQmcBQ6+OhFGxcoEYH
+   jRGr6iY6gl4PIwE2ass=
+Received: from pmta02.mandrill.prod.suw01.rsglab.com (127.0.0.1) by mail186-3.suw21.mandrillapp.com id h7ni9u174bkp for <dmugil2000@gmail.com>; Tue, 2 Mar 2021 07:09:19 +0000 (envelope-from <bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com>)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1614668959; h=From : 
+ Subject : To : Message-Id : Date : MIME-Version : Content-Type : From : 
+ Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=SplwvmVYPaOXmRGqBIK0hPAA/EsJUyBgeQ5gUqK/rM4=; 
+ b=kUUkuBgZecI4lsW4IF8z/SxTDXlJVskOb94UTovqJ9r9VBPUMFZE5dwNHtJHxHXYdn3mrK
+ t5tSK3RGyHLzPE3lq9iRJMyJQQAXFusxdhsujDnaF4qLfMeNStjHg+ANyH3oQDrX0qbSbfhO
+ hd7+rpQg2PKW/cXXkMFybVXr/Knms=
+From: The LF Engineering Team <noreply@lfx.linuxfoundation.org>
+Subject: Your LFX Mentorship mentee profile was successfully created.
+Return-Path: <bounce-md_31118563.603de49f.v1-b2a22146fa6b430eba9b7e9a9eb19262@mandrillapp.com>
+Received: from [18.234.190.43] by mandrillapp.com id b2a22146fa6b430eba9b7e9a9eb19262; Tue, 02 Mar 2021 07:09:19 +0000
+To: dmugil2000@gmail.com
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=31118563.b2a22146fa6b430eba9b7e9a9eb19262
+X-Mandrill-User: md_31118563
+Message-Id: <31118563.20210302070919.603de49f3a66b1.00414615@mail186-3.suw21.mandrillapp.com>
+Date: Tue, 02 Mar 2021 07:09:19 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-kxc7S3xgVDaZmnwKnfsb8g"
+
+--_av-kxc7S3xgVDaZmnwKnfsb8g
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+        *|SUBJECT|*                                                
+=C2=A0Hi=C2=A0Mugilraj Dhavachelvan!=C2=A0                  Thank you for t=
+aking the
+first step to=C2=A0become=C2=A0a mentee=C2=A0on LFX Mentorship!=C2=A0
+ 
+ Please login to view your profile and apply=C2=A0to a mentorship program t=
+hat
+matches your skillset.=C2=A0
+ =C2=A0
+
+                 View Profile
+<https://mentorship.lfx.linuxfoundation.org/#my-account>                
+Thank you,
+ The LF Engineering Team
+
+                             Copyright =C2=A9 2021 The Linux Foundation =C2=
+=AE. All
+rights reserved. The Linux Foundation has registered trademarks and uses
+trademarks. For a list of trademarks of The Linux Foundation, please see
+our Trademark Usage page. Linux is a registered trademark of Linus
+Torvalds.
+
+--_av-kxc7S3xgVDaZmnwKnfsb8g
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SELL PRODUCTS -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sc=
+ale=3D1">
+        <title>*|SUBJECT|*</title>
+        
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1,h2,h3,h4,h5,h6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img,a img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body,#bodyTable,#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p,a,li,td,blockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel],a[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p,a,li,td,body,table,blockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,=
+.ExternalClass span,.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage,.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 1
+=09@style heading 1
+=09*/
+=09=09h1{
+=09=09=09/*@editable*/color:#222222;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:40px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:center;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 2
+=09@style heading 2
+=09*/
+=09=09h2{
+=09=09=09/*@editable*/color:#222222;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:34px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 3
+=09@style heading 3
+=09*/
+=09=09h3{
+=09=09=09/*@editable*/color:#444444;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:22px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 4
+=09@style heading 4
+=09*/
+=09=09h4{
+=09=09=09/*@editable*/color:#949494;
+=09=09=09/*@editable*/font-family:Georgia;
+=09=09=09/*@editable*/font-size:20px;
+=09=09=09/*@editable*/font-style:italic;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/line-height:125%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Container Style
+=09*/
+=09=09#templateHeader{
+=09=09=09/*@editable*/background-color:#ffffff;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:25px;
+=09=09=09/*@editable*/padding-bottom:25px;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Interior Style
+=09*/
+=09=09.headerContainer{
+=09=09=09/*@editable*/background-color:#transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0;
+=09=09=09/*@editable*/padding-bottom:0;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Text
+=09*/
+=09=09.headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#757575;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:16px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Link
+=09*/
+=09=09.headerContainer .mcnTextContent a,.headerContainer .mcnTextContent p=
+ a{
+=09=09=09/*@editable*/color:#007C89;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Container Style
+=09*/
+=09=09#templateBody{
+=09=09=09/*@editable*/background-color:#ffffff;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0px;
+=09=09=09/*@editable*/padding-bottom:0px;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Interior Style
+=09*/
+=09=09.bodyContainer{
+=09=09=09/*@editable*/background-color:transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0;
+=09=09=09/*@editable*/padding-bottom:0;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Text
+=09*/
+=09=09.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#757575;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:16px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Link
+=09*/
+=09=09.bodyContainer .mcnTextContent a,.bodyContainer .mcnTextContent p a{
+=09=09=09/*@editable*/color:#007C89;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Style
+=09*/
+=09=09#templateFooter{
+=09=09=09/*@editable*/background-color:#333333;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:21px;
+=09=09=09/*@editable*/padding-bottom:21px;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Interior Style
+=09*/
+=09=09.footerContainer{
+=09=09=09/*@editable*/background-color:transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0;
+=09=09=09/*@editable*/padding-bottom:0;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Text
+=09*/
+=09=09.footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#FFFFFF;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:12px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:center;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Link
+=09*/
+=09=09.footerContainer .mcnTextContent a,.footerContainer .mcnTextContent p=
+ a{
+=09=09=09/*@editable*/color:#FFFFFF;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body,table,td,p,a,li,blockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnC=
+aptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,=
+.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCapt=
+ionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCapti=
+onRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImag=
+eCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnI=
+mageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOu=
+ter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcn=
+CaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-=
+child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent,.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 1
+=09@tip Make the first-level headings larger in size for better readability=
+ on small screens.
+=09*/
+=09=09h1{
+=09=09=09/*@editable*/font-size:30px !important;
+=09=09=09/*@editable*/line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 2
+=09@tip Make the second-level headings larger in size for better readabilit=
+y on small screens.
+=09*/
+=09=09h2{
+=09=09=09/*@editable*/font-size:26px !important;
+=09=09=09/*@editable*/line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 3
+=09@tip Make the third-level headings larger in size for better readability=
+ on small screens.
+=09*/
+=09=09h3{
+=09=09=09/*@editable*/font-size:20px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 4
+=09@tip Make the fourth-level headings larger in size for better readabilit=
+y on small screens.
+=09*/
+=09=09h4{
+=09=09=09/*@editable*/font-size:18px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Boxed Text
+=09@tip Make the boxed text larger in size for better readability on small =
+screens. We recommend a font size of at least 16px.
+=09*/
+=09=09.mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentCon=
+tainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:14px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Header Text
+=09@tip Make the header text larger in size for better readability on small=
+ screens.
+=09*/
+=09=09.headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:16px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Body Text
+=09@tip Make the body text larger in size for better readability on small s=
+creens. We recommend a font size of at least 16px.
+=09*/
+=09=09.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:16px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Footer Text
+=09@tip Make the footer content text larger in size for better readability =
+on small screens.
+=09*/
+=09=09.footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:14px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}</style></head>
+    <body style=3D"height:100%;margin:0;padding:0;width:100%;-ms-text-size-=
+adjust:100%;-webkit-text-size-adjust:100%;">
+        <!---->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border-c=
+ollapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;height:100%;marg=
+in:0;padding:0;width:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjus=
+t:100%;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" sty=
+le=3D"height:100%;margin:0;padding:0;width:100%;mso-line-height-rule:exactl=
+y;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse:collapse;mso-table-lspace:0p=
+t;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1=
+00%;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateHeader" data-template-container=3D"" style=3D"mso-line-height-rule:e=
+xactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-c=
+olor:#ffffff;background-image:none;background-repeat:no-repeat;background-p=
+osition:center;background-size:cover;border-top:0;border-bottom:0;padding-t=
+op:25px;padding-bottom:25px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0=
+pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:600px =
+;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"hea=
+derContainer" style=3D"mso-line-height-rule:exactly;-ms-text-size-adjust:10=
+0%;-webkit-text-size-adjust:100%;background-color:#transparent;background-i=
+mage:none;background-repeat:no-repeat;background-position:center;background=
+-size:cover;border-top:0;border-bottom:0;padding-top:0;padding-bottom:0;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=
+=3D"mcnImageBlock" style=3D"min-width:100%;border-collapse:collapse;mso-tab=
+le-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-s=
+ize-adjust:100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding:9px;mso-line-height-rul=
+e:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" class=
+=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=3D"=
+min-width:100%;border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspa=
+ce:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" st=
+yle=3D"padding-right:9px;padding-left:9px;padding-top:0;padding-bottom:0;te=
+xt-align:center;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-web=
+kit-text-size-adjust:100%;">
+                                
+                                    
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://mcusercontent.com/3928cce279308bf13be2fa84d/images/b9877f17-90a=
+6-46e6-8c3e-3628b1c543d1.png" width=3D"190" style=3D"max-width:190px;paddin=
+g-bottom:0;display:inline !important;vertical-align:bottom;border:0;height:=
+auto;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;" cla=
+ss=3D"mcnImage">
+                                    
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateBody" data-template-container=3D"" style=3D"mso-line-height-rule:exa=
+ctly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-col=
+or:#ffffff;background-image:none;background-repeat:no-repeat;background-pos=
+ition:center;background-size:cover;border-top:0;border-bottom:0;padding-top=
+:0px;padding-bottom:0px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0=
+pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:600px =
+;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bod=
+yContainer" style=3D"mso-line-height-rule:exactly;-ms-text-size-adjust:100%=
+;-webkit-text-size-adjust:100%;background-color:transparent;background-imag=
+e:none;background-repeat:no-repeat;background-position:center;background-si=
+ze:cover;border-top:0;border-bottom:0;padding-top:0;padding-bottom:0;"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D=
+"mcnTextBlock" style=3D"min-width:100%;border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-=
+adjust:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-tex=
+t-size-adjust:100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding:0px 18px 9px;font-family:Arial,;mso-line-height-rule:exactly;-m=
+s-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-break:break-word=
+;color:#757575;font-size:16px;line-height:150%;text-align:left;" helvetica=
+=3D"" neue",=3D"" helvetica,=3D"" sans-serif;=3D"" text-align:=3D"" center;=
+"=3D"">
+                        
+                            <h3 class=3D"null" style=3D"text-align:center;d=
+isplay:block;margin:0;padding:0;color:#444444;font-family:Helvetica;font-si=
+ze:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:=
+normal;">=C2=A0Hi=C2=A0Mugilraj Dhavachelvan!=C2=A0</h3>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnTextBlock" style=3D"min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-tex=
+t-size-adjust:100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top:0;padding-right:18px;padding-bottom:9px;padding-left:18px;m=
+so-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adj=
+ust:100%;word-break:break-word;color:#757575;font-family:Helvetica;font-siz=
+e:16px;line-height:150%;text-align:left;">
+                        
+                            <p style=3D"margin:10px 0;padding:0;mso-line-he=
+ight-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;c=
+olor:#757575;font-family:Helvetica;font-size:16px;line-height:150%;text-ali=
+gn:left;">Thank you for taking the first step to=C2=A0become=C2=A0a mentee=
+=C2=A0on LFX Mentorship!=C2=A0<br>
+<br>
+Please login to view your profile and apply=C2=A0to a mentorship program th=
+at matches your skillset.=C2=A0<br>
+=C2=A0</p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnButtonBlock" style=3D"min-width:100%;border-collapse:collap=
+se;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-web=
+kit-text-size-adjust:100%;">
+    <tbody class=3D"mcnButtonBlockOuter">
+        <tr>
+            <td style=3D"padding-top:0;padding-right:18px;padding-bottom:18=
+px;padding-left:18px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%=
+;-webkit-text-size-adjust:100%;" valign=3D"top" align=3D"center" class=3D"m=
+cnButtonBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cla=
+ss=3D"mcnButtonContentContainer" style=3D"border-collapse:separate !importa=
+nt;border-radius:50px;background-color:#2BAADF;mso-table-lspace:0pt;mso-tab=
+le-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">
+                    <tbody>
+                        <tr>
+                            <td align=3D"center" valign=3D"middle" class=3D=
+"mcnButtonContent" style=3D"font-family:Arial;font-size:14px;padding:15px;m=
+so-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adj=
+ust:100%;">
+                                <a class=3D"mcnButton " title=3D"View Profi=
+le" href=3D"https://mentorship.lfx.linuxfoundation.org/#my-account" target=
+=3D"_blank" style=3D"font-weight:bold;letter-spacing:normal;line-height:100=
+%;text-align:center;text-decoration:none;color:#FFFFFF;mso-line-height-rule=
+:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;display:bl=
+ock;">View Profile</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnTextBlock" style=3D"min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-tex=
+t-size-adjust:100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top:0;padding-right:18px;padding-bottom:9px;padding-left:18px;m=
+so-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adj=
+ust:100%;word-break:break-word;color:#757575;font-family:Helvetica;font-siz=
+e:16px;line-height:150%;text-align:left;">
+                        
+                            <p style=3D"margin:10px 0;padding:0;mso-line-he=
+ight-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;c=
+olor:#757575;font-family:Helvetica;font-size:16px;line-height:150%;text-ali=
+gn:left;">Thank you,<br>
+The LF Engineering Team</p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateFooter" data-template-container=3D"" style=3D"mso-line-height-rule:e=
+xactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background-c=
+olor:#333333;background-image:none;background-repeat:no-repeat;background-p=
+osition:center;background-size:cover;border-top:0;border-bottom:0;padding-t=
+op:21px;padding-bottom:21px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0=
+pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;max-width:600px =
+;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"foo=
+terContainer" style=3D"mso-line-height-rule:exactly;-ms-text-size-adjust:10=
+0%;-webkit-text-size-adjust:100%;background-color:transparent;background-im=
+age:none;background-repeat:no-repeat;background-position:center;background-=
+size:cover;border-top:0;border-bottom:0;padding-top:0;padding-bottom:0;"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=
+=3D"mcnTextBlock" style=3D"min-width:100%;border-collapse:collapse;mso-tabl=
+e-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-si=
+ze-adjust:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-tex=
+t-size-adjust:100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webki=
+t-text-size-adjust:100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top:0;padding-right:18px;padding-bottom:9px;padding-left:18px;m=
+so-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adj=
+ust:100%;word-break:break-word;color:#FFFFFF;font-family:Helvetica;font-siz=
+e:12px;line-height:150%;text-align:center;">
+                        
+                            Copyright =C2=A9 2021 The Linux Foundation =C2=
+=AE. All rights reserved. The Linux Foundation has registered trademarks an=
+d uses trademarks. For a list of trademarks of The Linux Foundation, please=
+ see our Trademark Usage page. Linux is a registered trademark of Linus Tor=
+valds.
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://mandrillapp.com/track/open.php?u=3D31118563&id=3Db2=
+a22146fa6b430eba9b7e9a9eb19262" height=3D"1" width=3D"1"></body>
+</html>
+
+--_av-kxc7S3xgVDaZmnwKnfsb8g--
+

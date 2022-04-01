@@ -1,0 +1,463 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp3499070ejf;
+        Mon, 22 Mar 2021 05:29:37 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzz+rGXHi+toAB+kHp9AL3Ctoixvbk6wQ3l7n4meWZq7Oo6/DIqOcvJf0BmdR59P1tyqFCn
+X-Received: by 2002:a17:90a:66c2:: with SMTP id z2mr13824922pjl.139.1616416177652;
+        Mon, 22 Mar 2021 05:29:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616416177; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=WgrSlbQ4yG3zLXl7IxHY7iQ0lnCzP9aMrLDk6yiZQabQE2C4x9oceLalDRCQf0jQAn
+         UEGy1dSPPW2r4zzymwJMswCba0yOJJSYBZEI7KG7JQtvSg4w5A+c5kI8VV7ZMb39Lui8
+         LmZTgd32AA1F7xl2ZIY18DvPN7dh4RBtEHVn85MCzZHTtFcdiMI6Y5CkGw68rFcZNRjb
+         IZdgETKLHEb1tL3N5aeWEbxmLRc5VdNrULtGeQNXjX4rW9S48AjN/IDk1RW2451n8b9Z
+         3TdxFemp9lNi0QoYqi/nHHc90TecPx0bD3EU7dUCPtybWnUS3gey1LrQ9FGf+Yt5mQhU
+         7pRQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:from
+         :dkim-signature;
+        bh=pC+3nr+IZ61vE71FsCfGVD0BufRSw00Ruep0q629z9Q=;
+        b=S30+vsM853ipJzcG3GjqH5ULKY73jKmyXmn2PTA5HRcf4THcpUB6QWZDrOQRDLix7A
+         N6EUkkAsbiDD7hGvlDtJO8MeE04RyJtXq+crG4xI6lhqpzFI6ua8H0z4v7mA2MT0GvGz
+         9BmAOKS7deBTqB8js8G0/EJ5LJn66XdazkvIlTuxjhsnF6IoqNDJy66cKSZu+ld/aBDh
+         +HzF6lshf3OYEEp1uD9hAzfD4AuZVIUVSumZ/+k9/MeD8dz7UA6CGzaXCiziJ3mLDzPA
+         53u/p9EByz57R4jlw73u49MLs8FjG8JWFuugE+bbW+3CuhO5zLN7rdOPKNqHrXWc5/O/
+         MMDA==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@infoedge.onmicrosoft.com header.s=selector2-infoedge-onmicrosoft-com header.b=ihkxT7KF;
+       arc=pass (i=1 spf=pass spfdomain=firstnaukri.com dkim=pass dkdomain=firstnaukri.com dmarc=pass fromdomain=firstnaukri.com);
+       spf=pass (google.com: domain of merwyn.thomas@firstnaukri.com designates 40.107.138.94 as permitted sender) smtp.mailfrom=merwyn.thomas@firstnaukri.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=firstnaukri.com
+Return-Path: <merwyn.thomas@firstnaukri.com>
+Received: from IND01-MA1-obe.outbound.protection.outlook.com (mail-eopbgr1380094.outbound.protection.outlook.com. [40.107.138.94])
+        by mx.google.com with ESMTPS id q19si14725136pfj.185.2021.03.22.05.29.36
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 22 Mar 2021 05:29:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of merwyn.thomas@firstnaukri.com designates 40.107.138.94 as permitted sender) client-ip=40.107.138.94;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@infoedge.onmicrosoft.com header.s=selector2-infoedge-onmicrosoft-com header.b=ihkxT7KF;
+       arc=pass (i=1 spf=pass spfdomain=firstnaukri.com dkim=pass dkdomain=firstnaukri.com dmarc=pass fromdomain=firstnaukri.com);
+       spf=pass (google.com: domain of merwyn.thomas@firstnaukri.com designates 40.107.138.94 as permitted sender) smtp.mailfrom=merwyn.thomas@firstnaukri.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=firstnaukri.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mAikrr4vz7ZbGYGRGdxCUPUGvhBIf8yPQrIyLOLPD7BHhh+hudb482Yez736q0WN7+4bTzF0Iyp6q6fZ5Dd+iJDCnU/E1woD8yVpBbHGtLhYkwyFRIMgV9Pc4YdkDzTSebhREtK7i4p8oaBhR/H+5AxwN/P7mUtJW2HGayG0Gi/O7XHpztDQZQhaKiPXemCwJ11DA/DkpQzPdMIJ3tG15PrSYwksQePL98qsfftVFPUXXb7Orv88TILNaw21JHNBAXClxfxTT56jFn5avejflNt/D1RMeR3bsv3lCeQJwmwJjRLmsq/JdlRmCrF3P43g0Gq0f4pj3AXTPSfTI6CcsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pC+3nr+IZ61vE71FsCfGVD0BufRSw00Ruep0q629z9Q=;
+ b=Q75/B77ERvA/L7/BMKi8TqAkJqT5BxoSfvzoIllTCBafXgqW7bsD0JRzz0pdEFDliwkJIqD1NZMvrkbtGnaxhG4oQzBNmCaRPvsX2Z2fVYz7CZN+HBFy6y6qlwJCiv6wP0KvxVelpCsqn6wNmfm4MPvqgAw7Ee/T4/zLSRzbkZDd0OeL9PUCy6QPh68osf5ReREJlhsH4kZ1CUC2wy8PvoLMJ4AvB1aCEF83J4+FYbBLH4CFxonWsQDVm4uaP90vj0skGC/0dTgftS4MIfkRro6HJOaLLkR3w/smixBeODa80JIAC6xal7lRlouf0vW9hUU0KRyH+OZtCOzlPc/H8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=firstnaukri.com; dmarc=pass action=none
+ header.from=firstnaukri.com; dkim=pass header.d=firstnaukri.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=infoedge.onmicrosoft.com; s=selector2-infoedge-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pC+3nr+IZ61vE71FsCfGVD0BufRSw00Ruep0q629z9Q=;
+ b=ihkxT7KFqOiMRfdxMDL2QLyqXKWEwc4AAiUum9iJPdYr8/FYeRdcc6qVWw/7ykB/HFgYeYeXUd1RMgpWN+T/wpK6jn2Iu/bxP9EIKIBqwR2vX1BQL5jX7ZoRG0wkqkY9Qe6VGPJfvyQwXpRpjoKbzQfUPXoz2hgXf0+FPMuuXYE=
+Received: from MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:7d::12)
+ by MAXPR01MB4472.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18; Mon, 22 Mar
+ 2021 12:29:34 +0000
+Received: from MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::519f:a2a9:c979:cc3c]) by MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::519f:a2a9:c979:cc3c%4]) with mapi id 15.20.3955.027; Mon, 22 Mar 2021
+ 12:29:34 +0000
+From: Merwyn Thomas <merwyn.thomas@firstnaukri.com>
+Subject: Rockwell Automation Online Test | Complete by 11 AM Tomorrow
+Thread-Topic: Rockwell Automation Online Test | Complete by 11 AM Tomorrow
+Thread-Index: AdcfDL7FIjc4iKgDSRW129Fi/OUY4QAChjCw
+Date: Mon, 22 Mar 2021 12:29:34 +0000
+Message-ID:
+ <MA1PR01MB3178F67B5AFF00E20EE14C7AFD659@MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM>
+References:
+ <MA1PR01MB3178CF3E096F3E587C6D093DFD659@MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To:
+ <MA1PR01MB3178CF3E096F3E587C6D093DFD659@MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=firstnaukri.com;
+x-originating-ip: [122.162.244.47]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: d22aaac9-5288-48e5-193e-08d8ed2e26a7
+x-ms-traffictypediagnostic: MAXPR01MB4472:
+x-microsoft-antispam-prvs:
+ <MAXPR01MB4472F9487254A366807FA7DBFD659@MAXPR01MB4472.INDPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:6108;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ LutmVe3hLPiinoQvzn8e2KL3djIeSc4Hz6OWP2kHFa1W+ydtlieJRGJB74sZfdU9uGVhohlzbBBc6uN/+0BA56ordW92QkAbwHshR/WZDPk0ZcPN+Le7+9oKk49VTY9I9j5VQThUknjYx9oonfMM0Q2t7WgQ+eIzwgIhSshvUJXs43XiFrG4Sr6geUax51GzVS7LbCB18u+uQdpzswzR4TGr6T3E0K8MM4EA4lG2H6k6Jkz+elwU8pleBc0TVKz2K+UbxlsSD55zFyUJcmI+wjtrgrfe46t1sJlkhFrav7TxncwcK4utMziwRYI7eAG00iHO+EYoPSSKh712JOMvc+9uxyklykKDkjMqm8Dd7pQH0fOQIxF+0WbkTKYY1wKci4aQm/Pxdu1xXQrFwmOo0Jf9IT5l6ETkaEvNj2sL+t36+2sOAMw3kqLwRnmXLoxiTbcb94oIVn5YwAmDsMmVZLsMHZhLJcw0zp1nnhKCfSttmHZ4Vnu7s6/Grr0A0lf0bT6qZcOzAGzASw7DzSxcwRxjzhChpXm1CrwsXLImyKDcR0fMIxD/RqI8qCJyZ+7anq1DUKdAKNx62ddEWS3AfQ==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(4636009)(346002)(366004)(396003)(39860400002)(136003)(376002)(66476007)(2940100002)(66446008)(64756008)(66574015)(66556008)(44832011)(76116006)(186003)(66946007)(8676002)(8936002)(83380400001)(26005)(86362001)(71200400001)(316002)(5660300002)(6506007)(2906002)(7696005)(109986005)(478600001)(52536014)(7416002)(55016002)(9686003)(38100700001)(33656002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata:
+ H3SPGJYwdOqfMXBg+b7j6elQhf5cCMoAitKR/zOTshDttWYPCpQW8OxkdT3XXbhXIRgpX1C9H5uS2qH2PDk+9i95iFzj6Lj0VPSNxmfHJeIcc27VgQud0McxyeWMQnCB/Nl9ydnJaKw0VCvYGSg1wpSHF4yJ93zm51c1tmcAx7Idr7G7Xm/nXCZ06cy25NsQj1+eNwaGPrsHtfJjL6ivDMDTsiK03L3zdKGIFD/MQb2i1ovtUGoZOCd6ub9kZ51ioI9O2bbq6Ip+H2s+nHvZ+Nl94GqBrlBLDci+yxrhbJpViGItMzvkHglDwfH5rkCJ0Ub7Z7w+NzhFqsBEHRFBQzxQtl8yBMV4HYgGZqC0tqZBslf7FWAmTc/Z/lpRor1GhM+QWV55YERhzi8vQVjMtiPjui5xJT23fOBC4tF8XjUy9oP7o1/id2kUmZhPT1Ji2DmXYaY9c027fe5GtH1guAFAWChfp4EFd6N7DoxqbjIVwnkNLOlQAfneuyHaoYdXEndjRjKQ4IQbzdF4wf9kQe52LzlhrAbEslluzjLY8Qdcbq2Pr5iZHrrQEO2MTwgjNNaycNkwcKY9XkdxyTAb8Fjz7OFDozYHIt4zDL4bZuzUi8qLqZV9dlSZ/npjpoupDlOyOE1T28VLUcHL6U1tuESMm6P9Xdmcc+s4ybYd0ohxQY+CnuRLM2skc5ti9rm5wg6jvlhVvpnMNY2Yz89+jjip34T2KYDxFUwIzbAjgqs=
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_MA1PR01MB3178F67B5AFF00E20EE14C7AFD659MA1PR01MB3178INDP_"
+MIME-Version: 1.0
+X-OriginatorOrg: firstnaukri.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MA1PR01MB3178.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: d22aaac9-5288-48e5-193e-08d8ed2e26a7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Mar 2021 12:29:34.4149
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0ee9b5f9-52b3-4351-8198-c4804cd66b68
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FNf+ZJ7tf0sJ0uJMfmCuzPyWkOcGzTHqJdGnuu9SZ6xGOwBuv5rtNQRdAYnPDaBJ8Cvkp2U57Dasi3ARzmofmBvUKcJ8fnD9Yf2uULmeQaM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAXPR01MB4472
+
+--_000_MA1PR01MB3178F67B5AFF00E20EE14C7AFD659MA1PR01MB3178INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Candidate,
+
+
+
+Greetings from Firstnaukri.com!!
+
+
+
+Please find below the test URL for Rockwell Automation Online Test!
+
+
+Test Name: Rockwell Automation Aptitude and Instrumentation Test
+
+Test URL:  assessments.firstnaukri.com/TE/653022128
+
+Master Key: TEST@123
+
+
+
+Please complete the test before Tonorrow,11:00 AM.
+
+
+
+*         Pop-ups should be disabled (MANDATORY)
+
+*         Webcam is MANDATORY for the test.
+
+*         Please ensure you have a stable internet connection during the te=
+st. We advise you to connect the system using a stable Wifi or LAN source.
+
+*         Please ensure your browser is updated for the latest version for =
+best experience during the test.
+
+*         You are not allowed to browse/ switch other windows between the t=
+est, if you attempt to do so the test will submit automatically and there w=
+ill be no second chance given.
+
+*         Please read the above system requirements and check the same in a=
+dvance.
+
+
+
+Kindly read the test instructions thoroughly before starting the test.
+
+
+
+All the best!!
+
+
+
+Regards
+
+Team Firstnaukri.com
+
+DISCLAIMER
+This email and any files transmitted with it are intended solely for the pe=
+rson or the entity to whom they are addressed and may contain information w=
+hich is Confidential and Privileged. Any misuse of the information containe=
+d in this email, including but not limited to retransmission or disseminati=
+on of the said information by person or entities other than the intended re=
+cipient is unauthorized and strictly prohibited. If you are not the intende=
+d recipient of this email, please delete this email and contact the sender =
+immediately.
+
+--_000_MA1PR01MB3178F67B5AFF00E20EE14C7AFD659MA1PR01MB3178INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.xmsonormal, li.xmsonormal, div.xmsonormal
+	{mso-style-name:x_msonormal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.EmailStyle19
+	{mso-style-type:personal;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:605425961;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-64466696 67698689 67698691 67698693 67698689 676986=
+91 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"xmsonormal" style=3D"line-height:105%">Dear Candidate,<o:p></o:=
+p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><o:p>&nbsp;</o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">Greetings from Firstnauk=
+ri.com!!<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><o:p>&nbsp;</o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">Please find below the te=
+st URL for
+<b>Rockwell Automation Online Test</b>! <o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal"><b>Test Name: </b><span style=3D"font-size:9.0pt;fon=
+t-family:&quot;Arial&quot;,sans-serif;color:#646363;background:white">Rockw=
+ell Automation Aptitude and Instrumentation Test</span><span style=3D"font-=
+size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#646363"><o:p></o=
+:p></span></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><b>Test URL: &nbsp;<span=
+ style=3D"color:#1F497D">assessments.firstnaukri.com/TE/653022128</span><o:=
+p></o:p></b></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><b>Master Key: </b><b><s=
+pan style=3D"font-size:9.0pt;line-height:105%;font-family:&quot;Arial&quot;=
+,sans-serif;color:#646363;background:white">TEST@123</span><span style=3D"c=
+olor:black"><o:p></o:p></span></b></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><b><span style=3D"color:=
+black"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><b><span style=3D"color:=
+red">Please complete the test before
+</span><u><span style=3D"color:black">Tonorrow,11:00 AM</span></u><span sty=
+le=3D"color:red">.</span><o:p></o:p></b></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><i><span style=3D"color:=
+black"><o:p>&nbsp;</o:p></span></i></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Pop-ups should be disabled (MANDATORY)<o:p><=
+/o:p></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Webcam is MANDATORY for the test. <o:p></o:p=
+></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Please ensure you have a stable internet con=
+nection during the test. We advise you to connect the system using a stable=
+ Wifi or LAN source.<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Please ensure your browser is updated for th=
+e latest version for best experience during the test.<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You are not allowed to browse/ switch other =
+windows between the test, if you attempt to do so the test will submit auto=
+matically and there will be no second chance given.
+<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"margin-left:.5in;text-indent:-.25in;line-h=
+eight:105%;mso-list:l0 level1 lfo2">
+<![if !supportLists]><span style=3D"font-family:Symbol"><span style=3D"mso-=
+list:Ignore">&middot;<span style=3D"font:7.0pt &quot;Times New Roman&quot;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Please read the above system requirements an=
+d check the same in advance.<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%"><o:p>&nbsp;</o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">Kindly read the test ins=
+tructions thoroughly before starting the test.<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">&nbsp;<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">All the best!!<o:p></o:p=
+></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">&nbsp;<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">Regards<o:p></o:p></p>
+<p class=3D"xmsonormal" style=3D"line-height:105%">Team Firstnaukri.com<o:p=
+></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<meta name=3D"Generator" content=3D"Microsoft Word 14 (filtered)">
+<style>=0A=
+<!--=0A=
+ /* Font Definitions */=0A=
+ @font-face=0A=
+	{font-family:Calibri;=0A=
+	panose-1:2 15 5 2 2 2 4 3 2 4;}=0A=
+ /* Style Definitions */=0A=
+ p.MsoNormal, li.MsoNormal, div.MsoNormal=0A=
+	{margin:0in;=0A=
+	margin-bottom:.0001pt;=0A=
+	font-size:11.0pt;=0A=
+	font-family:"Calibri","sans-serif";}=0A=
+.MsoChpDefault=0A=
+	{font-family:"Calibri","sans-serif";}=0A=
+.MsoPapDefault=0A=
+	{margin-bottom:10.0pt;=0A=
+	line-height:115%;}=0A=
+@page WordSection1=0A=
+	{size:8.5in 11.0in;=0A=
+	margin:1.0in 1.0in 1.0in 1.0in;}=0A=
+div.WordSection1=0A=
+	{page:WordSection1;}=0A=
+-->=0A=
+</style>
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:7.5pt;font-family:&quot;Ari=
+al&quot;,&quot;sans-serif&quot;;=0A=
+color:gray">DISCLAIMER
+</span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:7.5pt;font-family:&quot;Ari=
+al&quot;,&quot;sans-serif&quot;;=0A=
+color:gray">This email and any files transmitted with it are intended solel=
+y for the person or the entity to whom they are addressed and may contain i=
+nformation which is Confidential
+ and Privileged. Any misuse of the information contained in this email, inc=
+luding but not limited to retransmission or dissemination of the said infor=
+mation by person or entities other than the intended recipient is unauthori=
+zed and strictly prohibited. If
+ you are not the intended recipient of this email, please delete this email=
+ and contact the sender immediately.</span></p>
+</div>
+</body>
+</html>
+
+--_000_MA1PR01MB3178F67B5AFF00E20EE14C7AFD659MA1PR01MB3178INDP_--

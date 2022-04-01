@@ -1,0 +1,114 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp2670650eja;
+        Tue, 9 Mar 2021 05:54:20 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxoZVW8cDw1d7KvCenXaPSW4vOm4U2UCWvURAfByChFR34UJmYlZMTRtgFJdQ7FgSQFMtPd
+X-Received: by 2002:adf:8104:: with SMTP id 4mr28391959wrm.265.1615298060237;
+        Tue, 09 Mar 2021 05:54:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615298060; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=vHbNLzxcycqMFwVYbfTM4OkXMzTSmbNn5ZzFa4ca6tBQJFJvoIlPiC5eWWLF/58KLI
+         AoYrmEjN4TRQOCnjrz0QqLtmYNejJcS9pY+gHuQ+GCrU6hozDKOve8pJByNIzGrD1cJu
+         fEfyW8Tbhr40JJ+1k35yk/czsOXfahwZBOFWdGkRflaolSbd2AtAXpMk8/kJQomeMR/q
+         zavZapOxswDT2e2QN3LLxR3UBVu/QZLEcbDW6bSlfbspaSE71LFDKvT05kWFl8kuh0fV
+         TOY+AkJ0XH5z3ssSNUj6EAeOEzJnYo2gasPHFGSBgdKFZCv75ZZRYB42ZpPFrnKw8LDl
+         5lSQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:reply-to:from:mime-version:to:subject:date
+         :dkim-signature;
+        bh=cZe1PlML7Q7KK0mwM5UfjTBK8IyUu+0ldon3Hfk7OeY=;
+        b=xFElIZHlXwD+iw0Cy811453ABDxQAJHMBLgoC/s34mvW1Y5bsx6RqvhIbCeoC1YQ5c
+         Q2jWC3Re+6RcuT13wY9ijadgt1H5LuFAQ0zGx43ZrxTEe7tNsKUJSjh+8P5hLQPkPvjj
+         E7xJCXNh2eDmWa6yUWT8/HQhwbU6PFdEyZ7s/jHEOYeF9QhTs+z6gP3ldGs37GLcyhjW
+         Mfd7Yt96abYQdGeo8R42EIJj2tvFQ5SpneIFuBvaDxKA0SiRWRnTqwiV/OiFHn1Xy5hw
+         eEBpQj0BqX91ew77F87ef4MIpTvw0VkRm6OXeO86u9YSM12pPM0/lr+pFe1g7jUDuxrk
+         PKdQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@nagra.com header.s=selector1 header.b="H7CelgZ/";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of noreply.recrutement@nagra.com designates 40.107.4.101 as permitted sender) smtp.mailfrom=noreply.recrutement@nagra.com
+Return-Path: <noreply.recrutement@nagra.com>
+Received: from EUR03-DB5-obe.outbound.protection.outlook.com (mail-eopbgr40101.outbound.protection.outlook.com. [40.107.4.101])
+        by mx.google.com with ESMTPS id k13si14208972wru.520.2021.03.09.05.54.19
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 09 Mar 2021 05:54:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply.recrutement@nagra.com designates 40.107.4.101 as permitted sender) client-ip=40.107.4.101;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@nagra.com header.s=selector1 header.b="H7CelgZ/";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of noreply.recrutement@nagra.com designates 40.107.4.101 as permitted sender) smtp.mailfrom=noreply.recrutement@nagra.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=FrxrsE2i5xjwem4eYijMnYXW7t23uU2ehxQvQ5mIFERJDbhAdz3m7tXNbtY8GLMB4pfNavQyZrpDCGwPFIHElfHF9Tlz1sPMU10oNcecetm1AThAOnOR41/Ley/oy0S6uyN4L7sVLO+fX7YejeVj8tUmPxGsDGtikeiUNFKAWbSa3hn6MJgUe66u/tUjkxg0lgnS8vcHxKygOZmvFIDC4hOe6lSjbM2Zi4GgUiXL7o5c6gDtXIN7XzSKs05R4Mw773M+JYTsC8GINli4mADMnO1TIrw8z+as5Zz20CV8MOs4OL7SnHIfA5yWDW/FH6iMepJMilDVZYhSr7Luap7EuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cZe1PlML7Q7KK0mwM5UfjTBK8IyUu+0ldon3Hfk7OeY=;
+ b=hiW7+41HYoGoI33ECAT370apZMBz1tFkHwBG301zfT0R4SefIPqkOQinVn00i3PGD3haeCrZVdEx1bvZG9Oc71e3EF2H0vANxykBmX0YmTHrunE20Ih4vvgWn/p+TAlfkUGR27s+bvunh4b3cDTZf6wZLjrs2LICuHajs4zYdPURnZFO86wuD2szBvJAbwk8v8fGA5z/P2TFM5RIFPhMg9AIyv+02cKuH5x/Advr7mMUf7EVE/JJUCccH3W2wesGQz/S0DqMLZO0jc4b8tZ+thUkOxyEozY4coUunb3epRmt+ZbS8mwr10VhCXOnxhTvXLGEY0S1wVJStIgtego+MQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 85.184.252.7) smtp.rcpttodomain=gmail.com smtp.mailfrom=nagra.com;
+ dmarc=none action=none header.from=nagra.com; dkim=none (message not signed);
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nagra.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cZe1PlML7Q7KK0mwM5UfjTBK8IyUu+0ldon3Hfk7OeY=;
+ b=H7CelgZ/dHQEaWsSoiTXJWxjtb942KSFc99gqxvoS4EwUt/ipVcd8V7pGFmGUbvFL/Lv1qiKNgTCwcMBR6kBcKGpvqDaqLAy0XaRkII5wvoTHepA77dCzqdvyr91BWHTCaOztvFrOnapwZOu8xufhBlgkB/jJTdK9mfoGAhx9JQ=
+Received: from AM6PR10CA0047.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:209:80::24)
+ by AM6PR0502MB3798.eurprd05.prod.outlook.com (2603:10a6:209:d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3890.29; Tue, 9 Mar
+ 2021 13:54:19 +0000
+Received: from AM5EUR02FT029.eop-EUR02.prod.protection.outlook.com
+ (2603:10a6:209:80:cafe::e0) by AM6PR10CA0047.outlook.office365.com
+ (2603:10a6:209:80::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3912.17 via Frontend
+ Transport; Tue, 9 Mar 2021 13:54:19 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 85.184.252.7)
+ smtp.mailfrom=nagra.com; gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=nagra.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ nagra.com discourages use of 85.184.252.7 as permitted sender)
+Received: from smtpgweu1.nagra.com (85.184.252.7) by
+ AM5EUR02FT029.mail.protection.outlook.com (10.152.8.161) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3912.17 via Frontend Transport; Tue, 9 Mar 2021 13:54:18 +0000
+Received: from ZRHVPHRER01 (zrhvphrer01.hq.k.grp [172.18.32.86])
+	by smtpgweu1.nagra.com (Postfix) with SMTP id 8626616003A
+	for <dmugil2000@gmail.com>; Tue,  9 Mar 2021 14:54:40 +0100 (CET)
+Date: Tue, 09 Mar 2021 14:54:47 +0100
+Subject: New account
+To: dmugil2000@gmail.com
+MIME-Version: 1.0
+Content-type: text/html; charset=UTF-8
+From: Nagra Recruitment no reply<noreply.recrutement@nagra.com>
+Reply-To: Nagra Recruitment no reply<noreply.recrutement@nagra.com>
+X-Mailer: PHP/5.5.38
+Message-ID:
+ <e1dcb1d1-740a-479d-9202-154c6bd6f05f@AM5EUR02FT029.eop-EUR02.prod.protection.outlook.com>
+Return-Path: noreply.recrutement@nagra.com
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 9cfff4b9-4eca-4e90-4d93-08d8e302d5bd
+X-MS-TrafficTypeDiagnostic: AM6PR0502MB3798:
+X-Microsoft-Antispam-PRVS:
+	<AM6PR0502MB37988AF2B86F0F4472BFCA1EE3929@AM6PR0502MB3798.eurprd05.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:6430;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	gjq+gox9I4v+P2/pfGvQ2tktSzqX5orpLvlNSCZYxOD4pEY+CGkPDuE2REDMKxA48NbKEtxG9QgZoS+OXOD1+QafSglu/QaeBC6443Z9EEQxDO2FpAyTJkbIK6XLxuo1VdsJ6n/c9oR3hjdxkd9Zc+l6n7P43IzcLXcpU8pc8+yUHo+peK7f0sDScJFp/y/JZYvIcqdPyWsTRDaiHkhdXsjRUaTj8gKtFLvInql8i2aNBY03YInM+a5R399Bf3AcTvvrN6FL6VqF5aUx9ewVo/NbertirnagQAjWuynmXdsUUfADjEOy2YjuK6ECz8RbITnkHPUXrEcKe5cwWY3+9ZEt55j3tcvLq5br+HmVFWBGfQ+KxuR+KdAihDBfig2z88XzAAYxeXANzHTv879uO/chTXCeierp0lw3NI2BWJUnrx7kAXSkr3lWNw4G+xuM/yu/odUc4USPsn29n2EnTFf8POFM3g5zse0dKO9B3r5BE5C8liQdo/xY/4pUScDQ4YFfhqVeRAIzB4Q0X18hc3LgJOvHL4exzclaboBA9yBfImpi9PrQBiKUCh2/BQ1GBzwiX0pFSymO04WsjYafEsEm6JUEpDYx/fi2e84Xz+RbWniUYp8K96UMp4eBoMw5tQZzq6Y+6tZ2SXMtPfiSIaIdXaaUD0JQ4ggDV8XTJW1EgywOPqe1YQblVxgs2Mg/jWjFjJ0uHDGpsUyUDLwmNwxbRVykT1vurLmudwZhEan9T2dp4tYHtm93yez3uFpGejCKyOXqfFIKGxpMKflxVqgKPg6OKmL5QJ4n68705Qo=
+X-Forefront-Antispam-Report:
+	CIP:85.184.252.7;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtpgweu1.nagra.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(4636009)(136003)(346002)(396003)(39850400004)(376002)(46966006)(36840700001)(4744005)(8676002)(83380400001)(7066003)(5660300002)(7116003)(186003)(6916009)(316002)(47076005)(478600001)(8936002)(15650500001)(86362001)(3480700007)(70586007)(81166007)(82310400003)(82740400003)(31686004)(36860700001)(166002)(426003)(336012)(26005)(31696002)(9686003)(356005)(6266002)(3450700001)(2906002)(70206006)(47402002)(36900700001);DIR:OUT;SFP:1102;
+X-OriginatorOrg: nagra.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Mar 2021 13:54:18.7568
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cfff4b9-4eca-4e90-4d93-08d8e302d5bd
+X-MS-Exchange-CrossTenant-Id: e5733095-4425-4f08-b6ba-487b9a46a425
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5733095-4425-4f08-b6ba-487b9a46a425;Ip=[85.184.252.7];Helo=[smtpgweu1.nagra.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	AM5EUR02FT029.eop-EUR02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM6PR0502MB3798
+
+Mugil RAJ, <br /><br />Your account is now created.<br />Please click on this link to activate your account on our website : <a href="https://careers.nagra.com/?page=login&action=validate&token=4BBKDwxdMEFyJI7o"> Activate your account </a>.We invite you to complete your CV / Resume and apply for job offers online. <br /><br />Best regards, <br />Human Resources.<br /><br /><span style="font-size: smaller;">Please do not hesitate to visit our <a href="http://careers.nagra.com/?page=advertisement">erecruiting site</a> and apply to <a href="http://careers.nagra.com/?page=advertisement">the online offers</a>.</span>

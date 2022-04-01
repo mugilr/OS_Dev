@@ -1,0 +1,74 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp161090ejf;
+        Wed, 10 Mar 2021 20:59:13 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy91uVqrODDdJ1417UT2W8MrIW/pTZNxGfEKEXMpvM62o+CjSAlWTiarADaf24Smv4NtAkf
+X-Received: by 2002:a17:906:2312:: with SMTP id l18mr1277173eja.468.1615438753185;
+        Wed, 10 Mar 2021 20:59:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615438753; cv=none;
+        d=google.com; s=arc-20160816;
+        b=tn6CeLzidAzNEqr4JsH64QVgtle67zvSpSK3h+W2XVkQcU9h5bvObgufdSXFjih8fF
+         CE1c4sAQ8KaY8VTh243o6Pij8JK0GOpPj5GWDbGzU4814RogZAqpTRtoHMoR//vswY+j
+         YP6W91SOzcPVuj3jjpVXfhkeW9xuIFM7ieFFb3jHNOqMytV8Er6Y1IACEREQZbXR3xfm
+         HPSYJWZ+ghcZ3RK1edWRGwch+piISYW4B97qfThRue8rs5vyx5XBWSdL2AraRPzmqnLA
+         swB6shTjSNUj7Ax0CIdN1i9oNR5m6FchskxxVYzcu47YoTLDaE0dg2mfzgZtCI6f5a3s
+         Dheg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:reply-to:subject:from:to;
+        bh=qZuw1ivfwKEOneT0wHeXYDnGGP3mi3tB/SD7ceEQBb4=;
+        b=EEakiQ5ucPBG/ZH5S4MsW+NJQKW/qeZcy0ecKFlRsvh/OH17Co7prHHZNmkgDd/yoO
+         BSAlj0rhGickQ0cYib6dgdDcdS26WTbZUhlStF6Hz3bh7OIsd+o167u/mGZCtMH3liyk
+         lzs2xPCj5+1ZQ725Oadiv3r9WprSpQZ9h2qheBP3EDCDAFgdZbawNntXbcPlyc/5NbQL
+         rrxNnP8w+Ck0x+hpbG3qPR/puY+hKU8EpWNHcrb5I5KV2jBu6o8/MJrzPQ+b7Cn3tYfr
+         tXL05jXFleS894HmQvho72u5GW5WnBAkCysizXRKXyzrFu47HNh59HI9ckjWBQrEZi3A
+         /D2Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) smtp.mailfrom=linux-iio-owner@vger.kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vger.kernel.org
+Return-Path: <linux-iio-owner@vger.kernel.org>
+Received: from vger.kernel.org (vger.kernel.org. [23.128.96.18])
+        by mx.google.com with ESMTP id dp18si968343ejc.432.2021.03.10.20.59.12
+        for <dmugil2000@gmail.com>;
+        Wed, 10 Mar 2021 20:59:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) client-ip=23.128.96.18;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) smtp.mailfrom=linux-iio-owner@vger.kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vger.kernel.org
+Received: (majordomo@vger.kernel.org) by vger.kernel.org id S231164AbhCKE6k
+        for <dmugil2000@gmail.com>; Wed, 10 Mar 2021 23:58:40 -0500
+To:     dmugil2000@gmail.com
+From:   Majordomo@vger.kernel.org
+Subject: Welcome to linux-iio
+Reply-To: Majordomo@vger.kernel.org
+Message-Id: <S231164AbhCKE6k/20210311045840Z+33365@vger.kernel.org>
+Date:   Wed, 10 Mar 2021 23:58:40 -0500
+
+--
+
+Welcome to the linux-iio mailing list!
+
+Please save this message for future reference.  Thank you.
+
+If you ever want to remove yourself from this mailing list,
+you can send mail to <Majordomo@vger.kernel.org> with the following
+command in the body of your email message:
+
+    unsubscribe linux-iio
+
+or from another account, besides dmugil2000@gmail.com:
+
+    unsubscribe linux-iio dmugil2000@gmail.com
+
+If you ever need to get in contact with the owner of the list,
+(if you have trouble unsubscribing, or have questions about the
+list itself) send email to <owner-linux-iio@vger.kernel.org> .
+This is the general rule for most mailing lists when you need
+to contact a human.
+
+ Here's the general information for the list you've subscribed to,
+ in case you don't already have it:
+
+This is the mailing list for Linux IIO discussion.
+
+Archives:
+	http://marc.info/?l=linux-iio
+

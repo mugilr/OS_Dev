@@ -1,0 +1,141 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp251408eja;
+        Thu, 4 Mar 2021 22:04:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyys/ghAEomx4fQx5BR4hht1jbae+zfC3GBVnIxmjbPFFS7za4+vKnvnjxJwZtnuaKFIPQh
+X-Received: by 2002:a63:6604:: with SMTP id a4mr7291658pgc.402.1614924279678;
+        Thu, 04 Mar 2021 22:04:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614924279; cv=none;
+        d=google.com; s=arc-20160816;
+        b=rNDV1FfXf/JCsSfE9MDmTJK8nYA2hj9ugRl6JV22zLEwmzKLcUZHT7QqRuVcaFwAOS
+         t80Ay73lPOThXEdVuYLM2ZSJIhe0s+m97sG3slabYajio1WyKx2fAalTZmDUwnok17Mc
+         ORzXQkUE32Eb/wqMQB040pBTFGX1fSBv6L6Rcq8DFZqnb501mLIsuNpMEbWfml5rLZG0
+         9kOMHZXMp9KhjodCCurbPAsDrJ3E2BXtkf4mqzWl7RuG3MmsPyislm2vryxHHIFdgaJW
+         pbp3PK+wfnRSGdS9iVZQvPaWkrXMHd1NzGzFLys2yMtGIAe3ihjjS9A7vr9hvdB35b0s
+         /DLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:from:date;
+        bh=XmM2gQ2oImLeT/9NfIywiSXHGdB2Z29DPnA3HYTcy4A=;
+        b=SE0q6xyxOzGey8curK2h+mPPYL0hRazNwF0aj6f1GE7ZhztwLX8Egl7GjS9gNy8LSe
+         RNBQYd5LF5GUw+woBq6I/4ela5wjw/+xiI+92VWuRN0gHJ3wlMiHt74JcHqFdjueu34v
+         4VM2HNGn8F7h9T70ET3GjYAafudfn3N6MQ9t202ySw05X6gbSds4WnnV2lXqIVhz2yXS
+         FuQC2M1dd8oes8r/gLrkl1J1e1ks1iNmswEC/u2Wmln73MlqNyj8zSwzOLpPTJIFMutP
+         /yfnS2Aux6xYQ7TKepe9YhzYzmvWBG3fAo4QBvQeoZvzsjNzh1eM2pIqwOr5aT+ZqTsi
+         ERJQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: best guess record for domain of recruit@mail.hpcl.co.in designates 203.175.185.18 as permitted sender) smtp.mailfrom=recruit@mail.hpcl.co.in;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=hpcl.co.in
+Return-Path: <recruit@mail.hpcl.co.in>
+Received: from egateisc10.hpcl.co.in (egateisc10.hpcl.co.in. [203.175.185.18])
+        by mx.google.com with ESMTP id n2si1739085pga.32.2021.03.04.22.04.38
+        for <dmugil2000@gmail.com>;
+        Thu, 04 Mar 2021 22:04:39 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of recruit@mail.hpcl.co.in designates 203.175.185.18 as permitted sender) client-ip=203.175.185.18;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of recruit@mail.hpcl.co.in designates 203.175.185.18 as permitted sender) smtp.mailfrom=recruit@mail.hpcl.co.in;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=hpcl.co.in
+Received: from egateisc10.hpcl.co.in (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 72AD4AAC0E
+	for <dmugil2000@gmail.com>; Fri,  5 Mar 2021 11:34:37 +0530 (IST)
+Received: from egateisc10.hpcl.co.in (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 66FDDAAA4F
+	for <dmugil2000@gmail.com>; Fri,  5 Mar 2021 11:34:37 +0530 (IST)
+Received: from Epay2012.hpcl.co.in (unknown [10.90.147.40])
+	by egateisc10.hpcl.co.in (Postfix) with ESMTP
+	for <dmugil2000@gmail.com>; Fri,  5 Mar 2021 11:34:37 +0530 (IST)
+Date: Fri, 5 Mar 2021 11:34:37 +0530 (IST)
+From: recruit@mail.hpcl.co.in
+To: dmugil2000@gmail.com
+Message-ID: <459716552.252465.1614924277262.JavaMail.webadmin@Epay2012>
+Subject: HPCL Recruitment Registration
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_252464_2103128005.1614924277262"
+X-TM-AS-GCONF: 00
+
+------=_Part_252464_2103128005.1614924277262
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><font size=3D"4"><p>Dear MUGILRAJ  D<br><br>Email ID : <b>dmugil200=
+0@gmail.com</b><br><br>Mobile No. : <b>8667075288</b><br><br>Password : <=
+b>aB3Jqc</b><br><br>Please keep the password safely as this will be used =
+for filling up of any recruitment application forms live or posted in fut=
+ure<br><br>You are kindly advised to check active advertisements and appl=
+y by logging in to below mentioned link.<br><br><b>https://jobs.hpcl.co.i=
+n/Recruit_New/recruitlogin.jsp</b><br><br>Wishing you All The Best<br><br=
+>Note:This is an auto generated mail. Please do not reply to this email.<=
+br><br>Regards<br><br>Corporate Recruitment Team</font></html>
+<table><tr><td bgcolor=3D#ffffff><font color=3D#000000><pre>This e-mail m=
+essage is only to be used by intended recipients and all others may kindl=
+y delete it and notify the sender. Unless expressly authorized by HPCL, t=
+he views expressed and the message itself is that of the individual sende=
+r and recipients are cautioned to check messages/attachments for any viru=
+ses before use. Users acknowledge that messages may contain confidential,=
+ proprietary  or privileged information and that HPCL neither assures nor=
+ guarantees integrity or content of messages.
+The Website address of HPCL is www.hindustanpetroleum.com
+
+=E0=A4=AF=E0=A4=B9 =E0=A4=88-=E0=A4=AE=E0=A5=87=E0=A4=B2 =E0=A4=B8=E0=A4=
+=82=E0=A4=A6=E0=A5=87=E0=A4=B6 =E0=A4=95=E0=A5=87=E0=A4=B5=E0=A4=B2 =E0=
+=A4=86=E0=A4=B6=E0=A4=AF=E0=A4=BF=E0=A4=A4 =E0=A4=AA=E0=A5=8D=E0=A4=B0=E0=
+=A4=BE=E0=A4=AA=E0=A5=8D=E0=A4=A4=E0=A4=95=E0=A4=B0=E0=A5=8D=E0=A4=A4=E0=
+=A4=BE=E0=A4=93=E0=A4=82 =E0=A4=95=E0=A5=87 =E0=A4=89=E0=A4=AA=E0=A4=AF=
+=E0=A5=8B=E0=A4=97 =E0=A4=B9=E0=A5=87=E0=A4=A4=E0=A5=81 =E0=A4=B9=E0=A5=
+=88 =E0=A4=A4=E0=A4=A5=E0=A4=BE =E0=A4=85=E0=A4=A8=E0=A5=8D=E0=A4=AF =E0=
+=A4=B8=E0=A4=AD=E0=A5=80 =E0=A4=95=E0=A5=83=E0=A4=AA=E0=A4=AF=E0=A4=BE =
+=E0=A4=87=E0=A4=B8=E0=A5=87 =E0=A4=A1=E0=A4=BF=E0=A4=B2=E0=A5=80=E0=A4=9F=
+ =E0=A4=95=E0=A4=B0 =E0=A4=B8=E0=A4=95=E0=A4=A4=E0=A5=87 =E0=A4=B9=E0=A5=
+=88=E0=A4=82 =E0=A4=94=E0=A4=B0 =E0=A4=AA=E0=A5=8D=E0=A4=B0=E0=A5=87=E0=
+=A4=B7=E0=A4=95 =E0=A4=95=E0=A5=8B =E0=A4=B8=E0=A5=82=E0=A4=9A=E0=A4=BF=
+=E0=A4=A4 =E0=A4=95=E0=A4=B0 =E0=A4=B8=E0=A4=95=E0=A4=A4=E0=A5=87 =E0=A4=
+=B9=E0=A5=88=E0=A4=82=E0=A5=A4 =E0=A4=9C=E0=A4=AC =E0=A4=A4=E0=A4=95 =E0=
+=A4=8F=E0=A4=9A=E0=A4=AA=E0=A5=80=E0=A4=B8=E0=A5=80=E0=A4=8F=E0=A4=B2 =E0=
+=A4=A6=E0=A5=8D=E0=A4=B5=E0=A4=BE=E0=A4=B0=E0=A4=BE =E0=A4=B8=E0=A5=8D=E0=
+=A4=AA=E0=A4=B7=E0=A5=8D=E0=A4=9F =E0=A4=B0=E0=A5=82=E0=A4=AA =E0=A4=B8=
+=E0=A5=87 =E0=A4=B5=E0=A5=8D=E0=A4=AF=E0=A4=95=E0=A5=8D=E0=A4=A4 =E0=A4=
+=A8 =E0=A4=95=E0=A4=BF=E0=A4=AF=E0=A4=BE =E0=A4=97=E0=A4=AF=E0=A4=BE =E0=
+=A4=B9=E0=A5=8B, =E0=A4=B5=E0=A5=8D=E0=A4=AF=E0=A4=95=E0=A5=8D=E0=A4=A4 =
+=E0=A4=95=E0=A5=80 =E0=A4=97=E0=A4=88 =E0=A4=B0=E0=A4=BE=E0=A4=AF =E0=A4=
+=A4=E0=A4=A5=E0=A4=BE =E0=A4=B8=E0=A4=82=E0=A4=A6=E0=A5=87=E0=A4=B6 =E0=
+=A4=AA=E0=A5=8D=E0=A4=B0=E0=A5=87=E0=A4=B7=E0=A4=95 =E0=A4=95=E0=A5=87 =
+=E0=A4=B9=E0=A5=88=E0=A4=82 =E0=A4=A4=E0=A4=A5=E0=A4=BE =E0=A4=AA=E0=A5=
+=8D=E0=A4=B0=E0=A4=BE=E0=A4=AA=E0=A5=8D=E0=A4=A4=E0=A4=95=E0=A4=B0=E0=A5=
+=8D=E0=A4=A4=E0=A4=BE=E0=A4=93=E0=A4=82 =E0=A4=95=E0=A5=8B =E0=A4=B8=E0=
+=A4=9A=E0=A5=87=E0=A4=A4 =E0=A4=95=E0=A4=BF=E0=A4=AF=E0=A4=BE =E0=A4=9C=
+=E0=A4=BE=E0=A4=A4=E0=A4=BE =E0=A4=B9=E0=A5=88 =E0=A4=95=E0=A4=BF =E0=A4=
+=B5=E0=A5=87 =E0=A4=89=E0=A4=AA=E0=A4=AF=E0=A5=8B=E0=A4=97 =E0=A4=B8=E0=
+=A5=87 =E0=A4=AA=E0=A4=B9=E0=A4=B2=E0=A5=87 =E0=A4=B8=E0=A4=82=E0=A4=A6=
+=E0=A5=87=E0=A4=B6 / =E0=A4=B8=E0=A4=82=E0=A4=B2=E0=A4=97=E0=A5=8D=E0=A4=
+=A8=E0=A4=95=E0=A5=8B=E0=A4=82 =E0=A4=95=E0=A5=8B =E0=A4=B5=E0=A4=BE=E0=
+=A4=AF=E0=A4=B0=E0=A4=B8 =E0=A4=95=E0=A5=87 =E0=A4=B2=E0=A4=BF=E0=A4=8F =
+=E0=A4=9C=E0=A4=BE=E0=A4=82=E0=A4=9A =E0=A4=95=E0=A4=B0 =E0=A4=B2=E0=A5=
+=87=E0=A4=82=E0=A5=A4 =E0=A4=89=E0=A4=AA=E0=A4=AF=E0=A5=8B=E0=A4=97=E0=A4=
+=95=E0=A4=B0=E0=A5=8D=E0=A4=A4=E0=A4=BE =E0=A4=87=E0=A4=B8 =E0=A4=AC=E0=
+=A4=BE=E0=A4=A4 =E0=A4=95=E0=A5=8B =E0=A4=B8=E0=A5=8D=E0=A4=B5=E0=A5=80=
+=E0=A4=95=E0=A4=BE=E0=A4=B0 =E0=A4=95=E0=A4=B0=E0=A5=87=E0=A4=82 =E0=A4=
+=95=E0=A4=BF =E0=A4=B8=E0=A4=82=E0=A4=A6=E0=A5=87=E0=A4=B6 =E0=A4=AE=E0=
+=A5=87=E0=A4=82 
+=E0=A4=97=E0=A5=8B=E0=A4=AA=E0=A4=A8=E0=A5=80=E0=A4=AF, =E0=A4=B8=E0=A5=
+=8D=E0=A4=B5=E0=A4=BE=E0=A4=AE=E0=A4=BF=E0=A4=A4=E0=A5=8D=E0=A4=B5 =E0=A4=
+=AF=E0=A4=BE =E0=A4=B5=E0=A4=BF=E0=A4=B6=E0=A5=87=E0=A4=B7=E0=A4=BE=E0=A4=
+=A7=E0=A4=BF=E0=A4=95=E0=A4=BE=E0=A4=B0 =E0=A4=B8=E0=A4=82=E0=A4=AC=E0=A4=
+=82=E0=A4=A7=E0=A5=80 =E0=A4=B8=E0=A5=82=E0=A4=9A=E0=A4=A8=E0=A4=BE =E0=
+=A4=B9=E0=A5=8B =E0=A4=B8=E0=A4=95=E0=A4=A4=E0=A5=80 =E0=A4=B9=E0=A5=88 =
+=E0=A4=A4=E0=A4=A5=E0=A4=BE =E0=A4=8F=E0=A4=9A=E0=A4=AA=E0=A5=80=E0=A4=B8=
+=E0=A5=80=E0=A4=8F=E0=A4=B2 =E0=A4=B8=E0=A4=82=E0=A4=A6=E0=A5=87=E0=A4=B6=
+=E0=A5=8B=E0=A4=82 =E0=A4=95=E0=A5=80 =E0=A4=85=E0=A4=96=E0=A4=82=E0=A4=
+=A1=E0=A4=A4=E0=A4=BE =E0=A4=AF=E0=A4=BE =E0=A4=B8=E0=A4=BE=E0=A4=AE=E0=
+=A4=97=E0=A5=8D=E0=A4=B0=E0=A5=80 =E0=A4=95=E0=A4=BE =E0=A4=A8 =E0=A4=A4=
+=E0=A5=8B =E0=A4=86=E0=A4=B6=E0=A5=8D=E0=A4=B5=E0=A4=BE=E0=A4=B8=E0=A4=A8=
+ =E0=A4=A6=E0=A5=87=E0=A4=A4=E0=A5=80 =E0=A4=B9=E0=A5=88 =E0=A4=A8 =E0=A4=
+=B9=E0=A5=80 =E0=A4=97=E0=A4=BE=E0=A4=B0=E0=A4=82=E0=A4=9F=E0=A5=80 =E0=
+=A4=A6=E0=A5=87=E0=A4=A4=E0=A5=80 =E0=A4=B9=E0=A5=88=E0=A5=A4 
+
+=E0=A4=8F=E0=A4=9A=E0=A4=AA=E0=A5=80=E0=A4=B8=E0=A5=80=E0=A4=8F=E0=A4=B2 =
+=E0=A4=95=E0=A4=BE =E0=A4=B5=E0=A5=87=E0=A4=AC=E0=A4=B8=E0=A4=BE=E0=A4=87=
+=E0=A4=9F =E0=A4=AA=E0=A4=A4=E0=A4=BE www.hindustanpetroleum.com =E0=A4=
+=B9=E0=A5=88=E0=A5=A4</pre></font></td></tr></table>
+
+------=_Part_252464_2103128005.1614924277262--
+

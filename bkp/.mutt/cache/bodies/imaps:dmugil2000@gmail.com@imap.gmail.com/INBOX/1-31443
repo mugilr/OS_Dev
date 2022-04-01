@@ -1,0 +1,385 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp973229eja;
+        Sun, 7 Mar 2021 03:52:42 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzBBHu4AZFSLj+Lc4ZrVBl5e8mVmlOMR3d+kKRD5VMS09AFIj8Z3ibUGTOnrTsMu9/9N60p
+X-Received: by 2002:a62:ee09:0:b029:1c0:ba8c:fcea with SMTP id e9-20020a62ee090000b02901c0ba8cfceamr16738391pfi.7.1615117961904;
+        Sun, 07 Mar 2021 03:52:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615117961; cv=none;
+        d=google.com; s=arc-20160816;
+        b=l3f8am4ae0Wtp4oEMVvf0cs8X/Y9hHEst1wStYCwd4nhvY/AazuH62byMqPMoUhL9R
+         vjVjdN4GHgy2i0it+8II5+yyVHajvqVVqsRD/ZeLShQWhYNDCWrjtBiMhGgf7fCokqCG
+         w7YKNKcp5Ryn0Hzap6bvsNBVHR9bz04ZtHZ5dHf2qJqAMZpZEPXLe/sAibN1SznIbbsu
+         69NYn+TUqh1QcNbPugTSbEuQIkrPGscjPbNzVB3Lheg/yBhbhdAi73JBFSkeCq7n0b/o
+         UxisN2TSYiCOBM91jQJYk6RHs4sNMi0OwoeBFEa7o1MePOsNRwZQb9Lm7HxhpPmBJ9hx
+         kT8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:content-transfer-encoding:mime-version:subject:to:from
+         :message-id:dkim-signature:dkim-signature;
+        bh=MVarToK7gCA18xqtrxjaaQGqJkUbXsWHRjz1/MZruYM=;
+        b=wXIinwKr6T6sLMV+vSkNxzKNcfPTJw3sDxIocJHyZcF0hG35OIfTG8mcE5Nz0cHsrX
+         kCkinBViS36WRVJORMbB5h0OgB/U5Prnu0sfXR+pTaaQHfKEwb/8SOfC8CK4pk5yJxbf
+         rYXdOwMeEDUdoLIUVtyDUGjonFequy4ti+JY8Zv5yVpKUImyVKxHG1C3TjOyl3LXCJgV
+         /po6h9uRL5MJXnNaoDtgSEF1lEeT8kYNoR+i53UiBA8oXPLR1yisireewcY5zH2FLb/h
+         H0LhzkysSYctGHx5vGpz3ni+0jG34CguzSOYRqBn2XqNS42G/vD4HUN/qhPNtVTml1dr
+         1Rgw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sampark.gov.in header.s=sampark1 header.b=Iq9lZt0P;
+       dkim=pass header.i=@sampark.gov.in header.s=sampark1 header.b=OAO98FHC;
+       spf=pass (google.com: domain of no-reply@sampark.gov.in designates 164.100.13.119 as permitted sender) smtp.mailfrom=no-reply@sampark.gov.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=sampark.gov.in
+Return-Path: <no-reply@sampark.gov.in>
+Received: from vastu13119.nic.in ([164.100.13.119])
+        by mx.google.com with ESMTPS id az8si8604297plb.285.2021.03.07.03.52.41
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 07 Mar 2021 03:52:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of no-reply@sampark.gov.in designates 164.100.13.119 as permitted sender) client-ip=164.100.13.119;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sampark.gov.in header.s=sampark1 header.b=Iq9lZt0P;
+       dkim=pass header.i=@sampark.gov.in header.s=sampark1 header.b=OAO98FHC;
+       spf=pass (google.com: domain of no-reply@sampark.gov.in designates 164.100.13.119 as permitted sender) smtp.mailfrom=no-reply@sampark.gov.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=sampark.gov.in
+Received: from sampark.gov.in (localhost.localdomain [127.0.0.1])
+	by sampark.gov.in (Postfix) with ESMTP id 1315419174475
+	for <dmugil2000@gmail.com>; Sun,  7 Mar 2021 17:05:48 +0530 (IST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=sampark.gov.in;
+	s=sampark1; t=1615116949;
+	bh=l0fTYeerKsofaBcbBOEZTsqoXfu9E5OTKLRDUXLG7Oc=;
+	h=From:To:Subject:Date;
+	b=Iq9lZt0PgQPbBJ4y02aAVlJmhmj/SsmoWVOOv8Ml4qwFKWGauTYRuU+v99O2rQK6/
+	 TLKiDckz2MCuYf8zVmVvJy+quNWu45lhTmQvfc/T2PxKpqqLx314qG/j3A0ltucPl2
+	 9SB7evvAWmHFucP5nYWy1LR/rthRvfw63rkBIB0Q=
+Received: from relay24.nkn.in (unknown [10.103.13.169])
+	by sampark.gov.in (Postfix) with ESMTP id 5AF2E1917A4A1
+	for <dmugil2000@gmail.com>; Sun,  7 Mar 2021 17:05:41 +0530 (IST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=sampark.gov.in;
+	s=sampark1; t=1615116941;
+	bh=l0fTYeerKsofaBcbBOEZTsqoXfu9E5OTKLRDUXLG7Oc=;
+	h=From:To:Subject:Date;
+	b=OAO98FHCuUAVe2JZ1EfRFCHzVx8gCEBJ1vIuR2aY6hMP7VafVqIjogJOT6wKLucQV
+	 EegbnruxuInyYRnosb8io5Qmt58HWqZf3npO2MlvBP0FQRjBcuUWyUV2qkfM0J5Kmp
+	 YEixGDyx27IUee8gVhUXFY4d2XRvysBWAfGAXpD0=
+Received: from rabbitmq4.nkn.in (localhost [127.0.0.1])
+	by relay24.nkn.in (Postfix) with ESMTP id A5A2E180356
+	for <dmugil2000@gmail.com>; Sun,  7 Mar 2021 17:05:40 +0530 (IST)
+Message-ID: <93326135.27382671615116940675.JavaMail.root@rabbitmq4>
+From: Ministry of Tourism <no-reply@sampark.gov.in>
+To: dmugil2000@gmail.com
+Subject: Dekho Apna Desh: 1000-km odyssey through beautiful North-East
+MIME-Version: 1.0
+Content-type: text/html
+Content-Transfer-Encoding: quoted-printable
+Date: Sun,  7 Mar 2021 17:05:40 +0530 (IST)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+ <head>=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" =
+/>=20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1, maximum-scale=3D1" />=20
+  <link href=3D"https://fonts.googleapis.com/css?family=3DRoboto+Condensed"=
+ rel=3D"stylesheet" />=20
+  <title>North-East Cycling tour</title>=20
+  <style type=3D"text/css">
+
+html {width:100%; height:100%;}
+body {margin:0; padding:0; width:100%; background:#fff; -webkit-text-size-a=
+djust:none; -ms-text-size-adjust:none;}
+img {border:0;}
+table {border-collapse:collapse;}
+
+.ReadMsgBody { width: 100%;}
+.ExternalClass {width: 100%;}
+
+/* INTRO [OR] CALL TO ACTION TEXT */
+
+td[class=3D"action"] {padding:0 60px!important;}
+table[class=3D"action_text"] {font-family: 'Lato', sans-serif;!important; f=
+ont-size:25px!important; color:#444!important; line-height:35px!important; =
+font-weight:lighter!important;}
+
+/* FEATURED AUTHORS AND AD */
+
+table[class=3D"authors"] {margin-top:30px!important;}
+
+
+/* FOOTER */
+
+table[class=3D"footer"] {margin:auto!important; padding-bottom:20px!importa=
+nt;}
+table[class=3D"footer_column"] {text-align:left!important;}
+
+/* COPY-RIGHT */
+
+table[class=3D"copyright"] {text-align:left!important;}
+table[class=3D"unsubscribe"] {text-align:right!important;}
+
+
+/* MEDIA QUIRES */
+
+
+
+@media only screen and (max-width:640px) {
+=09
+=09/* GENERAL */
+=09
+=09body {width:auto!important; background:#ffffff!important;}
+=09table[class=3D"layout"] {width:480px!important; margin:auto!important; b=
+ackground:#fff!important;} /* CONTROLS THE LAYOUT WIDTH */
+=09table[class=3D"container"] {width:420px!important; margin:auto!important=
+;} /* CONTROLS THE WIDTH OF EACH SECTION */
+=09td[class=3D"space"] {height:30px!important;}
+=09td[class=3D"hrule"] {border-bottom:1px solid #ddd!important; height:30px=
+!important;}
+=09img[class=3D"top-space"] {margin-top:30px!important;}
+=09img[class=3D"bottom-space"] {margin-bottom:30px!important;}
+=09
+=09/* HEADER */
+
+=09table[class=3D"logo"] {width:100%!important; text-align:center!important=
+; margin-bottom:20px!important; border-bottom:1px solid #ddd!important;}
+=09table[class=3D"logo_place"] {padding-bottom:20px!important;}
+=09table[class=3D"media"] {width:100%!important;}
+=09
+=09/* INTRO [OR] CALL TO ACTION TEXT */
+=09
+=09td[class=3D"action"] {padding:0!important;}
+=09table[class=3D"action_text"] {width:210px!important; font-size:16px!impo=
+rtant; line-height:25px!important; font-weight:600!important;}
+=09
+=09/* IMAGES LEFT [OR] RIGHT SIDE */
+=09
+=09table[class=3D"image_content"] {width:100%!important;}
+=09table[class=3D"text_content"] {width:100%!important;}
+=09table[class=3D"half-width"] {width:100%!important; margin-top:30px!impor=
+tant;}
+
+=09
+=09/* FEATURED AUTHORS AND AD */
+
+=09table[class=3D"authors"] {width:100%!important; margin:30px 0!important;=
+}
+=09table[class=3D"ad-one"] {display:none!important;}
+=09
+=09/* ILLUSTRATIONS LEFT [OR] RIGHT SIDE */
+
+=09table[class=3D"illustration_content"], table[class=3D"illustration_text"=
+] {width:100%!important;}
+=09
+=09/* THREE COLUMN */
+
+=09table[class=3D"one_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"two_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"single_column"] {width:100%!important; text-align:center!=
+important;}
+=09
+=09/* GALLERY */
+=09
+=09table[class=3D"gallery"] {width:100%!important;}
+=09
+=09/* FOOTER */
+=09
+=09table[class=3D"footer"] {width:400px!important;}
+=09table[class=3D"footer_column"] {width:100%!important; text-align:center!=
+important;}
+=09
+=09/* COPY-RIGHT */
+
+=09table[class=3D"copyright"], table[class=3D"unsubscribe"] {width:100%!imp=
+ortant; text-align:center!important;}
+
+}
+
+@media only screen and (max-width:480px) {
+=09
+=09/* GENERAL */
+=09
+=09body {width:auto!important; background:#ffffff!important;}
+=09table[class=3D"layout"] {width:300px!important; margin:auto!important;}
+=09table[class=3D"container"] {width:100%!important;}
+=09td[class=3D"space"] {height:20px!important;}
+=09td[class=3D"hrule"] {border-bottom:1px solid #ddd!important; height:22px=
+!important;}=09
+=09img[class=3D"top-space"] {margin-top:20px!important;}
+=09img[class=3D"bottom-space"] {margin-bottom:20px!important;}
+=09img[class=3D"img_top_space"] {margin-top:20px!important;}
+=09table[class=3D"half-width"] {margin-top:20px!important;}
+=09
+=09/* INTRO [OR] CALL TO ACTION TEXT */
+=09
+=09table[class=3D"action_text"] {width:100%!important; text-align:center!im=
+portant; font-size:14px!important; line-height:normal!important; font-weigh=
+t:600!important;}
+=09table[class=3D"action_button"] {display:none!important;}
+=09
+=09/* FEATURED AUTHORS AND AD */
+
+=09table[class=3D"authors"] {width:100%!important; margin:15px 0!important;=
+}
+=09
+=09/* THREE COLUMN */
+=09
+=09table[class=3D"one_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"two_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"single_column"] {width:100%!important; text-align:center!=
+important;}
+
+=09/* FOOTER */
+=09
+=09table[class=3D"footer"] {width:200px!important;}
+=09=09
+}
+
+@media only screen and (max-width:350px) {
+=09
+=09/* GENERAL */
+=09
+=09body {width:auto!important; background:#ffffff!important;}
+=09table[class=3D"layout"] {width:300px!important; margin:auto!important;}
+=09table[class=3D"container"] {width:100%!important;}
+=09td[class=3D"space"] {height:20px!important;}
+=09td[class=3D"hrule"] {border-bottom:1px solid #ddd!important; height:22px=
+!important;}=09
+=09img[class=3D"top-space"] {margin-top:20px!important;}
+=09img[class=3D"bottom-space"] {margin-bottom:20px!important;}
+=09img[class=3D"img_top_space"] {margin-top:20px!important;}
+=09table[class=3D"half-width"] {margin-top:20px!important;}
+=09
+=09/* INTRO [OR] CALL TO ACTION TEXT */
+=09
+=09table[class=3D"action_text"] {width:100%!important; text-align:center!im=
+portant; font-size:14px!important; line-height:normal!important; font-weigh=
+t:600!important;}
+=09table[class=3D"action_button"] {display:none!important;}
+=09
+=09/* FEATURED AUTHORS AND AD */
+
+=09table[class=3D"authors"] {width:100%!important; margin:15px 0!important;=
+}
+=09
+=09/* THREE COLUMN */
+=09
+=09table[class=3D"one_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"two_third"] {width:100%!important; text-align:center!impo=
+rtant;}
+=09table[class=3D"single_column"] {width:100%!important; text-align:center!=
+important;}
+
+=09/* FOOTER */
+=09
+=09table[class=3D"footer"] {width:200px!important;}
+=09=09
+}
+
+</style>=20
+ </head>=20
+ <body>
+  <div style=3D"margin:0 auto;display:block;text-align:center; background-c=
+olor:#2a2a2a;">=20
+   <font color=3D"#AAAAAA" face=3D"Arial, sans-serif" size=3D"-1"> Having t=
+rouble reading this email? <a style=3D"color:#f6f6f6;font-weight:600;text-d=
+ecoration:none;font-style:italic; text-decoration: underline;" href=3D"http=
+://jan-sampark.nic.in/campaigns/2021/07-Mar/MyGov/index.html" target=3D"_bl=
+ank">View it in your mobile/ web browser</a> </font>=20
+   <hr style=3D"color:#aaa;border:1px solid #aaaaaa" />=20
+  </div>=20
+  <table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%; padding:3=
+0px 0;">=20
+   <tbody>
+    <tr>=20
+     <td align=3D"center">=20
+      <table width=3D"650" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ align=3D"center" class=3D"layout" bgcolor=3D"#FFFFFF">=20
+       <tbody>
+        <tr>=20
+         <td>
+          <table width=3D"650" align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"container" bgcolor=3D"#ffffff">=20
+           <tbody>
+            <tr>=20
+             <td><img src=3D"http://jan-sampark.nic.in/campaigns/2021/07-Ma=
+r/MyGov/images/north-east-cycling-tour-emailer.jpg" border=3D"0" style=3D"w=
+idth:100%;" /></td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+       </tbody>
+      </table> </td>=20
+    </tr>=20
+   </tbody>
+  </table>  =20
+  <div id=3D"profile-div">=20
+   <div style=3D"margin:0 auto;display: block;text-align:center; background=
+-color:#302330;">=20
+    <table style=3D"font-family: arial, serif; font-size: 12px; font-weight=
+: 300; border-bottom-width: 1px; display: block; max-width: 600px;" cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#302330" align=3D"cent=
+er">=20
+     <tbody>=20
+      <tr>=20
+       <td align=3D"center" width=3D"600" valign=3D"top">=20
+        <table style=3D"width: 100%; height: auto; padding-top:7px; padding=
+-bottom:7px;" bgcolor=3D"#302330" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0">=20
+         <tbody>=20
+          <tr style=3D"height:45px;">=20
+           <td style=3D"border-right: 1px solid #fff;width: 50%;"><font sty=
+le=3D"color: #ffffff; text-decoration: none;font-family: 'Noto Sans', sans-=
+serif;font-size:13px;line-height:20px; text-align:right; font-weight:600; p=
+osition:relative; top:-9px;"> Share it on Social Media </font> <a target=3D=
+"_blank" href=3D"https://www.facebook.com/sharer/sharer.php?u=3Dhttp%3A%2F%=
+2Fjan-sampark.nic.in%2Fcampaigns%2F2021%2F07-Mar%2FMyGov%2Findex.html" clas=
+s=3D"fb-xfbml-parse-ignore"> <img src=3D"http://jan-sampark.nic.in/jansampa=
+rk/images/mailer/fb-icon.png" width=3D"25" height=3D"25" alt=3D"social icon=
+" style=3D"margin-left: 5px; max-width:25px; margin-right: 10px;" /> </a> <=
+a class=3D"twitter-share-button" target=3D"_blank" href=3D"https://twitter.=
+com/intent/tweet?hashtags=3DeSampark.Gov&amp;url=3Dhttp%3A%2F%2Fjan-sampark=
+.nic.in%2Fcampaigns%2F2021%2F07-Mar%2FMyGov%2Findex.html" data-size=3D"larg=
+e" data-text=3D"custom share text"> <img src=3D"http://jan-sampark.nic.in/j=
+ansampark/images/mailer/tw-icon.png" width=3D"25" height=3D"25" alt=3D"soci=
+al icon" style=3D"margin-left: 5px; max-width:25px; margin-right: 10px;" />=
+ </a> </td>=20
+           <td style=3D"position: relative; left: 20px;"> <a style=3D"borde=
+r:0;text-decoration:none;display:table" href=3D"http://jan-sampark.nic.in/j=
+ansampark/forward.jsp?tab=3Dpmo&amp;lat=3D2021&amp;mid=3D7efc777c0188bfb96c=
+baf9dc8dc5d5d300d7819e" target=3D"_blank"> <img src=3D"http://jan-sampark.n=
+ic.in/jansampark/images/mailer/mail-icon.png" alt=3D"social icon" style=3D"=
+margin-left: 5px; max-width:25px; margin-right: 10px;" /> <font style=3D"co=
+lor: #ffffff; text-decoration: none;font-family: 'Noto Sans', sans-serif;fo=
+nt-size:13px;line-height:20px; text-align:right; font-weight:600; position:=
+relative; top:-4px;"> Forward it to a Friend</font> </a></td>=20
+          </tr>=20
+         </tbody>=20
+        </table> </td>=20
+      </tr>=20
+      <tr>=20
+       <td><font color=3D"#AAAAAA" face=3D"Arial, sans-serif" size=3D"-1"> =
+This message was sent to dmugil2000[at]gmail[dot]com from <a style=3D"color=
+:#f6f6f6;font-weight:600;text-decoration:none;font-style:italic" href=3D"ht=
+tps://www.mygov.in/" target=3D"_blank">MyGov</a> through no-reply[at]sampar=
+k[dot]gov[dot]in </font>=20
+        <hr style=3D"color:#aaa;border:1px solid #aaaaaa" /> <font color=3D=
+"#AAAAAA" face=3D"Arial, sans-serif" size=3D"-1" style=3D"text-align: justi=
+fy;"> If you would prefer not to receive these emails please click <a style=
+=3D"color:#f6f6f6;font-weight:600;text-decoration:none;font-style:italic" h=
+ref=3D"https://sampark.gov.in/Sampark/unsubscribe_1?tab=3Dpmo&amp;lat=3D202=
+1&amp;mid=3D7efc777c0188bfb96cbaf9dc8dc5d5d300d7819e" target=3D"_blank">uns=
+ubscribe</a> </font> <br /> </td>=20
+      </tr>=20
+     </tbody>=20
+    </table>=20
+   </div>=20
+   <img style=3D"display: none !important" src=3D"http://jan-sampark.nic.in=
+/jansampark/read.jsp?tab=3Dpmo&amp;lat=3D2021&amp;mid=3D7efc777c0188bfb96cb=
+af9dc8dc5d5d300d7819e" />=20
+  </div>
+ </body>
+</html>

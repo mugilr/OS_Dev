@@ -1,0 +1,228 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp684478ejf;
+        Tue, 10 Aug 2021 05:50:30 -0700 (PDT)
+X-Received: by 2002:a62:1c84:0:b029:39a:87b9:91e with SMTP id c126-20020a621c840000b029039a87b9091emr23087505pfc.7.1628599830189;
+        Tue, 10 Aug 2021 05:50:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628599830; cv=none;
+        d=google.com; s=arc-20160816;
+        b=JjDdh3W2Eix6X7szUL5l5emCQbexH9znPtETCvG8Stm6FQ9Y2QHDCO0EPgx3AMj4/b
+         eAV2IeM5bpK6/XPtVOXyrw6d+uodA6MKCYqC3Qp0se1XLI8tfs/0fm/5JMgWv4coYaIu
+         MInDYfwmHf/d2wmtiv4wNeIWjt1HfOGaachEnz4gy3oZyEnud0tCRHB9fBeTy21HACTs
+         374LlNZKgWLyrTTlrpoq6hJeGlPLaS6iSI20vqTA1xSK5A9OE+OPkCFPbCkk3uW6o7/a
+         pdb6DNzGLou4jTkW6fKkmxD1zpZvK33j7IuBb5gvtqv7H1aY7wWOKaMuA0Vx6RWZ0vMr
+         z8kQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JJJ/oLxgNHBZEDzCWs8ydO8BoNOUNRkg/djNHlTwyhc=;
+        b=UwcVG2avEujkfVFxkioBJFb8t0qjDOoFcxFJPviIBpZXofICxXagHmBI2m4FqWS77m
+         +q/JfVdfLbMT4jN28OFlcXhrS1DaEC1xXF/hp/l/pMNUT5nLthyHaQ7fHYSpoWZ0CMMm
+         ZF9w6/tPirHU+QSfYiv491pr40d8mTrPji/63+vJrOWZgJ4CWWM1NpRObfWlfwOQUCKn
+         TGL0dLRefK6AOqOIxvgCwtSDmN6GIXdVNIgTt0ERDyjAd48Zu9G6UH4sFRzrJ2nzkjw3
+         mw6VuE2c/NOcoUYuHABYKHoN5rnepWw1St9dpeGgPT9gkjtnRD/Ym9Li5MSThfdfZwN5
+         wtzQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RqbzGJ2E;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <andy.shevchenko@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id b13sor11416498pls.30.2021.08.10.05.50.29
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Tue, 10 Aug 2021 05:50:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RqbzGJ2E;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding;
+        bh=JJJ/oLxgNHBZEDzCWs8ydO8BoNOUNRkg/djNHlTwyhc=;
+        b=RqbzGJ2EljHTfkynsVwTFsWP+yfheO6qjj+QZRbcjoczrxOg9RjpyuhrAGPzGtxldK
+         ISmCzYtzvg7kSnEBnrAElNCOYoyzDeiyo4B9B0QvBMMp2/9QB/PiKYDzKMdqtfDk2uzY
+         thSb2TfQHmYRpFKn3KRf0e84AhVMg0Am8MMgtsVABnR2+tCBh5JIYgPVdUYSlbfx9y22
+         e9e+r31LgDJ/qB3dPLkWsP/DsLnLEV2ByUuOsvW69n5Ml5ffVch6GMlh/7WdjXM6L46X
+         4RzZt6+fC0KscmhuJiJ/rUgPOS3ImWVgByXyhUn/uOd4PGERKbV4xUUsAFuswSOOt7zi
+         2hAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding;
+        bh=JJJ/oLxgNHBZEDzCWs8ydO8BoNOUNRkg/djNHlTwyhc=;
+        b=spT7YWbduH4YNaP+ie3ABhizD9R/3Cu/V/tWyLDtBQp4Xaytk3VWrx3+072wpOa9Ag
+         gZdid66RBtdQ5NJFq5FTxLNlO//PreKherCHWvQWppM4fq8YHLHnWt6jB42bE/3mV715
+         ojGenapblOMHmYDOZAF3G9EXHgo4iycXdyblBdRo541Lc3gl/gIIyTsb5k4ALICSFJS5
+         b9o8l9lVPGinEwZGOFoWm09/xmolJln6WdhCv6+K1XoY3GmjZ+jFavSoeB2dmnkuB/yJ
+         3v/M+5CshZAC6lSxNf8G7Xuu6SjLoBCp6u/z8Vy4zSjgVPjYEYROastigAO4uMirks2v
+         jIdA==
+X-Gm-Message-State: AOAM532JnHmDsI1ID8RyWJZqaRe7eDn4j470cM3r6t9DUBg9dgvgulfA
+	lxsiHObolvhsXUGErOI5sUe3QLdPP/Hw05yVeoR8RoOVYoo=
+X-Google-Smtp-Source: ABdhPJyuuMMo1FhyD5wrm8N87cZTcufEtPEUN1sR8i/+DEeTcGemBSlQjNrFRXZ63zQTjAcPKKqvbyiSSuL7ffC3mqM=
+X-Received: by 2002:a17:902:b713:b029:12b:b249:693f with SMTP id
+ d19-20020a170902b713b029012bb249693fmr11178496pls.17.1628599828711; Tue, 10
+ Aug 2021 05:50:28 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210809075745.160042-1-dmugil2000@gmail.com> <20210809075745.160042-3-dmugil2000@gmail.com>
+In-Reply-To: <20210809075745.160042-3-dmugil2000@gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 10 Aug 2021 15:49:52 +0300
+Message-ID: <CAHp75Ve=D1d5wFZgNseP=wGpteEkZHnmAi7j9ykKC+u_NrR5xw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] iio: potentiometer: Add driver support for AD5110
+To: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+Cc: "Bogdan, Dragos" <Dragos.Bogdan@analog.com>, Darius <Darius.Berghe@analog.com>, 
+	Rob Herring <robh+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
+	Guenter Roeck <linux@roeck-us.net>, Chris Packham <chris.packham@alliedtelesis.co.nz>, 
+	Slawomir Stepien <sst@poczta.fm>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Alexandru Ardelean <alexandru.ardelean@analog.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Aug 9, 2021 at 10:59 AM Mugilraj Dhavachelvan
+<dmugil2000@gmail.com> wrote:
+>
+> The AD5110/AD5112/AD5114 provide a nonvolatile solution
+> for 128-/64-/32-position adjustment applications, offering
+> guaranteed low resistor tolerance errors of =C2=B18% and up to
+> =C2=B16 mA current density.
+
+...
+
+> +/*
+> + * Analog Devices AD5110 digital potentiometer driver
+> + *
+> + * Copyright (C) 2021 Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+> + *
+> + * Datasheet: https://www.analog.com/media/en/technical-documentation/da=
+ta-sheets/AD5110_5112_5114.pdf
+
+> + *
+
+Redundant blank line.
+
+> + */
+
+...
+
+> +#define WIPER_RESISTANCE       70
+
+Missed prefix?
+
+...
+
+> +static const struct iio_chan_spec ad5110_channels[] =3D {
+> +       {
+> +               .type =3D IIO_RESISTANCE,
+> +               .output =3D 1,
+> +               .info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW) | BIT(IIO_=
+CHAN_INFO_OFFSET) |
+> +                                       BIT(IIO_CHAN_INFO_SCALE) | BIT(II=
+O_CHAN_INFO_ENABLE),
+> +       }
+
++ comma.
+
+> +};
+
+...
+
+> +       ret =3D i2c_master_send_dmasafe(data->client, data->buf, sizeof(d=
+ata->buf));
+> +       if (ret !=3D sizeof(data->buf)) {
+
+> +               ret =3D -EIO;
+
+Shadowed error code when ret < 0.
+
+> +               goto error;
+> +       }
+
+...
+
+> +       ret =3D i2c_master_send_dmasafe(data->client, data->buf, sizeof(d=
+ata->buf));
+> +       if (ret !=3D sizeof(data->buf))
+> +               ret =3D -EIO;
+
+Ditto.
+
+> +       mutex_unlock(&data->lock);
+> +
+> +       return ret < 0 ? ret : 0;
+> +}
+
+...
+
+> +       data->tol =3D data->cfg->kohms * (val & GENMASK(6, 0)) * 10 / 8;
+> +       if (!(val & BIT(7)))
+> +               data->tol *=3D -1;
+
+Shouldn't you simple use corresponding sign_extend*()?
+
+...
+
+> +       ret =3D ad5110_write(data, AD5110_EEPROM_WR, 0);
+> +       if (ret) {
+> +               dev_err(&data->client->dev, "RDAC to EEPROM write failed\=
+n");
+> +               return ret;
+> +       }
+
+
+> +       msleep(20);
+
+Each long sleeps like this must be explained.
+
+...
+
+> +static IIO_DEVICE_ATTR(store_eeprom, 0644,
+> +                      ad5110_eeprom_read,
+> +                      ad5110_eeprom_write, 0);
+
+IIO_DEVICE_ATTR_RW() ?
+
+...
+
+> +static struct attribute *ad5110_attributes[] =3D {
+> +       &iio_dev_attr_store_eeprom.dev_attr.attr,
+> +       NULL,
+
+No comma for a terminator line.
+
+> +};
+
+...
+
+> +       data->cfg =3D device_get_match_data(dev);
+
+> +       if (!data->cfg)
+> +               data->cfg =3D &ad5110_cfg[i2c_match_id(ad5110_id, client)=
+->driver_data];
+
+Not sure this is not a dead code since you are using ->probe_new().
+
+...
+
+> +static struct i2c_driver ad5110_driver =3D {
+> +       .driver =3D {
+> +               .name   =3D "ad5110",
+> +               .of_match_table =3D ad5110_of_match,
+> +       },
+> +       .probe_new      =3D ad5110_probe,
+> +       .id_table       =3D ad5110_id,
+> +};
+
+> +
+
+Redundant blank line.
+
+> +module_i2c_driver(ad5110_driver);
+
+--=20
+With Best Regards,
+Andy Shevchenko

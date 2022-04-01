@@ -1,0 +1,18 @@
+[user]
+	email = dmugil2000@gmail.com
+	name = Mugilraj Dhavachelvan
+	password = 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
+
+[core]
+	editor = vim
+	whitespace = fix, -indent-with-non-tab, tralling-space, cr-at-eol
+	excludesfile = ~/.gitignore
+
+[sendemail]
+	smtpuser = dmugil2000@gmail.com
+	smtpserver = smtp.googlemail.com
+	smtppass = jtrrbbawicezxmuf
+	smtpencryption = tls
+	smtpserverport = 587
+[credential]
+	helper = store

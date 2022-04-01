@@ -1,0 +1,284 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp2046285ejf;
+        Mon, 2 Aug 2021 06:20:20 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwtzVRa3FVQwCj78We2lzD9Gp3brYAxozJz+xx9D3wD8+MXi8wb7FxK2WYOs0Ly3gtC4dKr
+X-Received: by 2002:a5b:586:: with SMTP id l6mr21832266ybp.352.1627910420072;
+        Mon, 02 Aug 2021 06:20:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627910420; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=xBme8YDKFgIyn+hRlPcSqPghKoOe5lp1vKHZfjmhhc/hOYqH1Fyov0Aoc5FWNpMtJg
+         HA1mLHuJBBI3T2rLWa+UtZIQHdMABuakQK5FKjJ+lmdl0oybE5UU2+a83+zRqqNFu1fL
+         b2PBJu7R3NwzVdVKhB7zQ6ZoxId9jpGhluhLa10xUVpVa73NEHw19iiuxte8dFy3y6e+
+         ZXT/oefAvbjBHuqC7kPS569CJWFyTx3cNczT4wvRLKlaj8pixSVEA5QDoCRLecC9TyVz
+         mDZj/QvPRq7Oq3YPohAH8H7URjMd6XyUnxJDOkM6XJQRIk7SQ//QfB8y6Nw4+kKg+0ao
+         Kfig==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :importance:thread-index:thread-topic:subject:cc:to:from
+         :dkim-signature;
+        bh=KzNVVLgEZslCDq+vebCk3W3dT+KXrjbQpMTwPkUtpi0=;
+        b=tPDCg0b3aQ0LgiD83ztJ+G5wnq2cRtUPMxgtprDNDWkXbHHFhk7k0hUkL+tBvrA0AM
+         LNyoWsNlIlu3+YdJ20hV/w/MloPduBAhzDKXFVP9/eGX67pi2j28VgPBcvLM7FDEPr1l
+         2xJRTbzsiwbLV06QvgL4RAk5SPvY7RdO+hml070TKPv6X1cQh0WGoEvvyuGkbOPyh/bh
+         yMpIsoiznf1WCiFp23H04XJntdNTWa1fwbsCkOrdEh3rbdLGxnFs7t+TTSH14Q2B0XeN
+         iyV7bMbh2i+oOgtYWZrVQfvg4eo/w6bvL3vPqKJMto/E3RwdfUwmDG4sXFzQkLpovHcl
+         L6Bg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@analog.onmicrosoft.com header.s=selector2-analog-onmicrosoft-com header.b=4svGLftg;
+       arc=pass (i=1 spf=pass spfdomain=analog.com dkim=pass dkdomain=analog.com dmarc=pass fromdomain=analog.com);
+       spf=pass (google.com: domain of darius.berghe@analog.com designates 148.163.139.77 as permitted sender) smtp.mailfrom=Darius.Berghe@analog.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Return-Path: <Darius.Berghe@analog.com>
+Received: from mx0b-00128a01.pphosted.com (mx0b-00128a01.pphosted.com. [148.163.139.77])
+        by mx.google.com with ESMTPS id a18si1002240ybq.189.2021.08.02.06.20.19
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 02 Aug 2021 06:20:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of darius.berghe@analog.com designates 148.163.139.77 as permitted sender) client-ip=148.163.139.77;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@analog.onmicrosoft.com header.s=selector2-analog-onmicrosoft-com header.b=4svGLftg;
+       arc=pass (i=1 spf=pass spfdomain=analog.com dkim=pass dkdomain=analog.com dmarc=pass fromdomain=analog.com);
+       spf=pass (google.com: domain of darius.berghe@analog.com designates 148.163.139.77 as permitted sender) smtp.mailfrom=Darius.Berghe@analog.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 172DHGjJ029630;
+	Mon, 2 Aug 2021 09:20:19 -0400
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2103.outbound.protection.outlook.com [104.47.70.103])
+	by mx0b-00128a01.pphosted.com with ESMTP id 3a5359n4pq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 02 Aug 2021 09:20:19 -0400
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Bb9x1vBAW6ghIgStKQG41HnIFqyuvqM+WZ96ndyz5uuoloAlfJK6urXG3exVjxwEGnre0zFWLyZ0lptAFIHA4pIlzblVHXH2PZlhNdEpPSIeNdXsPzZ6FfNxeR+xkodSfPPiGmRNHm/KQV3lUdL5bTGAPsMaSOSRBidFCYEpFJ4GgsFttKfKqgoZ5E2qNPIC850MI+8bcJvcjE+lsh+fjfQqEkkOBT9nudnNuMSrChGl4imjpziss63M41wK/GnS8Gz8jVJKFcJcqy14PpeDlyMxXWo+a0Mlr2NsRDFNiUsyG3DHE0RG53aH+JFJT2CnNwQUAA8V4IqJPL8u32DuAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KzNVVLgEZslCDq+vebCk3W3dT+KXrjbQpMTwPkUtpi0=;
+ b=Wh2hpb0wLxAz45e3fRzuiLVZQ4jW+2rqQPcaWRoLSorL6QCuFZuRrgNVaod11Rp0sjJh48TypsuOTInNH6bd4FrFaMYy9Vls08M0+WM6PCtvkUgsmAUVHyEAkYq/pYEo8DTKGibvJRsqSyENAx78Bk6BjeGyyRGKeqHEaXs+yxANilNYt68BafmCCMsmfpL9E1LCsMuv+sAbwaYuL4008r5d6OTkzN7IL/p2AB/FiNQBmVnZeQPwSmjgsvvEENIqEMp+6apHSfNGsbzBx7KcTJa8cXfWxUP+5Gvcxzr3VpKR8oteSe9KaASPZL95E+MHos1jOCasUxnGoGilYcCOGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=analog.onmicrosoft.com; s=selector2-analog-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KzNVVLgEZslCDq+vebCk3W3dT+KXrjbQpMTwPkUtpi0=;
+ b=4svGLftgGxZ8PqcHT2YiDCvVVwRqeXZ29AeU8eL41bxiK68XGbKk/ftSUNeEwr+upEeA2MRmzZyPbz4PqlT7df+mFOBw4VCn/i2o3x/INOszcbJfV6kwnzLGuowS9c314lFazpav0pyBKDMBkiGfOgQUnHStW6IxvQD7FCWx7YE=
+Received: from CO1PR03MB5940.namprd03.prod.outlook.com (2603:10b6:303:93::12)
+ by CO1PR03MB5747.namprd03.prod.outlook.com (2603:10b6:303:6c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4373.18; Mon, 2 Aug
+ 2021 13:20:18 +0000
+Received: from CO1PR03MB5940.namprd03.prod.outlook.com
+ ([fe80::f43a:ede6:d007:92e9]) by CO1PR03MB5940.namprd03.prod.outlook.com
+ ([fe80::f43a:ede6:d007:92e9%6]) with mapi id 15.20.4373.026; Mon, 2 Aug 2021
+ 13:20:18 +0000
+From: "Berghe, Darius" <Darius.Berghe@analog.com>
+To: "Bogdan, Dragos" <Dragos.Bogdan@analog.com>,
+        "puranjay12@gmail.com"
+	<puranjay12@gmail.com>,
+        Lucas Stankus <lucas.p.stankus@gmail.com>,
+        "dmugil2000@gmail.com" <dmugil2000@gmail.com>
+CC: "nish.malpani25@gmail.com" <nish.malpani25@gmail.com>
+Subject: Canceled: GSoC 2021 Weekly @ AnalogDevices
+Thread-Topic: GSoC 2021 Weekly @ AnalogDevices
+Thread-Index: AddcYwZ0ZVSU7kHJSeu4aGUrfu0bKwrPif+g
+Importance: high
+X-Priority: 1
+Date: Mon, 2 Aug 2021 13:20:17 +0000
+Message-ID: 
+ <CO1PR03MB5940C372F95CB971D956D61396EF9@CO1PR03MB5940.namprd03.prod.outlook.com>
+Accept-Language: ro-RO, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-dg-ref: 
+ PG1ldGE+PGF0IG5tPSJib2R5LnR4dCIgcD0iYzpcdXNlcnNcZGJlcmdoZVxhcHBkYXRhXHJvYW1pbmdcMDlkODQ5YjYtMzJkMy00YTQwLTg1ZWUtNmI4NGJhMjllMzViXG1zZ3NcbXNnLTZjMzI3M2QzLWYzOTQtMTFlYi05ZTNmLTQxNTY0NTAwMDAzMFxhbWUtdGVzdFw2YzMyNzNkNS1mMzk0LTExZWItOWUzZi00MTU2NDUwMDAwMzBib2R5LnR4dCIgc3o9IjI1MyIgdD0iMTMyNzIzODQwMzcwODg3MjUxIiBoPSJDU2N1aWdlTGQ1T2pxZytQbzdDbXVzYXo4MmM9IiBpZD0iIiBibD0iMCIgYm89IjEiLz48L21ldGE+
+x-ms-publictraffictype: Email
+authentication-results: analog.com; dkim=none (message not signed)
+ header.d=none;analog.com; dmarc=none action=none header.from=analog.com;
+x-ms-exchange-calendar-series-instance-id: 
+ BAAAAIIA4AB0xbcQGoLgCAflCAkg24FEfFzXAQAAAAAAAAAAEAAAACOUYlwu1MxLrboYlTJJ/W8=
+x-ms-office365-filtering-correlation-id: 369ffc27-b01b-4fd0-ebd3-08d955b845a7
+x-ms-traffictypediagnostic: CO1PR03MB5747:MeetingMessage
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: 
+ <CO1PR03MB57475A5F2D9F801E077AB76696EF9@CO1PR03MB5747.namprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:4714;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 
+ tJ3R6ki3gkC7WB+rVDp6XD779UWSQXt5DrhQnOlGOV3YqM5ShS43utSPactbnK//pQRvtYwmSW/oPE9ucr1oTpnjzTEF2ciNOR7PZYIHiOXwAKSHVEfpU32Ug4hUTqQe2pMTnUWKbBjKg/u0wF6ThGqKZzwxJQE/2nkt/pjCAIgywLSZZTv1KNjmpN3bYOUmQtsaxI/DxKheyKoX2KSkh+ac1yYq0yKe9JcEG+QZTFW44ClE1xxBzxA75HcnxUiWMPESk9I1t0QeJvnusFe7KuavuvJZq+YLirrzJ302QnwY8CAnC0WsMFmtoWqwlBNqzP5xE55zX8f9ULNghWmZY34OP6nZeuXHUQN6RYJu9EWeX1xVToE7PiYqcpfAo3IB1C07DVpRPXrawqsHFl8O8K0f/kuh+W+3oe0TcHcA5KobsvzWOWsmhdcSiy6sZCngXZLjWb7DYKGHtIl9J/lNaTiNHCGpC0p2/0xWDXDHP1hSlpm2lPZYVe8yy7P8rS4X/ZSDUmODjZ12TgYsB2nOV8C8Udkpci2ElxLbUu+MQ4vkaZ7SHNsBiaGAqSiiP9BDJtesE6MA5dkfavWNK/6ShAQOS8rv6dh+LgGeZg6ygj4lm/GjFEmAUo1Lgu3oMgSmtiYTM1it+q/5eApyj9IUmJXGHT4mLhlZDk3elD0Ad4UjxBD7e7QZuuof5qki//p4SeezYOAkuZ4qTyBrqdZSzyBcI2vv6m5Op5GiheP5ZCaxfa/nBZseG+p7QFpcngjbnwwLoQ/tIV7cjb1llqSirD/dq2U+pepUM477cEyEZRI=
+x-forefront-antispam-report: 
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR03MB5940.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(136003)(376002)(396003)(366004)(346002)(39860400002)(52536014)(110136005)(6506007)(8936002)(478600001)(8676002)(4326008)(71200400001)(316002)(166002)(76116006)(66446008)(64756008)(38100700002)(122000001)(38070700005)(66946007)(55016002)(66476007)(2906002)(26005)(7696005)(450100002)(66556008)(186003)(9686003)(33656002)(86362001)(966005)(5660300002)(558084003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: 
+ =?us-ascii?Q?Ads6u7qXN5g4jSjKkTG2+s7+Ti9yxcGdLXC2bcVM2f5uetmssc0C1bxhTWwq?=
+ =?us-ascii?Q?14O8sONkpqwrB/o1a4BifRtBoBA9Y44bcNuhJMnqsrtRyMtJtDWp4LDFWpwE?=
+ =?us-ascii?Q?ts2X+2Cn7W9Dkt4o8FiBfWknyAl7CmKdTphkhxuqaOHXVwiN4CfobsSo+JWO?=
+ =?us-ascii?Q?OCAOvpCxzDrIbbyXswyR8ezDBqJFk9H5RRxHt7D982Nkwki7QifyY0RJoDjn?=
+ =?us-ascii?Q?ozEI0seOjv/MN6wtX4lrq60NgaS5Y9RobDOlfpnWaaItSi3pU3FoBcb5MW68?=
+ =?us-ascii?Q?7avro6pqeUekT736S8qpxZqZwIuQWesRyYxtA83ZgLDbd2GkeYlXIPFGXoP5?=
+ =?us-ascii?Q?9+2K/kzpL7P1MGYBbGn+nNnpudBOXp1shU5HyrsvAI+up6Ttz5dh4+QG0PYz?=
+ =?us-ascii?Q?vvP/Lx2XN0Rwdq222weJg+7S0m/m1NdVhgeN4W8W36nZ2LhL/8VjmCJA9Xqr?=
+ =?us-ascii?Q?7HeurfaV9W1O2GUKjO4w1nsKZPbKsiq5QL8iGEjD6D5FJniECFnybk3/m4Rv?=
+ =?us-ascii?Q?1i2Z5bGQ13Re33x+AYCBb2+SdoShjPsZQCr/LjCWxZDS+cKflhZ9O9XLoucy?=
+ =?us-ascii?Q?bEYtP7GQe4dXY04sDskf76tBG8cM+5XPtvbwJZEwe7mdyqZWK8RGF9YJTgk7?=
+ =?us-ascii?Q?/pcvB+bkw6mX22crfAuCQ/mgXWamdlBSjZ8V8iBL8nEXp3lLdIQHJbEoouTS?=
+ =?us-ascii?Q?adwtjZATgQxZuC2msWuKN+Y2hkBaqQT+n/D6t/GbZLvCzRnLWKl/95zAVugm?=
+ =?us-ascii?Q?8D2O2uyPT7TFquOyrScozMIwXFpW1DVN+qcE0zfUAfbSuSoVJ1LTxAWXsJu8?=
+ =?us-ascii?Q?QUIs7KmhTaWBMNoYXW/k4Z6rWyU6Vc8XZ9deDmdLUJdxXfG8VFzww3anfA/M?=
+ =?us-ascii?Q?yPEf7rBUvAAK8BXQEHMnKukZxlqpa7299SAxPOeqgjSV/tCCerAboF1RDUcY?=
+ =?us-ascii?Q?9j86wV1+IsY8y/KrpxFLAnkvfDGmuvxAITCp4NsBd7rHxQ+wl4FxPzuVjbjJ?=
+ =?us-ascii?Q?o3JOrgZoESxtGaujgTbPzFtbfV6DkWJ7oW1XJb56D6Ca/I+irC/iv5Lhif83?=
+ =?us-ascii?Q?FOejVJJSCyN3xFCUffSSGv99WbAM69ABkADHkEf7v3iv27HTK3DSKnYXrJoA?=
+ =?us-ascii?Q?FcbcNwXN3dQH9+rBwkMOWr1dSzuboCy+z1PKkg3gYB0YAnkqWQ78ChqQizF3?=
+ =?us-ascii?Q?llrSnlqelldA47rNo9vaIMmg7CsiOSMk9C+yXipvP14z7A4vDUl5+BBFcYOP?=
+ =?us-ascii?Q?uAbpUgIbIhJciYPWPgKjGS7xXgca11bhZx9Y3c+y1gSQRPZWPha7kdjYUSuk?=
+ =?us-ascii?Q?1Pk=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_CO1PR03MB5940C372F95CB971D956D61396EF9CO1PR03MB5940namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR03MB5940.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 369ffc27-b01b-4fd0-ebd3-08d955b845a7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Aug 2021 13:20:17.9596
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lntzTlwIXmeU/iz489nKHJCQQShO/+NzAZjNNVTfImfLRLp88FXDCZh8HpDwhSwkOV4YliCEAMmqBPH9rGiK86yqh8GLQqjdEINlpfEwKWg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR03MB5747
+X-Proofpoint-ORIG-GUID: y95h0yZPSB3qLZPBPmXmJ1faQZ8r3qOJ
+X-Proofpoint-GUID: y95h0yZPSB3qLZPBPmXmJ1faQZ8r3qOJ
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-08-02_05:2021-08-02,2021-08-02 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
+ phishscore=0 mlxlogscore=594 impostorscore=0 adultscore=0 malwarescore=0
+ spamscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2107140000
+ definitions=main-2108020089
+
+--_000_CO1PR03MB5940C372F95CB971D956D61396EF9CO1PR03MB5940namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi all,
+
+Here's the invitation and link to the GSoC weekly meeting.
+
+-Darius
+
+https://analog.zoom.us/j/93848783686?pwd=3DVFBTUEZGNG1CQnJVdVRYQTQzZzBjZz09
+
+
+--_000_CO1PR03MB5940C372F95CB971D956D61396EF9CO1PR03MB5940namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle18
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:=
+break-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Hi all,<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Here&#8217;s the invitation and link to the GSoC wee=
+kly meeting.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">-Darius<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><a href=3D"https://analog.zoom.us/j/93848783686?pwd=
+=3DVFBTUEZGNG1CQnJVdVRYQTQzZzBjZz09">https://analog.zoom.us/j/93848783686?p=
+wd=3DVFBTUEZGNG1CQnJVdVRYQTQzZzBjZz09</a><o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_CO1PR03MB5940C372F95CB971D956D61396EF9CO1PR03MB5940namp_
+Content-Type: text/calendar; charset="utf-8"; method=CANCEL
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpNRVRIT0Q6Q0FOQ0VMDQpQUk9ESUQ6TWljcm9zb2Z0IEV4Y2hhbmdl
+IFNlcnZlciAyMDEwDQpWRVJTSU9OOjIuMA0KQkVHSU46VlRJTUVaT05FDQpUWklEOkUuIEV1cm9w
+ZSBTdGFuZGFyZCBUaW1lDQpCRUdJTjpTVEFOREFSRA0KRFRTVEFSVDoxNjAxMDEwMVQwMzAwMDAN
+ClRaT0ZGU0VURlJPTTorMDMwMA0KVFpPRkZTRVRUTzorMDIwMA0KUlJVTEU6RlJFUT1ZRUFSTFk7
+SU5URVJWQUw9MTtCWURBWT0tMVNVO0JZTU9OVEg9MTANCkVORDpTVEFOREFSRA0KQkVHSU46REFZ
+TElHSFQNCkRUU1RBUlQ6MTYwMTAxMDFUMDIwMDAwDQpUWk9GRlNFVEZST006KzAyMDANClRaT0ZG
+U0VUVE86KzAzMDANClJSVUxFOkZSRVE9WUVBUkxZO0lOVEVSVkFMPTE7QllEQVk9LTFTVTtCWU1P
+TlRIPTMNCkVORDpEQVlMSUdIVA0KRU5EOlZUSU1FWk9ORQ0KQkVHSU46VkVWRU5UDQpPUkdBTkla
+RVI7Q049IkJlcmdoZSwgRGFyaXVzIjptYWlsdG86RGFyaXVzLkJlcmdoZUBhbmFsb2cuY29tDQpB
+VFRFTkRFRTtST0xFPVJFUS1QQVJUSUNJUEFOVDtQQVJUU1RBVD1ORUVEUy1BQ1RJT047UlNWUD1U
+UlVFO0NOPSJCb2dkYW4sIERyDQogYWdvcyI6bWFpbHRvOkRyYWdvcy5Cb2dkYW5AYW5hbG9nLmNv
+bQ0KQVRURU5ERUU7Uk9MRT1SRVEtUEFSVElDSVBBTlQ7UEFSVFNUQVQ9TkVFRFMtQUNUSU9OO1JT
+VlA9VFJVRTtDTj1wdXJhbmpheTEyDQogQGdtYWlsLmNvbTptYWlsdG86cHVyYW5qYXkxMkBnbWFp
+bC5jb20NCkFUVEVOREVFO1JPTEU9UkVRLVBBUlRJQ0lQQU5UO1BBUlRTVEFUPU5FRURTLUFDVElP
+TjtSU1ZQPVRSVUU7Q049THVjYXMgU3Rhbg0KIGt1czptYWlsdG86bHVjYXMucC5zdGFua3VzQGdt
+YWlsLmNvbQ0KQVRURU5ERUU7Uk9MRT1SRVEtUEFSVElDSVBBTlQ7UEFSVFNUQVQ9TkVFRFMtQUNU
+SU9OO1JTVlA9VFJVRTtDTj1kbXVnaWwyMDAwDQogQGdtYWlsLmNvbTptYWlsdG86ZG11Z2lsMjAw
+MEBnbWFpbC5jb20NCkFUVEVOREVFO1JPTEU9T1BULVBBUlRJQ0lQQU5UO1BBUlRTVEFUPU5FRURT
+LUFDVElPTjtSU1ZQPVRSVUU7Q049bmlzaC5tYWxwYQ0KIG5pMjVAZ21haWwuY29tOm1haWx0bzpu
+aXNoLm1hbHBhbmkyNUBnbWFpbC5jb20NCkRFU0NSSVBUSU9OO0xBTkdVQUdFPWVuLVVTOkhpIGFs
+bFwsXG5cbkhlcmXigJlzIHRoZSBpbnZpdGF0aW9uIGFuZCBsaW5rIHRvIA0KIHRoZSBHU29DIHdl
+ZWtseSBtZWV0aW5nLlxuXG4tRGFyaXVzXG5cbmh0dHBzOi8vYW5hbG9nLnpvb20udXMvai85Mzg0
+ODc4MzY4DQogNj9wd2Q9VkZCVFVFWkdORzFDUW5KVmRWUllRVFF6WnpCalp6MDlcblxuDQpVSUQ6
+MDQwMDAwMDA4MjAwRTAwMDc0QzVCNzEwMUE4MkUwMDgwMDAwMDAwMDIwREI4MTQ0N0M1Q0Q3MDEw
+MDAwMDAwMDAwMDAwMDANCiAwMTAwMDAwMDAyMzk0NjI1QzJFRDRDQzRCQURCQTE4OTUzMjQ5RkQ2
+Rg0KUkVDVVJSRU5DRS1JRDtUWklEPUUuIEV1cm9wZSBTdGFuZGFyZCBUaW1lOjIwMjEwODA5VDE1
+MDAwMA0KU1VNTUFSWTtMQU5HVUFHRT1lbi1VUzpDYW5jZWxlZDogR1NvQyAyMDIxIFdlZWtseSBA
+IEFuYWxvZ0RldmljZXMNCkRUU1RBUlQ7VFpJRD1FLiBFdXJvcGUgU3RhbmRhcmQgVGltZToyMDIx
+MDgwOVQxNTAwMDANCkRURU5EO1RaSUQ9RS4gRXVyb3BlIFN0YW5kYXJkIFRpbWU6MjAyMTA4MDlU
+MTYwMDAwDQpDTEFTUzpQVUJMSUMNClBSSU9SSVRZOjENCkRUU1RBTVA6MjAyMTA4MDJUMTMyMDM3
+Wg0KVFJBTlNQOlRSQU5TUEFSRU5UDQpTVEFUVVM6Q0FOQ0VMTEVEDQpTRVFVRU5DRTozDQpMT0NB
+VElPTjtMQU5HVUFHRT1lbi1VUzpodHRwczovL2FuYWxvZy56b29tLnVzL2ovOTM4NDg3ODM2ODY/
+cHdkPVZGQlRVRVpHTkcNCiAxQ1FuSlZkVlJZUVRRelp6QmpaejA5DQpYLU1JQ1JPU09GVC1DRE8t
+QVBQVC1TRVFVRU5DRTozDQpYLU1JQ1JPU09GVC1DRE8tT1dORVJBUFBUSUQ6MTQzMDgwODU0OQ0K
+WC1NSUNST1NPRlQtQ0RPLUJVU1lTVEFUVVM6RlJFRQ0KWC1NSUNST1NPRlQtQ0RPLUlOVEVOREVE
+U1RBVFVTOkZSRUUNClgtTUlDUk9TT0ZULUNETy1BTExEQVlFVkVOVDpGQUxTRQ0KWC1NSUNST1NP
+RlQtQ0RPLUlNUE9SVEFOQ0U6Mg0KWC1NSUNST1NPRlQtQ0RPLUlOU1RUWVBFOjMNClgtTUlDUk9T
+T0ZULURPTk9URk9SV0FSRE1FRVRJTkc6RkFMU0UNClgtTUlDUk9TT0ZULURJU0FMTE9XLUNPVU5U
+RVI6RkFMU0UNCkVORDpWRVZFTlQNCkVORDpWQ0FMRU5EQVINCg==
+
+--_000_CO1PR03MB5940C372F95CB971D956D61396EF9CO1PR03MB5940namp_--

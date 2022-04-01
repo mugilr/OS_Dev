@@ -1,0 +1,53 @@
+Date: Sat, 14 Aug 2021 13:48:13 +0530
+From: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	"Bogdan, Dragos" <Dragos.Bogdan@analog.com>,
+	Darius <Darius.Berghe@analog.com>, Rob Herring <robh+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Slawomir Stepien <sst@poczta.fm>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandru Ardelean <alexandru.ardelean@analog.com>,
+	devicetree <devicetree@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-iio <linux-iio@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] iio: potentiometer: Add driver support for AD5110
+Message-ID: <20210814081802.GA11128@mugil-Nitro-AN515-52>
+References: <20210809075745.160042-1-dmugil2000@gmail.com>
+ <20210809075745.160042-3-dmugil2000@gmail.com>
+ <CAHp75Ve=D1d5wFZgNseP=wGpteEkZHnmAi7j9ykKC+u_NrR5xw@mail.gmail.com>
+ <013bcb79-c496-44d8-2e93-57eb57834ee0@metafoo.de>
+ <CAHp75VcvA=dDOJXSFzgz69JVgbez4Lz27EGOEF7JWUehyrwQrA@mail.gmail.com>
+ <20210812165327.GA4542@mugil-Nitro-AN515-52>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20210812165327.GA4542@mugil-Nitro-AN515-52>
+
+On Thu, Aug 12, 2021 at 10:23:41PM +0530, Mugilraj Dhavachelvan wrote:
+> On Wed, Aug 11, 2021 at 07:06:43PM +0300, Andy Shevchenko wrote:
+> > On Wed, Aug 11, 2021 at 11:15 AM Lars-Peter Clausen <lars@metafoo.de> wrote:
+> > > On 8/10/21 2:49 PM, Andy Shevchenko wrote:
+> > > >
+> > > >> +       data->tol = data->cfg->kohms * (val & GENMASK(6, 0)) * 10 / 8;
+> > > >> +       if (!(val & BIT(7)))
+> > > >> +               data->tol *= -1;
+> > > > Shouldn't you simple use corresponding sign_extend*()?
+> > > The data is encoded a sign-magnitude. sign_extend() works for two's
+> > > complement numbers.
+> > 
+> > Good catch!
+> > I'm wondering if it's a good idea to have a sign_magnitude_to_int()
+> > helper or so?
+> >
+> So, What should I do now?
+> 
+Will send v3 with other changes and add this change in v4. Hope it's
+okay.
+> > -- 
+> > With Best Regards,
+> > Andy Shevchenko

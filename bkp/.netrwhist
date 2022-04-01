@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/var'
+let g:netrw_dirhist_5='/var/mail'
+let g:netrw_dirhist_4='/tmp'
+let g:netrw_dirhist_3='/home/mugil/linux/iio/drivers/iio/dac/HEAD~'
+let g:netrw_dirhist_2='/tmp'
+let g:netrw_dirhist_1='/tmp/HEAD~'
+let g:netrw_dirhist_0='/home/mugil/linux/iio/drivers/iio/adc'
+let g:netrw_dirhist_9='/home/mugil/.mutt/cache/muttrc'
+let g:netrw_dirhist_8='/home/mugil/linux/staging-test/.git/info'
+let g:netrw_dirhist_7='/home/mugil/linux/staging-test/.git'

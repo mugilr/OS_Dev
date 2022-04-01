@@ -1,0 +1,135 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp284060ejf;
+        Thu, 11 Mar 2021 00:59:05 -0800 (PST)
+X-Received: by 2002:a05:6e02:12e3:: with SMTP id l3mr6102849iln.24.1615453145081;
+        Thu, 11 Mar 2021 00:59:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615453145; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TiDLZlFiEf+dNRIoFvnPrfB0Q5gA4axyPJYxpUXGyIaG6VQ/lKGzBqgjw+1h2Re4XE
+         slyrrpezeqOgjB3XkS2Qn6fBKT57Vw2sHpuhenDQOR1MJbr6gVYYY3Vi2vLycUB+D5Jh
+         ovHLmSK6/3eJcRrg3S+rsss9Q9JFaFg1Z8ZMhvJsvmwO2/s2OPZ/4QbUqpowqrhlohrX
+         RreVpWJXdggaRMtWZA5wFyBKlMU14347CU5l7rctgj/BZoIxhZGJx60Uo+pLwUZ9+bvA
+         NNHdDg+V8An8Xbd9PVCOj6DChtigohXfYOMmOnon7UEZJpsiP9dAXC5o9BYS8qdYFOLJ
+         6tHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=sxg3X/oYCGXtcasjRKf7wk0A6Sv64hB8sDPE2qKlin4=;
+        b=bltSAxFJbMiJnJTcnr9B5I5IwPUq1ICLbiizMHZhvGBmrhX26sWgoLDEfNfsaOFj4F
+         MlbXweaYwtFHUs1Wp8K4YXzXbCjfPbHitAGwfQ61/N3CqSBR+EQ8qu3w+Y06649ZTiiQ
+         rkiSvHqa3JmRww0ZKUjjrE6buJ6AeFwW3nmXP17rW23n7DvTVCvSik2pNmTu4bDfW7E/
+         FFczBmsvffmnuTqSu7dHcWI43WBHl6M+hrw323CBaaWHfpHulVe2xp+KrrU+oR1kiz9n
+         MLApr1tHJlZfe6CbQkfaiKEI3Jsko1GL6ZoBMjQ7JUbjYp4y+xhdTfmscfE8F3IGEI2K
+         OW7g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DquXJOcn;
+       spf=pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ardeleanalex@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <ardeleanalex@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id y4sor894870iln.26.2021.03.11.00.59.04
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Thu, 11 Mar 2021 00:59:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DquXJOcn;
+       spf=pass (google.com: domain of ardeleanalex@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ardeleanalex@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=sxg3X/oYCGXtcasjRKf7wk0A6Sv64hB8sDPE2qKlin4=;
+        b=DquXJOcnfNsBbYCop8Hsr0bCQhMQhsRRc3x8Weqoev4C6C0+2Ubtu65U7ysboRdm26
+         xrXatJYKeXLfaFVTuv0LMIZbT1zHOXenqLSnWqJDWte+EJqIwNZz8zyZZmZt6UmD1gOp
+         /2GBmpTBOXxs2lwvi8zOMfQTDouqBESNQm9rPkYbck3fWV3UVE+jUuPSaLSj7EZkaIXv
+         JlJnZXGTTxDHJjOTgkxQ2sHGkao1F3m+tnVbRq/fUXPb1HeIUl+XJSiBZaoRkHcUA6ph
+         cBSkmTb2DR+V1oumiBMEDxtPojPJ+xWlAZLfQ/fTP3UJAct0vv3jaS4CGNIVz4yBRrRT
+         B+QA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=sxg3X/oYCGXtcasjRKf7wk0A6Sv64hB8sDPE2qKlin4=;
+        b=GQb+rTryWbYvWnayHqhtZuyBNbZn5By8PhZgLVhIqa9dXr7rQwkT3R9dq44IPIUfWv
+         YPcP69/Jz7ynVTrEgM6hdW2fX4KyHe/li+dkm450vjf547NanhisuWTGu2JS5nul34jf
+         s/LjVdL4nH8JZhtANUlONXa4UK6t4Q3Ckq9wR21S6rxaUHx/51N6lZkgGwHQzipfMKVS
+         6hJn2wis47mG9lqHUqbmoHkvPvROuY6XgvdjkjhxHpY0AWwZ8xfWY4TIh9D0jjrhjmLB
+         cGlDO6ysj3eg5wTWnPq51Rw8S50+5nyUSchMJjzBwOlQUrH1He+PB+jsLpsg6gZqwk/g
+         f4Yw==
+X-Gm-Message-State: AOAM531e1fEydDKwXNb33EY3Lmil29WIsv0y6goTlAPtHdb+iEM/Jy8a
+	yL1mzWTYHhG//amO+h9Z88+l2F3OCcKP3ech6zpp0FFttIkRdQ==
+X-Google-Smtp-Source: ABdhPJz5W8vg6I+2MU3heWAqI3nocwJQtVtZjP068G0aZqCjcpRRoDPZCkI75GQJ2r8sZi0JLaUf3uiPEmy4sXURFIQ=
+X-Received: by 2002:a92:3652:: with SMTP id d18mr6151572ilf.100.1615453144569;
+ Thu, 11 Mar 2021 00:59:04 -0800 (PST)
+MIME-Version: 1.0
+References: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+In-Reply-To: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+From: Alexandru Ardelean <ardeleanalex@gmail.com>
+Date: Thu, 11 Mar 2021 10:58:53 +0200
+Message-ID: <CA+U=DsqAcmQq2qPMfxVcuwLWJefus_qyM1wG+ioGyG8bej88pw@mail.gmail.com>
+Subject: Re: GSoC IIO project: Mugil
+To: Mugil Raj <dmugil2000@gmail.com>
+Cc: linux-iio <linux-iio@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+
+On Thu, Mar 11, 2021 at 9:03 AM Mugil Raj <dmugil2000@gmail.com> wrote:
+>
+> Hi,
+> This is Mugilraj, an undergrad at NIT Trichy, India. I'm applying to
+> GSoC'21 for the project IIO driver. So, I need help from you guys with
+> the application process and finding the device to develop a driver.
+> I've done few exercises on patch submissions and completed a Linux
+> Foundations course, "A beginners guide to Linux kernel development
+> (LFD103)". I found this "https://kernelnewbies.org/IIO_tasks" task for
+> beginners, and now I'm doing that also If anyone suggests some fixes
+> to develop, that would be helpful for me.
+>
+
+
+hey,
+
+i posted some ideas here:
+https://lore.kernel.org/linux-iio/CA+U=Dsp98caW89g9FbsV-+KQ-NjyOqd+KSkO+aaFp4qBb-hpMg@mail.gmail.com/T/#md6c49f2e457d66d922d3d22f1f6fdb54971e6b8a
+
+[a quick copy + paste from that email]
+
+One thing I've always wanted to do, is to convert the entire IIO
+subsystem to devm_ variants.
+Essentially getting rid of the iio_device_unregister() function in
+favor of using devm_iio_device_unregister() and similar.
+
+There's about ~217 uses of this function.
+The more complicated one is in the 'drivers/platform/x86/toshiba_acpi.c'
+I think reworking the Toshiba ACPI driver would also be interesting,
+but it is some work.
+
+Now, converting everything to devm_ variants can be considered a bit
+of an obsession [by some people].
+But I sometimes find potential memory leaks by doing this conversion.
+And chances are that we may never be able to fully convert the IIO API
+to be devm_ variant-only.
+But it is an interesting process [for me], just the cleanup itself.
+
+Another one, that was interesting until 1-2 years ago, was the
+conversion of OF drivers to be a bit more ACPI friendly [as well].
+This is also a bit of work to convert drivers that use only
+of_property_read_xxxx()  functions to   device_property_read_xxx()
+functions.
+This isn't always straightforward in all drivers, but I do find it
+interesting to unify the OF & ACPI interfaces, so that all you have to
+do, is just switch the system from OF to ACPI underneath, and if the
+device-tree conversion to ACPI is done right, it just works.
+
+Then, there's the matter of moving fields [marked as [INTERN] )  from
+"struct iio_dev"  to "struct iio_dev_opaque".
+The value of this conversion is to reduce the review pain of having to
+tell people not-to-use [INTERN] fields [especially when older drivers
+do].
+
+
+> Is there any IRC channel for IIO?
+>
+> Thanks,
+> Mugil

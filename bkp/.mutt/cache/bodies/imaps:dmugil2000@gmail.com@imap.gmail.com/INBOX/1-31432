@@ -1,0 +1,280 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp69994eja;
+        Fri, 5 Mar 2021 19:55:08 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyCoBdF+GSTeg5yTGCRT6WCTt87Afh35MbC7h0oAPYAmkxP8NMBlUoWLan0VEzRLsc18ClV
+X-Received: by 2002:a05:6214:d4b:: with SMTP id 11mr12133422qvr.42.1615002908178;
+        Fri, 05 Mar 2021 19:55:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615002908; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nRFzV8J4tLSGUNvObEbasm+2IHJ0e2wuy5XOiu7gYjKrD28n6s8N0E+qgtLDmkmATs
+         YFwgy4O9eija9Izn6VVC1grSg++EBwgenz0PRaZ5u6+c8C8Y4yF9pm9/Oj5jOO0JOyTp
+         I557iA8pDfB1pvzNkaNIj+2zLKvd23y5CzzyluAlLedCfmT7a/cJnOxiMcN90PbH1QR/
+         CbioRvgAKRCnMEZIve9dMD4gsjKdJjB61lTzSWgRcgP5oPyK1xt6pdfuA2ToEpwLOzg3
+         9J4MvaQncOYuXRhxkCuqSiZT5qMdzO7qaQ054hBq4fz74lbvG9ap5e00gpXFMHUzHgpY
+         3gmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:mime-version:feedback-id:list-unsubscribe:errors-to
+         :reply-to:from:subject:to:date:dkim-signature;
+        bh=TsIK1eVrhBncTRT9drDsxOmaw8Gx/ONZ2gdlTREjy2Y=;
+        b=kaGrx9s230he/+4EkPyzB/BEVZqdQOMFVkSC57lIvwKhvWjLU8o32uuGfPg+krZYxo
+         +ruPprANmr0Hui8/fXIPCaXIsZn9/pr/H6iaJuJ5eBgBBTle4p/bLfxTdzmt42Ec4H47
+         V085jqx3FOWNZlY4MfXXZlE5UqF6RLwPCgSrPyxOPyL0RRD6DPlfvZpreE/rmR+Z9sWl
+         w+0OBFOPRXCwWAvcysiySbd/3kWmlz0WFQs/EhRxkddX0EpL7Wi4jkcDjFT9vGMxkrIi
+         lnAvmCtZc9iQ75vn3EW4V6qcPCTfHBmdDKxYZXH+fmvzG/1gaAXCsefOsnkYxQ90t51n
+         q+bQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@facebookmail.com header.s=s1024-2013-q3 header.b=XtVFz5Tr;
+       spf=pass (google.com: domain of notification@facebookmail.com designates 69.171.232.136 as permitted sender) smtp.mailfrom=notification@facebookmail.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=facebookmail.com
+Return-Path: <notification@facebookmail.com>
+Received: from 69-171-232-136.mail-mail.facebook.com (69-171-232-136.mail-mail.facebook.com. [69.171.232.136])
+        by mx.google.com with ESMTPS id b4si2526747qke.123.2021.03.05.19.55.07
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Mar 2021 19:55:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of notification@facebookmail.com designates 69.171.232.136 as permitted sender) client-ip=69.171.232.136;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@facebookmail.com header.s=s1024-2013-q3 header.b=XtVFz5Tr;
+       spf=pass (google.com: domain of notification@facebookmail.com designates 69.171.232.136 as permitted sender) smtp.mailfrom=notification@facebookmail.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=facebookmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=facebookmail.com;
+	s=s1024-2013-q3; t=1615002906;
+	bh=TsIK1eVrhBncTRT9drDsxOmaw8Gx/ONZ2gdlTREjy2Y=;
+	h=Date:To:Subject:From:MIME-Version:Content-Type;
+	b=XtVFz5TruluECyCmwPz2z3mTqg4U5x3lUWhI2lg9Sr9PQaOnl4xBUxf/sjCzHfWDv
+	 dEiu+3oqv1rFTL+GvxuRkbHKOE4nlkQqvPGcRY+QwBb3da6tC25NC4/fa39hI/w1VL
+	 H2adsfeDSJJJcwzr+R1cGejBcQcYiUcVe/VVB8FA=
+X-Facebook: from 2401:db00:2131:80e0:face:0:8d:0 ([MTI3LjAuMC4x]) 
+	by async with HTTPS (ZuckMail);
+Date: Fri, 5 Mar 2021 19:55:06 -0800
+To: Mugil Raj <dmugil2000@gmail.com>
+Subject: You logged in to Art of War with Facebook
+X-Priority: 3
+X-Mailer: ZuckMail [version 1.00]
+Return-Path: notification@facebookmail.com
+From: "Facebook" <notification@facebookmail.com>
+Reply-to: noreply <noreply@facebookmail.com>
+Errors-To: notification@facebookmail.com
+X-Facebook-Notify: trust_modules_complete_gdp; mailid=U1U5bcd5e0f47e05G5af586de12dbG5bcd62a8a80d7G1318
+List-Unsubscribe: <https://www.facebook.com/o.php?k=AS2P1oZOpxdVwY4JyZE&u=100010576188123&mid=5bcd5e0f47e05G5af586de12dbG5bcd62a7e8bacG1318&ee=AY1nT54tftzkJm0ugWyXnRXS0rUI6rkxFPIqK7CIEwq0Q3_vpSrYFGz3f3m5dfxCfghbFwwcKp2LnPNlnqI>
+Feedback-ID: 9:trust_modules_complete_gdp:Facebook
+X-FACEBOOK-PRIORITY: 0
+X-Auto-Response-Suppress: All
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="b1_b4276529f30c9fad735e9f28907e2989"
+Message-ID: <bd210ba87e2f11eba770b8599f43fb8c-51b91810@facebookmail.com>
+
+
+--b1_b4276529f30c9fad735e9f28907e2989
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Mugil,
+
+You logged in to Art of War and shared Facebook information
+
+Mugil, you recently shared information with Art of War when you logged in =
+using Facebook on 6 March 2021 at 09:25. You can change the information =
+you're sharing or remove an app at any time.
+
+You shared the following information with Art of War:
+
+Visit the Help Centre to learn how to keep your account secure.
+
+Thanks,
+The Facebook Team
+
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+This message was sent to dmugil2000@gmail.com. If you don't want to =
+receive these emails from Facebook in the future, please follow the link =
+below to unsubscribe.
+https://www.facebook.com/o.php?k=3DAS2P1oZOpxdVwY4JyZE&u=3D100010576188123=
+&mid=3D5bcd5e0f47e05G5af586de12dbG5bcd62a7e8bacG1318&ee=3DAY06OraUFUG_iABX=
+jCbbduD1oTPsGCTiHtW4nJZONhOSEHP3XW8DnKNSUUA-dJ8d2b97LqH9geoJroebtC0
+Facebook, Inc., Attention: Community Support, 1 Facebook Way, Menlo Park, =
+CA 94025
+
+
+--b1_b4276529f30c9fad735e9f28907e2989
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional =
+//EN"><html><head><title>Facebook</title><meta http-equiv=3D"Content-Type" =
+content=3D"text/html; charset=3Dutf-8" /><style nonce=3D"XfAN7yxF">@media =
+all and (max-width: 480px){*[class].ib_t{min-width:100% =
+!important}*[class].ib_row{display:block =
+!important}*[class].ib_ext{display:block !important;padding:10px 0 5px =
+0;vertical-align:top !important;width:100% =
+!important}*[class].ib_img,*[class].ib_mid{vertical-align:top =
+!important}*[class].mb_blk{display:block =
+!important;padding-bottom:10px;width:100% =
+!important}*[class].mb_hide{display:none =
+!important}*[class].mb_inl{display:inline =
+!important}*[class].d_mb_flex{display:block =
+!important}}.d_mb_show{display:none}.d_mb_flex{display:flex}@media only =
+screen and (max-device-width: 480px){.d_mb_hide{display:none =
+!important}.d_mb_show{display:block !important}.d_mb_flex{display:block =
+!important}}.mb_text h1,.mb_text h2,.mb_text h3,.mb_text h4,.mb_text =
+h5,.mb_text h6{line-height:normal}.mb_work_text =
+h1{font-size:18px;line-height:normal;margin-top:4px}.mb_work_text =
+h2,.mb_work_text =
+h3{font-size:16px;line-height:normal;margin-top:4px}.mb_work_text =
+h4,.mb_work_text h5,.mb_work_text =
+h6{font-size:14px;line-height:normal}.mb_work_text =
+a{color:#1270e9}.mb_work_text p{margin-top:4px}</style></head><body =
+style=3D"margin:0;padding:0;" dir=3D"ltr" bgcolor=3D"#ffffff"><table =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" =
+id=3D"email_table" style=3D"border-collapse:collapse;"><tr><td =
+id=3D"email_content" style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;background:#ffffff;"><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr style=3D""><td height=3D"20" =
+style=3D"line-height:20px;" colspan=3D"3">&nbsp;</td></tr><tr><td =
+height=3D"1" colspan=3D"3" style=3D"line-height:1px;"><span =
+style=3D"color:#FFFFFF;font-size:1px;">=C2=A0 =C2=A0 You logged in to Art =
+of War and shared Facebook information =C2=A0 Mugil, you recently shared =
+information with Art of War when you logged in using Facebook on 6 March =
+2021 at 09:25. You can change the information you&#039;re sharing or =
+remove an app at any time. =C2=A0 You shared the following information =
+with Art of War: =C2=A0 name and profile picture email address =C2=A0 =
+=C2=A0 Edit Settings =C2=A0 =C2=A0 Visit the Help Centre to learn how to =
+keep your account secure. =C2=A0</span></td></tr><tr><td width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr style=3D""><td =
+height=3D"15" style=3D"line-height:15px;" =
+colspan=3D"3">&nbsp;</td></tr><tr><td width=3D"32" align=3D"left" =
+valign=3D"middle" style=3D"height:32;line-height:0px;"><a =
+href=3D"https://www.facebook.com/n/?settings%2Fapplications%2Fredirect%2Fd=
+etails%2F&amp;app_id=3D2763510387006253&amp;trust_module_medium=3Demail&am=
+p;aref=3D1615002905512876&amp;medium=3Demail&amp;mid=3D5bcd5e0f47e05G5af58=
+6de12dbG5bcd62a7e8bacG1318&amp;n_m=3Ddmugil2000%40gmail.com" =
+style=3D"color:#3b5998;text-decoration:none;"><div><img =
+style=3D"border:0;height:47px;width:178px;margin-left:-15px;" =
+src=3D"https://facebook.com/images/trust_module/trust_module_new_FACEBOOK_=
+logo.png" /></div></a></td><td width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td><td =
+width=3D"100%" style=3D""><a href=3D"https://www.facebook.com/n/?settings%=
+2Fapplications%2Fredirect%2Fdetails%2F&amp;app_id=3D2763510387006253&amp;t=
+rust_module_medium=3Demail&amp;aref=3D1615002905512876&amp;medium=3Demail&=
+amp;mid=3D5bcd5e0f47e05G5af586de12dbG5bcd62a7e8bacG1318&amp;n_m=3Ddmugil20=
+00%40gmail.com" =
+style=3D"color:#3b5998;text-decoration:none;font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:19p=
+x;line-height:32px;"></a></td></tr><tr style=3D"border-bottom:solid 1px =
+#e5e5e5;"><td height=3D"15" style=3D"line-height:15px;" =
+colspan=3D"3">&nbsp;</td></tr></table></td><td width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse;"><tr style=3D""><td =
+height=3D"28" style=3D"line-height:28px;">&nbsp;</td></tr><tr><td =
+style=3D""><table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+align=3D"left" style=3D"border-collapse:collapse;"><tr><td =
+valign=3D"center" style=3D"padding-right:8px;"><img =
+style=3D"border:0;height:28px;width:28px;" src=3D"https://facebook.com/ima=
+ges/trust_module/trust_module_fb_gradient_without_empty_space.png" =
+/></td><td valign=3D"center" style=3D"padding-right:8px;"><img =
+style=3D"border:0;height:12px;width:13px;" src=3D"https://facebook.com/ima=
+ges/trust_module/trust_module_connector_icon.png" /></td><td =
+valign=3D"center" style=3D"padding-right:8px;"><img =
+style=3D"border:0;height:28px;width:28px;" src=3D"https://scontent.fmaa2-1=
+.fna.fbcdn.net/v/t39.2081-6/c0.0.33.33a/p32x32/79455826_2930410713649552_1=
+229341355193401344_n.png?_nc_cat=3D100&amp;ccb=3D1-3&amp;_nc_sid=3Deaa83b&=
+amp;_nc_ohc=3D1MZWAw-WwLkAX_R57h-&amp;_nc_ad=3Dz-m&amp;_nc_cid=3D2034&amp;=
+_nc_ht=3Dscontent.fmaa2-1.fna&amp;_nc_tp=3D30&amp;oh=3Daefc8e8a3ae061d8b75=
+ee29077947f4c&amp;oe=3D60683C74" /></td></tr></table></td></tr><tr =
+style=3D""><td height=3D"28" =
+style=3D"line-height:28px;">&nbsp;</td></tr><tr><td style=3D""><span =
+class=3D"mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;col=
+or:#141823;"><span style=3D"font-size:20px; font-weight:500">You logged in =
+to Art of War and shared Facebook information</span></span></td></tr><tr =
+style=3D""><td height=3D"28" =
+style=3D"line-height:28px;">&nbsp;</td></tr><tr><td style=3D""><span =
+class=3D"mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;font-size:14px;line-height:18px;col=
+or:#818389;"><span style=3D"font-size:16px">Mugil, you recently shared =
+information with Art of War when you logged in using Facebook on 6 March =
+2021 at 09:25. You can change the information you&#039;re sharing or =
+remove an app at any time.</span></span></td></tr><tr style=3D""><td =
+height=3D"28" style=3D"line-height:28px;">&nbsp;</td></tr><tr><td =
+style=3D""><span class=3D"mb_text" style=3D"font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16p=
+x;line-height:21px;color:#141823;"><span style=3D"font-weight:500">You =
+shared the following information with Art of =
+War:</span></span></td></tr><tr style=3D""><td height=3D"28" =
+style=3D"line-height:28px;">&nbsp;</td></tr><tr><td style=3D""><span =
+class=3D"mb_text" style=3D"font-family:Helvetica Neue,Helvetica,Lucida =
+Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:21px;col=
+or:#141823;"><div style=3D"width:600px"><span =
+style=3D"white-space:pre-line"><span style=3D"white-space:nowrap;backgroun=
+d-color:#F0F2F5;border:#E4E6EB;color:#4B4C4F;border-radius:25px;padding:3p=
+x 8px;margin-right:8px;font-size:13px;font-weight:400;line-height:30px;">n=
+ame and profile picture</span><span> </span><span style=3D"white-space:now=
+rap;background-color:#F0F2F5;border:#E4E6EB;color:#4B4C4F;border-radius:25=
+px;padding:3px 8px;margin-right:8px;font-size:13px;font-weight:400;line-he=
+ight:30px;">email address</span><span> =
+</span></span></div></span></td></tr><tr style=3D""><td height=3D"28" =
+style=3D"line-height:28px;">&nbsp;</td></tr><tr><td style=3D""><table =
+border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><tr style=3D""><td height=3D"2" =
+style=3D"line-height:2px;" colspan=3D"3">&nbsp;</td></tr><tr><td =
+class=3D"mb_blk" style=3D""><table border=3D"0" width=3D"100%" =
+cellspacing=3D"0" cellpadding=3D"0" =
+style=3D"border-collapse:collapse;"><td style=3D"padding:10px 22px 10px =
+22px;background-color:#3578E5;border-collapse:separate;border-radius:4px;t=
+ext-align:center;width:144px;"><a href=3D"https://facebook.com/settings/ap=
+plications/redirect/details/?app_id=3D2763510387006253&amp;trust_module_me=
+dium=3Demail" =
+style=3D"color:#3b5998;text-decoration:none;display:block;"><span =
+style=3D"font-size:14px;color:white;white-space:nowrap;margin:0px =
+12px;">Edit Settings</span></a></td></table></td><td width=3D"100%" =
+class=3D"mb_hide" style=3D""></td></tr><tr style=3D""><td height=3D"32" =
+style=3D"line-height:32px;" =
+colspan=3D"3">&nbsp;</td></tr></table></td></tr><tr style=3D""><td =
+height=3D"28" style=3D"line-height:28px;">&nbsp;</td></tr><tr><td =
+style=3D""><span class=3D"mb_text" style=3D"font-family:Helvetica =
+Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16p=
+x;line-height:21px;color:#141823;">Visit the <a href=3D"https://www.facebo=
+ok.com/help/235353253505947/?helpref=3Dhc_global_nav&amp;ref=3Dtrust_modul=
+e" style=3D"text-decoration:none" class=3D"-cx-PRIVATE-uiLink__wigblue =
+_71dg">Help Centre</a> to learn how to keep your account =
+secure.</span></td></tr><tr style=3D""><td height=3D"28" =
+style=3D"line-height:28px;">&nbsp;</td></tr></table></td><td width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td></tr><tr><td =
+width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td><td =
+style=3D""><table border=3D"0" width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"left" style=3D"border-collapse:collapse;"><tr =
+style=3D"border-top:solid 1px #e5e5e5;"><td height=3D"19" =
+style=3D"line-height:19px;">&nbsp;</td></tr><tr><td =
+style=3D"font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana=
+,arial,sans-serif;font-size:11px;color:#aaaaaa;line-height:16px;">This =
+message was sent to <a href=3D"mailto:dmugil2000&#064;gmail.com" =
+style=3D"color:#3b5998;text-decoration:none;">dmugil2000&#064;gmail.com</a=
+>. If you don&#039;t want to receive these emails from Facebook in the =
+future, please <a href=3D"https://www.facebook.com/o.php?k=3DAS2P1oZOpxdVw=
+Y4JyZE&amp;u=3D100010576188123&amp;mid=3D5bcd5e0f47e05G5af586de12dbG5bcd62=
+a7e8bacG1318&amp;ee=3DAY3b-4TUXRRWGNas_4ZsABVqHB_hxzsnoyfpRpwjbgn1KYWjv3jO=
+8sZeGLdh0yhon6kdW0EaXw_T4xQ5fxE" =
+style=3D"color:#3b5998;text-decoration:none;">unsubscribe</a>.<br =
+/>Facebook, Inc., Attention: Community Support, 1 Facebook Way, Menlo =
+Park, CA 94025</td></tr></table></td><td width=3D"15" =
+style=3D"display:block;width:15px;">&nbsp;&nbsp;&nbsp;</td></tr><tr =
+style=3D""><td height=3D"20" style=3D"line-height:20px;" =
+colspan=3D"3">&nbsp;</td></tr></table><span style=3D""><img =
+src=3D"https://www.facebook.com/email_open_log_pic.php?mid=3D5bcd5e0f47e05=
+G5af586de12dbG5bcd62a7e8bacG1318" style=3D"border:0;width:1px;height:1px;" =
+/></span></td></tr></table></body></html>
+
+
+
+--b1_b4276529f30c9fad735e9f28907e2989--
+

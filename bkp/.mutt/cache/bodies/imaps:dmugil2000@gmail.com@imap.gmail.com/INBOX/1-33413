@@ -1,0 +1,84 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp2164387ejf;
+        Mon, 2 Aug 2021 08:39:56 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwOwNLFMKZ2T9MMvPoJpHmEctCaxEpfrXdwHTIh+BfQhtQolxwN6pKOPJPiOQVkGnJ0uAXa
+X-Received: by 2002:a65:450d:: with SMTP id n13mr738052pgq.13.1627918796612;
+        Mon, 02 Aug 2021 08:39:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627918796; cv=none;
+        d=google.com; s=arc-20160816;
+        b=zGZ/lITJ/UXxzLINzSKv0orEHBsNRL9M3XF71R8kxgj4+jRqOeECXzMgGXDE+BPP1l
+         4vmroD0TVPECNGS7InwAUYCt/u6iEg7rQ0TjWki4ftUhM0E4Xw8W4dMbNPPodiKbi23L
+         ZDpRwNASV+AOuaT4muiQCRgYU1p6Yn4vtuqoFV7W97pgvLH5+icyPDYdo22yJz4CUXll
+         RkrKZ0hMOpDxzYh/nmdP1R4U0UtLfZt/p9cagGFR81gf7oLfcAWT5vQjLJvpgoQX+95e
+         Eh+5vuSDcfbOaLfESmVMKkuc2Q35RxAKRR2FbGEqhsVBS2OX4ar5/DEkNYL/HPiGRgwG
+         vvjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:date:message-id:subject:to:mime-version;
+        bh=G/KVVSKDIW8xfbqjzFl+eRyqoMHxJzQQ8YEi6OFH0ZI=;
+        b=DEaKr0f70Ga3CNDWA7/9qu+9bZWneRD+8usNUVDPyWnRhw48MWDQ5k1t1tl3OmmNNH
+         9nj6f1X4vGQJvKP8Rl057xE3dMB73HbpSfZADHUiTkYXon+iT6AYf9LI1SfofQIOdHTJ
+         sl5Q03hOQ2w/voZi+q6yn57DODCsJOygM5b/fH3MSGH3YP36cDNgTZ7ZMhis1SXCITck
+         ZIZuOUo+cUFu08TAR8et0hki3MPjegJdpZyuTljdb2UT9C90rpvwW6aU71cXgmHdMkHO
+         BzJGmP7/ofOXmEqi/LY9Dv655fX7AagtReUXZTarg7dyXmm+JQZbgkBgelR9OLEj0+TH
+         Zpiw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of noreplyhpcl@mail.digialm.com designates 124.153.91.32 as permitted sender) smtp.mailfrom=noreplyhpcl@mail.digialm.com
+Return-Path: <noreplyhpcl@mail.digialm.com>
+Received: from ngtsmtpsrv05dc2-9132.m3cgrid.com (ngtsmtpsrv05dc2-9132.m3cgrid.com. [124.153.91.32])
+        by mx.google.com with ESMTPS id b5si11903231pgq.582.2021.08.02.08.39.55
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Aug 2021 08:39:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreplyhpcl@mail.digialm.com designates 124.153.91.32 as permitted sender) client-ip=124.153.91.32;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of noreplyhpcl@mail.digialm.com designates 124.153.91.32 as permitted sender) smtp.mailfrom=noreplyhpcl@mail.digialm.com
+Received: from smtp75.tcs-itontap.com (unknown [45.114.76.61]) by m3c.in; Mon,
+ 02 Aug 2021 21:09:54 +0530 (IST)
+X-Feedback-ID: E-admit card download link for HPCL Examination:tcsion@m3c.io:1:noreplyhpcl@mail.digialm.com
+X-Report-Spam: <abuse@m3c.io>
+X-Report-Abuse: <abuse@m3c.io>
+Received: from localhost (localhost [127.0.0.1])
+	by smtp75.tcs-itontap.com (Postfix) with ESMTP id 62FEC46013C
+	for <dmugil2000@gmail.com>; Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+Received: from smtp75.tcs-itontap.com ([127.0.0.1])
+	by localhost (smtp75.tcs-itontap.com [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id YLNKksC9M6w1 for <dmugil2000@gmail.com>;
+	Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by smtp75.tcs-itontap.com (Postfix) with ESMTP id 2F719460431
+	for <dmugil2000@gmail.com>; Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+X-Virus-Scanned: amavisd-new at smtp75.tcs-itontap.com
+Received: from smtp75.tcs-itontap.com ([127.0.0.1])
+	by localhost (smtp75.tcs-itontap.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id hI5ou55VHR5W for <dmugil2000@gmail.com>;
+	Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+Received: from [10.10.201.246] (unknown [10.10.113.250])
+	by smtp75.tcs-itontap.com (Postfix) with ESMTP id 1B32246013C
+	for <dmugil2000@gmail.com>; Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+Content-Type: multipart/mixed; boundary="===============4858117632349669227=="
+MIME-Version: 1.0
+To: dmugil2000@gmail.com
+Subject: E-admit card download link for HPCL Examination
+Message-Id: <20210802153954.1B32246013C@smtp75.tcs-itontap.com>
+Date: Mon,  2 Aug 2021 21:09:54 +0530 (IST)
+From: noreplyhpcl@mail.digialm.com
+
+--===============4858117632349669227==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+
+RGVhciBDYW5kaWRhdGUsCgpUaGlzIGlzIGluIHJlZmVyZW5jZSB0byB0aGUgQ29tcHV0ZXIgQmFz
+ZWQgVGVzdCAoQ0JUKSB0byBiZSBoZWxkIGZvciBFbmdpbmVlcmluZyBwb3NpdGlvbnMgYXQgSFBD
+TCwgcGxlYXNlIGRvd25sb2FkIGUtYWRtaXQgQ2FyZCBmcm9tIHRoZSBpbmsgZ2l2ZW4gYmVsb3c6
+IC0gCgogaHR0cHM6Ly9jZG4uZGlnaWFsbS5jb206NDQzLy9FRm9ybXMvY29uZmlndXJlZEh0bWwv
+MTI1OC83MjMxMC9sb2dpbi5odG1sCgpMb2dpbiBJRDogMjAyMTIyMDEwMDQxClBhc3N3b3JkOiBE
+YXRlIG9mIEJpcnRoIChERC9NTS9ZWVlZKQoKRS1hZG1pdCBjYXJkIGNhbiBhbHNvIGJlIGRvd25s
+b2FkZWQgZnJvbSB0aGUgYmVsb3cgZ2l2ZW4gZGlyZWN0IGxpbmsuIFlvdSBhcmUgcmVxdWVzdGVk
+IHRvIGJyaW5nIHlvdXIgb3JpZ2luYWwgZG9jdW1lbnRzIGFzIG1lbnRpb25lZCBpbiB0aGUgZS1h
+ZG1pdCBjYXJkLgoKaHR0cHM6Ly93d3cuZGlnaWFsbS5jb206NDQzLy8vcGVyL2cwMS9wdWIvMTI1
+OC9BU00vU0JfSGFsbFRpY2tldC8yNTE2L0NhbmRpZGF0ZUhhbGxUaWNrZXQvMTYyNzg5NzE5Mjcw
+Mi85LzcwNTgvNzA1OF9TdGFnZTFfOTM3Mjg1Mjg3MF84NDIxOTc5MDc4LnBkZgoKUmVnYXJkcywK
+SFBDTCBSZWNydWl0bWVudA==
+
+--===============4858117632349669227==--

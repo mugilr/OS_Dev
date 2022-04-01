@@ -1,0 +1,104 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp3795709ejf;
+        Mon, 22 Mar 2021 12:01:28 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzn8JqjOxE4l9i90YQNtMOp+d965pfqVQuvEyhZ+jyZMEDvLbs7eOxp5/6HaaqKJamYEfjK
+X-Received: by 2002:a17:902:c009:b029:e5:d01d:5bb1 with SMTP id v9-20020a170902c009b02900e5d01d5bb1mr988059plx.28.1616439688117;
+        Mon, 22 Mar 2021 12:01:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616439688; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WQ6cwPRjqydSM7dtA6ZnpBhuWMVnuwmhaJ7VjbCLT5lLlcs9c7Mbkm7JsW0b0R+xo9
+         N5a+LFwObYfNKs6dd2xQe2wIR8tUK0gMv4c+GYHcw+M3xPCOK68k9WvIL4MYiE6nLQpp
+         fdUH9YBO5eB7ZrtKSDoXkD9CXjSM5/lEPYL+vEhKZB3tw+woBgazGZt/atmZPeFOKq8C
+         YUekfTHQIJT9uGO7Ikwb/QPYimi1Zeb8HDnJPC3yOUnuBPD39A0xQt+rvUmO2nir4GUx
+         3OyF+PAAewMFmaZ/F5llSrdL3xTkq1nGiJQjh8nanQ8MMW7ER8FPiNct2Mg5eRt/MytQ
+         SLDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:subject:date:reply-to:to:from
+         :mime-version:dkim-signature:message-id;
+        bh=/cxgcKI/+FaJucde4H+82Z2XQxXIw+SpGTEqG/8JWDQ=;
+        b=fgWdeXjJlMoelLiBCjzRWa2SfUM2ARC+tiyQLmxHCcwccn2hVqDZyYId94xGaH7dol
+         zpqZbWTC15uI3sL9Dk8BBmIRfafJr/WnP8rMNgmgZVAqRRcqOhqGaKmP8p0hvM9trUjW
+         D6kOpxJuSUatRl6A9X+CFLREZadCf4BR/vd31ZOxnAiwCNaUEeg6KW621WYz5ds0oytr
+         CNP1I/bnE0eyJoQ2JWLQUWL0IPIJ7W3r3xKd59NKBTHY9C7404yrtDrxcP5ILKQWwzBj
+         2azgcQCgRtc4lqmr90IYlkZycddlviDPq9xClSvYLJFU0woVJesMnyfwlU39Z0u4aN2c
+         FdUw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@Honeywell.com header.s=csod17112019 header.b=ZcPRz2VX;
+       spf=pass (google.com: domain of humanresources1@honeywell.com designates 208.185.229.45 as permitted sender) smtp.mailfrom=HumanResources1@honeywell.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=honeywell.com
+Return-Path: <HumanResources1@honeywell.com>
+Received: from mail.la4.csod.com (la4prd5.mx.csod.com. [208.185.229.45])
+        by mx.google.com with ESMTPS id g7si15586026plt.409.2021.03.22.12.01.27
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Mar 2021 12:01:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of humanresources1@honeywell.com designates 208.185.229.45 as permitted sender) client-ip=208.185.229.45;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@Honeywell.com header.s=csod17112019 header.b=ZcPRz2VX;
+       spf=pass (google.com: domain of humanresources1@honeywell.com designates 208.185.229.45 as permitted sender) smtp.mailfrom=HumanResources1@honeywell.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=honeywell.com
+Message-ID: <6058e988.1c69fb81.545c1.2a28SMTPIN_ADDED_MISSING@mx.google.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=csod17112019; d=Honeywell.com;
+ h=MIME-Version:From:To:Reply-To:Date:Subject:Content-Type:
+ Content-Transfer-Encoding; i=HumanResources1@Honeywell.com;
+ bh=/cxgcKI/+FaJucde4H+82Z2XQxXIw+SpGTEqG/8JWDQ=;
+ b=ZcPRz2VXFY8cv8Xxi12pHfofuoNFGzc6CQYTHR9woWuYzmao/v1aaVwbaZ9u9wPGC9VPYej3C590
+   d68H3eQCm9ofyKcS04f2we+AJmA79lPGyHjLymKCvpOT+n1wWKQiE4XTlSOkA2X08SaLSLFrbcm9
+   FUu1l8I5caQ7r4jF0w4=
+Received: from LAX-PRD-MSQ101 (10.10.150.17) by mail.la4.mx.csod.com id hb3koe2q07so for <dmugil2000@gmail.com>; Mon, 22 Mar 2021 11:56:26 -0700 (envelope-from <HumanResources1@Honeywell.com>)
+MIME-Version: 1.0
+From: HumanResources1@Honeywell.com
+To: dmugil2000@gmail.com
+Reply-To: HumanResources1@Honeywell.com
+Date: 22 Mar 2021 11:56:26 -0700
+Subject: Your Honeywell Application Has Been Received
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGZvbnQgZmFjZT0iVmVyZGFuYSIgc3R5bGU9ImZvbnQtc2l6ZTogMTBwdDsiPjxwIHN0
+eWxlPSJmb250LWZhbWlseTogVmVyZGFuYTsgZm9udC1zaXplOiAxMHB0OyBtYXJnaW4t
+dG9wOiAwcHg7IG1hcmdpbi1ib3R0b206IDBweDsiPjxmb250IGNvbG9yPSIjNTA1MDUw
+IiBmYWNlPSJ2ZXJkYW5hIiBzaXplPSIyIj48c3Ryb25nPllPVVIgSE9ORVlXRUxMIEFQ
+UExJQ0FUSU9OIEhBUyBCRUVOIFJFQ0VJVkVEPC9zdHJvbmc+PC9mb250PjwvcD48cCBz
+dHlsZT0iZm9udC1mYW1pbHk6IFZlcmRhbmE7IGZvbnQtc2l6ZTogMTBwdDsgbWFyZ2lu
+LXRvcDogMHB4OyBtYXJnaW4tYm90dG9tOiAwcHg7Ij48Zm9udCBjb2xvcj0iIzUwNTA1
+MCIgZmFjZT0idmVyZGFuYSIgc2l6ZT0iMiI+PHN0cm9uZz4mbmJzcDs8L3N0cm9uZz48
+L2ZvbnQ+PC9wPjxwIHN0eWxlPSJmb250LWZhbWlseTogVmVyZGFuYTsgZm9udC1zaXpl
+OiAxMHB0OyBtYXJnaW4tdG9wOiAwcHg7IG1hcmdpbi1ib3R0b206IDBweDsiPjxmb250
+IGNvbG9yPSIjNTA1MDUwIiBmYWNlPSJ2ZXJkYW5hIiBzaXplPSIyIj5NVUdJTFJBSjo8
+L2ZvbnQ+PC9wPg0KPHAgc3R5bGU9ImZvbnQtZmFtaWx5OiBWZXJkYW5hOyBmb250LXNp
+emU6IDEwcHQ7IG1hcmdpbi10b3A6IDBweDsgbWFyZ2luLWJvdHRvbTogMHB4OyI+PGZv
+bnQgY29sb3I9IiM1MDUwNTAiIGZhY2U9InZlcmRhbmEiIHNpemU9IjIiPiZuYnNwOzwv
+Zm9udD48L3A+DQo8cCBzdHlsZT0iZm9udC1mYW1pbHk6IFZlcmRhbmE7IGZvbnQtc2l6
+ZTogMTBwdDsgbWFyZ2luLXRvcDogMHB4OyBtYXJnaW4tYm90dG9tOiAwcHg7Ij48Zm9u
+dCBjb2xvcj0iIzUwNTA1MCIgZmFjZT0idmVyZGFuYSIgc2l6ZT0iMiI+VGhhbmsgeW91
+IGZvciB5b3VyIGludGVyZXN0IGluIHRoZSBTb2Z0d2FyZSBFbmdpbmVlciBJIChIUkQx
+MTcxNzcpIHBvc2l0aW9uIHdpdGggSG9uZXl3ZWxsLiBZb3VyIGFwcGxpY2F0aW9uIGlz
+IHVuZGVyIGNvbnNpZGVyYXRpb24uJm5ic3A7PC9mb250PjwvcD4NCjxwIHN0eWxlPSJm
+b250LWZhbWlseTogVmVyZGFuYTsgZm9udC1zaXplOiAxMHB0OyBtYXJnaW4tdG9wOiAw
+cHg7IG1hcmdpbi1ib3R0b206IDBweDsiPjxmb250IGNvbG9yPSIjNTA1MDUwIiBmYWNl
+PSJ2ZXJkYW5hIiBzaXplPSIyIj4mbmJzcDs8L2ZvbnQ+PC9wPg0KPHAgc3R5bGU9ImZv
+bnQtZmFtaWx5OiBWZXJkYW5hOyBmb250LXNpemU6IDEwcHQ7IG1hcmdpbi10b3A6IDBw
+eDsgbWFyZ2luLWJvdHRvbTogMHB4OyI+PGZvbnQgY29sb3I9IiM1MDUwNTAiIGZhY2U9
+InZlcmRhbmEiIHNpemU9IjIiPkluIHRoZSBtZWFudGltZSwgd2UgZW5jb3VyYWdlIHlv
+dSB0byB2aXNpdCB0aGUgPGEgaHJlZj0iaHR0cHM6Ly9ob25leXdlbGwuY3NvZC5jb20v
+dXgvYXRzL2NhcmVlcnNpdGUvMS9ob21lP2M9aG9uZXl3ZWxsIj48Zm9udCBjb2xvcj0i
+IzBmYTVlYSI+PHNwYW4gc3R5bGU9InRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyI+
+PHN0cm9uZz5Ib25leXdlbGwgQ2FyZWVycyB3ZWJzaXRlPC9zdHJvbmc+PC9zcGFuPjwv
+Zm9udD48L2E+LCB3aGVyZSB5b3UgY2FuIHNlZSBhbGwgSG9uZXl3ZWxsIG9wZW5pbmdz
+LCBzaWduIHVwIHRvIGdldCBlbWFpbHMgYWJvdXQgc3BlY2lmaWMgcG9zaXRpb25zLCBh
+bmQgbGVhcm4gbW9yZSBhYm91dCB3aGF0IGl04oCZcyBsaWtlIHRvIHdvcmsgd2l0aCB1
+cy4mbmJzcDs8L2ZvbnQ+PC9wPg0KPHAgc3R5bGU9ImZvbnQtZmFtaWx5OiBWZXJkYW5h
+OyBmb250LXNpemU6IDEwcHQ7IG1hcmdpbi10b3A6IDBweDsgbWFyZ2luLWJvdHRvbTog
+MHB4OyI+PGZvbnQgY29sb3I9IiM1MDUwNTAiIGZhY2U9InZlcmRhbmEiIHNpemU9IjIi
+Pjxicj4NCjwvZm9udD48L3A+DQo8cCBzdHlsZT0ibWFyZ2luLXRvcDogMHB4OyBtYXJn
+aW4tYm90dG9tOiAwcHg7Ij48Zm9udCBjb2xvcj0iIzUwNTA1MCIgZmFjZT0idmVyZGFu
+YSIgc2l6ZT0iMiI+QmVzdCByZWdhcmRzLDwvZm9udD48L3A+DQo8cCBzdHlsZT0ibWFy
+Z2luLXRvcDogMHB4OyBtYXJnaW4tYm90dG9tOiAwcHg7Ij48Zm9udCBjb2xvcj0iIzUw
+NTA1MCIgZmFjZT0idmVyZGFuYSIgc2l6ZT0iMiI+SG9uZXl3ZWxsIFRhbGVudCBBY3F1
+aXNpdGlvbjwvZm9udD48L3A+PHAgc3R5bGU9Im1hcmdpbi10b3A6IDBweDsgbWFyZ2lu
+LWJvdHRvbTogMHB4OyI+PGZvbnQgY29sb3I9IiM1MDUwNTAiIGZhY2U9InZlcmRhbmEi
+IHNpemU9IjIiPlRoZSBGdXR1cmUgSXMgV2hhdCBXZSBNYWtlIEl0LjwvZm9udD48L3A+
+PC9mb250PjxzcGFuIHN0eWxlPSdjb2xvcjojREREOyBmb250LXNpemU6MTFweDsnICA+
+PGJyIC8+IENTT0QgU1lTVEVNIElEOiAgMTIxNzQ2MzA2PGJyIC8+PC9zcGFuPg==
+

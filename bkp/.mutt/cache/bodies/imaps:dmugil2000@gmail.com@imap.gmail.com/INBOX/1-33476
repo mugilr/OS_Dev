@@ -1,0 +1,68 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp1004150ejf;
+        Thu, 5 Aug 2021 20:28:30 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw2GRR8hola+NIkbFZVFBOsALFp+nz88I8ARTign1Pc2qFCrFhg0ojtEs8N4L8IqKSocYXm
+X-Received: by 2002:a05:622a:118b:: with SMTP id m11mr7403701qtk.4.1628220510781;
+        Thu, 05 Aug 2021 20:28:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628220510; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Y615HScgGEBjKGgPFlomGbaAsmssAzOEse5YItFv7/jZVNbHXbXY6K28fAkAF3RNEd
+         e6oae6K4omgvSK0d41csXg7i6ZrlWCmVGCMyPcG5FhzGoMINr0tk146tkKEqkRk9bINh
+         hN+kdAHWn6TIvjCYDWag7Q0Psg+Vql3IotmRD+7om7x9IlMU0bl/gFQIFz58dKsGpfBc
+         gse4jAoEO0VRIoIeWAQL6HscQokgHuTEDBKBXvdlkLz5Ks6EebnZIYgi0fOEIghqv2wD
+         Ubs6D8O904eh0JxJDPbiDLMwAmBV2GBnM3bV41DQlH9VQXeyu4wkrIgjYZwtEN9B6a5i
+         nwHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=OugIBvCQH4GEZ0EyvoBpytvpoSDWVyg4duoFQrnrGZY=;
+        b=fkQjXzvQad6/hefdhR1i5fD2LnVy1Nvx+08kujC95oRMxN/UifoA2K7mKO2e2ymrlp
+         BSKaTzGsde/p6SGxRASuJgu32Oe93e+YiyaC1LvFxNJT6K5A5hesg+xY2ZdBNBhHfI7a
+         QM9Z6DLX26Q0wbb3wUWsv+mKhJ+aMOyFiX25/LNyruRg4c/14amHOThULQTdKWnDFK+X
+         9iAWlwqEmKYGCVpUAzuhva1qPuvGecW6/67oR+kEmjDzIO6kWSEieqkg8ev34N81PCAW
+         6ic3PWe1U6qTqimRK2YZBmbltYXKvavitRed54oZpqeBnhWsEK5fFBJrf+x0+iXEWTKy
+         uYeA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2014 header.b=iGjUc0Ib;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.206 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-23.smtp.github.com (out-23.smtp.github.com. [192.30.252.206])
+        by mx.google.com with ESMTPS id j12si2904713qkg.240.2021.08.05.20.28.30
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 05 Aug 2021 20:28:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.206 as permitted sender) client-ip=192.30.252.206;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2014 header.b=iGjUc0Ib;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.206 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-61c37c6.ac4-iad.github.net [10.52.208.19])
+	by smtp.github.com (Postfix) with ESMTPA id 76F7560022C;
+	Thu,  5 Aug 2021 20:28:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2014; t=1628220510;
+	bh=OugIBvCQH4GEZ0EyvoBpytvpoSDWVyg4duoFQrnrGZY=;
+	h=Date:From:To:Subject:From;
+	b=iGjUc0IbaKq+d8+jnEMuSd+hIgf7rS4xT7iGmGAEmOPo8y3H/rQhVMGUCRaY9jcYB
+	 OGPXttUf6dfk+cMqLP5kPCqwZooJkAplpgCZ2n6Ev+G1BB5SXDEmrkuBOtZCq8CVte
+	 aXy5Qtmsv/q0ASHQyrLZWD6bauCsg2n+pFltoBeU=
+Date: Thu, 05 Aug 2021 20:28:30 -0700
+From: GitHub <noreply@github.com>
+To: MUGILRAJ <mugilraj@accuknox.com>
+Message-ID: <610cac5e75260_6322c7241009dc@lowworker-66d9777cb4-7cjww.mail>
+Subject: [GitHub] Deprecation Notice
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Auto-Response-Suppress: All
+
+Hi @mugilr,
+
+You recently used a password to access the repository at mugilr/linux with git using git/2.25.1.
+
+Basic authentication using a password to Git is deprecated and will soon no longer work. Visit https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information around suggested workarounds and removal dates.
+
+Thanks,
+The GitHub Team

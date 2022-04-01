@@ -1,0 +1,1693 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp1747520eja;
+        Mon, 8 Mar 2021 05:01:16 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJywhDUeq4hGpaT6H8zJr/fXlFM/FmmJdDJh0HlIOZlYID6VPKMQgsRURu5Qu/Si8PdX4/MW
+X-Received: by 2002:a05:6000:1363:: with SMTP id q3mr22718695wrz.74.1615208476023;
+        Mon, 08 Mar 2021 05:01:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615208476; cv=none;
+        d=google.com; s=arc-20160816;
+        b=zb5KTaqG4LToq3Moluim9siYmhnIiFUHUSQcHhjU/+yKLdQXwTeU/WVrV9mLcJJHkB
+         m1RpwNba3l95ZWGq00hi6G0wNX+i0OHP6f5O9UatZDehSYzvfe4CE2nujBgMO+l5AnGV
+         s7MB9KFDshtTBRxz5folWJr6JyA5c2Pf7GkpqletAeU5rPH22y3Cvv00QTXbh8FEQ+Vd
+         Uho94iXm82w80lLVER6XNxyRK8VOWrZRed0WOHJ2cRZrdIXPZ0J+JIi7AR1hnnnDvCxt
+         BdEXoZb5S9H0eUn7h+nmTeV4l772QDSr3IZCxTug/Z+MBDQ7Kl8XiFAQ9s7FnK1Ay+VT
+         FUyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=reply-to:precedence:message-id:mime-version:list-unsubscribe-post
+         :list-unsubscribe:list-id:from:feedback-id:date:subject:to
+         :dkim-signature:dkim-signature;
+        bh=Gx+6ZjBwpE7AeDaWLmSwwkzy9+dF+Ki5PkkNnMnzedo=;
+        b=ytIn+3EYfwdJOFA4mg7vmLjJbulZJmTzKz+aGTicEjZ+6uc7WO0wBp6UMGZt1fc+Sq
+         4qw3n1CPSWJjpsztCfhDDQ6GW1W4mLMLIvG+LK4KFp/Sy7BFTINPghPrjzICST2nsf9Z
+         SyjHIW4TyiRUglokdW57v2cILZLcgrytOymzSUtfqTvEsYGZaUanvNWpF9RvOslA08GP
+         DUpkMiVGQTM52//Iy1sGNIR8JRst5O8h/Vr0RqMkF42rgAvDY7geXkNQ9tilRemsuoMc
+         HtozWhPgsbCi/dIEteUOgLTDt7VRyT0O3Kd986kbAcaI+MIFwwOP6uzQ4k3xsCOmtSHm
+         lkZQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@info.ashoka.edu.in header.s=mail header.b=JHQls6Z2;
+       dkim=pass header.i=@sendib.com header.s=mail header.b=DUsnTcTs;
+       spf=pass (google.com: domain of noreply@info.ashoka.edu.in designates 77.32.217.103 as permitted sender) smtp.mailfrom=noreply@info.ashoka.edu.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ashoka.edu.in
+Return-Path: <noreply@info.ashoka.edu.in>
+Received: from info.ashoka.edu.in (info.ashoka.edu.in. [77.32.217.103])
+        by mx.google.com with ESMTPS id i24si14245815wrc.558.2021.03.08.05.01.15
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Mar 2021 05:01:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@info.ashoka.edu.in designates 77.32.217.103 as permitted sender) client-ip=77.32.217.103;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@info.ashoka.edu.in header.s=mail header.b=JHQls6Z2;
+       dkim=pass header.i=@sendib.com header.s=mail header.b=DUsnTcTs;
+       spf=pass (google.com: domain of noreply@info.ashoka.edu.in designates 77.32.217.103 as permitted sender) smtp.mailfrom=noreply@info.ashoka.edu.in;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ashoka.edu.in
+DKIM-Signature: a=rsa-sha256; bh=Gx+6ZjBwpE7AeDaWLmSwwkzy9+dF+Ki5PkkNnMnzedo=;
+ c=relaxed/relaxed; d=info.ashoka.edu.in;
+ h=to:cc:from:reply-to:subject:date:mime-version:content-type:list-id:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:sender:x-sib-id:x-mailin-client:x-mailin-campaign:feedback-id;
+ q=dns/txt; s=mail; t=1615208378; v=1;
+ b=JHQls6Z22NpD4VRpVBfStj4nKYVDUAbNO8NFr3wc+IaIkZnARO8lky0Z3E3DCi7/bkBNvt/G
+ zdhjS79NSwx6Y/eG8mmrht+BuKQ++G8Br7/WByKMihy4el1K4AlH+ksSWvrdzemOMFcqR5jkQro
+ wt5zghySjMest2LgoGdCa1yc=
+DKIM-Signature: a=rsa-sha256; bh=Gx+6ZjBwpE7AeDaWLmSwwkzy9+dF+Ki5PkkNnMnzedo=;
+ c=relaxed/relaxed; d=sendib.com;
+ h=to:cc:from:reply-to:subject:date:mime-version:content-type:list-id:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:sender:x-sib-id:x-mailin-client:x-mailin-campaign:feedback-id;
+ q=dns/txt; s=mail; t=1615208378; v=1;
+ b=DUsnTcTs2QRYBqRSqO3GkTJgLq3D/4gsPyiGMXU524qLRh9pwMqesfgS3YiXzC0bbjD2L8e4
+ 6R9sf99qfXZD5mvoQHH/sYN6yxKUFPue1vV081Hf3IvuaMkDcVPATC/2jb1MqmL9F/IHkw4FR2z
+ ioZrJL7kHhik58d9NKOd7NZg=
+To: <dmugil2000@gmail.com>
+Subject: [Upcoming Applicant Webinars] YIF Curriculum (9 March) and YIF Financial Aid (10 March) | Register now
+Content-Type: multipart/alternative; boundary="-------?=_86849-7087490930701"
+Date: Mon, 08 Mar 2021 12:59:38 +0000
+Feedback-ID: 77.32.217.103:2631238_153:2631238:Sendinblue
+From: Young India Fellowship <yif@ashoka.edu.in>
+List-Id: MjYzMTIzOC0zMTcwNTgtNzE= <MjYzMTIzOC0zMTcwNTgtNzE=.list-id.info.ashoka.edu.in>
+List-Unsubscribe: <mailto:unsubscribe@info.ashoka.edu.in?subject=unsub-2pbljm3qf9iczj&body=2pbljm3qf9iczj>,<https://list-unsubscribe.me/mk/un/li/-CLPC5HE9nvCnhIYKWuSAwLeylpkyChTMACXiCKf9BgZYkhGvg53yXFXdRt5_ABthYqnMpu3qhjr-nlwguhwVr7-uqVXsU2tT7BGzhgNz-MzQW_T3G3jzMXjtTOhuhublfrjJfUWwbi4>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Message-Id: <202108031259.2pbljm3qf9iczj@info.ashoka.edu.in>
+Precedence: bulk
+Reply-To: yif@ashoka.edu.in
+X-Csa-Complaints: whitelist-complaints@eco.de
+X-Mailer: Sendinblue
+X-Mailin-Campaign: 153
+X-Mailin-Client: 2631238
+X-sib-id: 6JFdDa3W-mXgRwrwGa2iH43bqaPG1tlCz2ygm57uuL2aMGmw8bezhoSXPcED9Hci6XCaJdkud1Jawq0a_RaKAm8nZtlQt37Yz0HGPJUc64i1ZP655u4xOhQ_3mlaZvXir_o_czgDQRAKM0dEi8BoqdP0K49Gp0-0Tk224npzgQ
+
+---------?=_86849-7087490930701
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+[  ]( # )
+[  ]( # ) =C2=A0
+Greetings! With a month to go for the final application deadline (12 April)=
+, you are cordially invited to join us for two upcoming webinars this week.=
+ You may also sign up for other upcoming events through the link at the end=
+ of this communication.=C2=A0   =C2=A0
+[  ]( # ) =C2=A0
+YIF Curriculum Deep-Dive | Live on Zoom
+=C2=A0
+9 March, Tuesday, 6 PM   =C2=A0
+[  ]( # )
+
+
+
+[  ]( # ) =C2=A0      [ REGISTER NOW - Curriculum Webinar ]( http://r.info.=
+ashoka.edu.in/mk/cl/f/Q1RuUL-xFxu-mPay_6xukkfPm7yGV97bbU_hzLLeQApAyAONGcxbh=
+n7c_smbITH5rgyeYriQfybNRVsu0IW0aWLjMDpyqn6VbKkfiP0zn7metleWSFXs8OEE8YY0xat8=
+uKnWDBqRi18cUJp0hf6T3UM37ZN71oI9hFYAHhtpURZgz3pC-Mts-tc )      =C2=A0
+[  ]( # ) =C2=A0
+Understand the YIF curriculum better.=C2=A0If you're looking for an opportu=
+nity to know more about the diverse courses, the Critical Writing Programme=
+ and the ELM (Experiential Learning Module) at the YIF, this webinar is for=
+ you.
+
+LEARNING OUTCOMES:
+1) Why a multidisciplinary education is critical in today's world
+2) How the YIF curriculum prepares young people for diverse career pathways
+3) How ELM makes the multidisciplinary learning more meaningful in reality =
+  =C2=A0     [  ]( # )
+[  ]( # ) =C2=A0
+YIF Financial Aid | Live on Zoom
+
+10 March, Wednesday, 5 PM   =C2=A0
+[  ]( # )
+
+
+
+[  ]( # ) =C2=A0      [ REGISTER NOW - Financial Aid Webinar ]( http://r.in=
+fo.ashoka.edu.in/mk/cl/f/LMzt4bZul_rM7b9KUf9p9-ZFAuTM3FPTruAP2qXHyv9LbXU2UZ=
+y34jOot2QDEy2gBBqqLJgN7hYJiy1lpO_cFxBoXKSPZVVRinkGYMjvaYJFEZFC05Wa6qjIygvrM=
+EwSoymLpekfKcsFPxtmP_lufyM8gvLR5zvff0dzUkoiBBaL6UAwvQ )      =C2=A0
+[  ]( # ) =C2=A0
+Ashoka University=E2=80=99s need-based Financial Aid programme aims to prov=
+ide necessary financial support which can help you bridge the gap between t=
+he cost of the programme and your ability to pay. Several benefactors, incl=
+uding YIF alumni, have made financial aid possible.=C2=A0Need-based financi=
+al aid for selected candidates ranges between a 25% waiver on tuition to a =
+100% waiver on tuition, residence and meals.
+
+Our Financial Aid Team will be available to resolve any queries that you mi=
+ght have, over this webinar.
+=C2=A0
+LEARNING OUTCOMES:
+1) The philosophy of need-based financial aid at Ashoka University
+2) Timeline, process and documentation required for Financial Aid   =C2=A0
+[  ]( # ) =C2=A0      [ Other Upcoming Events | Learn More ]( http://r.info=
+.ashoka.edu.in/mk/cl/f/NL5AnVxI0PApy72Yw_Utey5BsSQbgCytb8TyF8xhhI5HA_Wq2ztL=
+dPvpkkKO_0oLh2vmx3cFEAOmIE7uq0AjCga5Xi8VbRTV0VLBdxFzQJGQ3t1QLC0mItz0IJvkUX5=
+WelsOVwTNd-WET-SMYoChuN44YlBeWunsU8NzE_W13kY3 )      =C2=A0
+[  ]( # ) =C2=A0      [ APPLY NOW | YIF Class of 2022 ]( http://r.info.asho=
+ka.edu.in/mk/cl/f/CXJua7D_sbTrJAUya7KdXpe0oTUUM5K181lhyO7pWhLSbVAoWa0KzLCfD=
+IyfvinDOK1alWiVx7wPmwUU4LjkQzx1c8EauMqtXt32QC9OWPSpE8ziLS8RD-Skzrcrhpo7PkqW=
+lK-ELv_prlQkJfTLFnhOHJNyFHMKtyf2DyEndZbtPz9_Jsy9S9g )      =C2=A0
+[  ]( # ) =C2=A0
+
+Reach out to the YIF team:
+yif@ashoka.edu.in
+[  ]( http://r.info.ashoka.edu.in/mk/cl/f/w3jtFTeHL5y6xlRVNYqmQcSHVexyIqYxN=
+3Vmkx9_6ACzshme7pdn22xIxCcMOvagN08eiu3E4b_tWrtl1-rG85WNMNSkxUXdC_jym0fbI-ev=
+17gCWEl3h87hc6WV7CCsUQzIXeNqEl4_4enLtJoS4bu5K91bsA3X5yDM_1dBedhFapl4UE3ueCQ=
+t0IAeGE3W4FolxmE )
+[  ]( http://r.info.ashoka.edu.in/mk/cl/f/Ov9fxzn_KRQEdFMPUx1DPL1aQUV15WwzO=
+_yHZRCvUEVwlFH6PCs4hfO6Ji8_G-hG2y66PfbTaXd9DtEdDaUH0zwYV_-r5RVrS0kqYdQSHlff=
+vYoZmdnfmQxAP_zdA6REMUE8L2DjVTqklheCCmKRUm4ReAvGdQhSL1JonG-YVqhhEa4EhODSB4g=
+OaN9IAqR-vVRgUYHAZ68 )
+[  ]( http://r.info.ashoka.edu.in/mk/cl/f/BiKNB3r4528iZqnZfF9JAtf94PrFrPhw1=
+CFp16VkJNGrrqbzxgvc7moPQcKtI2BA0jg5Xmjr1oXfc3ZcMHOfQfENGJ0aMGypj0hLXuG8v_El=
+JrubPnWj5ePQ7ACm5kdnqWBr2hyPVIAumX6mD7gpXaJ4Luv0fpEUtEdq6W8hIY-fIUvQeOxsIUB=
+2C2EwiUL2bxRQc_IusUo )    =C2=A0
+[  ]( # ) =C2=A0
+=C2=A9 2020 Young India Fellowship, Ashoka University =C2=A0
+
+
+---------?=_86849-7087490930701
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:sc=
+hemas-microsoft-com:office:office"><head><meta http-equiv=3D"X-UA-Compatibl=
+e" content=3D"IE=3Dedge"/><meta name=3D"viewport" content=3D"width=3Ddevice=
+-width, initial-scale=3D1"/><meta http-equiv=3D"Content-Type" content=3D"te=
+xt/html; charset=3Dutf-8"/><meta name=3D"x-apple-disable-message-reformatti=
+ng"/><meta name=3D"apple-mobile-web-app-capable" content=3D"yes"/><meta nam=
+e=3D"apple-mobile-web-app-status-bar-style" content=3D"black"/><meta name=
+=3D"format-detection" content=3D"telephone=3Dno"/><title></title><style typ=
+e=3D"text/css">
+/* Resets */
+.ReadMsgBody { width: 100%; background-color: #ebebeb;}
+.ExternalClass {width: 100%; background-color: #ebebeb;}
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,=
+ .ExternalClass td, .ExternalClass div {line-height:100%;}
+a[x-apple-data-detectors]{
+color:inherit !important;
+text-decoration:none !important;
+font-size:inherit !important;
+font-family:inherit !important;
+font-weight:inherit !important;
+line-height:inherit !important;
+}
+body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+body {margin:0; padding:0;}
+.yshortcuts a {border-bottom: none !important;}
+.rnb-del-min-width{ min-width: 0 !important; }
+/* Add new outlook css start */
+.templateContainer{
+max-width:590px !important;
+width:auto !important;
+}
+/* Add new outlook css end */
+/* Image width by default for 3 columns */
+img[class=3D"rnb-col-3-img"] {
+max-width:170px;
+}
+/* Image width by default for 2 columns */
+img[class=3D"rnb-col-2-img"] {
+max-width:264px;
+}
+/* Image width by default for 2 columns aside small size */
+img[class=3D"rnb-col-2-img-side-xs"] {
+max-width:180px;
+}
+/* Image width by default for 2 columns aside big size */
+img[class=3D"rnb-col-2-img-side-xl"] {
+max-width:350px;
+}
+/* Image width by default for 1 column */
+img[class=3D"rnb-col-1-img"] {
+max-width:550px;
+}
+/* Image width by default for header */
+img[class=3D"rnb-header-img"] {
+max-width:590px;
+}
+/* Ckeditor line-height spacing */
+.rnb-force-col p, ul, ol{margin:0px!important;}
+.rnb-del-min-width p, ul, ol{margin:0px!important;}
+/* tmpl-2 preview */
+.rnb-tmpl-width{ width:100%!important;}
+/* tmpl-11 preview */
+.rnb-social-width{padding-right:15px!important;}
+/* tmpl-11 preview */
+.rnb-social-align{float:right!important;}
+/* Ul Li outlook extra spacing fix */
+li{mso-margin-top-alt: 0; mso-margin-bottom-alt: 0;}
+/* Outlook fix */
+table {mso-table-lspace:0pt; mso-table-rspace:0pt;}
+/* Outlook fix */
+table, tr, td {border-collapse: collapse;}
+/* Outlook fix */
+p,a,li,blockquote {mso-line-height-rule:exactly;}
+/* Outlook fix */
+.msib-right-img { mso-padding-alt: 0 !important;}
+@media only screen and (min-width:590px){
+/* mac fix width */
+.templateContainer{width:590px !important;}
+}
+@media screen and (max-width: 360px){
+/* yahoo app fix width "tmpl-2 tmpl-10 tmpl-13" in android devices */
+.rnb-yahoo-width{ width:360px !important;}
+}
+@media screen and (max-width: 380px){
+/* fix width and font size "tmpl-4 tmpl-6" in mobile preview */
+.element-img-text{ font-size:24px !important;}
+.element-img-text2{ width:230px !important;}
+.content-img-text-tmpl-6{ font-size:24px !important;}
+.content-img-text2-tmpl-6{ width:220px !important;}
+}
+@media screen and (max-width: 480px) {
+td[class=3D"rnb-container-padding"] {
+padding-left: 10px !important;
+padding-right: 10px !important;
+}
+/* force container nav to (horizontal) blocks */
+td.rnb-force-nav {
+display: inherit;
+}
+/* fix text alignment "tmpl-11" in mobile preview */
+.rnb-social-text-left {
+width: 100%;
+text-align: center;
+margin-bottom: 15px;
+}
+.rnb-social-text-right {
+width: 100%;
+text-align: center;
+}
+}
+@media only screen and (max-width: 600px) {
+/* center the address & social icons */
+.rnb-text-center {text-align:center !important;}
+/* force container columns to (horizontal) blocks */
+th.rnb-force-col {
+display: block;
+padding-right: 0 !important;
+padding-left: 0 !important;
+width:100%;
+}
+table.rnb-container {
+width: 100% !important;
+}
+table.rnb-btn-col-content {
+width: 100% !important;
+}
+table.rnb-col-3 {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+/* change left/right padding and margins to top/bottom ones */
+margin-bottom: 10px;
+padding-bottom: 10px;
+/*border-bottom: 1px solid #eee;*/
+}
+table.rnb-last-col-3 {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+}
+table.rnb-col-2 {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+/* change left/right padding and margins to top/bottom ones */
+margin-bottom: 10px;
+padding-bottom: 10px;
+/*border-bottom: 1px solid #eee;*/
+}
+table.rnb-col-2-noborder-onright {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+/* change left/right padding and margins to top/bottom ones */
+ margin-bottom: 10px;
+padding-bottom: 10px;
+}
+table.rnb-col-2-noborder-onleft {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+/* change left/right padding and margins to top/bottom ones */
+margin-top: 10px;
+padding-top: 10px;
+}
+table.rnb-last-col-2 {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+}
+table.rnb-col-1 {
+/* unset table align=3D"left/right" */
+float: none !important;
+width: 100% !important;
+}
+img.rnb-col-3-img {
+/**max-width:none !important;**/
+width:100% !important;
+}
+img.rnb-col-2-img {
+/**max-width:none !important;**/
+width:100% !important;
+}
+img.rnb-col-2-img-side-xs {
+/**max-width:none !important;**/
+width:100% !important;
+}
+img.rnb-col-2-img-side-xl {
+/**max-width:none !important;**/
+width:100% !important;
+}
+img.rnb-col-1-img {
+/**max-width:none !important;**/
+width:100% !important;
+}
+img.rnb-header-img {
+/**max-width:none !important;**/
+width:100% !important;
+margin:0 auto;
+}
+img.rnb-logo-img {
+/**max-width:none !important;**/
+width:100% !important;
+}
+td.rnb-mbl-float-none {
+float:inherit !important;
+}
+.img-block-center{text-align:center !important;}
+.logo-img-center
+{
+float:inherit !important;
+}
+/* tmpl-11 preview */
+.rnb-social-align{margin:0 auto !important; float:inherit !important;}
+/* tmpl-11 preview */
+.rnb-social-center{display:inline-block;}
+/* tmpl-11 preview */
+.social-text-spacing{margin-bottom:0px !important; padding-bottom:0px !impo=
+rtant;}
+/* tmpl-11 preview */
+.social-text-spacing2{padding-top:15px !important;}
+/* UL bullet fixed in outlook */
+ul {mso-special-format:bullet;}
+}</style><!--[if gte mso 11]><style type=3D"text/css">table{border-spacing:=
+ 0; }table td {border-collapse: separate;}</style><![endif]--><!--[if !mso]=
+><!--><style type=3D"text/css">table{border-spacing: 0;} table td {border-c=
+ollapse: collapse;}</style> <!--<![endif]--><!--[if gte mso 15]><xml><o:Off=
+iceDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:O=
+fficeDocumentSettings></xml><![endif]--><!--[if gte mso 9]><xml><o:OfficeDo=
+cumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:Office=
+DocumentSettings></xml><![endif]--></head><body> <table cellpadding=3D"0" b=
+order=3D"0" cellspacing=3D"0" style=3D" mso-hide: all; display: none;"><tr>=
+<td>Attend live and interactive webinars to interact with the YIF Programme=
+ Team to understand finer aspects of the YIF curriculum and engage with the=
+ Office of Financial Aid to understand how Ashoka supports Fellows with upt=
+o 100% financial aid.</td></tr></table> <div align=3D"center" style=3D"colo=
+r: #727272; font-size: 10px;">If you are not able to see this mail, click <=
+a style=3D"color:#01a4c6;" target=3D"_blank" href=3D"http://r.info.ashoka.e=
+du.in/mk/mr/HNN8tCjN1KtATfmctz2ZZ6Ns1D1zOBscyfVE7vX51XzaPfoyOpDRT0YBCFzK2Hj=
+Y8o-0ySaHQKxLzJi1ldWp13J36fFjEdYSPmO_C0RpLpEn">here</a></div>=20
+
+<table border=3D"0" align=3D"center" width=3D"100%" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"main-template" bgcolor=3D"#f9fafc" style=3D"backgroun=
+d-color: rgb(249, 250, 252);">
+
+    <tbody><tr>
+        <td align=3D"center" valign=3D"top">
+        <!--[if gte mso 9]>
+                        <table align=3D"center" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" width=3D"590" style=3D"width:590px;">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"590" s=
+tyle=3D"width:590px;">
+                        <![endif]-->
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"590" class=3D"templateContainer" style=3D"max-width:590px!important; wi=
+dth: 590px;">
+        <tbody><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <table class=3D"rnb-del-min-width" width=3D"100%" cellpadding=
+=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"La=
+yout_0" id=3D"Layout_0">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" valign=3D"top" align=3D=
+"center" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_0"></a>
+                        <table width=3D"100%" cellpadding=3D"0" border=3D"0=
+" height=3D"38" cellspacing=3D"0">
+                            <tbody><tr>
+                                <td valign=3D"top" height=3D"38">
+                                    <img width=3D"20" height=3D"38" style=
+=3D"display:block; max-height:38px; max-width:20px;" alt=3D"" src=3D"http:/=
+/img.info.ashoka.edu.in/im/2631238/15fd9f264001efa0668072cabf04073d203e1c62=
+8b776e87506daf3661b832d6.gif?e=3DZx1hy_L_59-Dx_kaVxk79eYR6Cn4YGu0J4_jCeA5-_=
+y4tCSdvXEW4omV3F0DC0nMVwGguv4ERIfAu_O0wSpiZjcidwWVd74Y_6M1ECmiIj7kyk5HS3Rvt=
+Z5ZAPvb1Ez0oawNZnC9S0acZ6Q6PpYBH7dBippDy-xKYdYmPjMZQLDvz9GXc9nGkg" sib_img_=
+id=3D"0"/>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+            </td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(255, 255, 255); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+           =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%;" name=3D"L=
+ayout_65">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top">
+                        <a href=3D"#" name=3D"Layout_65"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"rnb-container" bgcolor=3D"#ffffff" style=3D"ba=
+ckground-color: rgb(255, 255, 255); padding-left: 20px; padding-right: 20px=
+; border-collapse: separate; border-top-left-radius: 0px; border-top-right-=
+radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0p=
+x; border-bottom-width: 0px; border-bottom-color: rgb(200, 200, 200); borde=
+r-bottom-style: none;">
+
+                                        <tbody><tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top" class=3D"rnb=
+-container-padding" align=3D"left">
+
+                                                <table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container"=
+>
+                                                    <tbody><tr>
+                                                        <th class=3D"rnb-fo=
+rce-col" style=3D"text-align: left; font-weight: normal; padding-right: 0px=
+;" valign=3D"top">
+
+                                                            <table border=
+=3D"0" valign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" al=
+ign=3D"left" class=3D"rnb-col-1">
+
+                                                                <tbody><tr>
+                                                                    <td sty=
+le=3D"font-size:14px; font-family:&#39;Georgia&#39;,serif, sans-serif; colo=
+r:#3c4858;"><div>Greetings! With a month to go for the final application de=
+adline (12 April), you are cordially invited to join us for two upcoming we=
+binars this week. You may also sign up for other upcoming events through th=
+e link at the end of this communication.=C2=A0</div>
+</td>
+                                                                </tr>
+                                                                </tbody></t=
+able>
+
+                                                            </th></tr>
+                                                </tbody></table></td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                    </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table><!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius:=
+ 1px; border-bottom-left-radius: 1px;">
+           =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%;" name=3D"L=
+ayout_61">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top">
+                        <a href=3D"#" name=3D"Layout_61"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"rnb-container" bgcolor=3D"#faf2de" style=3D"ba=
+ckground-color: rgb(250, 242, 222); padding-left: 20px; padding-right: 20px=
+; border-collapse: separate; border-top-left-radius: 1px; border-top-right-=
+radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1p=
+x; border-bottom-width: 0px; border-bottom-color: rgb(196, 18, 47); border-=
+bottom-style: none;">
+
+                                        <tbody><tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top" class=3D"rnb=
+-container-padding" align=3D"left">
+
+                                                <table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container"=
+>
+                                                    <tbody><tr>
+                                                        <th class=3D"rnb-fo=
+rce-col" style=3D"text-align: left; font-weight: normal; padding-right: 0px=
+;" valign=3D"top">
+
+                                                            <table border=
+=3D"0" valign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" al=
+ign=3D"left" class=3D"rnb-col-1">
+
+                                                                <tbody><tr>
+                                                                    <td sty=
+le=3D"font-size:14px; font-family:&#39;Georgia&#39;,serif, sans-serif; colo=
+r:#3c4858;"><div style=3D"text-align: center;"><span style=3D"font-size:18p=
+x;"><strong style=3D"color: rgb(178, 34, 34);">YIF Curriculum Deep-Dive | L=
+ive on Zoom</strong></span><br/>
+=C2=A0</div>
+
+<div style=3D"text-align: center;"><span style=3D"color:#000000;"><strong>9=
+ March, Tuesday, 6 PM</strong></span></div>
+</td>
+                                                                </tr>
+                                                                </tbody></t=
+able>
+
+                                                            </th></tr>
+                                                </tbody></table></td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                    </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table><!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(255, 255, 255);">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%; -webkit-ba=
+ckface-visibility: hidden; line-height: 10px;" name=3D"Layout_54" id=3D"Lay=
+out_54">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" valign=3D"top" align=3D=
+"center" style=3D"min-width: 590px;">
+                        <a href=3D"#" name=3D"Layout_54"></a>
+                        <table width=3D"100%" class=3D"rnb-container" cellp=
+adding=3D"0" border=3D"0" bgcolor=3D"#ffffff" align=3D"center" cellspacing=
+=3D"0" style=3D"background-color: rgb(255, 255, 255);">
+                            <tbody><tr>
+                                <td valign=3D"top" align=3D"center">
+                                    <table cellspacing=3D"0" cellpadding=3D=
+"0" border=3D"0">
+                                        <tbody><tr>
+                                            <td>
+                                                <div style=3D"border-radius=
+:5px; width:590;;max-width:1650px !important;border-top:0px None #000;borde=
+r-right:0px None #000;border-bottom:0px None #000;border-left:0px None #000=
+;border-collapse: separate;border-radius: 0px;">
+                                                    <div><img ng-if=3D"col.=
+img.source !=3D &#39;url&#39;" border=3D"0" hspace=3D"0" vspace=3D"0" width=
+=3D"590" class=3D"rnb-header-img" alt=3D"" style=3D"display:block; float:le=
+ft; border-radius: 5px; " src=3D"http://img.info.ashoka.edu.in/im/2631238/e=
+9b6507d599d35c251d0f9c9ea854b119a338d2e6af9e10a1dc7d9aca10f8420.jpg?e=3D_TT=
+bhTg3fH6ORTCs3JOYS8hFQtEPTu4Av0T7u31kx1NnPL9FAH3jXeUq4IyupUlvzN9sl6PZj64-Rt=
+yy2158rhJMXv-QmUDKsHrIdHAhjgr6h3KcG4OjtFnpjjw06xmFPZm4pdGCuVLuYvTioJkhmzEpB=
+1t2ea14vxN2OEwz2ieNQaVRpkSvMLUK1k8iU_PR1DQs8VzWVeDW_bZ1T4eJqhEXXdrDTJ8u" si=
+b_img_id=3D"1"/></div><div style=3D"clear:both;"></div>
+                                                    </div></td>
+                                        </tr>
+                                    </tbody></table>
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr></tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+           =20
+        </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"=
+Layout_57" id=3D"Layout_57">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_57"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"mso-button-block rnb-container" style=3D"backg=
+round-color: rgb(250, 242, 222); border-top-left-radius: 0px; border-top-ri=
+ght-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius=
+: 0px; padding-left: 20px; padding-right: 20px; border-collapse: separate;"=
+>
+                            <tbody><tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" class=3D"rnb-container-p=
+adding" align=3D"left">
+
+                                    <table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container">
+                                        <tbody><tr>
+                                            <th class=3D"rnb-force-col" val=
+ign=3D"top">
+
+                                                <table border=3D"0" valign=
+=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"550" align=3D"center"=
+ class=3D"rnb-col-1">
+
+                                                    <tbody><tr>
+                                                        <td valign=3D"top">
+                                                            <table cellpadd=
+ing=3D"0" border=3D"0" align=3D"center" cellspacing=3D"0" class=3D"rnb-btn-=
+col-content" style=3D"margin:auto; border-collapse: separate;">
+                                                                <tbody><tr>
+                                                                    <td wid=
+th=3D"auto" valign=3D"middle" bgcolor=3D"#c4122f" align=3D"center" height=
+=3D"36" style=3D"font-size:15px; font-family:&#39;Georgia&#39;,serif; color=
+:#faf2de; font-weight:normal; padding-left:20px; padding-right:20px; vertic=
+al-align: middle; background-color:#c4122f;border-radius:0px;border-top:1px=
+ Solid #ffffff;border-right:1px Solid #ffffff;border-bottom:1px Solid #ffff=
+ff;border-left:1px Solid #ffffff;">
+                                                                        <sp=
+an style=3D"color:#faf2de; font-weight:normal;">
+                                                                           =
+     <a style=3D"text-decoration:none; color:#faf2de; font-weight:normal;" =
+target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/Q1RuUL-xFxu-m=
+Pay_6xukkfPm7yGV97bbU_hzLLeQApAyAONGcxbhn7c_smbITH5rgyeYriQfybNRVsu0IW0aWLj=
+MDpyqn6VbKkfiP0zn7metleWSFXs8OEE8YY0xat8uKnWDBqRi18cUJp0hf6T3UM37ZN71oI9hFY=
+AHhtpURZgz3pC-Mts-tc" sib_link_id=3D"0"><strong>REGISTER NOW - </strong>Cur=
+riculum Webinar</a>
+                                                                           =
+ </span>
+                                                                    </td>
+                                                                </tr></tbod=
+y></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                                </th>
+                                        </tr>
+                                    </tbody></table></td>
+                            </tr>
+                            <tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                        </tbody></table>
+
+                    </td>
+                </tr>
+            </tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+               =20
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(255, 255, 255); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+           =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%;" name=3D"L=
+ayout_55">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top">
+                        <a href=3D"#" name=3D"Layout_55"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"rnb-container" bgcolor=3D"#ffffff" style=3D"ba=
+ckground-color: rgb(255, 255, 255); padding-left: 20px; padding-right: 20px=
+; border-collapse: separate; border-top-left-radius: 0px; border-top-right-=
+radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0p=
+x; border-bottom-width: 5px; border-bottom-color: rgb(196, 18, 47); border-=
+bottom-style: solid;">
+
+                                        <tbody><tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top" class=3D"rnb=
+-container-padding" align=3D"left">
+
+                                                <table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container"=
+>
+                                                    <tbody><tr>
+                                                        <th class=3D"rnb-fo=
+rce-col" style=3D"text-align: left; font-weight: normal; padding-right: 0px=
+;" valign=3D"top">
+
+                                                            <table border=
+=3D"0" valign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" al=
+ign=3D"left" class=3D"rnb-col-1">
+
+                                                                <tbody><tr>
+                                                                    <td sty=
+le=3D"font-size:14px; font-family:&#39;Georgia&#39;,serif, sans-serif; colo=
+r:#3c4858;"><div><strong>Understand the YIF curriculum better.</strong>=C2=
+=A0If you&#39;re looking for an opportunity to know more about the diverse =
+courses, the Critical Writing Programme and the ELM (Experiential Learning =
+Module) at the YIF, this webinar is for you.<br/>
+<br/>
+<strong>LEARNING OUTCOMES:</strong><br/>
+1) Why a multidisciplinary education is critical in today&#39;s world<br/>
+2) How the YIF curriculum prepares young people for diverse career pathways=
+<br/>
+3) How ELM makes the multidisciplinary learning more meaningful in reality<=
+/div>
+</td>
+                                                                </tr>
+                                                                </tbody></t=
+able>
+
+                                                            </th></tr>
+                                                </tbody></table></td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                    </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table><!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <table class=3D"rnb-del-min-width" width=3D"100%" cellpadding=
+=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"La=
+yout_4527" id=3D"Layout_4527">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" valign=3D"top" align=3D=
+"center" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_4527"></a>
+                        <table width=3D"100%" cellpadding=3D"0" border=3D"0=
+" height=3D"38" cellspacing=3D"0">
+                            <tbody><tr>
+                                <td valign=3D"top" height=3D"38">
+                                    <img width=3D"20" height=3D"38" style=
+=3D"display:block; max-height:38px; max-width:20px;" alt=3D"" src=3D"http:/=
+/img.info.ashoka.edu.in/im/2631238/15fd9f264001efa0668072cabf04073d203e1c62=
+8b776e87506daf3661b832d6.gif?e=3Dlepl_EyR9FmYIENQuyMz9Rzcx0GmdzBN9If6t2n_J8=
+svjmfSHXz4igVmRxKUAlNJoTudUIqgrOfgGLGXP6EGu64-TIwfLB_NOtGEK2alIQbVM_Hz5JneO=
+2y-maYA6VnESUaaLpNYEwIbcq9Vd4mYiGkQx-a1UD7Lb6JDzkGnuZIvEhp-Ko7MWw" sib_img_=
+id=3D"0"/>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+            </td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius:=
+ 1px; border-bottom-left-radius: 1px;">
+           =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%;" name=3D"L=
+ayout_58">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top">
+                        <a href=3D"#" name=3D"Layout_58"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"rnb-container" bgcolor=3D"#faf2de" style=3D"ba=
+ckground-color: rgb(250, 242, 222); padding-left: 20px; padding-right: 20px=
+; border-collapse: separate; border-top-left-radius: 1px; border-top-right-=
+radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1p=
+x; border-bottom-width: 0px; border-bottom-color: rgb(196, 18, 47); border-=
+bottom-style: none;">
+
+                                        <tbody><tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top" class=3D"rnb=
+-container-padding" align=3D"left">
+
+                                                <table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container"=
+>
+                                                    <tbody><tr>
+                                                        <th class=3D"rnb-fo=
+rce-col" style=3D"text-align: left; font-weight: normal; padding-right: 0px=
+;" valign=3D"top">
+
+                                                            <table border=
+=3D"0" valign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" al=
+ign=3D"left" class=3D"rnb-col-1">
+
+                                                                <tbody><tr>
+                                                                    <td sty=
+le=3D"font-size:14px; font-family:&#39;Georgia&#39;,serif, sans-serif; colo=
+r:#3c4858;"><div style=3D"text-align: center;"><span style=3D"font-size:18p=
+x;"><strong style=3D"color: rgb(178, 34, 34);">YIF Financial Aid | Live on =
+Zoom</strong></span></div>
+
+<div style=3D"text-align: center;"><br/>
+<span style=3D"color:#000000;"><strong>10 March, Wednesday, 5 PM</strong></=
+span></div>
+</td>
+                                                                </tr>
+                                                                </tbody></t=
+able>
+
+                                                            </th></tr>
+                                                </tbody></table></td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                    </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table><!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(255, 255, 255);">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%; -webkit-ba=
+ckface-visibility: hidden; line-height: 10px;" name=3D"Layout_45" id=3D"Lay=
+out_45">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" valign=3D"top" align=3D=
+"center" style=3D"min-width: 590px;">
+                        <a href=3D"#" name=3D"Layout_45"></a>
+                        <table width=3D"100%" class=3D"rnb-container" cellp=
+adding=3D"0" border=3D"0" bgcolor=3D"#ffffff" align=3D"center" cellspacing=
+=3D"0" style=3D"background-color: rgb(255, 255, 255);">
+                            <tbody><tr>
+                                <td valign=3D"top" align=3D"center">
+                                    <table cellspacing=3D"0" cellpadding=3D=
+"0" border=3D"0">
+                                        <tbody><tr>
+                                            <td>
+                                                <div style=3D"border-radius=
+:0px; width:590;;max-width:1500px !important;border-top:0px None #000;borde=
+r-right:0px None #000;border-bottom:0px None #000;border-left:0px None #000=
+;border-collapse: separate;border-radius: 0px;">
+                                                    <div><img ng-if=3D"col.=
+img.source !=3D &#39;url&#39;" border=3D"0" hspace=3D"0" vspace=3D"0" width=
+=3D"590" class=3D"rnb-header-img" alt=3D"" style=3D"display:block; float:le=
+ft; border-radius: 0px; " src=3D"http://img.info.ashoka.edu.in/im/2631238/7=
+1fd12bce237b36fa0cf7c3fe8aa5d1c2ba346bebc0c741e0e818494802c9ffc.jpg?e=3Dlz-=
+bqhnBz3GKlkMdde1FAspE8UxXCqbenhrrHhdVBNlKWOqtZ4scYhXixnblxpUFy9uu-SiCZTtOWv=
+9aqSUjO9av01d8qPi6HkilEdOEGPDEy3E8zbZ8PW2TmrPC_xBLmRkfkvcMDJm6E0Ft3obOaaOy8=
+rGRDtvPBUxaAW6sECnapRl64TYttn-iyxIrIMw2_X9QCWBMkxNMysLQZjihF_G6COFPt-im" si=
+b_img_id=3D"2"/></div><div style=3D"clear:both;"></div>
+                                                    </div></td>
+                                        </tr>
+                                    </tbody></table>
+
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr></tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+           =20
+        </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"=
+Layout_63" id=3D"Layout_63">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_63"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"mso-button-block rnb-container" style=3D"backg=
+round-color: rgb(250, 242, 222); border-top-left-radius: 0px; border-top-ri=
+ght-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius=
+: 0px; padding-left: 20px; padding-right: 20px; border-collapse: separate;"=
+>
+                            <tbody><tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" class=3D"rnb-container-p=
+adding" align=3D"left">
+
+                                    <table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container">
+                                        <tbody><tr>
+                                            <th class=3D"rnb-force-col" val=
+ign=3D"top">
+
+                                                <table border=3D"0" valign=
+=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"550" align=3D"center"=
+ class=3D"rnb-col-1">
+
+                                                    <tbody><tr>
+                                                        <td valign=3D"top">
+                                                            <table cellpadd=
+ing=3D"0" border=3D"0" align=3D"center" cellspacing=3D"0" class=3D"rnb-btn-=
+col-content" style=3D"margin:auto; border-collapse: separate;">
+                                                                <tbody><tr>
+                                                                    <td wid=
+th=3D"auto" valign=3D"middle" bgcolor=3D"#c4122f" align=3D"center" height=
+=3D"36" style=3D"font-size:15px; font-family:&#39;Georgia&#39;,serif; color=
+:#faf2de; font-weight:normal; padding-left:20px; padding-right:20px; vertic=
+al-align: middle; background-color:#c4122f;border-radius:0px;border-top:1px=
+ Solid #ffffff;border-right:1px Solid #ffffff;border-bottom:1px Solid #ffff=
+ff;border-left:1px Solid #ffffff;">
+                                                                        <sp=
+an style=3D"color:#faf2de; font-weight:normal;">
+                                                                           =
+     <a style=3D"text-decoration:none; color:#faf2de; font-weight:normal;" =
+target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/LMzt4bZul_rM7=
+b9KUf9p9-ZFAuTM3FPTruAP2qXHyv9LbXU2UZy34jOot2QDEy2gBBqqLJgN7hYJiy1lpO_cFxBo=
+XKSPZVVRinkGYMjvaYJFEZFC05Wa6qjIygvrMEwSoymLpekfKcsFPxtmP_lufyM8gvLR5zvff0d=
+zUkoiBBaL6UAwvQ" sib_link_id=3D"1"><strong>REGISTER NOW - </strong>Financia=
+l Aid Webinar</a>
+                                                                           =
+ </span>
+                                                                    </td>
+                                                                </tr></tbod=
+y></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                                </th>
+                                        </tr>
+                                    </tbody></table></td>
+                            </tr>
+                            <tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                        </tbody></table>
+
+                    </td>
+                </tr>
+            </tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+               =20
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(255, 255, 255); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+           =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:100%;" name=3D"L=
+ayout_62">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top">
+                        <a href=3D"#" name=3D"Layout_62"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"rnb-container" bgcolor=3D"#ffffff" style=3D"ba=
+ckground-color: rgb(255, 255, 255); padding-left: 20px; padding-right: 20px=
+; border-collapse: separate; border-top-left-radius: 0px; border-top-right-=
+radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0p=
+x; border-bottom-width: 5px; border-bottom-color: rgb(196, 18, 47); border-=
+bottom-style: solid;">
+
+                                        <tbody><tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign=3D"top" class=3D"rnb=
+-container-padding" align=3D"left">
+
+                                                <table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container"=
+>
+                                                    <tbody><tr>
+                                                        <th class=3D"rnb-fo=
+rce-col" style=3D"text-align: left; font-weight: normal; padding-right: 0px=
+;" valign=3D"top">
+
+                                                            <table border=
+=3D"0" valign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" al=
+ign=3D"left" class=3D"rnb-col-1">
+
+                                                                <tbody><tr>
+                                                                    <td sty=
+le=3D"font-size:14px; font-family:&#39;Georgia&#39;,serif, sans-serif; colo=
+r:#3c4858;"><div>Ashoka University=E2=80=99s need-based Financial Aid progr=
+amme aims to provide necessary financial support which can help you bridge =
+the gap between the cost of the programme and your ability to pay. Several =
+benefactors, including YIF alumni, have made financial aid possible.=C2=A0<=
+strong>Need-based financial aid for selected candidates ranges between a 25=
+% waiver on tuition to a 100% waiver on tuition, residence and meals.</stro=
+ng><br/>
+<br/>
+Our Financial Aid Team will be available to resolve any queries that you mi=
+ght have, over this webinar.</div>
+
+<div>=C2=A0</div>
+
+<div><strong>LEARNING OUTCOMES:</strong><br/>
+1) The philosophy of need-based financial aid at Ashoka University<br/>
+2) Timeline, process and documentation required for Financial Aid</div>
+</td>
+                                                                </tr>
+                                                                </tbody></t=
+able>
+
+                                                            </th></tr>
+                                                </tbody></table></td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"20" style=3D"font=
+-size:1px; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                        </tr>
+                                    </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table><!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"=
+Layout_64" id=3D"Layout_64">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_64"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"mso-button-block rnb-container" style=3D"backg=
+round-color: rgb(250, 242, 222); border-top-left-radius: 0px; border-top-ri=
+ght-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius=
+: 0px; padding-left: 20px; padding-right: 20px; border-collapse: separate;"=
+>
+                            <tbody><tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" class=3D"rnb-container-p=
+adding" align=3D"left">
+
+                                    <table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container">
+                                        <tbody><tr>
+                                            <th class=3D"rnb-force-col" val=
+ign=3D"top">
+
+                                                <table border=3D"0" valign=
+=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"550" align=3D"center"=
+ class=3D"rnb-col-1">
+
+                                                    <tbody><tr>
+                                                        <td valign=3D"top">
+                                                            <table cellpadd=
+ing=3D"0" border=3D"0" align=3D"center" cellspacing=3D"0" class=3D"rnb-btn-=
+col-content" style=3D"margin:auto; border-collapse: separate;">
+                                                                <tbody><tr>
+                                                                    <td wid=
+th=3D"auto" valign=3D"middle" bgcolor=3D"#c4122f" align=3D"center" height=
+=3D"36" style=3D"font-size:15px; font-family:&#39;Georgia&#39;,serif; color=
+:#ffffff; font-weight:normal; padding-left:20px; padding-right:20px; vertic=
+al-align: middle; background-color:#c4122f;border-radius:0px;border-top:1px=
+ Solid #ffffff;border-right:1px Solid #ffffff;border-bottom:1px Solid #ffff=
+ff;border-left:1px Solid #ffffff;">
+                                                                        <sp=
+an style=3D"color:#ffffff; font-weight:normal;">
+                                                                           =
+     <a style=3D"text-decoration:none; color:#ffffff; font-weight:normal;" =
+target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/NL5AnVxI0PApy=
+72Yw_Utey5BsSQbgCytb8TyF8xhhI5HA_Wq2ztLdPvpkkKO_0oLh2vmx3cFEAOmIE7uq0AjCga5=
+Xi8VbRTV0VLBdxFzQJGQ3t1QLC0mItz0IJvkUX5WelsOVwTNd-WET-SMYoChuN44YlBeWunsU8N=
+zE_W13kY3" sib_link_id=3D"2"><strong>Other Upcoming Events | </strong>Learn=
+ More</a>
+                                                                           =
+ </span>
+                                                                    </td>
+                                                                </tr></tbod=
+y></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                                </th>
+                                        </tr>
+                                    </tbody></table></td>
+                            </tr>
+                            <tr>
+                                <td height=3D"10" style=3D"font-size:1px; l=
+ine-height:10px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                        </tbody></table>
+
+                    </td>
+                </tr>
+            </tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+               =20
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(250, 242, 222); border-top-=
+left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius:=
+ 0px; border-bottom-left-radius: 0px;">
+               =20
+                <!--[if mso]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"100%" style=3D"width:100%;">
+                <tr>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                <td valign=3D"top" width=3D"590" style=3D"width:590px;">
+                <![endif]-->
+                <table class=3D"rnb-del-min-width" width=3D"100%" cellpaddi=
+ng=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:590px;" name=3D"=
+Layout_66" id=3D"Layout_66">
+                <tbody><tr>
+                    <td class=3D"rnb-del-min-width" align=3D"center" valign=
+=3D"top" style=3D"min-width:590px;">
+                        <a href=3D"#" name=3D"Layout_66"></a>
+                        <table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" class=3D"mso-button-block rnb-container" style=3D"backg=
+round-color: rgb(250, 242, 222); border-top-left-radius: 0px; border-top-ri=
+ght-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius=
+: 0px; padding-left: 20px; padding-right: 20px; border-collapse: separate;"=
+>
+                            <tbody><tr>
+                                <td height=3D"0" style=3D"font-size:1px; li=
+ne-height:0px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" class=3D"rnb-container-p=
+adding" align=3D"left">
+
+                                    <table width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container">
+                                        <tbody><tr>
+                                            <th class=3D"rnb-force-col" val=
+ign=3D"top">
+
+                                                <table border=3D"0" valign=
+=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"550" align=3D"center"=
+ class=3D"rnb-col-1">
+
+                                                    <tbody><tr>
+                                                        <td valign=3D"top">
+                                                            <table cellpadd=
+ing=3D"0" border=3D"0" align=3D"center" cellspacing=3D"0" class=3D"rnb-btn-=
+col-content" style=3D"margin:auto; border-collapse: separate;">
+                                                                <tbody><tr>
+                                                                    <td wid=
+th=3D"auto" valign=3D"middle" bgcolor=3D"#ffffff" align=3D"center" height=
+=3D"36" style=3D"font-size:15px; font-family:&#39;Georgia&#39;,serif; color=
+:#c4122f; font-weight:normal; padding-left:20px; padding-right:20px; vertic=
+al-align: middle; background-color:#ffffff;border-radius:0px;border-top:1px=
+ Solid #ffffff;border-right:1px Solid #ffffff;border-bottom:1px Solid #ffff=
+ff;border-left:1px Solid #ffffff;">
+                                                                        <sp=
+an style=3D"color:#c4122f; font-weight:normal;">
+                                                                           =
+     <a style=3D"text-decoration:none; color:#c4122f; font-weight:normal;" =
+target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/CXJua7D_sbTrJ=
+AUya7KdXpe0oTUUM5K181lhyO7pWhLSbVAoWa0KzLCfDIyfvinDOK1alWiVx7wPmwUU4LjkQzx1=
+c8EauMqtXt32QC9OWPSpE8ziLS8RD-Skzrcrhpo7PkqWlK-ELv_prlQkJfTLFnhOHJNyFHMKtyf=
+2DyEndZbtPz9_Jsy9S9g" sib_link_id=3D"3"><strong>APPLY NOW | </strong>YIF Cl=
+ass of 2022</a>
+                                                                           =
+ </span>
+                                                                    </td>
+                                                                </tr></tbod=
+y></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                                </th>
+                                        </tr>
+                                    </tbody></table></td>
+                            </tr>
+                            <tr>
+                                <td height=3D"20" style=3D"font-size:1px; l=
+ine-height:20px; mso-hide: all;">=C2=A0</td>
+                            </tr>
+                        </tbody></table>
+
+                    </td>
+                </tr>
+            </tbody></table>
+            <!--[if mso]>
+                </td>
+                <![endif]-->
+               =20
+                <!--[if mso]>
+                </tr>
+                </table>
+                <![endif]-->
+               =20
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(249, 250, 252);">
+               =20
+                <table class=3D"rnb-del-min-width rnb-tmpl-width" width=3D"=
+100%" cellpadding=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:5=
+90px;" name=3D"Layout_5" id=3D"Layout_5">
+                    <tbody><tr>
+                        <td class=3D"rnb-del-min-width" align=3D"center" va=
+lign=3D"top" bgcolor=3D"#f9fafc" style=3D"min-width: 590px; background-colo=
+r: rgb(249, 250, 252);">
+                            <a href=3D"#" name=3D"Layout_5"></a>
+                            <table width=3D"590" class=3D"rnb-container" ce=
+llpadding=3D"0" border=3D"0" align=3D"center" cellspacing=3D"0">
+                                <tbody><tr>
+                                    <td height=3D"20" style=3D"font-size:1p=
+x; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                </tr>
+                                <tr>
+                                    <td valign=3D"top" class=3D"rnb-contain=
+er-padding" style=3D"font-size: 14px; font-family: Arial,Helvetica,sans-ser=
+if; color: #888888;" align=3D"left">
+
+                                        <table width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"rnb-columns-container">
+                                            <tbody><tr>
+                                                <th class=3D"rnb-force-col"=
+ style=3D"padding-right:20px; padding-left:20px; mso-padding-alt: 0 0 0 20p=
+x; font-weight: normal;" valign=3D"top">
+
+                                                    <table border=3D"0" val=
+ign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"264" align=3D"left=
+" class=3D"rnb-col-2 rnb-social-text-left" style=3D"border-bottom:0;">
+
+                                                        <tbody><tr>
+                                                            <td valign=3D"t=
+op">
+                                                                <table cell=
+padding=3D"0" border=3D"0" align=3D"left" cellspacing=3D"0" class=3D"rnb-bt=
+n-col-content">
+                                                                    <tbody>=
+<tr>
+                                                                        <td=
+ valign=3D"middle" align=3D"left" style=3D"font-size:14px; font-family:Aria=
+l,Helvetica,sans-serif; color:#888888; line-height: 16px" class=3D"rnb-text=
+-center">
+                                                                           =
+ <div><div><b>Reach out to the YIF team:</b><br/>
+yif@ashoka.edu.in</div>
+</div>
+                                                                        </t=
+d></tr>
+                                                                </tbody></t=
+able>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    </th><th ng-if=3D"item.=
+text.align=3D=3D&#39;left&#39;" class=3D"rnb-force-col rnb-social-width" va=
+lign=3D"top" style=3D"mso-padding-alt: 0 20px 0 0; padding-right: 15px;">
+
+                                                    <table border=3D"0" val=
+ign=3D"top" cellspacing=3D"0" cellpadding=3D"0" width=3D"246" align=3D"righ=
+t" class=3D"rnb-last-col-2">
+
+                                                        <tbody><tr>
+                                                            <td valign=3D"t=
+op">
+                                                                <table cell=
+padding=3D"0" border=3D"0" cellspacing=3D"0" class=3D"rnb-social-align" sty=
+le=3D"float: right;" align=3D"right">
+                                                                    <tbody>=
+<tr>
+                                                                        <td=
+ valign=3D"middle" class=3D"rnb-text-center" ng-init=3D"width=3DsetSocialIc=
+onsBlockWidth(item)" width=3D"125" align=3D"right">
+                                                                           =
+ <div class=3D"rnb-social-center">
+                                                                           =
+ <table align=3D"left" style=3D"float:left; display: inline-block" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                                                                           =
+ <tbody><tr>
+                                                                           =
+         <td style=3D"padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px=
+ 0px;" align=3D"left">
+                                                                           =
+ <span style=3D"color:#ffffff; font-weight:normal;">
+                                                                           =
+     <a target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/w3jtF=
+TeHL5y6xlRVNYqmQcSHVexyIqYxN3Vmkx9_6ACzshme7pdn22xIxCcMOvagN08eiu3E4b_tWrtl=
+1-rG85WNMNSkxUXdC_jym0fbI-ev17gCWEl3h87hc6WV7CCsUQzIXeNqEl4_4enLtJoS4bu5K91=
+bsA3X5yDM_1dBedhFapl4UE3ueCQt0IAeGE3W4FolxmE" sib_link_id=3D"4"><img alt=3D=
+"Facebook" border=3D"0" hspace=3D"0" vspace=3D"0" style=3D"vertical-align:t=
+op;" target=3D"_blank" src=3D"http://img.info.ashoka.edu.in/im/2631238/c64a=
+c932b54f19126b39d0f922711599f207fe676494c584f76fca1fbf719dc2.png?e=3DnH0k6C=
+eb7Hw7CviKR1iuClhrDVlGZsdk9zdgZK1Fk8VMmEQb07EqayjN_IuZ754Of0T0-yXoveTmap19K=
+l2QH8jj1_YrCezNoDo7nv1SBHwNYprdo1XhYCgpYByhBxpz1MO6to_AzFHqpm6-P9kST4IJidwm=
+UYX9JJdf8ZEogtrA5owEROZtE8SUR6WexV-7mfA" sib_img_id=3D"3"/></a></span>
+                                                                           =
+ </td></tr></tbody></table>
+                                                                           =
+ </div><div class=3D"rnb-social-center">
+                                                                           =
+ <table align=3D"left" style=3D"float:left; display: inline-block" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                                                                           =
+ <tbody><tr>
+                                                                           =
+         <td style=3D"padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px=
+ 0px;" align=3D"left">
+                                                                           =
+ <span style=3D"color:#ffffff; font-weight:normal;">
+                                                                           =
+     <a target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/Ov9fx=
+zn_KRQEdFMPUx1DPL1aQUV15WwzO_yHZRCvUEVwlFH6PCs4hfO6Ji8_G-hG2y66PfbTaXd9DtEd=
+DaUH0zwYV_-r5RVrS0kqYdQSHlffvYoZmdnfmQxAP_zdA6REMUE8L2DjVTqklheCCmKRUm4ReAv=
+GdQhSL1JonG-YVqhhEa4EhODSB4gOaN9IAqR-vVRgUYHAZ68" sib_link_id=3D"5"><img al=
+t=3D"Instagram" border=3D"0" hspace=3D"0" vspace=3D"0" style=3D"vertical-al=
+ign:top;" target=3D"_blank" src=3D"http://img.info.ashoka.edu.in/im/2631238=
+/de9328fbf3d7e243ae796b93a902a3f4880000cccf859eba54981adb588e29dd.png?e=3DQ=
+Li4az6C3FWpONojxm4b5UPh8NQGEfuBJHXL-IrdgwoUC3KRODh07jkjTLT3rg0wzrhqvD1SrMDt=
+cUu-5Syxk_O2_DLGoyUJ32VQPL8fgiDb7Y32o-CQRnD6vyIbHwqUaECXc5-r5R5yiMRYC3jWYX_=
+HbsRKk3uhdCmyOlyUEMQG83e6okYzWCaWLLq9I02q6LA" sib_img_id=3D"4"/></a></span>
+                                                                           =
+ </td></tr></tbody></table>
+                                                                           =
+ </div><div class=3D"rnb-social-center">
+                                                                           =
+ <table align=3D"left" style=3D"float:left; display: inline-block" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                                                                           =
+ <tbody><tr>
+                                                                           =
+         <td style=3D"padding:0px 5px 5px 0px; mso-padding-alt: 0px 2px 5px=
+ 0px;" align=3D"left">
+                                                                           =
+ <span style=3D"color:#ffffff; font-weight:normal;">
+                                                                           =
+     <a target=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/cl/f/BiKNB=
+3r4528iZqnZfF9JAtf94PrFrPhw1CFp16VkJNGrrqbzxgvc7moPQcKtI2BA0jg5Xmjr1oXfc3Zc=
+MHOfQfENGJ0aMGypj0hLXuG8v_ElJrubPnWj5ePQ7ACm5kdnqWBr2hyPVIAumX6mD7gpXaJ4Luv=
+0fpEUtEdq6W8hIY-fIUvQeOxsIUB2C2EwiUL2bxRQc_IusUo" sib_link_id=3D"6"><img al=
+t=3D"YouTube" border=3D"0" hspace=3D"0" vspace=3D"0" style=3D"vertical-alig=
+n:top;" target=3D"_blank" src=3D"http://img.info.ashoka.edu.in/im/2631238/c=
+003d444fa340ee2dd5fc2f8d59ee3d406a3550b7e86ccacebca262afdd6ea80.png?e=3DjSJ=
+d9SJmtfC5_o7INq3XudH-7UU_Ex9TKLNtBKnAJ0uH61vYmA-a0sJJzIXQKczq7hs3MrnkH8VN5s=
+d406JkC7VrU966nk43sij87tGA7eNACn5qkLIjnAcEj0L40dAQaNJ69fJfd5B3UzwKS2w1XliE0=
+ZPAkJrvnQagzYLA8m_syyVVCTst-F38-HV__7hg5FQ" sib_img_id=3D"5"/></a></span>
+                                                                           =
+ </td></tr></tbody></table>
+                                                                           =
+ </div></td>
+                                                                    </tr>
+                                                                </tbody></t=
+able>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    </th></tr>
+                                        </tbody></table></td>
+                                </tr>
+                                <tr>
+                                    <td height=3D"20" style=3D"font-size:1p=
+x; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                </tr>
+                            </tbody></table>
+
+                        </td>
+                    </tr></tbody></table>
+               =20
+            </div></td>
+    </tr><tr>
+
+        <td align=3D"center" valign=3D"top">
+
+            <div style=3D"background-color: rgb(249, 250, 252);">
+               =20
+                <table class=3D"rnb-del-min-width rnb-tmpl-width" width=3D"=
+100%" cellpadding=3D"0" border=3D"0" cellspacing=3D"0" style=3D"min-width:5=
+90px;" name=3D"Layout_7" id=3D"Layout_7">
+                    <tbody><tr>
+                        <td class=3D"rnb-del-min-width" align=3D"center" va=
+lign=3D"top" style=3D"min-width:590px;">
+                            <a href=3D"#" name=3D"Layout_7"></a>
+                            <table width=3D"100%" cellpadding=3D"0" border=
+=3D"0" align=3D"center" cellspacing=3D"0" bgcolor=3D"#f9fafc" style=3D"padd=
+ing-right: 20px; padding-left: 20px; background-color: rgb(249, 250, 252);"=
+>
+                                <tbody><tr>
+                                    <td height=3D"20" style=3D"font-size:1p=
+x; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"font-size:14px; color:#888=
+888; font-weight:normal; text-align:center; font-family:Arial,Helvetica,san=
+s-serif;">
+                                        <div>=C2=A9 2020 Young India Fellow=
+ship, Ashoka University</div>
+                                    </td></tr>
+                                <tr>
+                                    <td height=3D"20" style=3D"font-size:1p=
+x; line-height:20px; mso-hide: all;">=C2=A0</td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+               =20
+            </div></td>
+    </tr></tbody></table>
+            <!--[if gte mso 9]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        </td>
+        </tr>
+        </tbody></table>
+
+ <div align=3D"center" style=3D"color: #727272; font-size: 10px;">If you wi=
+sh to unsubscribe from our newsletter, click <a style=3D"color:#01a4c6;" ta=
+rget=3D"_blank" href=3D"http://r.info.ashoka.edu.in/mk/un/pZecdg4TmCUF54Vk3=
+eKKLN_EwyM-VzSWX1xskQaAiTMIH_POMqpnnEDMeBB4ey2SMzP73Renw14nbydpJtK3CdgxZ2yA=
+5wcroyJyQWaKYhxfJTcvc1E2E9IAcRF6L_0MHGgWnWqRNVYh9Q">here</a></div><div><img=
+ width=3D"1" height=3D"1" src=3D"http://r.info.ashoka.edu.in/mk/op/w3RClpPs=
+lNAOg0KPUcZAMOEPIBTfuUuwVQ8BFlUuSb0zS7VfSqF9Eu6AJv551Vv6ykE2jw0eI_LCy0n6C8T=
+LAlpToBFJr2LxkDNm7qBQayt9" /></div>  </body></html>
+
+---------?=_86849-7087490930701--
+

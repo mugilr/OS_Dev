@@ -1,0 +1,750 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp5432756ejk;
+        Wed, 3 Mar 2021 03:04:00 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyVZogLPg2NPyvyUqXz3NTL7y0zI5VTiqJOAON9G594iz31hAse2SOui2yAtDuva4dodP3W
+X-Received: by 2002:a67:d44:: with SMTP id 65mr5467556vsn.44.1614769440710;
+        Wed, 03 Mar 2021 03:04:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614769440; cv=none;
+        d=google.com; s=arc-20160816;
+        b=txKdrCjn/UuuiIoR44sPgCjUrIc6kH6MiXS9I1Jj/K4izCogTakb7tcAVesyc+X2S5
+         IUqxS22+OtZRNhBYq4LAtodb5cjMde1Wdk8Plok0B/AO72IPI7zHq/hUbafObYyQBNY6
+         3K/kPN6LS1gYLsFiHZxTw1JhVhWauX1QagG/6Rg2PFwF+rpxkFsfMWLfofLh0ASnGdjL
+         akH6rX+czV+t+Nsh02QefRMC50y3qBy6LkXNG2cnVDE8SI/ycgF54r8AvbAar90Jm6E7
+         o3Akfgu7x3QxDxC6C7tcE3r+pJH2eMIldTwlgdXFurA+Jvgld6Afm9uPb9J0OK9fyrB+
+         j7zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:subject:message-id:to:reply-to:mime-version:from
+         :date:content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=8t2tlhP7cNOMb2HsZL+mf10JaPAwsBW81zaz0VhDn+0=;
+        b=yMq0PMw6nkN1Lc5b+VIVoOVxDvfgNLy5rz6ndQNZEtPOWpSZS2hASvR7l8U3ntzjVj
+         81WTHAxTPacmhRnZ/pS44n7dT8TzRn4QXDXNj23JrZi0C3qKeJ7RspicXq1fjCy/yuJs
+         S3U43TmZZeWZyBFowJ845tCCEBmQeE+EF6BSWVWIOOuNmMG+TUg95SDdVna55tZw6Ugs
+         SFUHKC777fBkhXLV96qousLoDqQxXBS1W3cfCCLtzVziIOmuGSmsySLMi71nwDVGKwN/
+         iKq3kbVTfyD/j2tEGH9K3XBUcRHW2ySsuSHhdkb9hHaK38g3jIbubutn3Zjrs87B8Xzm
+         pr4g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@udacity.com header.s=s1 header.b=ZvkJOU8B;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="MDPw/eHe";
+       spf=pass (google.com: domain of bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) smtp.mailfrom="bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com"
+Return-Path: <bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com>
+Received: from o1.mailer.udacity.com (o1.mailer.udacity.com. [198.37.151.138])
+        by mx.google.com with ESMTPS id h9si3971725vsm.259.2021.03.03.03.03.59
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 03 Mar 2021 03:04:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) client-ip=198.37.151.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@udacity.com header.s=s1 header.b=ZvkJOU8B;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="MDPw/eHe";
+       spf=pass (google.com: domain of bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) smtp.mailfrom="bounces+3815146-3758-dmugil2000=gmail.com@smtp.udacity.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=udacity.com; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject:list-unsubscribe; 
+	s=s1; bh=8t2tlhP7cNOMb2HsZL+mf10JaPAwsBW81zaz0VhDn+0=; b=ZvkJOU8
+	BtpCkoZiHLrMcILCY/EW0Y8FHL3hO10qKXENzPM5p146RUMHYVI37S/ODMsiDTXk
+	e+CiCv4oiJtrUOdg0/U3i7309yZZmxUMHx5cu1nNnTeuii9YmpZJx0ZfzkA0A/Qy
+	c9ZaU1YQWoOqVMOPTh1rMYdD40lz26WUbT3E=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject:list-unsubscribe:x-feedback-id; 
+	s=smtpapi; bh=8t2tlhP7cNOMb2HsZL+mf10JaPAwsBW81zaz0VhDn+0=; b=MD
+	Pw/eHeUoI4JSGR/nLpSsY4h98cPmqAhHMdJ0I3TOl2Wv4urvF3s/f+At7W4/UdyE
+	b1tX0O+indVcX8DZ8wykMdzk1HvYzATA6EkL+WeZaTSRjW9LnTxt6R8tm0pbLsSz
+	j69YUKuDaXBYg2zvuIk0KxPOOHWnQr51pttMZB67M=
+Received: by filter2606p1mdw1.sendgrid.net with SMTP id filter2606p1mdw1-11559-603F6D1E-97
+        2021-03-03 11:03:58.969923359 +0000 UTC m=+85578.280190492
+Received: from MzgxNTE0Ng (unknown)
+	by geopod-ismtpd-6-0 (SG) with HTTP id HHTKBoOtSaaI5C0kaCEKqA
+	Wed, 03 Mar 2021 11:03:58.868 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Date: Wed, 03 Mar 2021 11:03:59 +0000 (UTC)
+From: "Udacity" <support@udacity.com>
+Mime-Version: 1.0
+Reply-to: reply-marketingsupport@udacity.com
+To: "Mugil Raj" <dmugil2000@gmail.com>
+Message-ID: <HHTKBoOtSaaI5C0kaCEKqA@geopod-ismtpd-6-0>
+Subject: Announce new lower pricing in India!
+X-campaignid: 2d713955-4ce2-4744-940c-61efec3023f0
+List-Unsubscribe: <mailto:unsubscribe@smtp.udacity.com?subject=https://tclick.udacity.com/wf/unsubscribe*q*upn=tJpSVQbifjFFPwAxsBgImwi2u2Eiz1jIuBXwGEGfkE9e1hwE6-2FpjlstMwWjsopCmLZgFPZ0CHGebfUA2Vhzp-2BkZ-2BoyIgHPSwXVpAFun9yAzgBE9z753WKxxJHKASsNs3tY09fi2v7Z0SnajV-2BNGJbgI3Vh-2Bkwu0l5m5G6-2F1l2l1JB7Wk5WaF8fNsQ-2Fr9bicWzDiT7-2FgTDOkFrjk2VfdWPzw60xXtbvu4-2BwWwarUFV5aCwqxancSAqLuTThbTG3W6pl9EyeRad3OCbNOi8wI57mDCcWQdqjoaov0u807IWc8lXgQ78FjJBmnkSnML4ibkBSCeH2-2Fw7hj2-2FcmDOQtnuLiRH2HgTCqRGB8FZkkG-2FCZgvHs4-2FhF7xq5ZaH73q61tBuVCvT8qtyHznUTA2CxvuFjoWDYcGftbgfmOj6ysPa2yW-2F9HF3appMq60-2F1ELUY073bqPD7yo5M5ZtmonNLo3j07ZOS-2BqYrNZNV9BwRYr24S8btQLAGyN-2B0EUWpsSe7BTdj-2FkqA3cMLdfjAM30SRsEtmT6ecZoUCkYzOaX6FE5CGQmsWc71pjMQwsl5L2Nwu-2B-2B8-2Bj8jC1HBG9uUGepsXDsMjtBw5O7x9oMyb3qZrI5D7wCGq-2FHL9TahpsNe8PWODGBVTmMqnbtvgHKr5fdbSkV9-2By0r96zgmayZl8npF0WlCUaup8EouyroYLy3BwWNpeW4OmROYGJIHfKMXRJ5odsQVpUrsC5StOA5bMdoBGDHFbnYsfw13ytl-2Bog3hxBmV1dJUAWAG25ALYjL-2FEowhXUBVn-2Bqek2I5PxLdc8pYyzoTRm9Rm3J63NtKapXqy0S9a5K2njWZBjofJL48cDBhPdcTzw4-2BKzanI21dFm7POfrl5QF7zFHxQgeZECCSYmCrtUtWoVR56NUEJ7PI5lM7xw-3D-3D>
+X-SG-EID: 8cHo1McgdtsgsC/v+00RjBch0nZ0lYxprs9RXAE8SB3gOszIvJ+i5k/C3ik9Yf92CoTIrOsmBcTUoh
+ mOj4mivRD4JYE9CR1RkJmSIC3/lYqHzYOkB4AlQ3ZcVM7/IQ1sZm+hYBCsfwaiGwXk9WTEbRx2WuP/
+ K5ghj/KdiJYmM32SzYcPdnNVrZlEuDHRT6RUuEvtRwZA2JLAU1/H1K5xgg==
+X-SG-ID: soKmfNOQeekWp4ucEVUIOJ+bbemLqR9/Fd4HN3IgdQlYsq9gTsNPlsm9fIZSUF+DyzPkmTA9uoQ7PN
+ 6n2JgaJ/dzqqT0LE50DaF4HP4tjPC3XvobAEDSxLdSeTpGwSF9sS1Ag5kiiR7rxqXI/h9TZ/M8wXNE
+ YsnWGQIJoA/HyfsmRfFEgs8VLiyTCZWsKlBhs6do8dKv3XG3a7I6A+hoy9Pq5nc0s47GsPFCumcFUY
+ +KgRiuiIaYK8h5VyicYd8vwZQq1blM74qoqrehv9ODWoclVASKaW4SvMvF4hXeHC3XNPpM3ZPJdefP
+ 5WhWdldIcf0zZa9SwOPEtWgi4vRZvAW/m8AGFzRmajA/QObWZuCp9EE6EM1usv9iHkgDbpH+rnumlj
+ PB+JrLGnfm4yK05NSLnydJ1+GYCjxb1IF2SqgNfvmxhvmH9rQ6g3WXVYqUrw+BjJrIu01PjSNxdplW
+ lNh8eqJfIfeY2Bw7Ht9t0HSHhwPHdDoffehq2S85BDGqhjegr19wgn8xTqTJ/idFoncPhC31qEFbA8
+ kNUsOye95HfkwaOjzV+Mw6LglONDPBpjaDkF3QwZjMQkom/MnKULXYi5i1Kxefl/ttdfYwtW0H6jkK
+ n8IBQNvXXWTuYSdiJeQEW6v0o2CC3YYi1abN9ntim+xbkrLXyfScNk0OVgSNsdQZ1iUlegHd83WDUL
+ 7Z
+X-Entity-ID: WvJc2OAeTKDw0rDn40uNlg==
+X-Feedback-ID: 3815146:Skaecx1OHNnZspm10r6rnOPCtYAQurC1uh/rpw1nT98=:BQcXpNjLbjPBSaSBQt3Fc25kGS10Vv1yGhFPkPF6Hva1rPIqKLiHkRH8hCNZHorr4+1H+nVwJOydVBqLw5jUUQ==:SG
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:schemas-microso=
+ft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:vml">
+  <head>
+    <meta content=3D"text/html charset=3Dutf-8" http-equiv=3D"Content-Type">
+    <meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" name=3D"vie=
+wport">
+    <meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible">
+    <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:600,4=
+00,300" rel=3D"stylesheet" type=3D"text/css">
+    <title>Udacity</title>
+    <style type=3D"text/css">
+      html,
+      body {
+        background-color: #fafbfc;
+      }
+      p {
+        color: #525C65;
+        margin: 15px 0;
+    line-height: 24px;
+      }
+      img {
+        display: block;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      * {
+        -webkit-text-size-adjust: none;
+      }
+
+      .whiteLinks a:link,
+      .whiteLinks a:visited {
+        color: #ffffff !important;
+      }
+=20=20=20=20=20=20
+      .appleLinksDarkGrey a {
+  	color: #525c65!important;
+		text-decoration: none!important;
+		}
+
+      .appleLinksGrey a {
+        color: #b7bdc1 !important;
+        text-decoration: none !important;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      .preheader {
+        font-size: 1px;
+        line-height: 1px;
+        display: none !important;
+        mso-hide: all;
+      }
+=20=20=09
+	  .body-text {
+		font-family: Arial, sans-serif;
+	  }
+=09=20=20
+	  .body-header {
+	    font-family: Helvectica, Arial, sans-serif;
+		font-size: 20px;
+		line-height: 100%;
+	  }
+      /* AOL Mail td overrides */
+      #maincontent td {
+        color: #525C65;
+      }
+    </style>
+  </head>
+  <body bgcolor=3D"#fafbfc" style=3D"margin: 0px; padding: 0px; min-height:=
+ 300px;" yahoo=3D"fix">
+    <!--[if gte mso 9]><xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG></o:AllowPNG>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+    <!--[if mso]>
+      <style type=3D"text/css">
+        body, table, td, a {font-family: Arial, Helvetica, sans-serif !impo=
+rtant;}
+      </style>
+    <![endif]-->
+    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+      <tr>
+        <td style=3D"background-color:#fafbfc">
+          <center bgcolor=3D"#fafbfc" style=3D"width:100%;background-color:=
+#fafbfc;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+            <div id=3D"maincontent" style=3D"max-width:620px; margin:0 auto=
+;">
+              <div class=3D"preheader" style=3D"font-size: 1px; line-height=
+:1px; display: none!important; mso-hide:all;">Announcing new lower prices i=
+n India! Plus get an additional discount for a limited time. Click to see y=
+our exact discount and see how much easier it is to advance your career and=
+ increase your earning potential with Udacity.
+
+              </div>
+              <!--[if gte mso 9]>
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"width:620px;">
+                  <tr>
+                    <td valign=3D"top">
+              <![endif]-->
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"width:100%;">
+                <tr>
+    <td style=3D"padding: 5px 10px 0px 10px;font-family:'Open+Sans', 'Open =
+Sans', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 13px; te=
+xt-align:center;">
+<table align=3D"center">
+<tr>                                            <td style=3D"font-family:'O=
+pen+Sans', 'Open Sans', Helvetica, Arial, sans-serif; font-size: 11px; line=
+-height: 13px; text-align:center;">                                        =
+          <p style=3D"Margin:0 0 0px 0;color:#525C65; font-family:'Open+San=
+s', 'Open Sans', Helvetica, Arial, sans-serif; font-size: 11px; line-height=
+: 13px;"><a href=3D"https://mclick.udacity.com/z/7nt2q7yto?uid=3D38ad3a58-b=
+fd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&bsft_=
+ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_link_id=3D10&bsft_=
+tv=3D5&bsft_lx=3D1" style=3D"text-decoration:none;color:#525C65;" target=3D=
+"_blank"><u>Save our email address</u></a> to never miss an exclusive promo=
+ or new program!</p>                                              </td>    =
+                                        </tr>
+                                           </table>                        =
+                 </td>
+                                       </tr>
+
+
+                <tr>
+                  <td>
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width:100%;">
+                      <tr>
+                        <td align=3D"center" style=3D"padding-bottom:0px;">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, san=
+s-serif; font-size:13px; line-height:18px; color:#00C0EA; text-align:center=
+; width:152px;">
+                              <tr>
+                                <td style=3D"padding:20px 0 20px 0;">
+                                  <a href=3D"https://mclick.udacity.com/z/i=
+yklh280k?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f5=
+4-961c-fda2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtm=
+l&bsft_link_id=3D1&bsft_tv=3D5&bsft_lx=3D2" style=3D"text-decoration:none;"=
+ target=3D"_blank"><img alt=3D"Udacity" border=3D"0" height=3D"" src=3D"htt=
+ps://udacity-email.s3-us-west-2.amazonaws.com/1220-white-cropped.png" style=
+=3D"display:block; width:152px!important; font-family:'Open+Sans', 'Open Sa=
+ns', Helvetica, Arial, sans-serif; font-size:22px; line-height:26px; color:=
+#000000; text-transform:uppercase; text-align:center; letter-spacing:1px;" =
+width=3D"152"></a>
+                                </td>
+                              </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width:100%;">
+                      <tr>
+                        <td bgcolor=3D"#fafbfc" style=3D"width:7px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#f5f6f7" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#f0f2f3" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#edeef1" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#ffffff">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:100%;">
+                            <tr>
+					<td class=3D"pinkBanner" align=3D"center" style=3D"font-family:'Open+a=
+ns', 'Open Sans', Helvetica, Arial, sans-serif;background-color:#ffae0c;pad=
+ding:10px 20px 10px 20px;letter-spacing:1px;font-weight:bold;color:#ffffff;=
+text-align:center;width:520px; font-size:20px; line-height:28px;text-transf=
+orm:uppercase;">
+                     NEW LOWER PRICING IN INDIA
+                  </td>
+              </tr>
+
+                            <tr>
+							<td class=3D"headlineBanner" align=3D"center" style=3D"font-family:'=
+Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif;font-size:24px; line-=
+height: 38px; text-align:center; width:100%; font-weight:lighter; color:#10=
+2231;padding:30px 30px 30px 30px">
+
+                              <p style=3D"Margin:0px 0px 10px 0px; font-siz=
+e:28px; line-height:38px; color:#102231;"><strong>Lower prices AND a specia=
+l discount offer</strong></p>
+                              Find out how much you can save!
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                      </td>=09=09=09=09=09=09=09=09
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+														</tr>
+                            <tr>
+                              <td style=3D"text-align:center; padding:0px 4=
+0px 30px 40px;">
+                              <!--[if (gte mso 9)|(IE)]>
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"width:520px;">
+                                  <tr>
+                                    <td valign=3D"top">
+                              <![endif]-->
+                                <div style=3D"display:inline-block; width:1=
+00%; max-width:520px;">
+                                  <table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"font-family:'Open+Sans', 'Open San=
+s', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; text-=
+align:left; width:100%;">
+                                    <tr>
+                                      <td class=3D"body-text" align=3D"left=
+" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-ser=
+if; font-size: 14px; line-height: 24px; text-align:left; width:100%;">
+                                        <div style=3D"display:inline-block;=
+ width:100%; max-width: 520px;">
+                                          <table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family:'Open+Sans', '=
+Open Sans', Helvetica, Arial, sans-serif; font-size:16px; line-height:26px;=
+ text-align:center; width:100%;">
+                                            <tr>
+                                              <td align=3D"center" valign=
+=3D"top">
+                                                <table width=3D"240" align=
+=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"backg=
+round-color: #01b3e3; border-radius: 4px; border-collapse:separate !importa=
+nt;">
+                                                  <tr>
+                                                    <td width=3D"240" heigh=
+t=3D"46" align=3D"center" valign=3D"middle" style=3D"font-size: 15px; font-=
+family: 'Open+Sans','Open Sans',Helvetica, Arial, sans-serif; font-weight: =
+bold;">
+                                                      <a href=3D"https://mc=
+lick.udacity.com/z/776r29fw5?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=
+=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&=
+bsft_mime_type=3Dhtml&bsft_link_id=3D17&bsft_tv=3D5&bsft_lx=3D3" style=3D"t=
+ext-decoration: none; color: #ffffff; letter-spacing: 2px; display: block; =
+padding-top: 10px; padding-bottom: 10px;text-transform:uppercase;">See Disc=
+ount
+</a>
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </div>
+                              <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                  </tr>
+                                </table>
+                              <![endif]-->
+                              </td>
+                            </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+                           <tr>
+															<td align=3D"center" bgcolor=3D"#02b3e4">
+																<a href=3D"https://mclick.udacity.com/z/776r29fw5?uid=3D38a=
+d3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f=
+4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_link_id=3D2=
+1&bsft_tv=3D5&bsft_lx=3D4" style=3D"text-decoration:none" target=3D"_blank"=
+><img alt=3D"New Lower Pricing in India" border=3D"0" src=3D"https://udacit=
+y-email.s3-us-west-2.amazonaws.com/email-header_introduction.jpg" width=3D"=
+600" style=3D"display:block; width:100%; max-width:600px; font-family:'Open=
+ Sans', Helvetica, Arial, sans-serif; font-size:25px; line-height:30px; fon=
+t-weight:bold; color:#ffffff; text-align:center;"></a>
+															</td>
+														</tr>
+                            <tr>
+                              <td style=3D"text-align:center;padding:30px 4=
+0px 10px 40px;">
+                              <!--[if (gte mso 9)|(IE)]>
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"width:520px;">
+                                  <tr>
+                                    <td valign=3D"top">
+                              <![endif]-->
+                                <div style=3D"display:inline-block; width:1=
+00%; max-width:520px;">
+                                  <table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"font-family:'Open+Sans', 'Open San=
+s', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; text-=
+align:left; width:100%;">
+                                    <tr>
+                                      <td class=3D"body-text" align=3D"left=
+" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-ser=
+if; font-size: 14px; line-height: 24px; text-align:left; width:100%;">
+                                        <p style=3D"Margin:0 0 25px 0; font=
+-size:18px; line-height:23px; color:#102231; font-weight:bold;">Hi Mugil,</=
+p>
+
+                                        <p style=3D"Margin:0 0 20px 0;color=
+:#525C65;">We listened to concerns and we=E2=80=99re pleased to announce <b=
+>new lower pricing in India</b>! Now it=E2=80=99s easier than ever for you =
+to help advance your career and increase your earning potential with Udacit=
+y online tech education programs. </p>
+                                        <p style=3D"Margin:0 0 20px 0;color=
+:#525C65;">Plus, for a limited time, you can also get a <b>special discount=
+</b> on top of the <b>new lower prices</b>. There=E2=80=99s never been a be=
+tter time to enroll in Udacity. To see your exact discount, <a href=3D"http=
+s://mclick.udacity.com/z/776r29fw5?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f03=
+48&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&bsft_ek=3D2021-03-03T08%3A02%=
+3A03Z&bsft_mime_type=3Dhtml&bsft_link_id=3D19&bsft_tv=3D5&bsft_lx=3D5" styl=
+e=3D"text-decoration:none;color:#00afe1;" target=3D"_blank">visit us today<=
+/a>, before the offer expires. </p>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                      </td>
+                                    </tr>
+                                  </table>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20
+                                </div>
+                              <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                  </tr>
+                                </table>
+                              <![endif]-->
+                              </td>
+                            </tr>
+                            <tr>
+                                                                           =
+ <td align=3D"center" style=3D"padding:0px 40px 30px;">
+                                                                           =
+   <table width=3D"238" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-collapse:separate !important; border-radius:5px; border:1px s=
+olid #1fbae8; background-color: #ffffff;">
+                                                                           =
+     <tr>
+                                                                           =
+       <td width=3D"238" height=3D"44" align=3D"center" valign=3D"middle" s=
+tyle=3D"font-family: 'Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif=
+; font-size:13px;  font-weight:bold;">
+                                                                           =
+           <!--[if (gte mso 9)|(IE)]>
+                                                                           =
+             <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"width:162px">
+                                                                           =
+               <tr>
+                                                                           =
+                 <td bgcolor=3D"#ffffff" style=3D"padding:5px 10px; text-al=
+ign:center;" valign=3D"top">
+                                                                           =
+                 <![endif]-->
+                                                                           =
+                 <a href=3D"https://mclick.udacity.com/z/776r29fw5?uid=3D38=
+ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060=
+f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_link_id=3D=
+20&bsft_tv=3D5&bsft_lx=3D6" target=3D"_blank" style=3D"text-decoration: non=
+e; color: #01b3e3; letter-spacing: 2px; display: block; padding-top: 8px; p=
+adding-bottom: 8px; font-size: 15px; text-transform:uppercase;">SEE YOUR SA=
+VINGS</a>
+                                                                           =
+                 <!--[if (gte mso 9)|(IE)]>
+                                                                           =
+                 </td>
+                                                                           =
+               </tr>
+                                                                           =
+             </table>
+                                                                           =
+           <![endif]-->
+                                                                           =
+       </td>
+                                                                           =
+     </tr>
+                                                                           =
+   </table>
+                                                                           =
+ </td>
+                                                                          <=
+/tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+                             <tr>
+                              <td style=3D"text-align:center;padding:0px 40=
+px 10px 40px;">
+                              <!--[if (gte mso 9)|(IE)]>
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"width:520px;">
+                                  <tr>
+                                    <td valign=3D"top">
+                              <![endif]-->
+                                <div style=3D"display:inline-block; width:1=
+00%; max-width:520px;">
+                                  <table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"font-family:'Open+Sans', 'Open San=
+s', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; text-=
+align:left; width:100%;">
+                                    <tr>
+                                      <td class=3D"body-text" align=3D"left=
+" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-ser=
+if; font-size: 14px; line-height: 24px; text-align:left; width:100%;">
+                                        <p style=3D"font-size:24px; line-he=
+ight: 38px; text-align:center; width:100%; font-weight:lighter; color:#1022=
+31; color:#102231; Margin:0 0 20px 0;">We are powered by industry</p>
+
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                        <p style=3D"Margin:0 0 20px 0;color=
+:#525C65;">Our Nanodegree programs are built with the world's most innovati=
+ve tech companies and taught by industry leaders.</p>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20
+                                      </td>
+                                    </tr>
+                                  </table>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20
+                                </div>
+                              <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                  </tr>
+                                </table>
+                              <![endif]-->
+                              </td>
+                            </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20
+                                  <tr>
+															<td class=3D"mobile-image" style=3D"text-align:center; paddi=
+ng:0px 40px 40px 40px;">
+																<!--[if (gte mso 9)|(IE)]>
+                                                <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"width:520px;">
+                                                    <tr>
+                                                        <td valign=3D"top">
+                                            <![endif]-->
+																<div style=3D"display:inline-block; width:100%; max-width:5=
+20px;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                                                <img alt=3D=
+"Our Industry Partners" src=3D"https://udacity-email.s3-us-west-2.amazonaws=
+.com/logos.png" border=3D"0" style=3D"display:block; width:100%!important; =
+max-width:520px;" width=3D"520">
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+																</div>
+																<!--[if (gte mso 9)|(IE)]>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                            <![endif]-->
+															</td>
+														</tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+                            <tr>
+   <td bgcolor=3D"#edeef1" style=3D"height:2px; width:100%; line-height:1px=
+; font-size:0;"><br></td>
+</tr>=20=20=20=20
+                          </table>
+                        </td>
+                        <td bgcolor=3D"#edeef1" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#f0f2f3" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#f5f6f7" style=3D"width:1px; font-si=
+ze:1px;"><br></td>
+                        <td bgcolor=3D"#fafbfc" style=3D"width:7px; font-si=
+ze:1px;"><br></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                                   <tr>
+                  <td align=3D"center" style=3D"padding:30px 0 20px 0;">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"width:220px;">
+                      <tr>
+                        <td align=3D"center">
+                          <a href=3D"https://mclick.udacity.com/z/lkz9apeep=
+?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-f=
+da2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_l=
+ink_id=3D11&bsft_tv=3D5&bsft_lx=3D7" target=3D"_blank"><img alt=3D"Twitter"=
+ border=3D"0" height=3D"26" src=3D"https://udacity-email.s3-us-west-2.amazo=
+naws.com/Footer/Twitter.jpg" style=3D"display:block; width:20px!important; =
+height:20px!important;" width=3D"20"></a>
+                        </td>
+                        <td align=3D"center">
+                          <a href=3D"https://mclick.udacity.com/z/0xrw6t0nk=
+?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-f=
+da2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_l=
+ink_id=3D12&bsft_tv=3D5&bsft_lx=3D8" target=3D"_blank"><img alt=3D"Facebook=
+" border=3D"0" height=3D"20" src=3D"https://s3-us-west-2.amazonaws.com/udac=
+ity-email/Footer/facebook.jpg" style=3D"display:block; width:20px!important=
+; height:20px!important;" width=3D"20"></a>
+                        </td>
+                        <td align=3D"center">
+                          <a href=3D"https://mclick.udacity.com/z/ewjgnx93r=
+?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-f=
+da2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_l=
+ink_id=3D13&bsft_tv=3D5&bsft_lx=3D9" target=3D"_blank"><img alt=3D"Instagra=
+m" border=3D"0" height=3D"20" src=3D"https://udacity-email.s3-us-west-2.ama=
+zonaws.com/Footer/instagram.jpg" style=3D"display:block; height:20px!import=
+ant;"></a>
+                        </td>
+                        <td align=3D"center">
+                          <a href=3D"https://mclick.udacity.com/z/71eytmzp6=
+?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-f=
+da2144060f4&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_mime_type=3Dhtml&bsft_l=
+ink_id=3D14&bsft_tv=3D5&bsft_lx=3D10" target=3D"_blank"><img alt=3D"Linkedi=
+n" border=3D"0" height=3D"20" src=3D"https://s3-us-west-2.amazonaws.com/uda=
+city-email/Footer/linkedin.jpg" style=3D"display:block; width:20px!importan=
+t; height:20px!important;" width=3D"20"></a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align=3D"center" style=3D"padding-bottom:40px;padding=
+-left:20px;padding-right:20px;">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-seri=
+f; font-size:13px; line-height:18px;  text-align:center; max-width:600px;">
+                      <tr>
+                        <td class=3D"body-text" align=3D"center" style=3D"c=
+olor:#b7bdc1; font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-=
+serif; font-size:13px; line-height:18px;  text-align:center;">
+                          <p style=3D"color:#b7bdc1;"><span class=3D"appleL=
+inksGrey"><a href=3D"" style=3D"text-decoration:none!important;color:#b7bdc=
+1;">&#169; 2&#8205;02&#8205;1 U&#8205;da&#8205;ci&#8205;ty, I&#8205;nc. &nb=
+sp;=E2=80=A2&nbsp; 2440 W &#8205;El Cam&#8205;ino Real &nbsp; =E2=80=A2 &nb=
+sp;Mou&#8205;ntain V&#8205;iew, C&#8205;A 94&#8205;040</a></span></p>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20
+                          <p style=3D"Margin:15px 0 0 0;color:#b7bdc1;font-=
+size:13px;">You've received this email because you created an account with =
+us and are signed up to receive email updates from Udacity.</p>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20
+                          <p style=3D"Margin:15px 0 0 0;color:#b7bdc1;font-=
+size:13px;"><a style=3D"color:#b7bdc1; text-decoration:underline;" href=3D"=
+https://mclick.udacity.com/z/jr45frn42?uid=3D38ad3a58-bfd2-4cf2-bb45-4d9415=
+0f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&bsft_ek=3D2021-03-03T08%3=
+A02%3A03Z&bsft_mime_type=3Dhtml&bsft_link_id=3D15&bsft_tv=3D5&bsft_lx=3D12"=
+>Update your email preferences to choose what types of emails you receive</=
+a></p>
+                          <p style=3D"Margin:15px 0 0 0;font-size:13px;"><a=
+ href=3D"https://mclick.udacity.com/customer/unsubscribe?uid=3D38ad3a58-bfd=
+2-4cf2-bb45-4d94150f0348&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&eid=3D3=
+b7ba2d7-2072-b90b-7150-82d4f9207f50&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft=
+_aaid=3Daffd8710-61ff-4001-baca-1d4a7303381d&bsft_mime_type=3Dhtml&bsft_lin=
+k_id=3D16&bsft_tv=3D5&bsft_lx=3D13" style=3D"color:#b7bdc1; text-decoration=
+:underline;" title=3D"Link: https://www.udacity.com/status/unsubscribed">Un=
+subscribe from all marketing emails</a></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+              <!--[if gte mso 9]>
+                    </td>
+                  </tr>
+                </table>
+              <![endif]-->
+=20=20=20=20=20=20=20=20=20=20=20=20
+            </table><div style=3D" width:100%; max-width:620px;">
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"width:100%;">
+                <tr>
+                  <td align=3D"center" bgcolor=3D"#7d97ad" style=3D"padding=
+:10px 0;">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-seri=
+f; font-size:14px; line-height:19px;  text-align:center; width:auto;">
+                      <tr>
+                        <td class=3D"body-text" style=3D"color:#ffffff;">Be=
+ in demand</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
+=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20
+=20=20=20=20
+=20=20
+</div></center></td></tr></table><img src=3D"https://mclick.udacity.com/tra=
+ck?uid=3D38ad3a58-bfd2-4cf2-bb45-4d94150f0348&eid=3D3b7ba2d7-2072-b90b-7150=
+-82d4f9207f50&mid=3D8ec5a8d1-c1ad-4f54-961c-fda2144060f4&bsft_aaid=3Daffd87=
+10-61ff-4001-baca-1d4a7303381d&bsft_ek=3D2021-03-03T08%3A02%3A03Z&bsft_tv=
+=3D5&bsft_mime_type=3Dhtml&a=3Dopen" border=3D"0" width=3D"1px" height=3D"1=
+px" alt=3D"" style=3D"margin: 0 !important; padding: 0 !important; border: =
+0 !important; height: 1px !important; width: 1px !important;" data-bsft-ope=
+n-pixel=3D"">
+
+<img src=3D"https://tclick.udacity.com/wf/open?upn=3DtJpSVQbifjFFPwAxsBgImw=
+i2u2Eiz1jIuBXwGEGfkE9e1hwE6-2FpjlstMwWjsopCmLZgFPZ0CHGebfUA2Vhzp-2BkZ-2BoyI=
+gHPSwXVpAFun9yAzgBE9z753WKxxJHKASsNs3tY09fi2v7Z0SnajV-2BNGJbgI3Vh-2Bkwu0l5m=
+5G6-2F1l2l1JB7Wk5WaF8fNsQ-2Fr9bicWzDiT7-2FgTDOkFrjk2VfdWPzw60xXtbvu4-2BwWwa=
+rUFV5aCwqxancSAqLuTThbTG3W6pl9EyeRad3OCbNOi8wI57mDCcWQdqjoaov0u807IWc8lXgQ7=
+8FjJBmnkSnML4ibkBSCeH2-2Fw7hj2-2FcmDOQtnuLiRH2HgTCqRGB8FZkkG-2FCZgvHs4-2FhF=
+7xq5ZaH73q61tBuVCvT8qtyHznUTA2CxvuFjoWDYcGftbgfmOj6ysPa2yW-2F9HF3appMq60-2F=
+1ELUY073bqPD7yo5M5ZtmonNLo3j07ZOS-2BqYrNZNV9BwRYr24S8btQLAGyN-2B0EUWpsSe7BT=
+dj-2FkqA3cMLdfjAM30SRsEtmT6ecZoUCkYzOaX6FE5CGQmsWc71pjMQwsl5L2Nwu-2B-2B8-2B=
+j8jC1HBG9uUGepsXDsMjtBw5O7x9oMyb3qZrI5D7wCGq-2FHL9TahpsNe8PWODGBVTmMqnbtvgH=
+Kr5fdbSkV9-2By0r96zgmayZl8npF0Wm1uAgfB5DwSynaVH1iufw6PaBqpOzJvl4toIefEhsbOF=
+g5a458WJcvv4kLub38uk3uyRlKaa9OLDnXEU3ZYXFZxZr3u-2B3DkxkWYXT7KJNNC9By0VYn6yh=
+0wILVIbh08SSl-2BP2AKhjre-2FJl027-2F0QZSBbJkTMLNhIrtHSuVPe9435K7xQcujUmWuYgU=
+5A2NjH0NokTbYNZtoG3wEAxdPzN3KA9kvhiksEh0r-2Fz0npoIIsqPTaUuk594A9Mx-2BhjZDeA=
+-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !im=
+portant;width:1px !important;border-width:0 !important;margin-top:0 !import=
+ant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !imp=
+ortant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0=
+ !important;padding-left:0 !important;"/>
+</body></html>

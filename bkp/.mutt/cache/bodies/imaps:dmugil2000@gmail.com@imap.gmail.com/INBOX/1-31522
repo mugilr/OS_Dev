@@ -1,0 +1,94 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp556230ejf;
+        Thu, 11 Mar 2021 07:35:14 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxiIQ8mME+9lJ3CZKscB2ctu0b56wU4MU9MAp+h02lxsh7QI1fKcdhp4X5HMWQkurOnTQg5
+X-Received: by 2002:a5d:4c85:: with SMTP id z5mr9108601wrs.208.1615476914080;
+        Thu, 11 Mar 2021 07:35:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615476914; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fSN0Tp5f/BxwpGRiTcGncH59Y62ZJB5Qc0HI4ddcA4qquGwDs2b7HtnSkbNw54WjjO
+         LLysQeLxm4KbUS3bOtMPSsh9VkbwI88zwQq+VsD5ccSV6bv9QXknCSPyYnwHxCMvlvUZ
+         EwPEg5RhPi3Wg5QsQlo8FTVv9C6znX0hEPvzFfdmkJ7BHHYd024PuMbcH6ZrrxQxlDBU
+         3MnqIFP5DWuooCmmZZ+TjTFLMsaNbZqRU/qu7pQEp7QRstZIii5u0Gmuh9Fwb0vcT4Xl
+         wsr7JT8ECm4a++4o9f9TVcRb5+dYc9NIa98Nj3d0nHp9WLSEmBPF/4Hx+eJxhqJJK/nC
+         QK/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:to:subject
+         :dkim-signature;
+        bh=SCt0exIS+NG9RAhZ70vt5uw9rDwuj9pgIIf4Kc4kcbI=;
+        b=jmApHHyGeCsd9qjrhYXMYC0m4Ig+eNoCnEjrnInio279feBQwZ6+u34jFJYHu/HkQB
+         YY409ZNSMRB/jfyKYHd4lWMuVGauasZB4FpK5PL/uc518tpBe/SfkKfZGDODY7OJ94eh
+         qpFGdXc7LvMOHBVx799pg/1W19wAVHBMDlm7rGRk0A7D6itl0cChUE776F4gRZBTHobJ
+         nMBcmQJ4wJaN4Twh4uJcv02Rlnn2BextZEbUD7Apn9rw3PMEmN5b9FZu8MLBW6rV6zeG
+         Mq2pKDGqU3GunOvvhomOrUTtbli2GCNodY2Evw+aQsx9kmjLCXyrp60i+VyagZb1pAA/
+         BxkQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@metafoo.de header.s=default2002 header.b=DJNkiGpr;
+       spf=pass (google.com: domain of lars@metafoo.de designates 78.46.137.84 as permitted sender) smtp.mailfrom=lars@metafoo.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=metafoo.de
+Return-Path: <lars@metafoo.de>
+Received: from www381.your-server.de (www381.your-server.de. [78.46.137.84])
+        by mx.google.com with ESMTPS id x5si2891041wmk.141.2021.03.11.07.35.13
+        for <dmugil2000@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Mar 2021 07:35:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of lars@metafoo.de designates 78.46.137.84 as permitted sender) client-ip=78.46.137.84;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@metafoo.de header.s=default2002 header.b=DJNkiGpr;
+       spf=pass (google.com: domain of lars@metafoo.de designates 78.46.137.84 as permitted sender) smtp.mailfrom=lars@metafoo.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=metafoo.de
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=metafoo.de;
+	 s=default2002; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+	MIME-Version:Date:Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=SCt0exIS+NG9RAhZ70vt5uw9rDwuj9pgIIf4Kc4kcbI=; b=DJNkiGprenSAOFHVj5/efl6+Yt
+	dEhHf2ZCdqmrZpjeD6TE1BsPT0QXqaulRtiVNKWPEVRVxaFYJHcqWxyrnHW8AxtxPjZu2d+glH7EK
+	Rmfs3d3GOeumkQd7B/DrB2tdBllMXigGSJUhfqEwwS5oDxMjfy4QdlsnRViPuQ3r6HA5Gjzeo1+FL
+	7c2yN3F9LaWKksvAn9RATW9M7e213Fuzs/sdFttDmbEF12PQWHRcNnXE/TZzGNraqLi/Sec+bXJVE
+	993m/dZGNAMi3YoljRgU1Fv89IqjTgoExZmAs/BMCoUDHIeVRvHmZs+vbSeRrjwv1xfzYxlNmmVaW
+	DYA5ONPg==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www381.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92.3)
+	(envelope-from <lars@metafoo.de>)
+	id 1lKNLF-0008il-Es; Thu, 11 Mar 2021 16:35:13 +0100
+Received: from [2001:a61:2aea:a901:224:d7ff:fe9f:8154]
+	by sslproxy05.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <lars@metafoo.de>)
+	id 1lKNLF-000Pot-AU; Thu, 11 Mar 2021 16:35:13 +0100
+Subject: Re: GSoC IIO project: Mugil
+To: Mugil Raj <dmugil2000@gmail.com>, linux-iio@vger.kernel.org
+References: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+From: Lars-Peter Clausen <lars@metafoo.de>
+Message-ID: <8e719167-27b6-436c-7bcd-9eb2b85500e6@metafoo.de>
+Date: Thu, 11 Mar 2021 16:35:11 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
+MIME-Version: 1.0
+In-Reply-To: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Authenticated-Sender: lars@metafoo.de
+X-Virus-Scanned: Clear (ClamAV 0.102.4/26105/Thu Mar 11 13:09:56 2021)
+
+On 3/11/21 8:01 AM, Mugil Raj wrote:
+> Hi,
+> This is Mugilraj, an undergrad at NIT Trichy, India. I'm applying to
+> GSoC'21 for the project IIO driver. So, I need help from you guys with
+> the application process and finding the device to develop a driver.
+> I've done few exercises on patch submissions and completed a Linux
+> Foundations course, "A beginners guide to Linux kernel development
+> (LFD103)". I found this "https://kernelnewbies.org/IIO_tasks" task for
+> beginners, and now I'm doing that also If anyone suggests some fixes
+> to develop, that would be helpful for me.
+> 
+> Is there any IRC channel for IIO?
+
+#linux-iio in irc.oftc.net. It is a bit quiet at times, but if you stick around 
+you'll usually get a reply.
+
+- Lars

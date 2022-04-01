@@ -1,0 +1,859 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp933409ejf;
+        Fri, 6 Aug 2021 22:10:09 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxE6JwzuVipFjzWytVwcEdMQpKbX99a6ZAwJuV8eB1xWPqS/PZZcOpPvl/X7Al/S5WrvuZo
+X-Received: by 2002:a17:90a:cb16:: with SMTP id z22mr1824128pjt.186.1628313009184;
+        Fri, 06 Aug 2021 22:10:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628313009; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RNhhoPpmA0Gk6M2WL5+FJnCwb/L7A6X0g094AqjJ1HRHvvWCaEL7K4n/BRtc2UNVAO
+         wrFzbarH4gxm9nAAFKX/eURvvT53QvpN4asRQm5R2nMqZU0xwrhflTDoxdDgVePdInDu
+         TP9c/BTWABQjspgIXtqxIKWNFOjF+hIAlwNujxR0lWf1spjvSES+6MdL+b9i24YAgkR3
+         y8EdzYEC4qc++SueBxlWJz/MER/sNt+equ7vSIxlY0TVtWxRLHZVRPZL700NSdmp6SnB
+         8YPWDascHF0zYzxFp+Vh+e07KY2nW62xZDzlbzvg2abQMjS0uZnw7MPoY/JpDtEELwZg
+         /7pQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=auto-submitted:subject:references:in-reply-to:message-id
+         :content-language:date:to:from:mime-version;
+        bh=5zNzeAQNzfM0L9ac92X4tlx3sjmxFjJ43V4UmDYKPYA=;
+        b=P1PzkiVpvJce8pkR71X/TknKip6Lk9/YoCKkMdvM/+yQBp3r7l8S3FC76wPeJ32xoo
+         KnBUUF9JGdFW5bKDbVoV8ZItyv8e0n36lxOgzgY6bXjMuv6yob+f3gOfP+uA1soNwMXd
+         vK69v7NjqIER90RtBuTQZeDJ13zX1v9AACfrEcIG59/CfGElY16Uyjddi+4NKk0uASOK
+         MHNBhhUweNcD1poqY8/RN6GwM+HFMIWinnoShgxZsElRyLtV3uArMpiV2P6wPW+p9/2o
+         c/eQ6Sd5eIfiPX9q8GkbJW+Tk9yqtn2wIDXazWh0SQ26v6RgewFqkkRGmXgZnRzhqPVA
+         enwA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: best guess record for domain of postmaster@mx0a-00128a01.pphosted.com designates 148.163.135.77 as permitted sender) smtp.helo=mx0a-00128a01.pphosted.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Return-Path: <>
+Received: from mx0a-00128a01.pphosted.com (mx0a-00128a01.pphosted.com. [148.163.135.77])
+        by mx.google.com with ESMTPS id w21si13462562ply.224.2021.08.06.22.10.08
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 06 Aug 2021 22:10:09 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of postmaster@mx0a-00128a01.pphosted.com designates 148.163.135.77 as permitted sender) client-ip=148.163.135.77;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of postmaster@mx0a-00128a01.pphosted.com designates 148.163.135.77 as permitted sender) smtp.helo=mx0a-00128a01.pphosted.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=analog.com
+Received: from pps.filterd (m0167088.ppops.net [127.0.0.1])
+	by mx0a-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 17750wsh014351
+	for <dmugil2000@gmail.com>; Sat, 7 Aug 2021 01:10:08 -0400
+Received: from nwd2mta3.analog.com ([137.71.173.56])
+	by mx0a-00128a01.pphosted.com with ESMTP id 3a9g2t8cdj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <dmugil2000@gmail.com>; Sat, 07 Aug 2021 01:10:08 -0400
+Received: from SCSQMBX11.ad.analog.com (SCSQMBX11.ad.analog.com [10.77.17.10])
+	by nwd2mta3.analog.com (8.14.7/8.14.7) with ESMTP id 1775A6EI002502
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL)
+	for <dmugil2000@gmail.com>; Sat, 7 Aug 2021 01:10:06 -0400
+MIME-Version: 1.0
+From: <postmaster@analog.com>
+To: <dmugil2000@gmail.com>
+Date: Fri, 6 Aug 2021 22:10:06 -0700
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="b1ce6167-8e85-40fb-8c06-073dc40f830e"
+X-MS-Exchange-Message-Is-Ndr: 
+Content-Language: en-US
+Message-ID: <b83819a4-a00d-42e5-89b7-b53151d275f3@SCSQMBX11.ad.analog.com>
+In-Reply-To: <20210807050900.10075-1-dmugil2000@gmail.com>
+References: <20210807050900.10075-1-dmugil2000@gmail.com>
+Subject: Undeliverable: [PATCH 0/2] iio: potentiometer: Add driver support for
+ AD5110
+Auto-Submitted: auto-replied
+X-Proofpoint-ORIG-GUID: EUACmB6u5HePwBeMKCp6e_O_AvvBpPL6
+X-Proofpoint-GUID: EUACmB6u5HePwBeMKCp6e_O_AvvBpPL6
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-08-07_01:2021-08-06,2021-08-07 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1012 mlxlogscore=953
+ spamscore=0 mlxscore=0 ndrscore=0 adultscore=0 adjustscore=0 bulkscore=0
+ malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
+ suspectscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2107140000 definitions=main-2108070029
+
+--b1ce6167-8e85-40fb-8c06-073dc40f830e
+Content-Type: multipart/alternative; differences=Content-Type;
+	boundary="c441a71a-7e76-4f92-a7f2-be8e3e03cf4c"
+
+--c441a71a-7e76-4f92-a7f2-be8e3e03cf4c
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Delivery has failed to these recipients or groups:
+
+Alexandru Ardelean (alexandru.ardelean@analog.com)<mailto:alexandru.ardelea=
+n@analog.com>
+The email address you entered couldn't be found. Please check the recipient=
+'s email address and try to resend the message. If the problem continues, p=
+lease contact your email admin.
+
+
+
+
+
+
+
+
+Diagnostic information for administrators:
+
+Generating server: SCSQMBX11.ad.analog.com
+
+alexandru.ardelean@analog.com
+Remote Server returned '550 5.1.10 RESOLVER.ADR.RecipientNotFound; Recipien=
+t not found by SMTP address lookup'
+
+Original message headers:
+
+Received: from SCSQCASHYB6.ad.analog.com (10.77.17.132) by
+ SCSQMBX11.ad.analog.com (10.77.17.10) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2=
+.858.5;
+ Fri, 6 Aug 2021 22:10:04 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.170=
+)
+ by SCSQCASHYB6.ad.analog.com (10.77.17.132) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2=
+.858.5
+ via Frontend Transport; Fri, 6 Aug 2021 22:10:04 -0700
+Received: from DM5PR1101CA0004.namprd11.prod.outlook.com (2603:10b6:4:4c::1=
+4)
+ by MW4PR03MB6649.namprd03.prod.outlook.com (2603:10b6:303:12c::15) with
+ Microsoft SMTP Server (version=3DTLS1_2,
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.18; Sat, 7 A=
+ug
+ 2021 05:09:53 +0000
+Received: from DM3NAM02FT058.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:4:4c:cafe::6f) by DM5PR1101CA0004.outlook.office365.com
+ (2603:10b6:4:4c::14) with Microsoft SMTP Server (version=3DTLS1_2,
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.15 via Front=
+end
+ Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Authentication-Results: spf=3Dsoftfail (sender IP is 148.163.139.77)
+ smtp.mailfrom=3Dgmail.com; analog.com; dkim=3Dfail (body hash did not veri=
+fy)
+ header.d=3Dgmail.com;analog.com; dmarc=3Dfail action=3Dnone
+ header.from=3Dgmail.com;compauth=3Dnone reason=3D405
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 148.163.139.77 as permitted sender)
+Received: from mx0b-00128a01.pphosted.com (148.163.139.77) by
+ DM3NAM02FT058.mail.protection.outlook.com (10.13.5.42) with Microsoft SMTP
+ Server (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) =
+id
+ 15.20.4394.16 via Frontend Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Received: from pps.filterd (m0167091.ppops.net [127.0.0.1])
+        by mx0b-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 17=
+751nwv027864;
+        Sat, 7 Aug 2021 01:09:52 -0400
+Authentication-Results-Original: ppops.net;     spf=3Dpass
+ smtp.mailfrom=3Ddmugil2000@gmail.com;    dkim=3Dpass header.s=3D20161025
+ header.d=3Dgmail.com
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216=
+.52])
+        by mx0b-00128a01.pphosted.com with ESMTP id 3a8d8dwau8-1
+        (version=3DTLSv1.2 cipher=3DECDHE-RSA-AES128-GCM-SHA256 bits=3D128 =
+verify=3DNOT);
+        Sat, 07 Aug 2021 01:09:52 -0400
+Received: by mail-pj1-f52.google.com with SMTP id a8so19728954pjk.4;
+        Fri, 06 Aug 2021 22:09:52 -0700 (PDT)
+DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed;
+        d=3Dgmail.com; s=3D20161025;
+        h=3Dfrom:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=3D7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=3D;
+        b=3DFD5EJVU4XINMbdWEcEyi3ZecVVKRywFjtQr5F4cgZ5Ec7Qy10lmDH/AVu+3BaYW=
+hTr
+         jXm4E8hOLVxbcnCu75TwJoqkNiTpV4bDYkeADceHR2SiZDfS4WqnQ7EzD/D13EY9wu=
+O0
+         xB2IlfbmOTEweEEWmCtk9RashxqbnvuJ1+3o+Qhsh78AEllrJ2ZPzIJX3oPxhynM65=
+Ok
+         NaCORIs3Hr6vzFt+oSgjMAyKXHi2YsIQp6h+C7tZjcluvU/pML/x2Gm4ODrRV346vo=
+65
+         ZTVi+cuXYTyZE2su8tyLq5JG8RoigsyJQ8Ikoxp9xTZVY5Yssb9oyjU3Wdc1MAl7D4=
+kS
+         473A=3D=3D
+X-Google-DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed;
+        d=3D1e100.net; s=3D20161025;
+        h=3Dx-gm-message-state:from:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=3D7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=3D;
+        b=3DtF32dEbalaCdSGtObaJlrYGXOBOhhgJK+LO3Y138ggAh3ms9JKCm9zxGmEnMPC8=
+6zV
+         TdYQSn1Z1w6V+3gUbizpg5c867cl7OXaxe23982HMXRxsAUo0oVhDurLzq/xui5pXw=
+2a
+         sZrKY5dnfFopz4m6vsJNBG/KhpsyKsZrprOmozti1XGNU2/XpF/u5VeFaMNtZbl8Tw=
+9S
+         3BEo6o10KHocHn+rlFSH2ynm2ja/ww2e8W87Z9wngQgM1q//cV8vpjmM3zQUcsVVI0=
+3X
+         4ypxOjeC6o0xqM+ft7hH9qKQiZCPQH1tSVHOqmEx8K5w+tyxp8D8grEfqej7koeIgn=
+ZY
+         IGBw=3D=3D
+X-Gm-Message-State: AOAM533iDHP8TA+ltQLduxQzkdh+5gJcIDdHOi1QqZ0c5IoThFZlZ0T=
+U
+        6ldpBS5HrbHOUqPIaLTQhoAng+4C4EaAMLSv
+X-Google-Smtp-Source: ABdhPJyvbdcK78r+UcvQti793FkrcqDHMLrhnX5z5NaSSTZyncty0=
+AS0QnzlyZBqBwOiu9Coeq1CxA=3D=3D
+X-Received: by 2002:a17:903:2302:b029:12c:bb4f:cbdf with SMTP id d2-20020a1=
+709032302b029012cbb4fcbdfmr11612195plh.22.1628312990883;
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+Received: from localhost.localdomain ([2409:4072:92:61e9:aa2d:89ae:905d:dac=
+f])
+        by smtp.googlemail.com with ESMTPSA id l14sm14433011pjz.19.2021.08.=
+06.22.09.42
+        (version=3DTLS1_3 cipher=3DTLS_AES_256_GCM_SHA384 bits=3D256/256);
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+From: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+To: <Dragos.Bogdan@analog.com>, <Darius.Berghe@analog.com>, Rob Herring
+        <robh+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, Lars-Pet=
+er Clausen
+        <lars@metafoo.de>, Mugilraj Dhavachelvan <dmugil2000@gmail.com>, Mi=
+chael
+ Hennerich <Michael.Hennerich@analog.com>, Guenter Roeck <linux@roeck-us.ne=
+t>,
+        Chris Packham <chris.packham@alliedtelesis.co.nz>, Slawomir Stepien
+        <sst@poczta.fm>, Alexandre Belloni <alexandre.belloni@bootlin.com>,=
+ Krzysztof
+ Kozlowski <krzk@kernel.org>, Alexandru Ardelean
+        <alexandru.ardelean@analog.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-iio@vger.kernel.org>
+Subject: [PATCH 0/2] iio: potentiometer: Add driver support for AD5110
+Date: Sat, 7 Aug 2021 10:38:53 +0530
+Message-ID: <20210807050900.10075-1-dmugil2000@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Shades: MLX
+X-Proofpoint-ORIG-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Response: 1TFkXGBIZEQpMehcZGRIRCllEF2safn9oelJCGWhBEQpYWBdtfVhbb0VDb2=
+1 YcBEKeE4XY1Nja3sTWH4aX14RCnlMF29kTG9Fch0FSHBYEQpDSBcHHxMRCkNZFwcYGhsRCkNJ=
+Fx oEGhoaEQpZTRdnZnIRCllJFxIZcR4GHht3Bh4bBhoGGgYbGhoGGnEaEBp3BhoGGgYcGgYaBh=
+oGG
+ nEaEBp3BhoRClleF2xseREKSUYXS0RLRkVNTk9cdUJFWV5PThEKQ04XXBkdaUISZEJiYUJATXt=
+9 cGlZeWl/SUhNQRJJRXUff0gRClhcFx8EGgQYGRkFGxoEGxsaBB8aBBseGBAbHhofGhEKXlkXc=
+3s dRR0RCk1cFxgdGREKTFoXaGlra2sRCkxGF29va2tra2sRCkJPF2R+WE9mbnNJcFtPEQpDWhc=
+YGh
+ MEEh8EGBscBB8YEQpCXhcbEQpEWBceEQpEXhcbHBEKQlwXGxEKXk4XGxEKQksXY1Nja3sTWH4a=
+X 14RCkJJF2NTY2t7E1h+Gl9eEQpCRRdmWWhSGWRJfBxkHhEKQk4XY1Nja3sTWH4aX14RCkJMF2=
+19 WFtvRUNvbVhwEQpCbBdgQnBEbUZ4BX8YXBEKQkAXaFNnaUJCWHtsGwURCk1eFwcbEQpaWBcY=
+EQp
+ 5QxdleWJoG34BHmlGfBEKWUsXEx4TGxEKcGgXa05TaHNSRktcZGcQBxkaEQpwaBdtchtsHQFhb=
+E kdfRAHGRoRCnBoF2tsUx1+ZEJ5ellLEAcZGhEKcGgXZ0UcRVlZfn1JE1kQBxkaEQpwbBdlQWB=
+dS 2hsX0MaThAHGRoRCnBMF2tMfhNPYXh4QnkZEAcZGhEKbX4XBxsRClhNF0sRIA=3D=3D
+X-Proofpoint-Virus-Version: vendor=3Dfsecure engine=3D2.50.10434:6.0.391,18=
+.0.790
+ definitions=3D2021-08-07_01:2021-08-06,2021-08-07 signatures=3D0
+X-Proofpoint-Spam-Details: rule=3Dinbound_notspam policy=3Dinbound score=3D=
+0 impostorscore=3D0 bulkscore=3D0
+ suspectscore=3D0 adultscore=3D0 priorityscore=3D338 spamscore=3D0 malwares=
+core=3D0
+ clxscore=3D283 mlxscore=3D0 mlxlogscore=3D926 phishscore=3D0 lowprioritysc=
+ore=3D0
+ classifier=3Dspam adjust=3D0 reason=3Dmlx scancount=3D1 engine=3D8.12.0-21=
+07140000
+ definitions=3Dmain-2108070029 domainage_hfrom=3D9491
+Content-Type: text/plain; charset=3D"utf-8"
+Return-Path: dmugil2000@gmail.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: eaa689b4-8f87-40e0-9c6f-7228de4d754a:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 49c88a45-35ba-43d4-69ad-08d9596197=
+3c
+X-MS-TrafficTypeDiagnostic: MW4PR03MB6649:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1751;
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: =3D?utf-8?B?UG8xWCs1NDJHUGxFQTQ2eXV5YVE0=
+UXY1V0xrWGVTSG1XaXpCTkMxVHZtNnJP?=3D
+ =3D?utf-8?B?OHNLM1JtRUI5U2IvVUZsL0hkMHZrZEM0Ty9XVFBST3JYSVBOTHZ5Zjd1aDlG?=
+=3D
+ =3D?utf-8?B?Q28zUDdDM1NyaWhKMjQ0c1BQNlZDaE1POEJZbzN3M3YrN3lUc3liamc5TXA3?=
+=3D
+ =3D?utf-8?B?NGtTZ1V2TXBWd3VvV0xOZzdKNE5CRGJ3OUVza1Z0K2RJWUJOd1pxTE5kTUVW?=
+=3D
+ =3D?utf-8?B?c3RQWFloS054aTZDWFJmckFSYkFHMlFSMzFmZ0VvT2JVWjBnM3ROWXplbVBX?=
+=3D
+ =3D?utf-8?B?ckVpVWxtQzBzTmUza3YrSFM0a2ZJTDBOTi9BVlBNd1lyT2dMb0JHQ2RnaUc2?=
+=3D
+ =3D?utf-8?B?RmR5eTZ5U2lqaVdCek9xMzJkQTlxQldFbE5CVitVcVMzYlNwUmowQW00QUpi?=
+=3D
+ =3D?utf-8?B?bWhJSjVGc09pay82WlBSVnR0b2I1Vi90T3NVeTlEZ2Iva01iR204VWVIMFZP?=
+=3D
+ =3D?utf-8?B?TVUvK09oUXhpK3lnRVdIQ1hvK2VKS0VoY1E3bnhKcGV1RDVFRDUyWjZ4UExV?=
+=3D
+ =3D?utf-8?B?d0cvZ3cwcVE3Wk1lK0ZYS24ydU5ZZ2dQOVhxSkFxdjJRRGdCS0NpQnpjbVE2?=
+=3D
+ =3D?utf-8?B?SDhZN1F0QnYwOUdQd2RiTWxJUXoyVENmYjBHNWUrQkJOV3RyV1NiV2JjQ1g4?=
+=3D
+ =3D?utf-8?B?VlNOdU45MUZTd0lXeUpjOTlnTVJVcjJORHczQzMrRWhHbUlKeXN2OXVIRnVj?=
+=3D
+ =3D?utf-8?B?MDNHaHp1Q2V6ak9Odlp1NHk3SCtubkNwY0JKbXRrRjNXRzBFY1VtNUtvK1lL?=
+=3D
+ =3D?utf-8?B?emhIR2pJTEFwWWt4c0Z6L1E5STNHTzJtQXZabWFoMWt4emROM0pjV1RKNC9I?=
+=3D
+ =3D?utf-8?B?ckcvMGVFMFBjN2ZCaEVhOWRkNC9UMXZITWZNT0FveUc1YnR6ZjBhSkpTY2Ft?=
+=3D
+ =3D?utf-8?B?eGoxWlBLNTlYdHRnL1Bua21KRkVJajdYVnhqY0VmR3M2T3BoamZVUnBlYzUw?=
+=3D
+ =3D?utf-8?B?WnJLVUdpOUZEWmN4QmN1ZHU2WHVvUUNHWVdwL1BLZWI2QlBWSFUzaE1JL2t4?=
+=3D
+ =3D?utf-8?B?dDFPekhoN2Q4YisrR0p3Y2FXVFJhdEhrWjQvSUlOQm5Yb05YalZKREZHbzRm?=
+=3D
+ =3D?utf-8?B?STh4Q3FkRnNYSUVsTnBRaFREbENQdmZkS0ZlS1NHQmZJUUNIcGNqaDUzaExj?=
+=3D
+ =3D?utf-8?B?MVNTNm5ydDdubXVJc3NjbGpJTS9xVFBHVkliRHBRbUJueTlVZnhEMEgvL3Iv?=
+=3D
+ =3D?utf-8?B?ZS82NmpxOUtRNklpVnowS0YwRlE5WDVmSEs5Y1RxUGkwbExPT1BXRStFWXAv?=
+=3D
+ =3D?utf-8?B?ZkxjT1R5aTJMYW5SaXNJK3Z3aTlYSnpLYkFkNHZDVlZ3KzBPejRteVpLNDZP?=
+=3D
+ =3D?utf-8?B?dlVoK2dWRjYwclVNcjZhUGR0MFFESEZHZXYvL01uTjJLTjJVMkxKK3M2VlBE?=
+=3D
+ =3D?utf-8?B?Umg4UDVxMFRmMmM5RUlMTkNUcllHOG5DT2YrWG1abDhsSmtpdW5xbWZqL3hQ?=
+=3D
+ =3D?utf-8?B?UzBWR0FGMk5wNXd3TStJZUo3NnY3UGI2NFZKL1BMbFE2UXkyanJ6N3l0cjk2?=
+=3D
+ =3D?utf-8?B?NmdYREFWOC9BSUN4RVJRVDV1WVAva29pRkNLM3I5Q0VZazg1N20zWjc0NGZZ?=
+=3D
+ =3D?utf-8?B?cEg2UUQwT1l1VEg0RFdHb3hDelhBOFN6OEtCVjM1dElqZHNXdEdnZmJOWEQ3?=
+=3D
+ =3D?utf-8?B?Ui9RTkdBZ3BmWkJzM0UzcEFvbnhzUG9FUHp0RFRXa01uWmF0SHhrdDlUUVZZ?=
+=3D
+ =3D?utf-8?B?UDhNcmkzZExTSjJDbnVjN29sazFWOUNsQW0wRVErSWVKcysvU2FXU042T2gr?=
+=3D
+ =3D?utf-8?B?TW4yaHBudlkwVkNqTWJackNCVjNjT3EzcXZCUDVQZ2F3RlVpNzBwbEs4MEtZ?=
+=3D
+ =3D?utf-8?B?RzlFMG5sRVliMktKajhGVERzM0daZ0xjMlFjWWgyV0huUDBiQnFialcvdFE2?=
+=3D
+ =3D?utf-8?B?Nm5NcHVSOCtSejZKQUFFeXVVeDdlaGxBeit4OW41dEpBUlR2SndidjNlbngv?=
+=3D
+ =3D?utf-8?B?aEdRZ0xleHVxdkdrbVVFUjdnMlk3QVFIQjE1a1RPNXI2N2ZLYlRkM3huNUI3?=
+=3D
+ =3D?utf-8?B?ejcvSTkyMitkZDNkVkFRNG53UnB5N3NGSTV3K1dmdUhSWVlSaklhMHpjN09V?=
+=3D
+ =3D?utf-8?B?MGFHaGdqcmxTSzZoMnlGV1lOWS9mOU1IV3psc2hsYVp2MkpHdFRvRUY4RnJV?=
+=3D
+ =3D?utf-8?B?Z1FqTHlXWGRKNG0xL2RYWG9wbDkxc2dScUFXYXpEemRBODYwSWx4NjZUY0E5?=
+=3D
+ =3D?utf-8?B?YmtmNFNPaXlBbUhYek4yNnZyNk9zMC9WTXpWQVlFdU93UXVMWFVDVHYydDJa?=
+=3D
+ =3D?utf-8?B?dWdlSjdSd1REWjFUcWtSUVNjTzdZSWxCbjFoSTE2aWdzUmFGN2ovK3k1cElI?=
+=3D
+ =3D?utf-8?Q?2SX6ycH6JwhwnSrp6U?=3D
+X-Forefront-Antispam-Report: CIP:148.163.139.77;CTRY:US;LANG:en;SCL:1;SRV:;=
+IPV:NLI;SFV:NSPM;H:mx0b-00128a01.pphosted.com;PTR:mx0b-00128a01.pphosted.co=
+m;CAT:NONE;SFS:(4636009)(34756004)(86362001)(1096003)(76482006)(450100002)(=
+921005)(4744005)(2160300002)(7636003)(2616005)(55446002)(26005)(356005)(369=
+06005)(110136005)(36756003)(7596003)(336012)(73392003)(1076003)(8676002)(56=
+60300002)(82202003);DIR:INB;
+X-MS-Exchange-Transport-Forked: True
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2021 05:09:53.1905
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49c88a45-35ba-43d4-69ad-08d95=
+961973c
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-AuthSource: DM3NAM02FT058.eop-nam02.prod.protecti=
+on.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR03MB6649
+X-OrganizationHeadersPreserved: MW4PR03MB6649.namprd03.prod.outlook.com
+X-CrossPremisesHeadersPromoted: SCSQCASHYB6.ad.analog.com
+X-CrossPremisesHeadersFiltered: SCSQCASHYB6.ad.analog.com
+X-OriginatorOrg: analog.onmicrosoft.com
+
+
+--c441a71a-7e76-4f92-a7f2-be8e3e03cf4c
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<Head></head><body>
+<p><b><font color=3D"#000066" size=3D"3" face=3D"Arial">Delivery has failed=
+ to these recipients or groups:</font></b></p>
+<font color=3D"#000000" size=3D"2" face=3D"Tahoma"><p><a href=3D"mailto:ale=
+xandru.ardelean@analog.com">Alexandru Ardelean (alexandru.ardelean@analog.c=
+om)</a><br>
+</font>
+<font color=3D"#000000" size=3D"3" face=3D"Arial">The email address you ent=
+ered couldn't be found. Please check the recipient's email address and try =
+to resend the message. If the problem continues, please contact your email =
+admin.<br>
+</font>
+<font color=3D"#000000" size=3D"2" face=3D"Tahoma"><br>
+</p>
+</font>
+<br><br><br><br><br><br>
+<font color=3D"#808080" size=3D"2" face=3D"Tahoma"><p><b>Diagnostic informa=
+tion for administrators:</b></p>
+<p>Generating server: SCSQMBX11.ad.analog.com<br>
+</p>
+<p>alexandru.ardelean@analog.com<br>
+Remote Server  returned '550 5.1.10 RESOLVER.ADR.RecipientNotFound; Recipie=
+nt not found by SMTP address lookup'<br>
+</p>
+<p>Original message headers:</p>
+<pre>Received: from SCSQCASHYB6.ad.analog.com (10.77.17.132) by
+ SCSQMBX11.ad.analog.com (10.77.17.10) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2=
+.858.5;
+ Fri, 6 Aug 2021 22:10:04 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.170=
+)
+ by SCSQCASHYB6.ad.analog.com (10.77.17.132) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2=
+.858.5
+ via Frontend Transport; Fri, 6 Aug 2021 22:10:04 -0700
+Received: from DM5PR1101CA0004.namprd11.prod.outlook.com (2603:10b6:4:4c::1=
+4)
+ by MW4PR03MB6649.namprd03.prod.outlook.com (2603:10b6:303:12c::15) with
+ Microsoft SMTP Server (version=3DTLS1_2,
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.18; Sat, 7 A=
+ug
+ 2021 05:09:53 +0000
+Received: from DM3NAM02FT058.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:4:4c:cafe::6f) by DM5PR1101CA0004.outlook.office365.com
+ (2603:10b6:4:4c::14) with Microsoft SMTP Server (version=3DTLS1_2,
+ cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.15 via Front=
+end
+ Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Authentication-Results: spf=3Dsoftfail (sender IP is 148.163.139.77)
+ smtp.mailfrom=3Dgmail.com; analog.com; dkim=3Dfail (body hash did not veri=
+fy)
+ header.d=3Dgmail.com;analog.com; dmarc=3Dfail action=3Dnone
+ header.from=3Dgmail.com;compauth=3Dnone reason=3D405
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 148.163.139.77 as permitted sender)
+Received: from mx0b-00128a01.pphosted.com (148.163.139.77) by
+ DM3NAM02FT058.mail.protection.outlook.com (10.13.5.42) with Microsoft SMTP
+ Server (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) =
+id
+ 15.20.4394.16 via Frontend Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Received: from pps.filterd (m0167091.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 17751nwv0=
+27864;
+	Sat, 7 Aug 2021 01:09:52 -0400
+Authentication-Results-Original: ppops.net;	spf=3Dpass
+ smtp.mailfrom=3Ddmugil2000@gmail.com;	dkim=3Dpass header.s=3D20161025
+ header.d=3Dgmail.com
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216=
+.52])
+	by mx0b-00128a01.pphosted.com with ESMTP id 3a8d8dwau8-1
+	(version=3DTLSv1.2 cipher=3DECDHE-RSA-AES128-GCM-SHA256 bits=3D128 verify=
+=3DNOT);
+	Sat, 07 Aug 2021 01:09:52 -0400
+Received: by mail-pj1-f52.google.com with SMTP id a8so19728954pjk.4;
+        Fri, 06 Aug 2021 22:09:52 -0700 (PDT)
+DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed;
+        d=3Dgmail.com; s=3D20161025;
+        h=3Dfrom:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=3D7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=3D;
+        b=3DFD5EJVU4XINMbdWEcEyi3ZecVVKRywFjtQr5F4cgZ5Ec7Qy10lmDH/AVu+3BaYW=
+hTr
+         jXm4E8hOLVxbcnCu75TwJoqkNiTpV4bDYkeADceHR2SiZDfS4WqnQ7EzD/D13EY9wu=
+O0
+         xB2IlfbmOTEweEEWmCtk9RashxqbnvuJ1+3o+Qhsh78AEllrJ2ZPzIJX3oPxhynM65=
+Ok
+         NaCORIs3Hr6vzFt+oSgjMAyKXHi2YsIQp6h+C7tZjcluvU/pML/x2Gm4ODrRV346vo=
+65
+         ZTVi+cuXYTyZE2su8tyLq5JG8RoigsyJQ8Ikoxp9xTZVY5Yssb9oyjU3Wdc1MAl7D4=
+kS
+         473A=3D=3D
+X-Google-DKIM-Signature: v=3D1; a=3Drsa-sha256; c=3Drelaxed/relaxed;
+        d=3D1e100.net; s=3D20161025;
+        h=3Dx-gm-message-state:from:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=3D7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=3D;
+        b=3DtF32dEbalaCdSGtObaJlrYGXOBOhhgJK+LO3Y138ggAh3ms9JKCm9zxGmEnMPC8=
+6zV
+         TdYQSn1Z1w6V+3gUbizpg5c867cl7OXaxe23982HMXRxsAUo0oVhDurLzq/xui5pXw=
+2a
+         sZrKY5dnfFopz4m6vsJNBG/KhpsyKsZrprOmozti1XGNU2/XpF/u5VeFaMNtZbl8Tw=
+9S
+         3BEo6o10KHocHn+rlFSH2ynm2ja/ww2e8W87Z9wngQgM1q//cV8vpjmM3zQUcsVVI0=
+3X
+         4ypxOjeC6o0xqM+ft7hH9qKQiZCPQH1tSVHOqmEx8K5w+tyxp8D8grEfqej7koeIgn=
+ZY
+         IGBw=3D=3D
+X-Gm-Message-State: AOAM533iDHP8TA+ltQLduxQzkdh+5gJcIDdHOi1QqZ0c5IoThFZlZ0T=
+U
+	6ldpBS5HrbHOUqPIaLTQhoAng+4C4EaAMLSv
+X-Google-Smtp-Source: ABdhPJyvbdcK78r+UcvQti793FkrcqDHMLrhnX5z5NaSSTZyncty0=
+AS0QnzlyZBqBwOiu9Coeq1CxA=3D=3D
+X-Received: by 2002:a17:903:2302:b029:12c:bb4f:cbdf with SMTP id d2-20020a1=
+709032302b029012cbb4fcbdfmr11612195plh.22.1628312990883;
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+Received: from localhost.localdomain ([2409:4072:92:61e9:aa2d:89ae:905d:dac=
+f])
+        by smtp.googlemail.com with ESMTPSA id l14sm14433011pjz.19.2021.08.=
+06.22.09.42
+        (version=3DTLS1_3 cipher=3DTLS_AES_256_GCM_SHA384 bits=3D256/256);
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+From: Mugilraj Dhavachelvan &lt;dmugil2000@gmail.com&gt;
+To: &lt;Dragos.Bogdan@analog.com&gt;, &lt;Darius.Berghe@analog.com&gt;, Rob=
+ Herring
+	&lt;robh+dt@kernel.org&gt;, Jonathan Cameron &lt;jic23@kernel.org&gt;, Lar=
+s-Peter Clausen
+	&lt;lars@metafoo.de&gt;, Mugilraj Dhavachelvan &lt;dmugil2000@gmail.com&gt=
+;, Michael
+ Hennerich &lt;Michael.Hennerich@analog.com&gt;, Guenter Roeck &lt;linux@ro=
+eck-us.net&gt;,
+	Chris Packham &lt;chris.packham@alliedtelesis.co.nz&gt;, Slawomir Stepien
+	&lt;sst@poczta.fm&gt;, Alexandre Belloni &lt;alexandre.belloni@bootlin.com=
+&gt;, Krzysztof
+ Kozlowski &lt;krzk@kernel.org&gt;, Alexandru Ardelean
+	&lt;alexandru.ardelean@analog.com&gt;, &lt;devicetree@vger.kernel.org&gt;,
+	&lt;linux-kernel@vger.kernel.org&gt;, &lt;linux-iio@vger.kernel.org&gt;
+Subject: [PATCH 0/2] iio: potentiometer: Add driver support for AD5110
+Date: Sat, 7 Aug 2021 10:38:53 +0530
+Message-ID: &lt;20210807050900.10075-1-dmugil2000@gmail.com&gt;
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Shades: MLX
+X-Proofpoint-ORIG-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Response: 1TFkXGBIZEQpMehcZGRIRCllEF2safn9oelJCGWhBEQpYWBdtfVhbb0VDb2=
+1 YcBEKeE4XY1Nja3sTWH4aX14RCnlMF29kTG9Fch0FSHBYEQpDSBcHHxMRCkNZFwcYGhsRCkNJ=
+Fx oEGhoaEQpZTRdnZnIRCllJFxIZcR4GHht3Bh4bBhoGGgYbGhoGGnEaEBp3BhoGGgYcGgYaBh=
+oGG
+ nEaEBp3BhoRClleF2xseREKSUYXS0RLRkVNTk9cdUJFWV5PThEKQ04XXBkdaUISZEJiYUJATXt=
+9 cGlZeWl/SUhNQRJJRXUff0gRClhcFx8EGgQYGRkFGxoEGxsaBB8aBBseGBAbHhofGhEKXlkXc=
+3s dRR0RCk1cFxgdGREKTFoXaGlra2sRCkxGF29va2tra2sRCkJPF2R+WE9mbnNJcFtPEQpDWhc=
+YGh
+ MEEh8EGBscBB8YEQpCXhcbEQpEWBceEQpEXhcbHBEKQlwXGxEKXk4XGxEKQksXY1Nja3sTWH4a=
+X 14RCkJJF2NTY2t7E1h+Gl9eEQpCRRdmWWhSGWRJfBxkHhEKQk4XY1Nja3sTWH4aX14RCkJMF2=
+19 WFtvRUNvbVhwEQpCbBdgQnBEbUZ4BX8YXBEKQkAXaFNnaUJCWHtsGwURCk1eFwcbEQpaWBcY=
+EQp
+ 5QxdleWJoG34BHmlGfBEKWUsXEx4TGxEKcGgXa05TaHNSRktcZGcQBxkaEQpwaBdtchtsHQFhb=
+E kdfRAHGRoRCnBoF2tsUx1+ZEJ5ellLEAcZGhEKcGgXZ0UcRVlZfn1JE1kQBxkaEQpwbBdlQWB=
+dS 2hsX0MaThAHGRoRCnBMF2tMfhNPYXh4QnkZEAcZGhEKbX4XBxsRClhNF0sRIA=3D=3D
+X-Proofpoint-Virus-Version: vendor=3Dfsecure engine=3D2.50.10434:6.0.391,18=
+.0.790
+ definitions=3D2021-08-07_01:2021-08-06,2021-08-07 signatures=3D0
+X-Proofpoint-Spam-Details: rule=3Dinbound_notspam policy=3Dinbound score=3D=
+0 impostorscore=3D0 bulkscore=3D0
+ suspectscore=3D0 adultscore=3D0 priorityscore=3D338 spamscore=3D0 malwares=
+core=3D0
+ clxscore=3D283 mlxscore=3D0 mlxlogscore=3D926 phishscore=3D0 lowprioritysc=
+ore=3D0
+ classifier=3Dspam adjust=3D0 reason=3Dmlx scancount=3D1 engine=3D8.12.0-21=
+07140000
+ definitions=3Dmain-2108070029 domainage_hfrom=3D9491
+Content-Type: text/plain; charset=3D&quot;utf-8&quot;
+Return-Path: dmugil2000@gmail.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: eaa689b4-8f87-40e0-9c6f-7228de4d754a:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 49c88a45-35ba-43d4-69ad-08d9596197=
+3c
+X-MS-TrafficTypeDiagnostic: MW4PR03MB6649:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1751;
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: =3D?utf-8?B?UG8xWCs1NDJHUGxFQTQ2eXV5YVE0=
+UXY1V0xrWGVTSG1XaXpCTkMxVHZtNnJP?=3D
+ =3D?utf-8?B?OHNLM1JtRUI5U2IvVUZsL0hkMHZrZEM0Ty9XVFBST3JYSVBOTHZ5Zjd1aDlG?=
+=3D
+ =3D?utf-8?B?Q28zUDdDM1NyaWhKMjQ0c1BQNlZDaE1POEJZbzN3M3YrN3lUc3liamc5TXA3?=
+=3D
+ =3D?utf-8?B?NGtTZ1V2TXBWd3VvV0xOZzdKNE5CRGJ3OUVza1Z0K2RJWUJOd1pxTE5kTUVW?=
+=3D
+ =3D?utf-8?B?c3RQWFloS054aTZDWFJmckFSYkFHMlFSMzFmZ0VvT2JVWjBnM3ROWXplbVBX?=
+=3D
+ =3D?utf-8?B?ckVpVWxtQzBzTmUza3YrSFM0a2ZJTDBOTi9BVlBNd1lyT2dMb0JHQ2RnaUc2?=
+=3D
+ =3D?utf-8?B?RmR5eTZ5U2lqaVdCek9xMzJkQTlxQldFbE5CVitVcVMzYlNwUmowQW00QUpi?=
+=3D
+ =3D?utf-8?B?bWhJSjVGc09pay82WlBSVnR0b2I1Vi90T3NVeTlEZ2Iva01iR204VWVIMFZP?=
+=3D
+ =3D?utf-8?B?TVUvK09oUXhpK3lnRVdIQ1hvK2VKS0VoY1E3bnhKcGV1RDVFRDUyWjZ4UExV?=
+=3D
+ =3D?utf-8?B?d0cvZ3cwcVE3Wk1lK0ZYS24ydU5ZZ2dQOVhxSkFxdjJRRGdCS0NpQnpjbVE2?=
+=3D
+ =3D?utf-8?B?SDhZN1F0QnYwOUdQd2RiTWxJUXoyVENmYjBHNWUrQkJOV3RyV1NiV2JjQ1g4?=
+=3D
+ =3D?utf-8?B?VlNOdU45MUZTd0lXeUpjOTlnTVJVcjJORHczQzMrRWhHbUlKeXN2OXVIRnVj?=
+=3D
+ =3D?utf-8?B?MDNHaHp1Q2V6ak9Odlp1NHk3SCtubkNwY0JKbXRrRjNXRzBFY1VtNUtvK1lL?=
+=3D
+ =3D?utf-8?B?emhIR2pJTEFwWWt4c0Z6L1E5STNHTzJtQXZabWFoMWt4emROM0pjV1RKNC9I?=
+=3D
+ =3D?utf-8?B?ckcvMGVFMFBjN2ZCaEVhOWRkNC9UMXZITWZNT0FveUc1YnR6ZjBhSkpTY2Ft?=
+=3D
+ =3D?utf-8?B?eGoxWlBLNTlYdHRnL1Bua21KRkVJajdYVnhqY0VmR3M2T3BoamZVUnBlYzUw?=
+=3D
+ =3D?utf-8?B?WnJLVUdpOUZEWmN4QmN1ZHU2WHVvUUNHWVdwL1BLZWI2QlBWSFUzaE1JL2t4?=
+=3D
+ =3D?utf-8?B?dDFPekhoN2Q4YisrR0p3Y2FXVFJhdEhrWjQvSUlOQm5Yb05YalZKREZHbzRm?=
+=3D
+ =3D?utf-8?B?STh4Q3FkRnNYSUVsTnBRaFREbENQdmZkS0ZlS1NHQmZJUUNIcGNqaDUzaExj?=
+=3D
+ =3D?utf-8?B?MVNTNm5ydDdubXVJc3NjbGpJTS9xVFBHVkliRHBRbUJueTlVZnhEMEgvL3Iv?=
+=3D
+ =3D?utf-8?B?ZS82NmpxOUtRNklpVnowS0YwRlE5WDVmSEs5Y1RxUGkwbExPT1BXRStFWXAv?=
+=3D
+ =3D?utf-8?B?ZkxjT1R5aTJMYW5SaXNJK3Z3aTlYSnpLYkFkNHZDVlZ3KzBPejRteVpLNDZP?=
+=3D
+ =3D?utf-8?B?dlVoK2dWRjYwclVNcjZhUGR0MFFESEZHZXYvL01uTjJLTjJVMkxKK3M2VlBE?=
+=3D
+ =3D?utf-8?B?Umg4UDVxMFRmMmM5RUlMTkNUcllHOG5DT2YrWG1abDhsSmtpdW5xbWZqL3hQ?=
+=3D
+ =3D?utf-8?B?UzBWR0FGMk5wNXd3TStJZUo3NnY3UGI2NFZKL1BMbFE2UXkyanJ6N3l0cjk2?=
+=3D
+ =3D?utf-8?B?NmdYREFWOC9BSUN4RVJRVDV1WVAva29pRkNLM3I5Q0VZazg1N20zWjc0NGZZ?=
+=3D
+ =3D?utf-8?B?cEg2UUQwT1l1VEg0RFdHb3hDelhBOFN6OEtCVjM1dElqZHNXdEdnZmJOWEQ3?=
+=3D
+ =3D?utf-8?B?Ui9RTkdBZ3BmWkJzM0UzcEFvbnhzUG9FUHp0RFRXa01uWmF0SHhrdDlUUVZZ?=
+=3D
+ =3D?utf-8?B?UDhNcmkzZExTSjJDbnVjN29sazFWOUNsQW0wRVErSWVKcysvU2FXU042T2gr?=
+=3D
+ =3D?utf-8?B?TW4yaHBudlkwVkNqTWJackNCVjNjT3EzcXZCUDVQZ2F3RlVpNzBwbEs4MEtZ?=
+=3D
+ =3D?utf-8?B?RzlFMG5sRVliMktKajhGVERzM0daZ0xjMlFjWWgyV0huUDBiQnFialcvdFE2?=
+=3D
+ =3D?utf-8?B?Nm5NcHVSOCtSejZKQUFFeXVVeDdlaGxBeit4OW41dEpBUlR2SndidjNlbngv?=
+=3D
+ =3D?utf-8?B?aEdRZ0xleHVxdkdrbVVFUjdnMlk3QVFIQjE1a1RPNXI2N2ZLYlRkM3huNUI3?=
+=3D
+ =3D?utf-8?B?ejcvSTkyMitkZDNkVkFRNG53UnB5N3NGSTV3K1dmdUhSWVlSaklhMHpjN09V?=
+=3D
+ =3D?utf-8?B?MGFHaGdqcmxTSzZoMnlGV1lOWS9mOU1IV3psc2hsYVp2MkpHdFRvRUY4RnJV?=
+=3D
+ =3D?utf-8?B?Z1FqTHlXWGRKNG0xL2RYWG9wbDkxc2dScUFXYXpEemRBODYwSWx4NjZUY0E5?=
+=3D
+ =3D?utf-8?B?YmtmNFNPaXlBbUhYek4yNnZyNk9zMC9WTXpWQVlFdU93UXVMWFVDVHYydDJa?=
+=3D
+ =3D?utf-8?B?dWdlSjdSd1REWjFUcWtSUVNjTzdZSWxCbjFoSTE2aWdzUmFGN2ovK3k1cElI?=
+=3D
+ =3D?utf-8?Q?2SX6ycH6JwhwnSrp6U?=3D
+X-Forefront-Antispam-Report: CIP:148.163.139.77;CTRY:US;LANG:en;SCL:1;SRV:;=
+IPV:NLI;SFV:NSPM;H:mx0b-00128a01.pphosted.com;PTR:mx0b-00128a01.pphosted.co=
+m;CAT:NONE;SFS:(4636009)(34756004)(86362001)(1096003)(76482006)(450100002)(=
+921005)(4744005)(2160300002)(7636003)(2616005)(55446002)(26005)(356005)(369=
+06005)(110136005)(36756003)(7596003)(336012)(73392003)(1076003)(8676002)(56=
+60300002)(82202003);DIR:INB;
+X-MS-Exchange-Transport-Forked: True
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2021 05:09:53.1905
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49c88a45-35ba-43d4-69ad-08d95=
+961973c
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-AuthSource: DM3NAM02FT058.eop-nam02.prod.protecti=
+on.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR03MB6649
+X-OrganizationHeadersPreserved: MW4PR03MB6649.namprd03.prod.outlook.com
+X-CrossPremisesHeadersPromoted: SCSQCASHYB6.ad.analog.com
+X-CrossPremisesHeadersFiltered: SCSQCASHYB6.ad.analog.com
+X-OriginatorOrg: analog.onmicrosoft.com
+</pre>
+</font>
+</body>
+</html>=
+
+--c441a71a-7e76-4f92-a7f2-be8e3e03cf4c--
+
+--b1ce6167-8e85-40fb-8c06-073dc40f830e
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns;SCSQMBX11.ad.analog.com
+Received-From-MTA: dns;NAM11-CO1-obe.outbound.protection.outlook.com
+Arrival-Date: Sat, 7 Aug 2021 05:10:04 +0000
+
+Final-Recipient: rfc822;alexandru.ardelean@analog.com
+Action: failed
+Status: 5.1.10
+Diagnostic-Code: smtp;550 5.1.10 RESOLVER.ADR.RecipientNotFound; Recipient not found by SMTP address lookup
+X-Display-Name: Alexandru Ardelean
+
+
+--b1ce6167-8e85-40fb-8c06-073dc40f830e
+Content-Type: message/rfc822
+
+Received: from SCSQCASHYB6.ad.analog.com (10.77.17.132) by
+ SCSQMBX11.ad.analog.com (10.77.17.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.858.5;
+ Fri, 6 Aug 2021 22:10:04 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.170)
+ by SCSQCASHYB6.ad.analog.com (10.77.17.132) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.858.5
+ via Frontend Transport; Fri, 6 Aug 2021 22:10:04 -0700
+Received: from DM5PR1101CA0004.namprd11.prod.outlook.com (2603:10b6:4:4c::14)
+ by MW4PR03MB6649.namprd03.prod.outlook.com (2603:10b6:303:12c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.18; Sat, 7 Aug
+ 2021 05:09:53 +0000
+Received: from DM3NAM02FT058.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:4:4c:cafe::6f) by DM5PR1101CA0004.outlook.office365.com
+ (2603:10b6:4:4c::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.15 via Frontend
+ Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Authentication-Results: spf=softfail (sender IP is 148.163.139.77)
+ smtp.mailfrom=gmail.com; analog.com; dkim=fail (body hash did not verify)
+ header.d=gmail.com;analog.com; dmarc=fail action=none
+ header.from=gmail.com;compauth=none reason=405
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 148.163.139.77 as permitted sender)
+Received: from mx0b-00128a01.pphosted.com (148.163.139.77) by
+ DM3NAM02FT058.mail.protection.outlook.com (10.13.5.42) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4394.16 via Frontend Transport; Sat, 7 Aug 2021 05:09:53 +0000
+Received: from pps.filterd (m0167091.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 17751nwv027864;
+	Sat, 7 Aug 2021 01:09:52 -0400
+Authentication-Results-Original: ppops.net;	spf=pass
+ smtp.mailfrom=dmugil2000@gmail.com;	dkim=pass header.s=20161025
+ header.d=gmail.com
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	by mx0b-00128a01.pphosted.com with ESMTP id 3a8d8dwau8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Sat, 07 Aug 2021 01:09:52 -0400
+Received: by mail-pj1-f52.google.com with SMTP id a8so19728954pjk.4;
+        Fri, 06 Aug 2021 22:09:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=;
+        b=FD5EJVU4XINMbdWEcEyi3ZecVVKRywFjtQr5F4cgZ5Ec7Qy10lmDH/AVu+3BaYWhTr
+         jXm4E8hOLVxbcnCu75TwJoqkNiTpV4bDYkeADceHR2SiZDfS4WqnQ7EzD/D13EY9wuO0
+         xB2IlfbmOTEweEEWmCtk9RashxqbnvuJ1+3o+Qhsh78AEllrJ2ZPzIJX3oPxhynM65Ok
+         NaCORIs3Hr6vzFt+oSgjMAyKXHi2YsIQp6h+C7tZjcluvU/pML/x2Gm4ODrRV346vo65
+         ZTVi+cuXYTyZE2su8tyLq5JG8RoigsyJQ8Ikoxp9xTZVY5Yssb9oyjU3Wdc1MAl7D4kS
+         473A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=7dN32Pz8vtFkZs7cGtIiJw3IxISRVEkSeEPghCjfuGw=;
+        b=tF32dEbalaCdSGtObaJlrYGXOBOhhgJK+LO3Y138ggAh3ms9JKCm9zxGmEnMPC86zV
+         TdYQSn1Z1w6V+3gUbizpg5c867cl7OXaxe23982HMXRxsAUo0oVhDurLzq/xui5pXw2a
+         sZrKY5dnfFopz4m6vsJNBG/KhpsyKsZrprOmozti1XGNU2/XpF/u5VeFaMNtZbl8Tw9S
+         3BEo6o10KHocHn+rlFSH2ynm2ja/ww2e8W87Z9wngQgM1q//cV8vpjmM3zQUcsVVI03X
+         4ypxOjeC6o0xqM+ft7hH9qKQiZCPQH1tSVHOqmEx8K5w+tyxp8D8grEfqej7koeIgnZY
+         IGBw==
+X-Gm-Message-State: AOAM533iDHP8TA+ltQLduxQzkdh+5gJcIDdHOi1QqZ0c5IoThFZlZ0TU
+	6ldpBS5HrbHOUqPIaLTQhoAng+4C4EaAMLSv
+X-Google-Smtp-Source: ABdhPJyvbdcK78r+UcvQti793FkrcqDHMLrhnX5z5NaSSTZyncty0AS0QnzlyZBqBwOiu9Coeq1CxA==
+X-Received: by 2002:a17:903:2302:b029:12c:bb4f:cbdf with SMTP id d2-20020a1709032302b029012cbb4fcbdfmr11612195plh.22.1628312990883;
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+Received: from localhost.localdomain ([2409:4072:92:61e9:aa2d:89ae:905d:dacf])
+        by smtp.googlemail.com with ESMTPSA id l14sm14433011pjz.19.2021.08.06.22.09.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Aug 2021 22:09:50 -0700 (PDT)
+From: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+To: <Dragos.Bogdan@analog.com>, <Darius.Berghe@analog.com>, Rob Herring
+	<robh+dt@kernel.org>, Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen
+	<lars@metafoo.de>, Mugilraj Dhavachelvan <dmugil2000@gmail.com>, "Michael
+ Hennerich" <Michael.Hennerich@analog.com>, Guenter Roeck
+	<linux@roeck-us.net>, Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Slawomir Stepien <sst@poczta.fm>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, "Krzysztof Kozlowski" <krzk@kernel.org>,
+	Alexandru Ardelean <alexandru.ardelean@analog.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-iio@vger.kernel.org>
+Subject: [PATCH 0/2] iio: potentiometer: Add driver support for AD5110
+Date: Sat, 7 Aug 2021 10:38:53 +0530
+Message-ID: <20210807050900.10075-1-dmugil2000@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Shades: MLX
+X-Proofpoint-ORIG-GUID: v37Ch8NhHKhjgQWZCsSCUcbgk8co_5Ub
+X-CLX-Response: 1TFkXGBIZEQpMehcZGRIRCllEF2safn9oelJCGWhBEQpYWBdtfVhbb0VDb21 YcBEKeE4XY1Nja3sTWH4aX14RCnlMF29kTG9Fch0FSHBYEQpDSBcHHxMRCkNZFwcYGhsRCkNJFx oEGhoaEQpZTRdnZnIRCllJFxIZcR4GHht3Bh4bBhoGGgYbGhoGGnEaEBp3BhoGGgYcGgYaBhoGG
+ nEaEBp3BhoRClleF2xseREKSUYXS0RLRkVNTk9cdUJFWV5PThEKQ04XXBkdaUISZEJiYUJATXt9 cGlZeWl/SUhNQRJJRXUff0gRClhcFx8EGgQYGRkFGxoEGxsaBB8aBBseGBAbHhofGhEKXlkXc3s dRR0RCk1cFxgdGREKTFoXaGlra2sRCkxGF29va2tra2sRCkJPF2R+WE9mbnNJcFtPEQpDWhcYGh
+ MEEh8EGBscBB8YEQpCXhcbEQpEWBceEQpEXhcbHBEKQlwXGxEKXk4XGxEKQksXY1Nja3sTWH4aX 14RCkJJF2NTY2t7E1h+Gl9eEQpCRRdmWWhSGWRJfBxkHhEKQk4XY1Nja3sTWH4aX14RCkJMF219 WFtvRUNvbVhwEQpCbBdgQnBEbUZ4BX8YXBEKQkAXaFNnaUJCWHtsGwURCk1eFwcbEQpaWBcYEQp
+ 5QxdleWJoG34BHmlGfBEKWUsXEx4TGxEKcGgXa05TaHNSRktcZGcQBxkaEQpwaBdtchtsHQFhbE kdfRAHGRoRCnBoF2tsUx1+ZEJ5ellLEAcZGhEKcGgXZ0UcRVlZfn1JE1kQBxkaEQpwbBdlQWBdS 2hsX0MaThAHGRoRCnBMF2tMfhNPYXh4QnkZEAcZGhEKbX4XBxsRClhNF0sRIA==
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-08-07_01:2021-08-06,2021-08-07 signatures=0
+X-Proofpoint-Spam-Details: rule=inbound_notspam policy=inbound score=0 impostorscore=0 bulkscore=0
+ suspectscore=0 adultscore=0 priorityscore=338 spamscore=0 malwarescore=0
+ clxscore=283 mlxscore=0 mlxlogscore=926 phishscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2107140000
+ definitions=main-2108070029 domainage_hfrom=9491
+Content-Type: text/plain; charset="utf-8"
+Return-Path: dmugil2000@gmail.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: eaa689b4-8f87-40e0-9c6f-7228de4d754a:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 49c88a45-35ba-43d4-69ad-08d95961973c
+X-MS-TrafficTypeDiagnostic: MW4PR03MB6649:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1751;
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UG8xWCs1NDJHUGxFQTQ2eXV5YVE0UXY1V0xrWGVTSG1XaXpCTkMxVHZtNnJP?=
+ =?utf-8?B?OHNLM1JtRUI5U2IvVUZsL0hkMHZrZEM0Ty9XVFBST3JYSVBOTHZ5Zjd1aDlG?=
+ =?utf-8?B?Q28zUDdDM1NyaWhKMjQ0c1BQNlZDaE1POEJZbzN3M3YrN3lUc3liamc5TXA3?=
+ =?utf-8?B?NGtTZ1V2TXBWd3VvV0xOZzdKNE5CRGJ3OUVza1Z0K2RJWUJOd1pxTE5kTUVW?=
+ =?utf-8?B?c3RQWFloS054aTZDWFJmckFSYkFHMlFSMzFmZ0VvT2JVWjBnM3ROWXplbVBX?=
+ =?utf-8?B?ckVpVWxtQzBzTmUza3YrSFM0a2ZJTDBOTi9BVlBNd1lyT2dMb0JHQ2RnaUc2?=
+ =?utf-8?B?RmR5eTZ5U2lqaVdCek9xMzJkQTlxQldFbE5CVitVcVMzYlNwUmowQW00QUpi?=
+ =?utf-8?B?bWhJSjVGc09pay82WlBSVnR0b2I1Vi90T3NVeTlEZ2Iva01iR204VWVIMFZP?=
+ =?utf-8?B?TVUvK09oUXhpK3lnRVdIQ1hvK2VKS0VoY1E3bnhKcGV1RDVFRDUyWjZ4UExV?=
+ =?utf-8?B?d0cvZ3cwcVE3Wk1lK0ZYS24ydU5ZZ2dQOVhxSkFxdjJRRGdCS0NpQnpjbVE2?=
+ =?utf-8?B?SDhZN1F0QnYwOUdQd2RiTWxJUXoyVENmYjBHNWUrQkJOV3RyV1NiV2JjQ1g4?=
+ =?utf-8?B?VlNOdU45MUZTd0lXeUpjOTlnTVJVcjJORHczQzMrRWhHbUlKeXN2OXVIRnVj?=
+ =?utf-8?B?MDNHaHp1Q2V6ak9Odlp1NHk3SCtubkNwY0JKbXRrRjNXRzBFY1VtNUtvK1lL?=
+ =?utf-8?B?emhIR2pJTEFwWWt4c0Z6L1E5STNHTzJtQXZabWFoMWt4emROM0pjV1RKNC9I?=
+ =?utf-8?B?ckcvMGVFMFBjN2ZCaEVhOWRkNC9UMXZITWZNT0FveUc1YnR6ZjBhSkpTY2Ft?=
+ =?utf-8?B?eGoxWlBLNTlYdHRnL1Bua21KRkVJajdYVnhqY0VmR3M2T3BoamZVUnBlYzUw?=
+ =?utf-8?B?WnJLVUdpOUZEWmN4QmN1ZHU2WHVvUUNHWVdwL1BLZWI2QlBWSFUzaE1JL2t4?=
+ =?utf-8?B?dDFPekhoN2Q4YisrR0p3Y2FXVFJhdEhrWjQvSUlOQm5Yb05YalZKREZHbzRm?=
+ =?utf-8?B?STh4Q3FkRnNYSUVsTnBRaFREbENQdmZkS0ZlS1NHQmZJUUNIcGNqaDUzaExj?=
+ =?utf-8?B?MVNTNm5ydDdubXVJc3NjbGpJTS9xVFBHVkliRHBRbUJueTlVZnhEMEgvL3Iv?=
+ =?utf-8?B?ZS82NmpxOUtRNklpVnowS0YwRlE5WDVmSEs5Y1RxUGkwbExPT1BXRStFWXAv?=
+ =?utf-8?B?ZkxjT1R5aTJMYW5SaXNJK3Z3aTlYSnpLYkFkNHZDVlZ3KzBPejRteVpLNDZP?=
+ =?utf-8?B?dlVoK2dWRjYwclVNcjZhUGR0MFFESEZHZXYvL01uTjJLTjJVMkxKK3M2VlBE?=
+ =?utf-8?B?Umg4UDVxMFRmMmM5RUlMTkNUcllHOG5DT2YrWG1abDhsSmtpdW5xbWZqL3hQ?=
+ =?utf-8?B?UzBWR0FGMk5wNXd3TStJZUo3NnY3UGI2NFZKL1BMbFE2UXkyanJ6N3l0cjk2?=
+ =?utf-8?B?NmdYREFWOC9BSUN4RVJRVDV1WVAva29pRkNLM3I5Q0VZazg1N20zWjc0NGZZ?=
+ =?utf-8?B?cEg2UUQwT1l1VEg0RFdHb3hDelhBOFN6OEtCVjM1dElqZHNXdEdnZmJOWEQ3?=
+ =?utf-8?B?Ui9RTkdBZ3BmWkJzM0UzcEFvbnhzUG9FUHp0RFRXa01uWmF0SHhrdDlUUVZZ?=
+ =?utf-8?B?UDhNcmkzZExTSjJDbnVjN29sazFWOUNsQW0wRVErSWVKcysvU2FXU042T2gr?=
+ =?utf-8?B?TW4yaHBudlkwVkNqTWJackNCVjNjT3EzcXZCUDVQZ2F3RlVpNzBwbEs4MEtZ?=
+ =?utf-8?B?RzlFMG5sRVliMktKajhGVERzM0daZ0xjMlFjWWgyV0huUDBiQnFialcvdFE2?=
+ =?utf-8?B?Nm5NcHVSOCtSejZKQUFFeXVVeDdlaGxBeit4OW41dEpBUlR2SndidjNlbngv?=
+ =?utf-8?B?aEdRZ0xleHVxdkdrbVVFUjdnMlk3QVFIQjE1a1RPNXI2N2ZLYlRkM3huNUI3?=
+ =?utf-8?B?ejcvSTkyMitkZDNkVkFRNG53UnB5N3NGSTV3K1dmdUhSWVlSaklhMHpjN09V?=
+ =?utf-8?B?MGFHaGdqcmxTSzZoMnlGV1lOWS9mOU1IV3psc2hsYVp2MkpHdFRvRUY4RnJV?=
+ =?utf-8?B?Z1FqTHlXWGRKNG0xL2RYWG9wbDkxc2dScUFXYXpEemRBODYwSWx4NjZUY0E5?=
+ =?utf-8?B?YmtmNFNPaXlBbUhYek4yNnZyNk9zMC9WTXpWQVlFdU93UXVMWFVDVHYydDJa?=
+ =?utf-8?B?dWdlSjdSd1REWjFUcWtSUVNjTzdZSWxCbjFoSTE2aWdzUmFGN2ovK3k1cElI?=
+ =?utf-8?Q?2SX6ycH6JwhwnSrp6U?=
+X-Forefront-Antispam-Report: CIP:148.163.139.77;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mx0b-00128a01.pphosted.com;PTR:mx0b-00128a01.pphosted.com;CAT:NONE;SFS:(4636009)(34756004)(86362001)(1096003)(76482006)(450100002)(921005)(4744005)(2160300002)(7636003)(2616005)(55446002)(26005)(356005)(36906005)(110136005)(36756003)(7596003)(336012)(73392003)(1076003)(8676002)(5660300002)(82202003);DIR:INB;
+X-MS-Exchange-Transport-Forked: True
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2021 05:09:53.1905
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49c88a45-35ba-43d4-69ad-08d95961973c
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-AuthSource: DM3NAM02FT058.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR03MB6649
+X-OrganizationHeadersPreserved: MW4PR03MB6649.namprd03.prod.outlook.com
+X-CrossPremisesHeadersPromoted: SCSQCASHYB6.ad.analog.com
+X-CrossPremisesHeadersFiltered: SCSQCASHYB6.ad.analog.com
+X-OriginatorOrg: analog.onmicrosoft.com
+
+[External]
+
+Add dt-bindings and driver support for AD5110, a Nonvolatile=20
+Digital Potentiometer.
+
+Mugilraj Dhavachelvan (2):
+  dt-bindings: iio: potentiometer: Add AD5110 in trivial-devices
+  iio: potentiometer: Add driver support for AD5110
+
+ .../devicetree/bindings/trivial-devices.yaml  |   2 +
+ MAINTAINERS                                   |   6 +
+ drivers/iio/potentiometer/Kconfig             |  10 +
+ drivers/iio/potentiometer/Makefile            |   1 +
+ drivers/iio/potentiometer/ad5110.c            | 333 ++++++++++++++++++
+ 5 files changed, 352 insertions(+)
+ create mode 100644 drivers/iio/potentiometer/ad5110.c
+
+--=20
+2.25.1
+
+
+--b1ce6167-8e85-40fb-8c06-073dc40f830e--

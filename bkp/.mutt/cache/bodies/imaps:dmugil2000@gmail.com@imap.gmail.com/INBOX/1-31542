@@ -1,0 +1,76 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp1228867ejf;
+        Fri, 12 Mar 2021 02:52:56 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy3VAf8trscqsUJs9iUrHegmUt4FcNSVREDdKThtmDNTo+o7VCeqzicUFtL2KWfZt1UKEGp
+X-Received: by 2002:a63:5a0c:: with SMTP id o12mr11107567pgb.76.1615546376052;
+        Fri, 12 Mar 2021 02:52:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615546376; cv=none;
+        d=google.com; s=arc-20160816;
+        b=DJnLZDDUaQ0QNJRxOf8PToBgzuvgp1ppODtbj8+abSVOBoFMJ7rOJt1JmEBS7rL9QS
+         K2sInnkLEyamQPiMg4Ns6HfDK02bsk3S1qzq3dvDEkzaxsli3OBGECQf9dG+S/q3rWMa
+         mLOd2TEBrMWB5ogZ5ca1oUjklzdGNmzdqlnv53Sdrk8qb2rWPodEjKd1f1n5HIrwGt08
+         mJBBJyNdXePnIEwDqejtmt9mlGLLtlmwmHv1a9XYq3FdrwTNczheRpKkh07OagQ9wVep
+         mSrTS3CkiPHGdUwIgRPjJfq+DAFEOcMAvDXhwpcEQLXZ2g0ZOMBIVJOpYv6suN2ugl08
+         4B6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-disposition:mime-version:user-agent:in-reply-to:references
+         :subject:cc:to:from:message-id:date;
+        bh=C5FKFI49FOMDcUONaPR1hsSb5+xJG4MQOadHRPqQN6I=;
+        b=QQ3thw7znUFhBd2ybjgvoq5uyQdIJGaSTufXyZWdia+bqaR04zGCv1HASY6m7tRq+m
+         v87ruhDmNe/Cqg4X54md9xSo4/CJ+NTUd1cwUHG6AW3+VJMPvnnSkafNtUg3hx7rQ8ho
+         PIBsV/LOAoVEzkaD/X63TAHPVENYVsvIX6HFaRDEMP6vwscKxwGXVEkGRHP64+Ij9qqp
+         If4ftQiziu8HVREKi5Rnqz/4vNfarljhX0OATN0wcqymB/k7GcgBMNZ1qKWTjwGwWpN+
+         6t11RmW0cgGDXqRCrijcISl/0tjYSv8r6+yWbuTcN2koBCE9LRQFS1URZvv7v39+i7Pv
+         u52A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of 110117057@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117057@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Return-Path: <110117057@nitt.edu>
+Received: from snwl1.nitt.edu (students.nitt.edu. [203.129.195.134])
+        by mx.google.com with ESMTPS id o65si2151002pjo.70.2021.03.12.02.52.54
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Mar 2021 02:52:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of 110117057@nitt.edu designates 203.129.195.134 as permitted sender) client-ip=203.129.195.134;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of 110117057@nitt.edu designates 203.129.195.134 as permitted sender) smtp.mailfrom=110117057@nitt.edu;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nitt.edu
+Received: from snwl1.nitt.edu (127.0.0.1) id h9d43q0171sj; Fri, 12 Mar 2021 16:23:47 +0530 (envelope-from <110117057@nitt.edu>)
+Received: from webmail.nitt.edu ([10.0.0.173])
+	by snwl1.nitt.edu ([10.0.0.186]) (SonicWall 10.0.6.3447)
+	with ESMTP id o202103121053470093317-7; Fri, 12 Mar 2021 16:23:47 +0530
+Received: by webmail.nitt.edu (Postfix, from userid 48)
+	id E58A4124C2A8; Fri, 12 Mar 2021 16:23:04 +0530 (IST)
+Received: from 157.51.83.70 ([157.51.83.70]) by webmail.nitt.edu (Horde
+ Framework) with HTTP; Fri, 12 Mar 2021 16:23:04 +0530
+Date: Fri, 12 Mar 2021 16:23:04 +0530
+Message-ID: <20210312162304.Horde.0nM4NUpadUnCCqKFehhR1A1@webmail.nitt.edu>
+From: 110117057@nitt.edu
+To: Mugilraj <dmugil2000@gmail.com>
+Cc: dmugilbp2000@gmail.com
+Subject: Re: Mutt test
+References: <20210312104640.GA34139@mugil-Nitro-AN515-52>
+In-Reply-To: <20210312104640.GA34139@mugil-Nitro-AN515-52>
+User-Agent: Internet Messaging Program (IMP) H5 (6.1.7)
+Content-Type: text/plain; charset=UTF-8; format=flowed; DelSp=Yes
+MIME-Version: 1.0
+Content-Disposition: inline
+X-Mlf-DSE-Version: 6389
+X-Mlf-Rules-Version: s20210113164351; ds20200715013501;
+	di20210112201524; ri20160318003319; fs20200615142104
+X-Mlf-Smartnet-Details: 202103121053470093317
+X-Mlf-Smartnet-Version: 20210114204658
+X-Mlf-Version: 10.0.6.3447
+X-Mlf-License: BSV_C_AP_T_R
+X-Mlf-UniqueId: o202103121053470093317
+
+Quoting Mugilraj <dmugil2000@gmail.com>:
+
+> Hi Mugil,
+> from mutt
+>
+> regards,
+> mugil
+
+ACK, got it
+
+Regards Mugilraj

@@ -1,0 +1,1050 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp565597ejf;
+        Thu, 18 Mar 2021 09:50:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzHp/7UWmkI0pfb9IlFqgIzR/y9hpLhc7vLrLYDp8khBhV/jXdvawAL2jDdLonPizBsNvsr
+X-Received: by 2002:a63:d70e:: with SMTP id d14mr7589572pgg.291.1616086215789;
+        Thu, 18 Mar 2021 09:50:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616086215; cv=none;
+        d=google.com; s=arc-20160816;
+        b=eFwJ+xFT8Kr2OmsCKCZCOSvBOz+zoGB+lD6dV356M89SQUJ8UcwdBu/RHN61bZ5Is1
+         g5S7wGYeSw/t7GZO69vHkdfngxaoK9zYv81apOvW1g0Nphow8LMLUJww9LKB+MbHR0B+
+         ozzbW+3e56cdT1JAoN/TRDzGwt5ee6mGfpQSpJ/PWHS25IziAAyT0ppLhC16TGItRima
+         WB/PP2GhluJ+/W/pdT2bNPux+nw7AIllgDrafavat9eEZllkzK2yQb4O5yNy+Qh/t7z8
+         z06fD1J4ucGXF5u5Rq9ncEhto32E+GqQdTLd0yN8V5chFryRhEXASNu1md6XZOt4Kzr/
+         KLlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:to:from:subject
+         :date:message-id:dkim-signature;
+        bh=KyRfmrFKdRmS9voVhUHDfi7X0wyWs3G2uKUSsOxVOVY=;
+        b=vWpy2pFTc+k/CXK4OGY7ZbbmWm6mCekv3w4hPJ3GwT9ge/DB0kkrSgi4mhPIKbGNrO
+         cewVnUqu8lbvjHX7bWm12Hz5cV1r0iNI8FhG4XWhuiyk+tN9ufkL6ENtnzCEVlqfgNcu
+         QZvqHtMYD1u03ojy+dzUyhF7yshB7HJh2Xfp7sALL9SLjBmiqGrTOwq5PPKnJT0dF3S6
+         gwcOosxmxg0NOZdQhA9JYeyhvOqMPQKOWJi681U2tvDxiEVwlr0MuRDsLYF2F+l0QPQd
+         Y77/h69jNeT5YnsQOJ57tpsHI/iKi1Ya1pT0M/dkTBWjI4a/kA08HXpBUAJuA+kKuJy/
+         x/rQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=rlntogby6xsxlfnvyxwnvvhttakdsqto header.b=fMxTtBXU;
+       spf=pass (google.com: domain of 01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com designates 76.223.180.104 as permitted sender) smtp.mailfrom=01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com
+Return-Path: <01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com>
+Received: from c180-104.smtp-out.ap-south-1.amazonses.com (c180-104.smtp-out.ap-south-1.amazonses.com. [76.223.180.104])
+        by mx.google.com with ESMTPS id y18si2663947pfe.75.2021.03.18.09.50.14
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 18 Mar 2021 09:50:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com designates 76.223.180.104 as permitted sender) client-ip=76.223.180.104;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=rlntogby6xsxlfnvyxwnvvhttakdsqto header.b=fMxTtBXU;
+       spf=pass (google.com: domain of 01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com designates 76.223.180.104 as permitted sender) smtp.mailfrom=01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=rlntogby6xsxlfnvyxwnvvhttakdsqto; d=amazonses.com; t=1616086214;
+	h=Message-ID:Date:Subject:From:To:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=/FbuvfzsE+BOgnOF02lQDSpohKDY48GiZpw2dxEmsZk=;
+	b=fMxTtBXUt92vZi4ADwjAZyoxukCUlX6j8kV/pLrZtaVVsOSyoF2XwWTqBh0H/T79
+	TMIDWN7Qptp8TyzveLbr+r9eTJH3hgHA1pcsYhkuTAoC10VP0enel93nTSkg4hVdeWc
+	jLPFFxm49+TX2tloXVHd5mXVqmtkLsS6w/OhJHPo=
+Message-ID: <01090178463ea6ba-2c2a253f-2ced-4bf3-ad7b-076aa843e0ef-000000@ap-south-1.amazonses.com>
+Date: Thu, 18 Mar 2021 16:50:14 +0000
+Subject: Examination Invitation
+From: HireMee <donotreply@hiremee.co.in>
+To: dmugil2000@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-SES-Outgoing: 2021.03.18-76.223.180.104
+Feedback-ID: 1.ap-south-1.h+6pPi1Gk3V2J/04Wy3nSnzxmnsT11XUqfLADJN2LA8=:AmazonSES
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"u=
+rn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:o=
+ffice">
+  <head>
+    <!-- NAME: 1 COLUMN -->
+    <!--[if gte mso 15]>=
+
+    <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+   =
+   <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings=
+>
+    </xml>
+    <![endif]-->
+    <meta charset=3D"UTF-8">
+        =
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta=
+ name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1">
+=
+
+    <title>HireMee</title>
+       =20
+    <style type=3D"text/css">
+=
+      @import  url('https://fonts.googleapis.com/css?family=3DRoboto');
+ =
+   p{
+      margin:10px 0;
+      padding:0;
+    }
+    table{
+    =
+  border-collapse:collapse;
+    }
+    h1,h2,h3,h4,h5,h6{
+      displa=
+y:block;
+      margin:0;
+      padding:0;
+    }
+    img,a img{
+  =
+    border:0;
+      height:auto;
+      outline:none;
+      text-decor=
+ation:none;
+    }
+    body,#bodyTable,#bodyCell{
+      height:100%;=
+
+      margin:0;
+      padding:0;
+      width:100%;
+      backgroun=
+d: #EDEDED;
+      font-family: 'Roboto', sans-serif;
+    }
+    .mcnPr=
+eviewText{
+      display:none !important;
+    }
+    #outlook a{
+   =
+   padding:0;
+    }
+    img{
+      -ms-interpolation-mode:bicubic;
+=
+    }
+    table{
+      mso-table-lspace:0pt;
+      mso-table-rspace:0=
+pt;
+    }
+    .ReadMsgBody{
+      width:100%;
+    }
+    .External=
+Class{
+      width:100%;
+    }
+    p,a,li,td,blockquote{
+      mso-=
+line-height-rule:exactly;
+    }
+    a[href^=3Dtel],a[href^=3Dsms]{
+  =
+    color:inherit;
+      cursor:default;
+      text-decoration:none;
+=
+    }
+    p,a,li,td,body,table,blockquote{
+      -ms-text-size-adjust:1=
+00%;
+      -webkit-text-size-adjust:100%;
+    }
+    .ExternalClass,.E=
+xternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.Ex=
+ternalClass font{
+      line-height:100%;
+    }
+    a[x-apple-data-de=
+tectors]{
+      color:inherit !important;
+      text-decoration:none !i=
+mportant;
+      font-size:inherit !important;
+      font-family:inherit=
+ !important;
+      font-weight:inherit !important;
+      line-height:in=
+herit !important;
+    }
+    #bodyCell{
+      padding:10px;
+    }
+=
+    .templateContainer{
+      max-width:600px !important;
+    }
+    a=
+.mcnButton{
+      display:block;
+    }
+    .mcnImage,.mcnRetinaImage{=
+
+      vertical-align:bottom;
+    }
+    .mcnTextContent{
+      word=
+-break:break-word;
+    }
+    .mcnTextContent img{
+      height:auto !=
+important;
+    }
+    .mcnDividerBlock{
+      table-layout:fixed !impo=
+rtant;
+    }
+ =20
+    body{
+      background-color:#EDEDED;
+    }=
+
+    #bodyTable{
+      background-color:#FFFFFF;
+    }
+ =20
+    #bo=
+dyCell{
+      border-top:0;
+    }
+ =20
+    .templateContainer{
+    =
+  border:0;
+    }
+ =20
+    h1{
+      color:#202020;
+      font-fami=
+ly: 'Roboto', sans-serif;
+      font-size:26px;
+      font-style:normal=
+;
+      font-weight:bold;
+      line-height:125%;
+      letter-spacin=
+g:normal;
+      text-align:left;
+    }
+ =20
+    h2{
+      color:#20=
+2020;
+      font-family: 'Roboto', sans-serif;
+      font-size:22px;
+=
+      font-style:normal;
+      font-weight:bold;
+      line-height:125%=
+;
+      letter-spacing:normal;
+      text-align:left;
+    }
+ =20
+  =
+  h3{
+      color:#202020;
+      font-family: 'Roboto', sans-serif;
+ =
+     font-size:20px;
+      font-style:normal;
+      font-weight:bold;=
+
+      line-height:125%;
+      letter-spacing:normal;
+      text-alig=
+n:left;
+    }
+ =20
+    h4{
+      color:#333333;
+      font-family: =
+'Roboto', sans-serif;
+      font-size:20px;
+      font-style:normal;
+=
+      font-weight:bold;
+      line-height:125%;
+      letter-spacing:no=
+rmal;
+      text-align:left;
+    }
+ =20
+    #templatePreheader{
+   =
+   background-color:#FAFAFA;
+      background-image:none;
+      backgro=
+und-repeat:no-repeat;
+      background-position:center;
+      backgroun=
+d-size:cover;
+      border-top:0;
+      border-bottom:0;
+      paddin=
+g-top:9px;
+      padding-bottom:9px;
+    }
+ =20
+    #templatePreheade=
+r .mcnTextContent,#templatePreheader .mcnTextContent p{
+      color:#6565=
+65;
+      font-family:Helvetica;
+      font-size:12px;
+      line-hei=
+ght:150%;
+      text-align:left;
+    }
+ =20
+    #templatePreheader .m=
+cnTextContent a,#templatePreheader .mcnTextContent p a{
+      color:#6565=
+65;
+      font-weight:normal;
+      text-decoration:underline;
+    }=
+
+ =20
+    #templateHeader{
+      background-color:#FFFFFF;
+      back=
+ground-image:none;
+      background-repeat:no-repeat;
+      background-=
+position:center;
+      background-size:cover;
+      border-top:0;
+   =
+   border-bottom:0;
+      padding-bottom:0;
+    }
+ =20
+    #templateH=
+eader .mcnTextContent,#templateHeader .mcnTextContent p{
+      color:#202=
+020;
+      font-family:Helvetica;
+      font-size:16px;
+      line-he=
+ight:150%;
+      text-align:left;
+    }
+ =20
+    #templateHeader .mcn=
+TextContent a,#templateHeader .mcnTextContent p a{
+      color:#2BAADF;=
+
+      font-weight:normal;
+      text-decoration:underline;
+    }
+ =
+=20
+    #templateBody{
+      background-color:#FFFFFF;
+      background=
+-image:none;
+      background-repeat:no-repeat;
+      background-positi=
+on:center;
+      background-size:cover;
+      border-top:0;
+      bor=
+der-bottom:2px solid #EAEAEA;
+      padding-top:0;
+      padding-bottom=
+:9px;
+    }
+ =20
+    #templateBody .mcnTextContent,#templateBody .mcnTe=
+xtContent p{
+      color:#202020;
+      font-family: 'Roboto', sans-ser=
+if;
+      font-size:16px;
+      line-height:150%;
+      text-align:le=
+ft;
+    }
+ =20
+    #templateBody .mcnTextContent a,#templateBody .mcnTe=
+xtContent p a{
+      color:#2BAADF;
+      font-weight:normal;
+      t=
+ext-decoration:underline;
+    }
+ =20
+    #templateFooter{
+      backg=
+round-color:#ffffff;
+      background-image:none;
+      background-repe=
+at:no-repeat;
+      background-position:center;
+      background-size:c=
+over;
+      border-top:0;
+      border-bottom:0;
+      padding-top:9p=
+x;
+      padding-bottom:0;
+    }
+ =20
+    #templateFooter .mcnTextCon=
+tent,#templateFooter .mcnTextContent p{
+      color:#656565;
+      font=
+-family: 'Roboto', sans-serif;
+      font-size:12px;
+      line-height:=
+150%;
+      text-align:center;
+    }
+ =20
+    #templateFooter .mcnTex=
+tContent a,#templateFooter .mcnTextContent p a{
+      color:#656565;
+  =
+    font-weight:normal;
+      text-decoration:underline;
+    }
+  @med=
+ia  only screen and (min-width:768px){
+    .templateContainer{
+      wi=
+dth:600px !important;
+    }
+
+} @media  only screen and (max-width: 48=
+0px){
+    body,table,td,p,a,li,blockquote{
+      -webkit-text-size-adju=
+st:none !important;
+    }
+
+} @media  only screen and (max-width: 480p=
+x){
+    body{
+      width:100% !important;
+      min-width:100% !impo=
+rtant;
+    }
+
+} @media  only screen and (max-width: 480px){
+    #bo=
+dyCell{
+      padding-top:10px !important;
+    }
+
+} @media  only sc=
+reen and (max-width: 480px){
+    .mcnRetinaImage{
+      max-width:100% =
+!important;
+    }
+
+} @media  only screen and (max-width: 480px){
+  =
+  .mcnImage{
+      width:100% !important;
+    }
+
+} @media  only scr=
+een and (max-width: 480px){
+    .mcnCartContainer,.mcnCaptionTopContent,.=
+mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.m=
+cnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftT=
+extContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftIma=
+geContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftT=
+extContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLef=
+tImageContentContainer,.mcnImageCardRightImageContentContainer{
+      max=
+-width:100% !important;
+      width:100% !important;
+    }
+
+} @medi=
+a  only screen and (max-width: 480px){
+    .mcnBoxedTextContentContainer{=
+
+      min-width:100% !important;
+    }
+
+} @media  only screen and =
+(max-width: 480px){
+    .mcnImageGroupContent{
+      padding:9px !impor=
+tant;
+    }
+
+} @media  only screen and (max-width: 480px){
+    .mcn=
+CaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTe=
+xtContent{
+      padding-top:9px !important;
+    }
+
+} @media  only =
+screen and (max-width: 480px){
+    .mcnImageCardTopImageContent,.mcnCapti=
+onBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockIn=
+ner .mcnCaptionTopContent:last-child .mcnTextContent{
+      padding-top:1=
+8px !important;
+    }
+
+} @media  only screen and (max-width: 480px){=
+
+    .mcnImageCardBottomImageContent{
+      padding-bottom:9px !importa=
+nt;
+    }
+
+} @media  only screen and (max-width: 480px){
+    .mcnIm=
+ageGroupBlockInner{
+      padding-top:0 !important;
+      padding-botto=
+m:0 !important;
+    }
+
+} @media  only screen and (max-width: 480px){=
+
+    .mcnImageGroupBlockOuter{
+      padding-top:9px !important;
+    =
+  padding-bottom:9px !important;
+    }
+
+} @media  only screen and (ma=
+x-width: 480px){
+    .mcnTextContent,.mcnBoxedTextContentColumn{
+      =
+padding-right:18px !important;
+      padding-left:18px !important;
+    =
+}
+
+} @media  only screen and (max-width: 480px){
+    .mcnImageCardLef=
+tImageContent,.mcnImageCardRightImageContent{
+      padding-right:18px !i=
+mportant;
+      padding-bottom:0 !important;
+      padding-left:18px !i=
+mportant;
+    }
+
+} @media  only screen and (max-width: 480px){
+    =
+.mcpreview-image-uploader{
+      display:none !important;
+      width:1=
+00% !important;
+    }
+
+} @media  only screen and (max-width: 480px){=
+
+ =20
+    h1{
+      font-size:32px !important;
+      line-height:125%=
+ !important;
+    }
+
+} @media  only screen and (max-width: 480px){
+ =
+=20
+    h2{
+      font-size:24px !important;
+      line-height:125% !im=
+portant;
+    }
+
+} @media  only screen and (max-width: 480px){
+ =20
+=
+    h3{
+      font-size:22px !important;
+      line-height:125% !import=
+ant;
+    }
+
+} @media  only screen and (max-width: 480px){
+ =20
+    =
+h4{
+      font-size:20px !important;
+      line-height:150% !important;=
+
+    }
+
+} @media  only screen and (max-width: 480px){
+ =20
+    .mcn=
+BoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentContainer .mc=
+nTextContent p{
+      font-size:14px !important;
+      line-height:150%=
+ !important;
+    }
+
+} @media  only screen and (max-width: 480px){
+ =
+=20
+    #templatePreheader{
+      display:block !important;
+    }
+
+=
+} @media  only screen and (max-width: 480px){
+ =20
+    #templatePreheader=
+ .mcnTextContent,#templatePreheader .mcnTextContent p{
+      font-size:14=
+px !important;
+      line-height:150% !important;
+    }
+
+} @media  =
+only screen and (max-width: 480px){
+ =20
+    #templateHeader .mcnTextCont=
+ent,#templateHeader .mcnTextContent p{
+      font-size:16px !important;=
+
+      line-height:150% !important;
+    }
+
+} @media  only screen an=
+d (max-width: 480px){
+ =20
+    #templateBody .mcnTextContent,#templateBod=
+y .mcnTextContent p{
+      font-size:16px !important;
+      line-height=
+:150% !important;
+    }
+
+} @media  only screen and (max-width: 480px)=
+{
+ =20
+    #templateFooter .mcnTextContent,#templateFooter .mcnTextConten=
+t p{
+      font-size:14px !important;
+      line-height:150% !important=
+;
+    }
+
+}</style></head>
+
+    <body>
+    <span class=3D"mcnPre=
+viewText" style=3D"display:none; font-size:0px; line-height:0px; max-height=
+:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hid=
+e:all;">HireMee</span>
+        <center>
+            <table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" width=
+=3D"100%" id=3D"bodyTable">
+                <tr>
+                    <t=
+d align=3D"center" valign=3D"top" id=3D"bodyCell">
+                      =
+  <!-- BEGIN TEMPLATE // -->
+            <!--[if (gte mso 9)|(IE)]>
+   =
+         <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"600" style=3D"width:600px;">
+            <tr>
+         =
+   <td align=3D"center" valign=3D"top" width=3D"600" style=3D"width:600px;"=
+>
+            <![endif]-->
+                    =20
+                    =
+
+                        <table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" class=3D"templateContainer">
+                     =
+       <tr>
+                                <td valign=3D"top" id=3D"temp=
+lateHeader">
+                  <table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" class=3D"mcnImageBlock" style=3D"min-width:100=
+%;">
+                      <tbody class=3D"mcnImageBlockOuter">
+       =
+                     <tr>
+                                <td valign=3D"t=
+op" style=3D"padding:0px" class=3D"mcnImageBlockInner">
+                 =
+                   <table align=3D"left" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=3D"m=
+in-width:100%;">
+                                        <tbody>
+      =
+                                    <tr>
+                                =
+              <td class=3D"mcnImageContent" valign=3D"top" style=3D"padding=
+-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-ali=
+gn:center;">
+                                                  <a href=3D=
+"#">
+                                                    <img align=3D"ce=
+nter" alt=3D"HireMee" src=3D"https://hiremee.co.in/assets/images/email/hire=
+mee_header_1.jpg" width=3D"600" style=3D"padding-bottom: 0; display: inline=
+ !important; vertical-align: bottom;" class=3D"mcnImage">
+               =
+                                   </a>
+                                 =
+             </td>
+                                          </tr>
+    =
+                                  </tbody>
+                              =
+    </table>
+                                </td>
+                    =
+        </tr>
+                      </tbody>
+                  </table>=
+
+
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"mcnDividerBlock" style=3D"min-width:100%;">=
+
+                      <tbody class=3D"mcnDividerBlockOuter">
+         =
+                 <tr>
+                              <td class=3D"mcnDivid=
+erBlockInner" style=3D"min-width:100%; padding:18px;">
+                  =
+                <table class=3D"mcnDividerContent" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;">
+     =
+                                 <tbody><tr>
+                            =
+              <td>
+                                              <h4>Hi, =
+Welcome to HireMee Pro!</h4>
+                                          </=
+td>
+                                      </tr>
+                       =
+           </tbody></table>
+                              </td>
+       =
+                   </tr>
+                      </tbody>
+               =
+   </table>
+                </td>
+                            </tr>
+ =
+                           <tr>
+                                <td valig=
+n=3D"top" id=3D"templateBody">
+                                  <table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcn=
+TextBlock" style=3D"min-width:100%;">
+                      <tbody class=
+=3D"mcnTextBlockOuter">
+                          <tr>
+                =
+              <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddi=
+ng-top:9px;padding-bottom: 8px;">
+                                <!--[if=
+ mso]>
+                        <table align=3D"left" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"width:100%;">
+      =
+                  <tr>
+                        <![endif]-->
+           =
+              =20
+                        <!--[if mso]>
+                 =
+       <td valign=3D"top" width=3D"600" style=3D"width:600px;">
+         =
+               <![endif]-->
+                       =20
+                  =
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%; min-width:100%;" width=3D"100%" class=
+=3D"mcnTextContentContainer">
+                                      <tbod=
+y>
+                                          <tr>
+                     =
+                       <td valign=3D"top" class=3D"mcnTextContent" style=3D=
+"padding-top:0; padding-right:18px; padding-bottom:5px; padding-left:18px;"=
+>
+                         =20
+                                          =
+You have been invited by <strong> Jindal Steel and Power </strong> for taki=
+ng an assessment.=20
+
+                                           <br>
+ =
+                                          Your Test Pin : <strong> I662331 =
+    </strong>
+                                            </td>
+       =
+                                   </tr>
+                                =
+           <tr>
+                                            <td valign=3D=
+"top" class=3D"mcnTextContent" style=3D"padding-top:0; padding-right:18px; =
+padding-bottom:9px; padding-left:18px;">
+                         =20
+   =
+                                         </td>
+                          =
+                </tr>
+
+                                          <tr>=
+
+                                            <td valign=3D"top" class=3D"=
+mcnTextContent" style=3D"padding-top:0; padding-right:18px; padding-bottom:=
+9px; padding-left:18px;">
+                                               =
+<br>
+                                             =20
+                   =
+                                                               </td>
+    =
+                                      </tr>
+                             =
+             <tr>
+                                             <td valign=
+=3D"top" class=3D"mcnTextContent" style=3D"padding-top:0; padding-right:18p=
+x; padding-bottom:9px; padding-left:18px;">
+                         =20
+=
+The assessment is valid between 08:00 hrs IST 19 March, 2021 to 23:59 hrs I=
+ST 19 March, 2021. <br>
+
+All instructions related to test coverage, tes=
+t duration and test format will be available at the beginning of the assess=
+ment.
+
+                                            </td>
+            =
+                              </tr>
+
+                                  =
+        <tr>
+                                            <td valign=3D"to=
+p" class=3D"mcnTextContent" style=3D"padding-top:0; padding-right:18px; pad=
+ding-bottom:9px; padding-left:18px;">
+                         =20
+      =
+                                          <!-- <a href=3D"" style=3D"paddin=
+g-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; c=
+olor: #ffffff; text-decoration: none; background: #0085B6;">Accept Invitati=
+on</a> -->
+
+                                                Click <a hr=
+ef=3D"https://proassess.hiremee.co.in" target=3D"_blank">here</a> to start =
+a Assessment. <br>
+
+                                                <st=
+rong> Good luck with your test! </strong>
+                               =
+             </td>
+                                          </tr>
+
+ =
+                                         <tr>
+                           =
+                 <td valign=3D"top" class=3D"mcnTextContent" style=3D"paddi=
+ng-top:16px; padding-right:18px; padding-bottom:24px; padding-left:18px;fon=
+t-weight: 600;">
+                                              Regards,<b=
+r>Team HireMee
+                                            </td>
+      =
+                                    </tr>
+                               =
+           =20
+                                    </tbody>
+             =
+                   </table>
+                                             =
+           </td>
+                          </tr>
+                      =
+   =20
+                      </tbody>
+                  </table>
+      =
+          </td>
+                            </tr>
+
+
+               =
+            =20
+
+                            <tr>
+                     =
+           <td valign=3D"top" id=3D"templateFooter">
+                    =
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"mcnTextBlock" style=3D"min-width:100%;">
+             =
+         <tbody class=3D"mcnTextBlockOuter">
+                        <tr>=
+
+                          <td valign=3D"top" class=3D"mcnTextBlockInner"=
+ style=3D"padding-top:4px;">
+                                  <!--[if ms=
+o]>
+                          <table align=3D"left" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"width:100%;">
+       =
+                   <tr>
+                          <![endif]-->
+        =
+                   =20
+                          <!--[if mso]>
+          =
+                <td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=
+                          <![endif]-->
+                                  =
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"max-width:100%; min-width:100%;" width=3D"100%" class=3D"mcnTextConten=
+tContainer">
+                                      <tbody><tr>
+        =
+                                  <td valign=3D"top" class=3D"mcnTextConten=
+t" style=3D"padding-top:0; padding-right:18px; padding-bottom:4px; padding-=
+left:18px; text-align: center; font-size: 12px;">
+                       =
+                     HireMee, a unit of Karpaga Assessment App Matrix Servi=
+ces Pvt. Ltd<br>Seeths Complex, No. 483, HBCS Homes Layout,<br>18th Main Ro=
+ad, Rajarajeswari Nagar, Bangalore - 560098
+                             =
+             </td>
+                                        </tr>
+      =
+                              </tbody>
+                                </=
+table>
+                          <!--[if mso]>
+                        =
+  </td>
+                          <![endif]-->
+                        =
+         =20
+                          <!--[if mso]>
+                    =
+      </tr>
+                          </table>
+                        =
+  <![endif]-->
+                              </td>
+                    =
+       =20
+                          </tr>
+                          <tr>=
+
+                              <td valign=3D"top" class=3D"mcnTextBlockIn=
+ner" style=3D"padding-top:9px;">
+                                  <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"m=
+ax-width:100%; min-width:100%;" width=3D"100%" class=3D"mcnTextContentConta=
+iner">
+                                      <tbody><tr>
+              =
+                            <td valign=3D"top" class=3D"mcnTextContent" sty=
+le=3D"padding-top:0; padding-right:18px; padding-bottom:0; padding-left:18p=
+x; border-bottom: 5px solid #A3D444;">
+                                  =
+        </td>
+                                        </tr>
+           =
+                         </tbody>
+                                </table=
+>
+                              </td>
+                          </tr>=
+
+                          <tr>
+                              <td valig=
+n=3D"top" class=3D"mcnTextBlockInner" >
+                                 =
+ <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"max-width:100%; min-width:100%;" width=3D"100%" class=3D"mcnTextConte=
+ntContainer">
+                                      <tbody><tr>
+       =
+                                 <td valign=3D"top" class=3D"mcnTextContent=
+" style=3D"padding-top:8px; padding-right:0; padding-bottom:8px; padding-le=
+ft:0; background: #EDEDED; text-align: left; color: #000000; font-size: 14p=
+x; font-weight: 600; vertical-align: middle;">
+                          =
+                  Follow us on&nbsp;
+                                    =
+      </td>
+                                          <td valign=3D"top" =
+class=3D"mcnTextContent" style=3D"padding-top:8px; padding-right:18px; padd=
+ing-bottom:8px; padding-left:0; background: #EDEDED; text-align: left; colo=
+r: #000000; font-size: 14px; font-weight: 500; vertical-align: middle;">
+=
+                                          <a href=3D"https://www.linkedin.c=
+om/authwall?trk=3Dgf&trkInfo=3DAQF8EPwtgR3FRgAAAWZmvKT4REy4x8ooh7io8121UTHp=
+pTvyS_Jjy2blPj7BcZt2zQVjRl1w_nGhLdSPcwmAl1cbkop23x58RuZqVEezbUqcHUSxtMpQJDD=
+4tvdw-JDW5emUIRE=3D&originalReferer=3D&sessionRedirect=3Dhttps%3A%2F%2Fwww.=
+linkedin.com%2Fcompany%2Fhire-mee"><img src=3D"https://hiremee.co.in/assets=
+/images/linkedin.png"></a>
+                                            <a=
+ href=3D"https://twitter.com/Hiremeeinc"><img src=3D"https://hiremee.co.in/=
+assets/images/twitter.png"></a>
+                                         =
+   <a href=3D"https://www.facebook.com/hiremeeinc/"><img src=3D"https://hir=
+emee.co.in/assets/images/facebook.png"></a>
+                             =
+               <a href=3D"https://plus.google.com/+HiremeeInc"><img src=3D"=
+https://hiremee.co.in/assets/images/google_plus.png"></a>
+               =
+                           </td>
+                                        =
+  <td valign=3D"top" class=3D"mcnTextContent" style=3D"padding-top:8px; pad=
+ding-right:0; padding-bottom:8px; padding-left:18px; background: #EDEDED; t=
+ext-align: right;color: #838481;">
+                                      =
+      Copyright =C2=A9 2021 HireMee, All rights reserved
+                =
+                          </td>
+                                        <=
+/tr>
+                                    </tbody>
+                     =
+           </table>
+                              </td>
+               =
+           </tr>
+                      </tbody>
+                  </tab=
+le>
+                </td>
+                            </tr>
+         =
+               </table>
+
+                    </td>
+                </=
+tr>
+            </table>
+        </center>
+    </body>
+</html>
+

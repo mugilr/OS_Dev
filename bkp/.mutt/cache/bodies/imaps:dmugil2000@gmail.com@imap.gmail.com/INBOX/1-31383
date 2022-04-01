@@ -1,0 +1,168 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp4710895ejk;
+        Tue, 2 Mar 2021 06:27:12 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx5mJY6SIW3q8MhyuhG0N+9UYZ/tBPa9rVUHw1ZJabC1jyBL+W1sumxcqE+Eu0573Uveq54
+X-Received: by 2002:a02:694b:: with SMTP id e72mr379676jac.89.1614695232162;
+        Tue, 02 Mar 2021 06:27:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614695232; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ppQFeUYGq/Nb62b2tR0UrlKkdNyvVLpTkPbezaTOdcEjV4b7jgT4/S2NZd8t+zfTXt
+         yEpS/4qxu+4pamCEjoXe47fjFGxwI2VAYCjV4rsfFzsL1S741MTwj34gec1yuwAB1PC6
+         ++3yKgBc/0YJVI5cgU/CMBtCVLG1/HEyLTFowhFvb4DtttV6LZUd2DJP+IETKC9Cj6PM
+         ZiLUfsICP2VHOURn8Q/jncwdnSigKVHVjmYNXU0iViIE+NQ63RpyB9RNN4Rsq9VMT8gW
+         2Kfv8xkTE/nXyPRwahvDoSbcmuHOyggOZf1ecWLZQBTxgVHvzH5kZkCtnhMUl1l5uYFc
+         sOvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:message-id:to:reply-to:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=u+xHHtMKUKzAg1w1aM3CV1fwn7RDMIKiFnrWH6WAArI=;
+        b=F07kkVkWIdkvfyZRZavzoTlQAA6mOipcqMMgEi6X59VMgoUueXy5YscPR3/xpRI6Nu
+         NyUj0Kb8LO2BeLljSuwylY2gPHRHu1MhbIa/6UltY3/z3LoYm2hFBoGEDWuhFuPwuky9
+         284W3nxNZX/69fUh4DLgQM6YSMZoapaOcsfLi1NtTeaC1xq6V51CAjAZzLKRPZH0F7nv
+         K21Un6pX/3vgoj81sA3CW2ig2i/IGZo0sBC4h2vSndrMFiaYCNfljvE3sQfK7uZ8wKWE
+         4vF2OB5KnX223U2QMgfiME3qpNSmfppBXrlFu+aNtSHTi/3/bg/GLYS3Kl+ysFex4uuG
+         FshQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@zoom.us header.s=sg header.b=XorlMd8w;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=OXVJR+Pf;
+       spf=pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.249.102 as permitted sender) smtp.mailfrom="bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us
+Return-Path: <bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us>
+Received: from o6.sg.zoom.us (o6.sg.zoom.us. [149.72.249.102])
+        by mx.google.com with ESMTPS id n82si9308947iod.64.2021.03.02.06.27.11
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 02 Mar 2021 06:27:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.249.102 as permitted sender) client-ip=149.72.249.102;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@zoom.us header.s=sg header.b=XorlMd8w;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=OXVJR+Pf;
+       spf=pass (google.com: domain of bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us designates 149.72.249.102 as permitted sender) smtp.mailfrom="bounces+15570388-09fb-dmugil2000=gmail.com@bounce-sg.zoom.us";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zoom.us; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject; 
+	s=sg; bh=u+xHHtMKUKzAg1w1aM3CV1fwn7RDMIKiFnrWH6WAArI=; b=XorlMd8
+	w1TggMG8voFLPnc+Tg8HLl9ADiSpqnWa5cRXn8pW5/AUb1kP9Ok1HkX/82zWNE7r
+	+erCk7dQgnR0KpnwWdlRTyIVdRJcHHZ9T/0fGAofzfrSr7c7YUL4B5Nz8HZjO6bt
+	Q/mdDQmG9S1xnX1tZclmnaEdYPkJ+w18wgOgQ5fCt3inqvLm4Pb+RxYrZNM3UPC1
+	8aVFbaKZozZBmROYHiQQLayXem7CQEFUvFavm70yAWjzde70mVieyv3H3pLWuSKR
+	1vGu6KVlwGza7t91ExdRVh8Fi4spRL3AW/iM+Ntp/FRhXrz/6H+j525eCGZI33fb
+	8v6dMvxNRlTIlLA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-transfer-encoding:content-type:from:mime-version:reply-to:to:subject:x-feedback-id; 
+	s=smtpapi; bh=u+xHHtMKUKzAg1w1aM3CV1fwn7RDMIKiFnrWH6WAArI=; b=OX
+	VJR+PfMTcHqynlua8+DntiFJ+cBe76wA68hc3KGczEUC4bGZuNWJPycmRzxn1fyc
+	OZ0gdhmHvduP5eehJmohf9h5vi7RZnadGAJ0Oh1Z+KIPx5P/pL6ReZXteHcYSKVn
+	NSjd9gdXINWbqFoZVufabMnQraFeOJK6rulpp1qFg=
+Received: by filter2730p1mdw1.sendgrid.net with SMTP id filter2730p1mdw1-10082-603E4B3E-3C
+        2021-03-02 14:27:10.469807123 +0000 UTC m=+11621.805664125
+Received: from MTU1NzAzODg (unknown)
+	by ismtpd0136p1mdw1.sendgrid.net (SG) with HTTP id o7xlZTX3TKCUszNuqYr6wg
+	Tue, 02 Mar 2021 14:27:10.442 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 02 Mar 2021 14:27:10 +0000 (UTC)
+From: "The Linux Foundation Webinar" <no-reply@zoom.us>
+Mime-Version: 1.0
+Reply-to: "The Linux Foundation Webinar" <lf-events-webinar@linuxfoundation.org>
+To: dmugil2000@gmail.com
+Message-ID: <o7xlZTX3TKCUszNuqYr6wg@ismtpd0136p1mdw1.sendgrid.net>
+Subject: Reminder: LF Live Mentorship Session: Fuzzing Linux Kernel starts in 1 hour
+X-SG-EID: 8cHo1McgdtsgsC/v+00RjBch0nZ0lYxprs9RXAE8SB2fHQb5C2MO7pDyUxhMlppzHCERZhzHl6wBVC
+ T+TLgXrwWtsFMhG0MvH3uVtJqXdm18yKx/hclkZQM1ZjWZmv+hx5ilVqVrvG6sR+8QClgS5Ivhkc5U
+ 8ln7Jc2LZ1Wy/pO/QS6aEHkxpMwPMTpXdZOnvHJ7edifpJdxlnPS34Rp2Yh0STM8IZI7QPJ6CDYyrp
+ LskzqVC/ZSGvCu1mi3v1T7
+X-SG-ID: FQe39T3hAAZVe+nLebR7eFziHc1ui6nwWhWwnCcFouNf/1EwQYUY4MnB3FILt1Bc40PVIMGV+PJNUn
+ e2MbEnIivaVngEd69NcKz8EXTM93E6OIPP+Aj15TilaLgUpN7xwwbEPPD7xs6v3g/jRCrMHbmzKWPZ
+ Za3vtGOo9zg070Aj8lXRN+1U773StcX2S/jKWrOlq2Gv2v2z7bR+WQlph/V9P8EASP+FsZ3iCnRDrj
+ ovuZ9KVhudtAEARP8PQNzs7tmkuqFjiWdbv5dqT4MVT2DTR49oAqgTArm7oibDh4iLxKqJ9a/BE3Iw
+ iULrRuDl1GKDUwyKfk7WgvKq5KFJunglFJZ2sE58BGDUEjnF0WBCtVmtiTCjm6GclP766XVvZKmd21
+ MZSY+JICS3AI+IJbx7NMCX9yRoaLxWcQriMinuxR9IkaulECoZVoR4Bxfz9psnI+qL2i33M9s52D9Z
+ VN5Eb41ONoWrlfOf7B+HlfFAtLBxj08nXNd1btlPrGK5oTE4U3zDjQ/jTaxV/fR44w==
+X-Entity-ID: mDhfxq9OikvIkQieTwdfQA==
+X-Feedback-ID: 15570388:Uurqdr1pO8QgovenBUEXF3ujE2ekchWZ5iORBorzPoE=:krrYOOMEqrEKI/iBXlM1oYef1uZ1eJ2Sc/dS1G3fUEY=:SG
+
+<html>
+<head>
+	<style>
+	html,body{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 14px;
+		line-height: 22px;
+	}
+	.custom_logo {
+		margin: 0 auto;
+		max-width:640px;
+	}
+	.img-responsive {
+		display: block;
+		height: auto;
+		max-height: 200px;
+		align: middle;
+	}
+	.custom_image {
+		float: right;
+		margin: 10px 0 10px 10px;
+		max-width:100px;
+	}
+	.cssTab{
+	    margin-left:24px;
+	}
+	</style>
+	<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />
+</head>
+<body>=20
+<table style=3D"width:100%;background-color:#fff">
+<tr>
+	<td  >Hi MUGILRAJ D, <br>
+<br>
+This is a reminder that "LF Live Mentorship Session: Fuzzing Linux Kernel" =
+will begin in 1 hour on:<br>
+	Date Time: Mar 2, 2021 07:30 AM Pacific Time (US and Canada) <br>
+<br>
+Join from a PC, Mac, iPad, iPhone or Android device: <br>
+<div class=3D"cssTab">
+    <a href=3D"https://zoom.us/w/92635285312?tk=3DEBHAcUT6Z4mkQ66JbAwJLGYmb=
+veim99oW1lSwmFrTpA.DQIAAAAVkX5HQBY2bGhVeEhJMFE3R3pvc0wyM25UVURRAAAAAAAAAAAA=
+AAAAAAAAAAAAAAAA&pwd=3Da3NjRGVtaEtBNEF6ODVpdTRPNU1ZZz09&uuid=3DWN_ys_2SHOpS=
+cSfkhh4phI98Q">Click Here to Join</a>  <br>
+    Note: This link should not be shared with others; it is unique to you.<=
+br>
+		Passcode: 895241<br>
+    	<a href=3D"https://zoom.us/webinar/tJYrdOyqpj4pG9ZrLOxnRW4pKeEUCuEfr_R=
+0/ics?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=3Dicalendar">Add to Calendar</a=
+> &nbsp;  <a href=3D"https://zoom.us/webinar/tJYrdOyqpj4pG9ZrLOxnRW4pKeEUCu=
+Efr_R0/calendar/google/add?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=3Dgoogle">=
+Add to Google Calendar</a> &nbsp;  <a href=3D"https://zoom.us/webinar/tJYrd=
+Oyqpj4pG9ZrLOxnRW4pKeEUCuEfr_R0/ics?user_id=3D6lhUxHI0Q7GzosL23nTUDQ&type=
+=3Dyahoo">Add to Yahoo Calendar</a>
+</div>
+<br>
+	Or join by phone:=20
+	<div class=3D"cssTab">
+		<br>US: +1 312 626 6799  or +1 346 248 7799  or +1 669 900 6833  or +1 92=
+9 205 6099  or +1 253 215 8782  or +1 301 715 8592=20
+		<br>
+    	Webinar ID: 926 3528 5312 <br>
+    	International numbers available: <a href=3D"https://zoom.us/u/aea9rNFP=
+dC">https://zoom.us/u/aea9rNFPdC</a>
+	</div>
+	<br>
+
+
+<br>
+<br>
+<br>
+		You can <a href=3D"https://zoom.us/webinar/register/tJYrdOyqpj4pG9ZrLOxnR=
+W4pKeEUCuEfr_R0/success?act=3Dcancel&user_id=3D6lhUxHI0Q7GzosL23nTUDQ" targ=
+et=3D"_blank">cancel</a> your registration at any time.<br>
+</td>=09
+</tr>
+
+<tr style=3D"height:40px">
+	<td>&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>=

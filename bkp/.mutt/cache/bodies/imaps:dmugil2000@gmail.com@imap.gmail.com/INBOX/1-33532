@@ -1,0 +1,55 @@
+Return-Path: <dmugil2000@gmail.com>
+Received: from localhost.localdomain ([2409:4072:188:d7b2:ea47:4575:ff46:5465])
+        by smtp.googlemail.com with ESMTPSA id b17sm21425112pgl.61.2021.08.09.00.58.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Aug 2021 00:58:21 -0700 (PDT)
+From: Mugilraj Dhavachelvan <dmugil2000@gmail.com>
+To: Dragos.Bogdan@analog.com,
+	Darius.Berghe@analog.com,
+	Rob Herring <robh+dt@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Mugilraj Dhavachelvan <dmugil2000@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandru Ardelean <alexandru.ardelean@analog.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org
+Subject: [PATCH v2 0/2] iio: potentiometer: Add driver support for AD5110
+Date: Mon,  9 Aug 2021 13:27:18 +0530
+Message-Id: <20210809075745.160042-1-dmugil2000@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Add dt-bindings and driver support for AD5110, a Nonvolatile 
+Digital Potentiometer.
+
+Changes since v1:
+ - Drop 'shared_by_type' since it's a single channel
+ - Add error check for i2c read/write data bytes
+ - Simplified calculation for tolerance
+ - Add shift for eeprom wiper pos read
+ - Change new custom ABI to existing ABI
+ - Allow top-scale mode by writting max_pos to val
+
+Mugilraj Dhavachelvan (2):
+  dt-bindings: iio: potentiometer: Add AD5110 in trivial-devices
+  iio: potentiometer: Add driver support for AD5110
+
+ .../devicetree/bindings/trivial-devices.yaml  |   2 +
+ MAINTAINERS                                   |   6 +
+ drivers/iio/potentiometer/Kconfig             |  10 +
+ drivers/iio/potentiometer/Makefile            |   1 +
+ drivers/iio/potentiometer/ad5110.c            | 339 ++++++++++++++++++
+ 5 files changed, 358 insertions(+)
+ create mode 100644 drivers/iio/potentiometer/ad5110.c
+
+-- 
+2.25.1
+

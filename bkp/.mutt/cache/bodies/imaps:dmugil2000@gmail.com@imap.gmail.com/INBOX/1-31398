@@ -1,0 +1,1303 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp5369472ejk;
+        Wed, 3 Mar 2021 01:07:23 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzy5Dtn+I8DCCSlQfgbFX+jeHgySaAEHg6s6qgyUqJG5N9eXwlQ3dTgTWgr/wd+l28tRLW7
+X-Received: by 2002:a05:622a:294:: with SMTP id z20mr3023719qtw.92.1614762442821;
+        Wed, 03 Mar 2021 01:07:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614762442; cv=none;
+        d=google.com; s=arc-20160816;
+        b=lbZJaghR8r8NLMwzKKcYkbfWR6mRrEr7ieS5lg2eYyKuFZbXfVCNYmJe2bz2yFbF9Q
+         ++u4Tt6zbiAUbNU/P/2BG7ryjwsga4+u0wm/vTo4HEsulnZZXIDe3/F468A0h1h57LCs
+         JyxKdXpR8PozBDtjR8vvomWVe/d5EZXbtQ7bSLpl21l47nnuG7W0UXmPS43JhmpUY2Rt
+         4ZjbTjcTwm9/ue8TktafJvEmY2uf3gBMnQd499LL+PFxJZ7lF6M0Ice4cgNJwOv4/Wpi
+         M5TqlZx6ciDDKIMH8oaGm+Uhh34x6snIY+gVu+znOrIqzX4fUvGmb/of0ZGV/5N0KaiB
+         9Igw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:list-unsubscribe:subject:to:from:mime-version
+         :dkim-signature;
+        bh=RMFiXj66vc/BCgDq+fCX7/ulNPpZZxcz2WQkfG4w5ng=;
+        b=EUTo+nbeAjsffleno7VYBTFffKmf+ylibKj8PJyhTCB+pYx10ycfPkptkCeDkWv0FJ
+         RLtEOiBXkkK1g8eIp2PCdC3QY9xOObUyfjegAAG9GDXy5CQg7ny9R8GHgcZNg7p0OsqQ
+         brM11k+75/IVbzF7yWBkDeQcGdPRlIfGdzeSUIYSP6jOvNvbilF84NnGwdP4jgxSePD+
+         urewJFBZDPU8NiGCfTdiYgcshh1bv6dgorrXSMn7eb2yYDDAmNXv36ba3aYgpellwofF
+         P+osd0Zx8Z2bCAWJZ6G8puEfGLU/MfxD0rpsTJbBoLYvzMATvzbNmJwJdLURKH/ZmVNz
+         hdpw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@quora.com header.s=pigeon header.b=TSO6OuxM;
+       spf=pass (google.com: domain of noreply@quora.com designates 52.86.211.29 as permitted sender) smtp.mailfrom=noreply@quora.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=quora.com
+Return-Path: <noreply@quora.com>
+Received: from o14.pigeon.quora.com (o14.pigeon.quora.com. [52.86.211.29])
+        by mx.google.com with ESMTPS id t14si12548087qtq.122.2021.03.03.01.07.22
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 03 Mar 2021 01:07:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@quora.com designates 52.86.211.29 as permitted sender) client-ip=52.86.211.29;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@quora.com header.s=pigeon header.b=TSO6OuxM;
+       spf=pass (google.com: domain of noreply@quora.com designates 52.86.211.29 as permitted sender) smtp.mailfrom=noreply@quora.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=quora.com
+Received: 
+	by pigeon-at-10022 (OpenSMTPD) with ESMTP id dee9b608
+	for <dmugil2000@gmail.com>;
+	Wed, 3 Mar 2021 09:07:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=quora.com; h=
+	content-type:mime-version:from:to:subject:list-unsubscribe:date
+	:message-id; s=pigeon; bh=pmXjCoyDzA6NMpGkns4+Scp74jc=; b=TSO6Ou
+	xM7koRC9b0x7EUREBHmRZO7l+GrnuzfzpzzHzLSjZW3P+XPW1KLlcvx1jy3k13A4
+	DA40Z1PhKDWhbWZx74s++sFyGY5tNs6KLqCFKCCtXDXs4PsH0sTJgtHjqKs7zg/k
+	a541MIbtGE6fQBAAtF+nJCsBO5zCJpxOVFtgid+K2HbP+ZomldHUQn4PE7pUT0UY
+	NV05WFp77uvLL7Sh9ze+sTHNwR2kKlq2x/C0m/vtZJVCJy2kmkqR27+M6iln+Rat
+	zj7jFQguTGc9mJUTf8G+j3/4pD1eY9briVga+Omg91ONacCdCYTB8548U4C3wact
+	bhgEk8b1f4EAoz7g==
+Content-Type: multipart/alternative;
+ boundary="===============8440082298998347272=="
+MIME-Version: 1.0
+From: Quora Digest <english-digest-noreply@quora.com>
+To: dmugil2000@gmail.com
+Subject: =?utf-8?q?What_is_the_maximum_salary_that_an_IITan_with_8_years_of_experienc?=
+ =?utf-8?q?e_in_embedded_C=2C_C=2E=2E=2E=3F?=
+List-Unsubscribe: <http://www.quora.com/email_optout/qemail_unsubscribe?email_track_id=76f6f481733b403f8edfdbecc1c08afc&t=1614762439972885&token=5b9f44db61a03a5f580084da8578adc5ab623dd68a92b0149e6acc3faafdd038770525001dacfaad0f2786f832c61665f3b1b7220fb5b9f2ba9cb778af8f5e7b&type=2&uid=291050071>
+X-CID: 3XeRr9k7PhGtc853PGkkKywhvu62qKuJNfkr8nM8831fkGNJ0DHnIDz3KhNZCW0Z9mJKmqec4xwBhzOZ61N7U-u5Rl8VagkJahAKIlc4nMM9b7VnHiXi1ZCRjBeV-jkit13ihtGHsqwAAQIA
+Date: Wed, 03 Mar 2021 09:07:21 +0000
+Message-ID: <3XeRr9k7PhGtc853PGkkKywhvu62qKuJNfkr8nM8831fkGNJ0DHnIDz3KhNZCW0Z9mJKmqec4xwBhzOZ61N7U-u5Rl8VagkJahAKIlc4nMM9b7VnHiXi1ZCRjBeV-jkit13ihtGHsqwAAQIA@t1.msgid.quoramail.com>
+X-SMTPAPI: =?utf-8?q?=7B=22unique=5Fargs=22=3A_=7B=22Message-ID=22=3A_=22=3C3XeRr9k7PhG?=
+ =?utf-8?q?tc853PGkkKywhvu62qKuJNfkr8nM8831fkGNJ0DHnIDz3KhNZCW0Z9mJKmqec4xwB?=
+ =?utf-8?q?hzOZ61N7U-u5Rl8VagkJahAKIlc4nMM9b7VnHiXi1ZCRjBeV-jkit13ihtGHsqwAA?=
+ =?utf-8?q?QIA=40t1=2Emsgid=2Equoramail=2Ecom=3E=22=2C_=22account=22=3A_=22d?=
+ =?utf-8?q?igest=22=2C_=22email=5Ftype=22=3A_2=2C_=22ip=5Fpool=22=3A_=22main?=
+ =?utf-8?q?=22=2C_=22X-QMSG=22=3A_=22W0uI1C4a0sC05X8qs7AKIbzLW2VhOYkQyjqAku9?=
+ =?utf-8?q?bVnwxPYWtbCusNqYQarm1UQFMN=5FFcx5Q43nfScmFYDgVlJL4nQ0LQMugYchFusc?=
+ =?utf-8?q?IQkrpwPqO8obeQ5zCQG3sEwBQbE4dft=5FN2okM0SuJhlkGEpigibjVrXnVBBbCiO?=
+ =?utf-8?q?Dflljk5JuPSx0tbTiuHKR6I-PUHkbWONtPq6J3AlvtJ1H4-55=5F1h=5FDMAwX2eQ?=
+ =?utf-8?q?UorV7Nf2otGR8RpV0PwmFKBZlqoEscYoV3m0jK9XQfvFQIWbWb8JxCcfzDfr6e0mW?=
+ =?utf-8?q?qUObHIhpU9e7No=5FZLNSSmwC4CwZDPiAEm=5FExHovyxUqHn=5FXbuYpcELFZq1?=
+ =?utf-8?q?=5F9Eu8noAiu6mDUJIBq21rklw7MRQLkn6jmDOyXKvDUt7nqvB0FXLd3Vs1cz98gg?=
+ =?utf-8?q?OfQ1NYVB4apIyRu7iRBmPGTcjbj3aLeEqhdHWbCbN9ACFcrlCJXEGEblp7=5FqPtW?=
+ =?utf-8?q?NxUWCPvqUMcxWtRKbMTB4-EztP8sVM=5FMvQrk0lESsJTs4w=5FaozilJPQP2ABKm?=
+ =?utf-8?q?hKePxqd1r1sfkBWWH3-LQ0AZ=5FMEz2XB27DRswI-jrxyCkuJfCt5YAAECAA=3D?=
+ =?utf-8?q?=3D=22=7D=2C_=22category=22=3A_=5B=22account=5Fdigest=22=2C_=22em?=
+ =?utf-8?q?ail=5Ftype=5F2=22=2C_=22ip=5Fpool=5Fmain=22=5D=2C_=22filters=22?=
+ =?utf-8?q?=3A_=7B=22bypass=5Flist=5Fmanagement=22=3A_=7B=22settings=22=3A_?=
+ =?utf-8?q?=7B=22enable=22=3A_1=7D=7D=7D=2C_=22ip=5Fpool=22=3A_=22main=22=7D?=
+X-QMSG: =?utf-8?q?W0uI1C4a0sC05X8qs7AKIbzLW2VhOYkQyjqAku9bVnwxPYWtbCusNqYQarm1UQFMN?=
+ =?utf-8?q?=5FFcx5Q43nfScmFYDgVlJL4nQ0LQMugYchFuscIQkrpwPqO8obeQ5zCQG3sEwBQb?=
+ =?utf-8?q?E4dft=5FN2okM0SuJhlkGEpigibjVrXnVBBbCiODflljk5JuPSx0tbTiuHKR6I-PU?=
+ =?utf-8?q?HkbWONtPq6J3AlvtJ1H4-55=5F1h=5FDMAwX2eQUorV7Nf2otGR8RpV0PwmFKBZlq?=
+ =?utf-8?q?oEscYoV3m0jK9XQfvFQIWbWb8JxCcfzDfr6e0mWqUObHIhpU9e7No=5FZLNSSmwC4?=
+ =?utf-8?q?CwZDPiAEm=5FExHovyxUqHn=5FXbuYpcELFZq1=5F9Eu8noAiu6mDUJIBq21rklw7?=
+ =?utf-8?q?MRQLkn6jmDOyXKvDUt7nqvB0FXLd3Vs1cz98ggOfQ1NYVB4apIyRu7iRBmPGTcjbj?=
+ =?utf-8?q?3aLeEqhdHWbCbN9ACFcrlCJXEGEblp7=5FqPtWNxUWCPvqUMcxWtRKbMTB4-EztP8?=
+ =?utf-8?q?sVM=5FMvQrk0lESsJTs4w=5FaozilJPQP2ABKmhKePxqd1r1sfkBWWH3-LQ0AZ=5F?=
+ =?utf-8?q?MEz2XB27DRswI-jrxyCkuJfCt5YAAECAA=3D=3D?=
+
+--===============8440082298998347272==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+Mugil's Digest
+Your Quora Digest
+
+-----
+
+
+Question: What is the maximum salary that an IITan with 8 years of experien=
+ce in embedded C, C++, and Linux can ask for in Bangalore?
+
+Answer from Imtiaz Mohammad
+
+I don't have a database of all salaries to give an accurate answer. But, th=
+at doesn't mean we can't arrive at a satisfactory answer.
+
+Stand in front of a mirror and start sayi
+Read More: http://www.quora.com/What-is-the-maximum-salary-that-an-IITan-wi=
+th-8-years-of-experience-in-embedded-C-C-and-Linux-can-ask-for-in-Bangalore=
+?top_ans=3D262728513
+-----
+Question: I am preparing for gate exam but most of my friends are suggestin=
+g M.Tech is of no use.Can anyone please comment on this?
+
+Answer from Gaurav Ramola
+
+In my third year when most of my friends were joining CAT coachings and mug=
+ging up vocabulary words I choose to prepare for GATE examination.
+
+Eyebrows were raised.
+
+Few event
+Read More: http://www.quora.com/I-am-preparing-for-gate-exam-but-most-of-my=
+-friends-are-suggesting-M-Tech-is-of-no-use-Can-anyone-please-comment-on-th=
+is?top_ans=3D34045575
+-----
+Question: Is it true that IIT Guwahati is calling students to campus?
+
+Answer from Rohit Negi
+
+I am the student of IIT guwahati and yes it is true that our institute is c=
+alling us. They have scheduled the students and calling them in batches. It=
+ is not compulsory to com
+Read More: http://www.quora.com/Is-it-true-that-IIT-Guwahati-is-calling-stu=
+dents-to-campus?top_ans=3D264153785
+-----
+Question: If CTC is 8 LPA, then how much is the in-hand salary in TCS?
+
+Answer from Mayuri Saxena
+
+The golden rule to get your approximate in hand salary is just multiply you=
+r CTC with 0.07.
+
+For example your CTC is 8 LPA then multiply 800000 by 0.07 and you will get=
+ 56000,
+Read More: http://www.quora.com/If-CTC-is-8-LPA-then-how-much-is-the-in-han=
+d-salary-in-TCS?top_ans=3D266346888
+-----
+Question: I am 17 years old. Will ITC touch 3,000 in 2 years? I am seeing I=
+TC at that range, but everyone is thinking about 300. Can I trust ITC for t=
+hat level in the long term?
+
+Answer from Anil Gupta
+
+First, I am not sure what is the connection of your age and ITC touching 30=
+00 in 2 years.. What is the relevance of your age in this question ?
+
+Second =E2=80=94 You think that ITC wi
+Read More: http://www.quora.com/I-am-17-years-old-Will-ITC-touch-3-000-in-2=
+-years-I-am-seeing-ITC-at-that-range-but-everyone-is-thinking-about-300-Can=
+-I-trust-ITC-for-that-level-in-the-long-term?top_ans=3D265807361
+-----
+Question: Can IIT-D ever match the level of VIT Vellore?
+
+Answer from Sourabh Patil (=E0=A4=B8=E0=A5=8C=E0=A4=B0=E0=A4=AD =E0=A4=AA=
+=E0=A4=BE=E0=A4=9F=E0=A5=80=E0=A4=B2)
+
+It does. The level you are referring to is the elevation level from mean se=
+a level of the college. Here is the one for Delhi:
+
+Here is the level for Vellore:
+
+So yes! IIT Delh
+Read More: http://www.quora.com/Can-IIT-D-ever-match-the-level-of-VIT-Vello=
+re?top_ans=3D256010221
+-----
+Question: Is TCS really ruining the careers of Indian IT professionals, esp=
+ecially freshers?
+
+Answer from Basil Smith
+
+Yes, here are some points:
+
+1. Payscale is too low compared to what they gain out
+2. 3 Months notice period and 1 Year bond
+3. Can put in any project as per requirement
+4. The
+Read More: http://www.quora.com/Is-TCS-really-ruining-the-careers-of-Indian=
+-IT-professionals-especially-freshers?top_ans=3D85697796
+-----
+Question: How was the GATE CS 2021 paper?
+
+Answer from Rishabh Chakraborty
+
+Well!
+
+Yesterday was my GATE CS 2021 paper. My paper was on morning shift-1.
+
+IIT Bombay recently introduced MSQ (Multiple Select Questions) in GATE. It =
+was unexpected that we
+Read More: http://www.quora.com/How-was-the-GATE-CS-2021-paper?top_ans=3D26=
+5385018
+-----
+Question: How was your IIT interview for an M.Tech?
+
+Answer from Hrushikesh Chavan
+
+A2A.
+
+All interviews are as usual. I was placed in Eaton. In technical round they=
+ mostly asked questions from CV. Then sub questions related to my MTech, BT=
+ech projects, inter
+Read More: http://www.quora.com/How-was-your-IIT-interview-for-an-M-Tech?to=
+p_ans=3D262939496
+-----
+Question: I accepted a job offer, but then received a much better one two w=
+eeks later. What is the right thing to do?
+
+Answer from Shaunak Bhattachharje
+
+I know one of my friends who was in a similar situation as this. Just to ma=
+intain confidentiality, I would term the current organization as Company A =
+and the two offers from C
+Read More: http://www.quora.com/I-accepted-a-job-offer-but-then-received-a-=
+much-better-one-two-weeks-later-What-is-the-right-thing-to-do?top_ans=3D237=
+697728
+-----
+
+-----
+To control which emails we send you, visit: https://www.quora.com/qemail/tc=
+?aoid&aoty=3D14&aty=3D4&cp=3D0&id=3D76f6f481733b403f8edfdbecc1c08afc
+
+To unsubscribe from this type of email, visit: http://www.quora.com/email_o=
+ptout/qemail_unsubscribe?email_track_id=3D76f6f481733b403f8edfdbecc1c08afc&=
+t=3D1614762440367156&token=3D38e1bf8bfa7209753da53a536ca1b42d208a5960692616=
+e728896c90a8eee0112b621740b88c1cc851e88f07b5cc12afff12ee1e3f72214777f0a6b83=
+9c128b8&type=3D2&uid=3D291050071
+--===============8440082298998347272==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style type=3D"text/css">
+@media screen and (max-width:480px) {
+  .background_inner {
+    padding: 0!important;
+    background: #fff!important;
+  }
+
+  .container {
+    padding: 0 8px 16px!important;
+  }
+
+  .footer_container {
+    border-top: 1px solid #e2e2e2!important;
+  }
+
+  .AnnualThankYouEmail .background_inner {
+    padding: 10px 0!important;
+  }
+
+  .polish_background_inner {
+    padding: 10px 0!important;
+  }
+
+  .polish_header_logo img.header_logo_img {
+    width: 118px!important;
+    height: 40px!important;
+  }
+
+  .polish_header_title {
+    font-size: 16px!important;
+    padding-top: 0!important;
+    padding-bottom: 5px!important;
+  }
+
+  .polish_question_text {
+    line-height: 1.3!important;
+  }
+
+  .polish_story .voters_list,
+.polish_story .user_link {
+    line-height: 1.5!important;
+  }
+
+  .polish_story .truncated_q_text,
+.polish_story .qtext_para {
+    line-height: 1.5!important;
+  }
+
+  .polish_story .content_header {
+    padding: 6px 0!important;
+  }
+
+  .EndOfYearLookbackEmail .stat_large {
+    font-size: 28px!important;
+  }
+
+  .EndOfYearLookbackEmail .content_text {
+    text-align: center!important;
+  }
+
+  .EndOfYearLookbackEmail .half_column {
+    width: 100%!important;
+  }
+
+  .EndOfYearLookbackEmail .img_wrapper {
+    margin: 10px auto!important;
+  }
+
+  .TopicDigestEmail .topic_digest_header_logo img.polish_header_logo_img {
+    width: 89px!important;
+    height: 30px!important;
+  }
+
+  .TopicDigestEmail .topic_digest_header_title {
+    font-size: 16px!important;
+    padding-top: 0!important;
+    padding-bottom: 5px!important;
+  }
+
+  .WriteDigestEmail .question_text .rendered_qtext {
+    font-size: 16px!important;
+  }
+
+  .email_app_link-content {
+    display: block!important;
+    text-align: center!important;
+  }
+
+  .email_app_link-text,
+.email_app_link-badges_wrapper {
+    display: block!important;
+  }
+
+  .email_app_link-text {
+    padding-bottom: 0!important;
+    box-sizing: border-box!important;
+  }
+
+  .email_app_link-badges_wrapper {
+    padding-left: 10px!important;
+  }
+}
+@media screen and (max-width:600px) {
+  .DigestEmail .mobile_image.digest_ad {
+    display: table!important;
+    width: 92vw;
+  }
+
+  .DigestEmail .desktop_image.digest_ad {
+    display: none!important;
+  }
+}
+</style><style type=3D"text/css">
+@media (max-width:812px) {
+  .ad_email_background .ad_table {
+    margin: 0;
+  }
+}
+@media (max-width:812px) {
+  .ad_email_background .ad_table {
+    margin: 0;
+  }
+}
+</style></head><body class=3D"email_body" style=3D"-webkit-text-size-adjust=
+:100%;-ms-text-size-adjust:100%;margin:0;padding:0;width:100%"><div class=
+=3D"q_ltr u-ltr lang_en" dir=3D"ltr" lang=3D"en"><table class=3D"DigestEmai=
+l Email EmailComponent background" cellpadding=3D"0" border=3D"0" style=3D"=
+border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;background:#=
+eee;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-S=
+ans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;font-size:13px;width:100%;=
+height:100%;text-align:left" width=3D"100%" height=3D"100%" align=3D"left">=
+<tbody><tr><td class=3D"polish_background_inner" align=3D"center" valign=3D=
+"top" style=3D"border-collapse:collapse;padding:0;background:#fff"><table c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:co=
+llapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"conta=
+iner" align=3D"left" style=3D"border-collapse:collapse;background:#fff;padd=
+ing:32px;width:525px;height:100%;border-radius:3px" width=3D"525" height=3D=
+"100%"><table class=3D"polish_container_inner" style=3D"border-collapse:col=
+lapse;mso-table-lspace:0;mso-table-rspace:0;width:100%;cellpadding:0;cellsp=
+acing:0;border:0" width=3D"100%"><tbody><tr><td class=3D"polish_header" sty=
+le=3D"border-collapse:collapse"><span style=3D"display:none;font-size:1px;c=
+olor:white;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:=
+hidden">Answer: I don't have a database of all salaries to give an accurate=
+ answer.=E2=80=8B Bu.=E2=80=8B.=E2=80=8B.=E2=80=8B</span><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"border-collap=
+se:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"=
+polish_header_logo" style=3D"border-collapse:collapse;text-align:center" al=
+ign=3D"center"><a href=3D"https://www.quora.com/qemail/tc?aoid&amp;aoty=3D7=
+&amp;aty=3D4&amp;cp=3D0&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D=
+"text-decoration:none;color:#2b6dad"><img class=3D"header_logo_img" src=3D"=
+http://qsf.fs.quoracdn.net/-4-images.logo.WordmarkLogo_592x200_4x.png-26-b4=
+69cd653dba282b.png" alt=3D"Quora" style=3D"outline:0;text-decoration:none;-=
+ms-interpolation-mode:bicubic;border:0;width:148px;height:50px" width=3D"14=
+8" height=3D"50" /><img class=3D"tracking_img" style=3D"outline:0;text-deco=
+ration:none;-ms-interpolation-mode:bicubic;border:0;display:none" width=3D"=
+1" height=3D"1" src=3D"https://www.quora.com/qemail/mark_read?ct=3D16147624=
+39948050&amp;et=3D2&amp;id=3D76f6f481733b403f8edfdbecc1c08afc&amp;request_i=
+d=3D571767748062085041&amp;src=3D1&amp;st=3D1614762439948050&amp;stories=3D=
+1_zSlDUprY1o4%7C1_bJIuwRBmbwK%7C1_RyYS0m6Vvty%7C1_bWJAwK8ewGq%7C1_d96F3SHsY=
+S%7C1_mpWvG90rF7x%7C1_DTy6XyP9CW%7C1_zXdXd9gso9W%7C1_aymwZ53ndg6%7C1_85II8N=
+A2PNj&amp;uid=3D9eeuha7OHNd&amp;v=3D0" /></a></td></tr><tr><td class=3D"pol=
+ish_header_title" style=3D"border-collapse:collapse;text-align:center;font-=
+size:19px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Ox=
+ygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;font-weig=
+ht:400;padding-bottom:20px" align=3D"center">Mugil's Digest</td></tr></tbod=
+y></table></td></tr><tr class=3D"body_container" id=3D"simple-content-row">=
+<td class=3D"body_content" bgcolor=3D"#ffffff" style=3D"border-collapse:col=
+lapse"><table style=3D"border-collapse:collapse;mso-table-lspace:0;mso-tabl=
+e-rspace:0;width:100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%"><tbody><tr><td style=3D"border-collapse:collapse"><table style=
+=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:10=
+0%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"><tbody>=
+<tr><td style=3D"border-collapse:collapse"><table cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" width=3D"100%" style=3D"border-collapse:collapse;ms=
+o-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"section_header=
+" style=3D"border-collapse:collapse;text-transform:uppercase;padding-bottom=
+:4px;font-size:12px;margin-top:20px;border-bottom:1px solid #e2e2e2">Top St=
+ories For You</td></tr></tbody></table><div class=3D"no_para_breaks"><div><=
+table class=3D"story_wrapper" cellspacing=3D"0" border=3D"0" style=3D"borde=
+r-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=
+=3D"100%"><tbody><tr><td class=3D"story  first_story" style=3D"border-colla=
+pse:collapse;padding-top:15px;padding:20px 0;border-bottom:0"><table class=
+=3D"digest_story_wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" =
+style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;wid=
+th:100%" width=3D"100%"><tbody><tr><td class=3D"reason" style=3D"border-col=
+lapse:collapse;padding-bottom:4px"><table class=3D"digest_reason" cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;m=
+so-table-lspace:0;mso-table-rspace:0"><tbody><tr><td valign=3D"top" style=
+=3D"border-collapse:collapse"></td></tr></tbody></table></td></tr><tr><td s=
+tyle=3D"border-collapse:collapse"><a class=3D"question_text" href=3D"https:=
+//www.quora.com/qemail/tc?al_pri=3D1&amp;aoid=3DjThNmCnc2&amp;aoty=3D2&amp;=
+aty=3D4&amp;cp=3D1&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text=
+-decoration:none;display:block;font-size:19px;letter-spacing:-0.5px;font-we=
+ight:bold;color:#333;line-height:1.4"><span class=3D"rendered_qtext" style=
+=3D"word-break:break-word">What is the maximum salary that an IITan with 8 =
+years of experience in embedded C, C++, and Linux can ask for in Bangalore?=
+</span></a></td></tr><tr><td style=3D"border-collapse:collapse"><table clas=
+s=3D"item_content_wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;wi=
+dth:100%" width=3D"100%"><tbody><tr><td class=3D"content_header metadata" s=
+tyle=3D"border-collapse:collapse;padding:8px 0"><table cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-ls=
+pace:0;mso-table-rspace:0"><tbody><tr><td class=3D"content_header_photo" st=
+yle=3D"border-collapse:collapse;vertical-align:top" valign=3D"top"><a href=
+=3D"https://www.quora.com/qemail/tc?aoid=3DdpIh6Xx6WCq&amp;aoty=3D3&amp;aty=
+=3D4&amp;cp=3D1&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-de=
+coration:none;color:#2b6dad"><div><div class=3D"hover_menu hidden white_bg =
+show_nub"><div class=3D"hover_menu_contents"> </div></div><span class=3D"ph=
+oto_tooltip IdentityPhoto HoverMenu Photo"><img class=3D"profile_photo_img"=
+ src=3D"http://qph.fs.quoracdn.net/main-thumb-81319544-50-znfxacyglvkzenyqe=
+hsyfjifqajvnrlm.jpeg" alt=3D"Imtiaz Mohammad" style=3D"outline:0;text-decor=
+ation:none;-ms-interpolation-mode:bicubic;border:0;display:block;height:40p=
+x;width:40px;border-radius:100px;border-style:none" height=3D"40" width=3D"=
+40" /></span></div></a></td><td class=3D"content_header_text" style=3D"bord=
+er-collapse:collapse;padding-left:8px;color:#333"><table cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-=
+lspace:0;mso-table-rspace:0"><tbody><tr><td style=3D"border-collapse:collap=
+se"><a class=3D"user_link" href=3D"https://www.quora.com/qemail/tc?aoid=3Dd=
+pIh6Xx6WCq&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D1&amp;id=3D76f6f481733b403f8ed=
+fdbecc1c08afc" style=3D"text-decoration:none;color:#333;font-weight:bold;fo=
+nt-size:15px;line-height:1.4">Imtiaz Mohammad</a><span style=3D"font-size:1=
+5px;line-height:1.4">, CSE IIT Kanpur, Ex-Microsoft, Cracking Interviews Tr=
+ainer.</span></td></tr><tr><td class=3D"answer_details" style=3D"border-col=
+lapse:collapse;color:#999;font-size:13px"><a href=3D"https://www.quora.com/=
+qemail/tc?aoid=3DzSlDUprY1o4&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D1&amp;id=3D7=
+6f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#999">=
+Written Jan 29</a></td></tr></tbody></table></td></tr></tbody></table></td>=
+</tr><tr><td class=3D"item_content" style=3D"border-collapse:collapse;displ=
+ay:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxy=
+gen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;font-size:=
+15px;line-height:1.4"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0=
+&amp;aoid=3DzSlDUprY1o4&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D1&amp;id=3D76f6f4=
+81733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333333"><d=
+iv><div class=3D"truncated_q_text truncated_para_breaks TruncatedAnswerForE=
+mail TruncatedQText TruncatedAnswer TruncatedAnswerForDigestEmail" style=3D=
+"display:inline;line-height:1.6"><span class=3D"rendered_qtext" style=3D"wo=
+rd-break:break-word"><p class=3D"qtext_para u-ltr u-text-align--start" styl=
+e=3D"margin:1em 0;display:inline;line-height:1.6">I don't have a database o=
+f all salaries to give an accurate answer. But, that doesn't mean we can't =
+arrive at a satisfactory answer.</p><p class=3D"qtext_para u-ltr u-text-ali=
+gn--start" style=3D"margin:1em 0;display:inline;line-height:1.6">Stand in f=
+ront of a mirror and start saying:</p><p class=3D"qtext_para u-ltr u-text-a=
+lign--start" style=3D"margin:1em 0;display:inline;line-height:1.6">...</p><=
+/span> <a class=3D"read_more_blue" href=3D"https://www.quora.com/qemail/tc?=
+al_pri=3D8&amp;aoid=3DzSlDUprY1o4&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D1&amp;i=
+d=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#=
+168de9">Read More =C2=BB</a></div></div><tr><td style=3D"border-collapse:co=
+llapse"><div class=3D"non_quora_share_embed_wrapper"><div class=3D"item_met=
+adata"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3DzSl=
+DUprY1o4&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D1&amp;id=3D76f6f481733b403f8edfd=
+becc1c08afc" style=3D"text-decoration:none;color:#2b6dad"></a></div></div><=
+/td></tr></a></td></tr></tbody></table></td></tr></tbody></table></td></tr>=
+</tbody></table></div></div><div class=3D"no_para_breaks"><div><table class=
+=3D"polish_separator_wrapper" style=3D"border-collapse:collapse;mso-table-l=
+space:0;mso-table-rspace:0;cellpadding:0;border:0;width:100%" width=3D"100%=
+"><tbody><tr><td style=3D"border-collapse:collapse"></td><td class=3D"polis=
+h_separator" style=3D"border-collapse:collapse;border-bottom:1px solid #eee=
+;height:1px;width:140px" width=3D"140" height=3D"1"></td><td style=3D"borde=
+r-collapse:collapse"></td></tr></tbody></table><table class=3D"story_wrappe=
+r" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-tab=
+le-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td cl=
+ass=3D"story " style=3D"border-collapse:collapse;padding:20px 0;border-bott=
+om:0"><table class=3D"digest_story_wrapper" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"reason"=
+ style=3D"border-collapse:collapse;padding-bottom:4px"><table class=3D"dige=
+st_reason" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border=
+-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td va=
+lign=3D"top" style=3D"border-collapse:collapse"></td></tr></tbody></table><=
+/td></tr><tr><td style=3D"border-collapse:collapse"><a class=3D"question_te=
+xt" href=3D"https://www.quora.com/qemail/tc?al_pri=3D1&amp;aoid=3DqbpQA2oLd=
+Xr&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D2&amp;id=3D76f6f481733b403f8edfdbecc1c=
+08afc" style=3D"text-decoration:none;display:block;font-size:19px;letter-sp=
+acing:-0.5px;font-weight:bold;color:#333;line-height:1.4"><span class=3D"re=
+ndered_qtext" style=3D"word-break:break-word">I am preparing for gate exam =
+but most of my friends are suggesting M.Tech is of no use.Can anyone please=
+ comment on this?</span></a></td></tr><tr><td style=3D"border-collapse:coll=
+apse"><table class=3D"item_content_wrapper" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"content=
+_header metadata" style=3D"border-collapse:collapse;padding:8px 0"><table c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:co=
+llapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"conte=
+nt_header_photo" style=3D"border-collapse:collapse;vertical-align:top" vali=
+gn=3D"top"><a href=3D"https://www.quora.com/qemail/tc?aoid=3Dd1lsI5EVyhA&am=
+p;aoty=3D3&amp;aty=3D4&amp;cp=3D2&amp;id=3D76f6f481733b403f8edfdbecc1c08afc=
+" style=3D"text-decoration:none;color:#2b6dad"><div><div class=3D"hover_men=
+u hidden white_bg show_nub"><div class=3D"hover_menu_contents"> </div></div=
+><span class=3D"photo_tooltip IdentityPhoto HoverMenu Photo"><img class=3D"=
+profile_photo_img" src=3D"http://qph.fs.quoracdn.net/main-thumb-51701366-50=
+-xachpyicbhbherptyhqanmvvaulstxag.jpeg" alt=3D"Gaurav Ramola" style=3D"outl=
+ine:0;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:=
+block;height:40px;width:40px;border-radius:100px;border-style:none" height=
+=3D"40" width=3D"40" /></span></div></a></td><td class=3D"content_header_te=
+xt" style=3D"border-collapse:collapse;padding-left:8px;color:#333"><table c=
+ellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:co=
+llapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td style=3D"borde=
+r-collapse:collapse"><a class=3D"user_link" href=3D"https://www.quora.com/q=
+email/tc?aoid=3Dd1lsI5EVyhA&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D2&amp;id=3D76=
+f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333;fo=
+nt-weight:bold;font-size:15px;line-height:1.4">Gaurav Ramola</a><span style=
+=3D"font-size:15px;line-height:1.4">, secured under 300 rank in GATE 2015.<=
+/span></td></tr><tr><td class=3D"answer_details" style=3D"border-collapse:c=
+ollapse;color:#999;font-size:13px"><a href=3D"https://www.quora.com/qemail/=
+tc?aoid=3DbJIuwRBmbwK&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D2&amp;id=3D76f6f481=
+733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#999">Updated=
+ Apr 14, 2017</a></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr><tr><td class=3D"item_content" style=3D"border-collapse:collapse;displa=
+y:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxyg=
+en-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;font-size:1=
+5px;line-height:1.4"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&=
+amp;aoid=3DbJIuwRBmbwK&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D2&amp;id=3D76f6f48=
+1733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333333"><di=
+v><div class=3D"truncated_q_text truncated_para_breaks TruncatedAnswerForEm=
+ail TruncatedQText TruncatedAnswer TruncatedAnswerForDigestEmail" style=3D"=
+display:inline;line-height:1.6"><span class=3D"rendered_qtext" style=3D"wor=
+d-break:break-word"><p class=3D"qtext_para u-ltr u-text-align--start" style=
+=3D"margin:1em 0;display:inline;line-height:1.6">In my third year when most=
+ of my friends were joining CAT coachings and mugging up vocabulary words I=
+ choose to prepare for GATE examination.</p><p class=3D"qtext_para u-ltr u-=
+text-align--start" style=3D"margin:1em 0;display:inline;line-height:1.6"><b=
+ style=3D"font-weight:400"><i>Eyebrows were raised</i></b>.</p><p class=3D"=
+qtext_para u-ltr u-text-align--start" style=3D"margin:1em 0;display:inline;=
+line-height:1.6">Few events...</p></span> <a class=3D"read_more_blue" href=
+=3D"https://www.quora.com/qemail/tc?al_pri=3D8&amp;aoid=3DbJIuwRBmbwK&amp;a=
+oty=3D1&amp;aty=3D4&amp;cp=3D2&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" s=
+tyle=3D"text-decoration:none;color:#168de9">Read More =C2=BB</a></div></div=
+><tr><td style=3D"border-collapse:collapse"><div class=3D"non_quora_share_e=
+mbed_wrapper"><div class=3D"item_metadata"><a href=3D"https://www.quora.com=
+/qemail/tc?al_pri=3D0&amp;aoid=3DbJIuwRBmbwK&amp;aoty=3D1&amp;aty=3D4&amp;c=
+p=3D2&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:n=
+one;color:#2b6dad"></a></div></div></td></tr></a></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table></div></div><table clas=
+s=3D"polish_separator_wrapper" style=3D"border-collapse:collapse;mso-table-=
+lspace:0;mso-table-rspace:0;cellpadding:0;border:0;width:100%" width=3D"100=
+%"><tbody><tr><td style=3D"border-collapse:collapse"></td><td class=3D"poli=
+sh_separator" style=3D"border-collapse:collapse;border-bottom:1px solid #ee=
+e;height:1px;width:140px" width=3D"140" height=3D"1"></td><td style=3D"bord=
+er-collapse:collapse"></td></tr></tbody></table><a href=3D"https://www.quor=
+a.com/_/cli?ct=3D1614762439948050&amp;id=3D76f6f481733b403f8edfdbecc1c08afc=
+&amp;is_mobile=3DFalse&amp;new_digest_email_exp_version=3Dv0&amp;uid=3D9eeu=
+ha7OHNd" style=3D"text-decoration:none;color:#2b6dad"><img style=3D"outline=
+:0;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;max-width:3=
+20px" src=3D"https://www.quora.com/_/imp?ct=3D1614762439948050&amp;id=3D76f=
+6f481733b403f8edfdbecc1c08afc&amp;is_mobile=3DFalse&amp;new_digest_email_ex=
+p_version=3Dv0&amp;uid=3D9eeuha7OHNd" /></a><div class=3D"no_para_breaks"><=
+div><table class=3D"polish_separator_wrapper" style=3D"border-collapse:coll=
+apse;mso-table-lspace:0;mso-table-rspace:0;cellpadding:0;border:0;width:100=
+%" width=3D"100%"><tbody><tr><td style=3D"border-collapse:collapse"></td><t=
+d class=3D"polish_separator" style=3D"border-collapse:collapse;border-botto=
+m:1px solid #eee;height:1px;width:140px" width=3D"140" height=3D"1"></td><t=
+d style=3D"border-collapse:collapse"></td></tr></tbody></table><table class=
+=3D"story_wrapper" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:=
+collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><=
+tbody><tr><td class=3D"story " style=3D"border-collapse:collapse;padding:20=
+px 0;border-bottom:0"><table class=3D"digest_story_wrapper" cellpadding=3D"=
+0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-tab=
+le-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td cl=
+ass=3D"reason" style=3D"border-collapse:collapse;padding-bottom:4px"><table=
+ class=3D"digest_reason" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" s=
+tyle=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tb=
+ody><tr><td valign=3D"top" style=3D"border-collapse:collapse"></td></tr></t=
+body></table></td></tr><tr><td style=3D"border-collapse:collapse"><a class=
+=3D"question_text" href=3D"https://www.quora.com/qemail/tc?al_pri=3D1&amp;a=
+oid=3DXP3ImCvF32S&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D3&amp;id=3D76f6f481733b=
+403f8edfdbecc1c08afc" style=3D"text-decoration:none;display:block;font-size=
+:19px;letter-spacing:-0.5px;font-weight:bold;color:#333;line-height:1.4"><s=
+pan class=3D"rendered_qtext" style=3D"word-break:break-word">Is it true tha=
+t IIT Guwahati is calling students to campus?</span></a></td></tr><tr><td s=
+tyle=3D"border-collapse:collapse"><table class=3D"item_content_wrapper" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:coll=
+apse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbod=
+y><tr><td class=3D"content_header metadata" style=3D"border-collapse:collap=
+se;padding:8px 0"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" s=
+tyle=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tb=
+ody><tr><td class=3D"content_header_photo" style=3D"border-collapse:collaps=
+e;vertical-align:top" valign=3D"top"><a href=3D"https://www.quora.com/qemai=
+l/tc?aoid=3DYT4GvnhXw8F&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D3&amp;id=3D76f6f4=
+81733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#2b6dad"><d=
+iv><div class=3D"hover_menu hidden white_bg show_nub"><div class=3D"hover_m=
+enu_contents"> </div></div><span class=3D"photo_tooltip IdentityPhoto Hover=
+Menu Photo"><img class=3D"profile_photo_img" src=3D"http://qph.fs.quoracdn.=
+net/main-thumb-329970137-50-kgeqzdzhouvevhapjvpxgouzqiwyptrm.jpeg" alt=3D"R=
+ohit Negi" style=3D"outline:0;text-decoration:none;-ms-interpolation-mode:b=
+icubic;border:0;display:block;height:40px;width:40px;border-radius:100px;bo=
+rder-style:none" height=3D"40" width=3D"40" /></span></div></a></td><td cla=
+ss=3D"content_header_text" style=3D"border-collapse:collapse;padding-left:8=
+px;color:#333"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody=
+><tr><td style=3D"border-collapse:collapse"><a class=3D"user_link" href=3D"=
+https://www.quora.com/qemail/tc?aoid=3DYT4GvnhXw8F&amp;aoty=3D3&amp;aty=3D4=
+&amp;cp=3D3&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decora=
+tion:none;color:#333;font-weight:bold;font-size:15px;line-height:1.4">Rohit=
+ Negi</a><span style=3D"font-size:15px;line-height:1.4">, Student at Indian=
+ Institute of Technology, Guwahati (2020-present)</span></td></tr><tr><td c=
+lass=3D"answer_details" style=3D"border-collapse:collapse;color:#999;font-s=
+ize:13px"><a href=3D"https://www.quora.com/qemail/tc?aoid=3DRyYS0m6Vvty&amp=
+;aoty=3D1&amp;aty=3D4&amp;cp=3D3&amp;id=3D76f6f481733b403f8edfdbecc1c08afc"=
+ style=3D"text-decoration:none;color:#999">Updated Feb 23</a></td></tr></tb=
+ody></table></td></tr></tbody></table></td></tr><tr><td class=3D"item_conte=
+nt" style=3D"border-collapse:collapse;display:block;font-family:-apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helve=
+tica Neue',sans-serif;color:#333;font-size:15px;line-height:1.4"><a href=3D=
+"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3DRyYS0m6Vvty&amp;aoty=
+=3D1&amp;aty=3D4&amp;cp=3D3&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" styl=
+e=3D"text-decoration:none;color:#333333"><div><div class=3D"truncated_q_tex=
+t truncated_para_breaks TruncatedAnswerForEmail TruncatedQText TruncatedAns=
+wer TruncatedAnswerForDigestEmail" style=3D"display:inline;line-height:1.6"=
+><div class=3D"truncated_thumbnail_holder thumbnail_small thumbnail_feature=
+d_image" style=3D"display:inline;float:right"><span class=3D"rendered_qtext=
+" style=3D"word-break:break-word"><div class=3D"ui_qtext_image_outer"><div =
+class=3D"qtext_image_wrapper"><img class=3D"landscape qtext_image zoomable_=
+in zoomable_in_feed" src=3D"http://qph.fs.quoracdn.net/main-qimg-bd1ff448b0=
+d30572193c16599a94a3fe" style=3D"outline:0;text-decoration:none;-ms-interpo=
+lation-mode:bicubic;border:0;margin-left:10px;max-width:200px;max-height:10=
+0px;float:left;border-style:none" /></div></div></span></div><span class=3D=
+"rendered_qtext" style=3D"word-break:break-word"><p class=3D"qtext_para u-l=
+tr u-text-align--start" style=3D"margin:1em 0;display:inline;line-height:1.=
+6">I am the student of IIT guwahati and yes it is true that our institute i=
+s calling us. They have scheduled the students and calling them in batches.=
+ It is not compulsory to ...</p></span> <a class=3D"read_more_blue" href=3D=
+"https://www.quora.com/qemail/tc?al_pri=3D8&amp;aoid=3DRyYS0m6Vvty&amp;aoty=
+=3D1&amp;aty=3D4&amp;cp=3D3&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" styl=
+e=3D"text-decoration:none;color:#168de9">Read More =C2=BB</a></div></div><t=
+r><td style=3D"border-collapse:collapse"><div class=3D"non_quora_share_embe=
+d_wrapper"><div class=3D"item_metadata"><a href=3D"https://www.quora.com/qe=
+mail/tc?al_pri=3D0&amp;aoid=3DRyYS0m6Vvty&amp;aoty=3D1&amp;aty=3D4&amp;cp=
+=3D3&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:no=
+ne;color:#2b6dad"></a></div></div></td></tr></a></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr></tbody></table></div></div><div class=
+=3D"no_para_breaks"><div><table class=3D"polish_separator_wrapper" style=3D=
+"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;cellpadding=
+:0;border:0;width:100%" width=3D"100%"><tbody><tr><td style=3D"border-colla=
+pse:collapse"></td><td class=3D"polish_separator" style=3D"border-collapse:=
+collapse;border-bottom:1px solid #eee;height:1px;width:140px" width=3D"140"=
+ height=3D"1"></td><td style=3D"border-collapse:collapse"></td></tr></tbody=
+></table><table class=3D"story_wrapper" cellspacing=3D"0" border=3D"0" styl=
+e=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:1=
+00%" width=3D"100%"><tbody><tr><td class=3D"story " style=3D"border-collaps=
+e:collapse;padding:20px 0;border-bottom:0"><table class=3D"digest_story_wra=
+pper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-coll=
+apse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"10=
+0%"><tbody><tr><td class=3D"reason" style=3D"border-collapse:collapse;paddi=
+ng-bottom:4px"><table class=3D"digest_reason" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0"><tbody><tr><td valign=3D"top" style=3D"border-collapse:co=
+llapse"></td></tr></tbody></table></td></tr><tr><td style=3D"border-collaps=
+e:collapse"><a class=3D"question_text" href=3D"https://www.quora.com/qemail=
+/tc?al_pri=3D1&amp;aoid=3DjY1fwu0M2xS&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D4&a=
+mp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;dis=
+play:block;font-size:19px;letter-spacing:-0.5px;font-weight:bold;color:#333=
+;line-height:1.4"><span class=3D"rendered_qtext" style=3D"word-break:break-=
+word">If CTC is 8 LPA, then how much is the in-hand salary in TCS?</span></=
+a></td></tr><tr><td style=3D"border-collapse:collapse"><table class=3D"item=
+_content_wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D=
+"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%"=
+ width=3D"100%"><tbody><tr><td class=3D"content_header metadata" style=3D"b=
+order-collapse:collapse;padding:8px 0"><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0"><tbody><tr><td class=3D"content_header_photo" style=3D"bo=
+rder-collapse:collapse;vertical-align:top" valign=3D"top"><a href=3D"https:=
+//www.quora.com/qemail/tc?aoid=3DMvFPcg1cAQm&amp;aoty=3D3&amp;aty=3D4&amp;c=
+p=3D4&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:n=
+one;color:#2b6dad"><div><div class=3D"hover_menu hidden white_bg show_nub">=
+<div class=3D"hover_menu_contents"> </div></div><span class=3D"photo_toolti=
+p IdentityPhoto HoverMenu Photo"><img class=3D"profile_photo_img" src=3D"ht=
+tp://qph.fs.quoracdn.net/main-thumb-288591219-50-nuytvrdvjcupvhvqyupppldsbw=
+dycugs.jpeg" alt=3D"Mayuri Saxena" style=3D"outline:0;text-decoration:none;=
+-ms-interpolation-mode:bicubic;border:0;display:block;height:40px;width:40p=
+x;border-radius:100px;border-style:none" height=3D"40" width=3D"40" /></spa=
+n></div></a></td><td class=3D"content_header_text" style=3D"border-collapse=
+:collapse;padding-left:8px;color:#333"><table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0"><tbody><tr><td style=3D"border-collapse:collapse"><a clas=
+s=3D"user_link" href=3D"https://www.quora.com/qemail/tc?aoid=3DMvFPcg1cAQm&=
+amp;aoty=3D3&amp;aty=3D4&amp;cp=3D4&amp;id=3D76f6f481733b403f8edfdbecc1c08a=
+fc" style=3D"text-decoration:none;color:#333;font-weight:bold;font-size:15p=
+x;line-height:1.4">Mayuri Saxena</a><span style=3D"font-size:15px;line-heig=
+ht:1.4">, Assistant System Engineer at Tata Consultancy Services (2017-pres=
+ent)</span></td></tr><tr><td class=3D"answer_details" style=3D"border-colla=
+pse:collapse;color:#999;font-size:13px"><a href=3D"https://www.quora.com/qe=
+mail/tc?aoid=3DbWJAwK8ewGq&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D4&amp;id=3D76f=
+6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#999">Up=
+dated Feb 23</a></td></tr></tbody></table></td></tr></tbody></table></td></=
+tr><tr><td class=3D"item_content" style=3D"border-collapse:collapse;display=
+:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxyge=
+n-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;font-size:15=
+px;line-height:1.4"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&a=
+mp;aoid=3DbWJAwK8ewGq&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D4&amp;id=3D76f6f481=
+733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333333"><div=
+><div class=3D"truncated_q_text truncated_para_breaks TruncatedAnswerForEma=
+il TruncatedQText TruncatedAnswer TruncatedAnswerForDigestEmail" style=3D"d=
+isplay:inline;line-height:1.6"><span class=3D"rendered_qtext" style=3D"word=
+-break:break-word"><p class=3D"qtext_para u-ltr u-text-align--start" style=
+=3D"margin:1em 0;display:inline;line-height:1.6">The golden rule to get you=
+r approximate in hand salary is just multiply your CTC with 0.07.</p><p cla=
+ss=3D"qtext_para u-ltr u-text-align--start" style=3D"margin:1em 0;display:i=
+nline;line-height:1.6">For example your CTC is 8 LPA then multiply 800000 b=
+y 0.07 and you will get 56000...</p></span> <a class=3D"read_more_blue" hre=
+f=3D"https://www.quora.com/qemail/tc?al_pri=3D8&amp;aoid=3DbWJAwK8ewGq&amp;=
+aoty=3D1&amp;aty=3D4&amp;cp=3D4&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" =
+style=3D"text-decoration:none;color:#168de9">Read More =C2=BB</a></div></di=
+v><tr><td style=3D"border-collapse:collapse"><div class=3D"non_quora_share_=
+embed_wrapper"><div class=3D"item_metadata"><a href=3D"https://www.quora.co=
+m/qemail/tc?al_pri=3D0&amp;aoid=3DbWJAwK8ewGq&amp;aoty=3D1&amp;aty=3D4&amp;=
+cp=3D4&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:=
+none;color:#2b6dad"></a></div></div></td></tr></a></td></tr></tbody></table=
+></td></tr></tbody></table></td></tr></tbody></table></div></div><div class=
+=3D"no_para_breaks"><div><table class=3D"polish_separator_wrapper" style=3D=
+"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;cellpadding=
+:0;border:0;width:100%" width=3D"100%"><tbody><tr><td style=3D"border-colla=
+pse:collapse"></td><td class=3D"polish_separator" style=3D"border-collapse:=
+collapse;border-bottom:1px solid #eee;height:1px;width:140px" width=3D"140"=
+ height=3D"1"></td><td style=3D"border-collapse:collapse"></td></tr></tbody=
+></table><table class=3D"story_wrapper" cellspacing=3D"0" border=3D"0" styl=
+e=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:1=
+00%" width=3D"100%"><tbody><tr><td class=3D"story " style=3D"border-collaps=
+e:collapse;padding:20px 0;border-bottom:0"><table class=3D"digest_story_wra=
+pper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-coll=
+apse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"10=
+0%"><tbody><tr><td class=3D"reason" style=3D"border-collapse:collapse;paddi=
+ng-bottom:4px"><table class=3D"digest_reason" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;ms=
+o-table-rspace:0"><tbody><tr><td valign=3D"top" style=3D"border-collapse:co=
+llapse"></td></tr></tbody></table></td></tr><tr><td style=3D"border-collaps=
+e:collapse"><a class=3D"question_text" href=3D"https://www.quora.com/qemail=
+/tc?al_pri=3D1&amp;aoid=3DaEPDNMykEzQ&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D5&a=
+mp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;dis=
+play:block;font-size:19px;letter-spacing:-0.5px;font-weight:bold;color:#333=
+;line-height:1.4"><span class=3D"rendered_qtext" style=3D"word-break:break-=
+word">I am 17 years old. Will ITC touch 3,000 in 2 years? I am seeing ITC a=
+t that range, but everyone is thinking about 300. Can I trust ITC for that =
+level in the long term?</span></a></td></tr><tr><td style=3D"border-collaps=
+e:collapse"><table class=3D"item_content_wrapper" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:=
+0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"con=
+tent_header metadata" style=3D"border-collapse:collapse;padding:8px 0"><tab=
+le cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collaps=
+e:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"c=
+ontent_header_photo" style=3D"border-collapse:collapse;vertical-align:top" =
+valign=3D"top"><a href=3D"https://www.quora.com/qemail/tc?aoid=3Da2eick4D7n=
+2&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D5&amp;id=3D76f6f481733b403f8edfdbecc1c0=
+8afc" style=3D"text-decoration:none;color:#2b6dad"><div><div class=3D"hover=
+_menu hidden white_bg show_nub"><div class=3D"hover_menu_contents"> </div><=
+/div><span class=3D"photo_tooltip IdentityPhoto HoverMenu Photo"><img class=
+=3D"profile_photo_img" src=3D"http://qph.fs.quoracdn.net/main-thumb-3452867=
+55-50-oevbbktslynebaukccojryjejtjotlnd.jpeg" alt=3D"Anil Gupta" style=3D"ou=
+tline:0;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;displa=
+y:block;height:40px;width:40px;border-radius:100px;border-style:none" heigh=
+t=3D"40" width=3D"40" /></span></div></a></td><td class=3D"content_header_t=
+ext" style=3D"border-collapse:collapse;padding-left:8px;color:#333"><table =
+cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:c=
+ollapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td style=3D"bord=
+er-collapse:collapse"><a class=3D"user_link" href=3D"https://www.quora.com/=
+qemail/tc?aoid=3Da2eick4D7n2&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D5&amp;id=3D7=
+6f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333;f=
+ont-weight:bold;font-size:15px;line-height:1.4">Anil Gupta</a><span style=
+=3D"font-size:15px;line-height:1.4">, Investor, Explorer, Researcher and IT=
+ Professional at Free Lancing (2011-present...</span></td></tr><tr><td clas=
+s=3D"answer_details" style=3D"border-collapse:collapse;color:#999;font-size=
+:13px"><a href=3D"https://www.quora.com/qemail/tc?aoid=3Dd96F3SHsYS&amp;aot=
+y=3D1&amp;aty=3D4&amp;cp=3D5&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" sty=
+le=3D"text-decoration:none;color:#999">Updated Feb 22</a></td></tr></tbody>=
+</table></td></tr></tbody></table></td></tr><tr><td class=3D"item_content" =
+style=3D"border-collapse:collapse;display:block;font-family:-apple-system,B=
+linkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica=
+ Neue',sans-serif;color:#333;font-size:15px;line-height:1.4"><a href=3D"htt=
+ps://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3Dd96F3SHsYS&amp;aoty=3D1&=
+amp;aty=3D4&amp;cp=3D5&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"=
+text-decoration:none;color:#333333"><div><div class=3D"truncated_q_text tru=
+ncated_para_breaks TruncatedAnswerForEmail TruncatedQText TruncatedAnswer T=
+runcatedAnswerForDigestEmail" style=3D"display:inline;line-height:1.6"><spa=
+n class=3D"rendered_qtext" style=3D"word-break:break-word"><p class=3D"qtex=
+t_para u-ltr u-text-align--start" style=3D"margin:1em 0;display:inline;line=
+-height:1.6">First, I am not sure what is the connection of your age and IT=
+C touching 3000 in 2 years.. What is the relevance of your age in this ques=
+tion ?</p><p class=3D"qtext_para u-ltr u-text-align--start" style=3D"margin=
+:1em 0;display:inline;line-height:1.6">Second =E2=80=94 You think that ITC =
+w...</p></span> <a class=3D"read_more_blue" href=3D"https://www.quora.com/q=
+email/tc?al_pri=3D8&amp;aoid=3Dd96F3SHsYS&amp;aoty=3D1&amp;aty=3D4&amp;cp=
+=3D5&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:no=
+ne;color:#168de9">Read More =C2=BB</a></div></div><tr><td style=3D"border-c=
+ollapse:collapse"><div class=3D"non_quora_share_embed_wrapper"><div class=
+=3D"item_metadata"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&am=
+p;aoid=3Dd96F3SHsYS&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D5&amp;id=3D76f6f48173=
+3b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#2b6dad"></a></=
+div></div></td></tr></a></td></tr></tbody></table></td></tr></tbody></table=
+></td></tr></tbody></table></div></div><div class=3D"no_para_breaks"><div><=
+table class=3D"polish_separator_wrapper" style=3D"border-collapse:collapse;=
+mso-table-lspace:0;mso-table-rspace:0;cellpadding:0;border:0;width:100%" wi=
+dth=3D"100%"><tbody><tr><td style=3D"border-collapse:collapse"></td><td cla=
+ss=3D"polish_separator" style=3D"border-collapse:collapse;border-bottom:1px=
+ solid #eee;height:1px;width:140px" width=3D"140" height=3D"1"></td><td sty=
+le=3D"border-collapse:collapse"></td></tr></tbody></table><table class=3D"s=
+tory_wrapper" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:colla=
+pse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody=
+><tr><td class=3D"story " style=3D"border-collapse:collapse;padding:20px 0;=
+border-bottom:0"><table class=3D"digest_story_wrapper" cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-ls=
+pace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=
+=3D"reason" style=3D"border-collapse:collapse;padding-bottom:4px"><table cl=
+ass=3D"digest_reason" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody=
+><tr><td valign=3D"top" style=3D"border-collapse:collapse"></td></tr></tbod=
+y></table></td></tr><tr><td style=3D"border-collapse:collapse"><a class=3D"=
+question_text" href=3D"https://www.quora.com/qemail/tc?al_pri=3D1&amp;aoid=
+=3DoUYEsWEpWrH&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D6&amp;id=3D76f6f481733b403=
+f8edfdbecc1c08afc" style=3D"text-decoration:none;display:block;font-size:19=
+px;letter-spacing:-0.5px;font-weight:bold;color:#333;line-height:1.4"><span=
+ class=3D"rendered_qtext" style=3D"word-break:break-word">Can IIT-D ever ma=
+tch the level of VIT Vellore?</span></a></td></tr><tr><td style=3D"border-c=
+ollapse:collapse"><table class=3D"item_content_wrapper" cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-l=
+space:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=
+=3D"content_header metadata" style=3D"border-collapse:collapse;padding:8px =
+0"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-=
+collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td cla=
+ss=3D"content_header_photo" style=3D"border-collapse:collapse;vertical-alig=
+n:top" valign=3D"top"><a href=3D"https://www.quora.com/qemail/tc?aoid=3Dox2=
+bEn5v0HT&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D6&amp;id=3D76f6f481733b403f8edfd=
+becc1c08afc" style=3D"text-decoration:none;color:#2b6dad"><div><div class=
+=3D"hover_menu hidden white_bg show_nub"><div class=3D"hover_menu_contents"=
+> </div></div><span class=3D"photo_tooltip IdentityPhoto HoverMenu Photo"><=
+img class=3D"profile_photo_img" src=3D"http://qph.fs.quoracdn.net/main-thum=
+b-52735720-50-aonuugjailrnbjwoobqmbjwczvnssejx.jpeg" alt=3D"Sourabh Patil (=
+=E0=A4=B8=E0=A5=8C=E0=A4=B0=E0=A4=AD =E0=A4=AA=E0=A4=BE=E0=A4=9F=E0=A5=80=
+=E0=A4=B2)" style=3D"outline:0;text-decoration:none;-ms-interpolation-mode:=
+bicubic;border:0;display:block;height:40px;width:40px;border-radius:100px;b=
+order-style:none" height=3D"40" width=3D"40" /></span></div></a></td><td cl=
+ass=3D"content_header_text" style=3D"border-collapse:collapse;padding-left:=
+8px;color:#333"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" sty=
+le=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbod=
+y><tr><td style=3D"border-collapse:collapse"><a class=3D"user_link" href=3D=
+"https://www.quora.com/qemail/tc?aoid=3Dox2bEn5v0HT&amp;aoty=3D3&amp;aty=3D=
+4&amp;cp=3D6&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decor=
+ation:none;color:#333;font-weight:bold;font-size:15px;line-height:1.4">Sour=
+abh Patil (=E0=A4=B8=E0=A5=8C=E0=A4=B0=E0=A4=AD =E0=A4=AA=E0=A4=BE=E0=A4=9F=
+=E0=A5=80=E0=A4=B2)</a><span style=3D"font-size:15px;line-height:1.4">, M.T=
+ech Energy Studies, Indian Institute of Technology, Delhi (2020)</span></td=
+></tr><tr><td class=3D"answer_details" style=3D"border-collapse:collapse;co=
+lor:#999;font-size:13px"><a href=3D"https://www.quora.com/qemail/tc?aoid=3D=
+mpWvG90rF7x&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D6&amp;id=3D76f6f481733b403f8e=
+dfdbecc1c08afc" style=3D"text-decoration:none;color:#999">Updated Dec 28</a=
+></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td clas=
+s=3D"item_content" style=3D"border-collapse:collapse;display:block;font-fam=
+ily:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,C=
+antarell,'Helvetica Neue',sans-serif;color:#333;font-size:15px;line-height:=
+1.4"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3DmpWvG=
+90rF7x&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D6&amp;id=3D76f6f481733b403f8edfdbe=
+cc1c08afc" style=3D"text-decoration:none;color:#333333"><div><div class=3D"=
+truncated_q_text truncated_para_breaks TruncatedAnswerForEmail TruncatedQTe=
+xt TruncatedAnswer TruncatedAnswerForDigestEmail" style=3D"display:inline;l=
+ine-height:1.6"><div class=3D"truncated_thumbnail_holder thumbnail_small th=
+umbnail_featured_image" style=3D"display:inline;float:right"><span class=3D=
+"rendered_qtext" style=3D"word-break:break-word"><div class=3D"ui_qtext_ima=
+ge_outer"><div class=3D"qtext_image_wrapper"><img class=3D"landscape qtext_=
+image zoomable_in zoomable_in_feed" src=3D"http://qph.fs.quoracdn.net/main-=
+qimg-124cec2f6a1656442209bbf72847f7db" style=3D"outline:0;text-decoration:n=
+one;-ms-interpolation-mode:bicubic;border:0;margin-left:10px;max-width:200p=
+x;max-height:100px;float:left;border-style:none" /></div></div></span></div=
+><span class=3D"rendered_qtext" style=3D"word-break:break-word"><p class=3D=
+"qtext_para u-ltr u-text-align--start" style=3D"margin:1em 0;display:inline=
+;line-height:1.6">It does. The level you are referring to is the elevation =
+level from mean sea level of the college. Here is the one for Delhi:</p><p =
+class=3D"qtext_para u-ltr u-text-align--start" style=3D"margin:1em 0;displa=
+y:inline;line-height:1.6">Here is the level for Vellore:</p><p class=3D"qte=
+xt_para u-ltr u-text-align--start" style=3D"margin:1em 0;display:inline;lin=
+e-height:1.6">So yes! IIT Delhi...</p></span> <a class=3D"read_more_blue" h=
+ref=3D"https://www.quora.com/qemail/tc?al_pri=3D8&amp;aoid=3DmpWvG90rF7x&am=
+p;aoty=3D1&amp;aty=3D4&amp;cp=3D6&amp;id=3D76f6f481733b403f8edfdbecc1c08afc=
+" style=3D"text-decoration:none;color:#168de9">Read More =C2=BB</a></div></=
+div><tr><td style=3D"border-collapse:collapse"><div class=3D"non_quora_shar=
+e_embed_wrapper"><div class=3D"item_metadata"><a href=3D"https://www.quora.=
+com/qemail/tc?al_pri=3D0&amp;aoid=3DmpWvG90rF7x&amp;aoty=3D1&amp;aty=3D4&am=
+p;cp=3D6&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoratio=
+n:none;color:#2b6dad"></a></div></div></td></tr></a></td></tr></tbody></tab=
+le></td></tr></tbody></table></td></tr></tbody></table></div></div><div cla=
+ss=3D"no_para_breaks"><div><table class=3D"polish_separator_wrapper" style=
+=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;cellpadd=
+ing:0;border:0;width:100%" width=3D"100%"><tbody><tr><td style=3D"border-co=
+llapse:collapse"></td><td class=3D"polish_separator" style=3D"border-collap=
+se:collapse;border-bottom:1px solid #eee;height:1px;width:140px" width=3D"1=
+40" height=3D"1"></td><td style=3D"border-collapse:collapse"></td></tr></tb=
+ody></table><table class=3D"story_wrapper" cellspacing=3D"0" border=3D"0" s=
+tyle=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;widt=
+h:100%" width=3D"100%"><tbody><tr><td class=3D"story " style=3D"border-coll=
+apse:collapse;padding:20px 0;border-bottom:0"><table class=3D"digest_story_=
+wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-c=
+ollapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D=
+"100%"><tbody><tr><td class=3D"reason" style=3D"border-collapse:collapse;pa=
+dding-bottom:4px"><table class=3D"digest_reason" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td valign=3D"top" style=3D"border-collapse=
+:collapse"></td></tr></tbody></table></td></tr><tr><td style=3D"border-coll=
+apse:collapse"><a class=3D"question_text" href=3D"https://www.quora.com/qem=
+ail/tc?al_pri=3D1&amp;aoid=3DLTouPhPBbcr&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D=
+7&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;=
+display:block;font-size:19px;letter-spacing:-0.5px;font-weight:bold;color:#=
+333;line-height:1.4"><span class=3D"rendered_qtext" style=3D"word-break:bre=
+ak-word">Is TCS really ruining the careers of Indian IT professionals, espe=
+cially freshers?</span></a></td></tr><tr><td style=3D"border-collapse:colla=
+pse"><table class=3D"item_content_wrapper" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;mso-t=
+able-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"content_he=
+ader metadata" style=3D"border-collapse:collapse;padding:8px 0"><table cell=
+padding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:colla=
+pse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=3D"content_=
+header_photo" style=3D"border-collapse:collapse;vertical-align:top" valign=
+=3D"top"><a href=3D"https://www.quora.com/qemail/tc?aoid=3D44BYMjv3SDD&amp;=
+aoty=3D3&amp;aty=3D4&amp;cp=3D7&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" =
+style=3D"text-decoration:none;color:#2b6dad"><div><div class=3D"hover_menu =
+hidden white_bg show_nub"><div class=3D"hover_menu_contents"> </div></div><=
+span class=3D"photo_tooltip IdentityPhoto HoverMenu Photo"><img class=3D"pr=
+ofile_photo_img" src=3D"http://qsf.fs.quoracdn.net/-4-images.new_grid.profi=
+le_default.png-26-688c79556f251aa0.png" alt=3D"Basil Smith" style=3D"outlin=
+e:0;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:bl=
+ock;height:40px;width:40px;border-radius:100px;border-style:none" height=3D=
+"40" width=3D"40" /></span></div></a></td><td class=3D"content_header_text"=
+ style=3D"border-collapse:collapse;padding-left:8px;color:#333"><table cell=
+padding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:colla=
+pse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td style=3D"border-c=
+ollapse:collapse"><a class=3D"user_link" href=3D"https://www.quora.com/qema=
+il/tc?aoid=3D44BYMjv3SDD&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D7&amp;id=3D76f6f=
+481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333;font-=
+weight:bold;font-size:15px;line-height:1.4">Basil Smith</a><span style=3D"f=
+ont-size:15px;line-height:1.4">, Visual Studio - My Favourite IDE</span></t=
+d></tr><tr><td class=3D"answer_details" style=3D"border-collapse:collapse;c=
+olor:#999;font-size:13px"><a href=3D"https://www.quora.com/qemail/tc?aoid=
+=3DDTy6XyP9CW&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D7&amp;id=3D76f6f481733b403f=
+8edfdbecc1c08afc" style=3D"text-decoration:none;color:#999">Written May 31,=
+ 2018</a></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr>=
+<td class=3D"item_content" style=3D"border-collapse:collapse;display:block;=
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,=
+Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;font-size:15px;line=
+-height:1.4"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=
+=3DDTy6XyP9CW&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D7&amp;id=3D76f6f481733b403f=
+8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333333"><div><div cl=
+ass=3D"truncated_q_text truncated_para_breaks TruncatedAnswerForEmail Trunc=
+atedQText TruncatedAnswer TruncatedAnswerForDigestEmail" style=3D"display:i=
+nline;line-height:1.6"><span class=3D"rendered_qtext" style=3D"word-break:b=
+reak-word"><p class=3D"qtext_para u-ltr u-text-align--start" style=3D"margi=
+n:1em 0;display:inline;line-height:1.6">Yes, here are some points:</p><ol><=
+li>Payscale is too low compared to what they gain out</li><li><b style=3D"f=
+ont-weight:400">3 Months </b>notice period and 1 Year bond</li><li>Can put =
+in any project as per requirement...</li></ol></span> <a class=3D"read_more=
+_blue" href=3D"https://www.quora.com/qemail/tc?al_pri=3D8&amp;aoid=3DDTy6Xy=
+P9CW&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D7&amp;id=3D76f6f481733b403f8edfdbecc=
+1c08afc" style=3D"text-decoration:none;color:#168de9">Read More =C2=BB</a><=
+/div></div><tr><td style=3D"border-collapse:collapse"><div class=3D"non_quo=
+ra_share_embed_wrapper"><div class=3D"item_metadata"><a href=3D"https://www=
+.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3DDTy6XyP9CW&amp;aoty=3D1&amp;aty=
+=3D4&amp;cp=3D7&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-de=
+coration:none;color:#2b6dad"></a></div></div></td></tr></a></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table></div></div><=
+div class=3D"no_para_breaks"><div><table class=3D"polish_separator_wrapper"=
+ style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;ce=
+llpadding:0;border:0;width:100%" width=3D"100%"><tbody><tr><td style=3D"bor=
+der-collapse:collapse"></td><td class=3D"polish_separator" style=3D"border-=
+collapse:collapse;border-bottom:1px solid #eee;height:1px;width:140px" widt=
+h=3D"140" height=3D"1"></td><td style=3D"border-collapse:collapse"></td></t=
+r></tbody></table><table class=3D"story_wrapper" cellspacing=3D"0" border=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspac=
+e:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"story " style=3D"bor=
+der-collapse:collapse;padding:20px 0;border-bottom:0"><table class=3D"diges=
+t_story_wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"=
+border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" =
+width=3D"100%"><tbody><tr><td class=3D"reason" style=3D"border-collapse:col=
+lapse;padding-bottom:4px"><table class=3D"digest_reason" cellpadding=3D"0" =
+cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-=
+lspace:0;mso-table-rspace:0"><tbody><tr><td valign=3D"top" style=3D"border-=
+collapse:collapse"></td></tr></tbody></table></td></tr><tr><td style=3D"bor=
+der-collapse:collapse"><a class=3D"question_text" href=3D"https://www.quora=
+.com/qemail/tc?al_pri=3D1&amp;aoid=3D8cO9m9VFL9y&amp;aoty=3D2&amp;aty=3D4&a=
+mp;cp=3D8&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decorati=
+on:none;display:block;font-size:19px;letter-spacing:-0.5px;font-weight:bold=
+;color:#333;line-height:1.4"><span class=3D"rendered_qtext" style=3D"word-b=
+reak:break-word">How was the GATE CS 2021 paper?</span></a></td></tr><tr><t=
+d style=3D"border-collapse:collapse"><table class=3D"item_content_wrapper" =
+cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:c=
+ollapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><t=
+body><tr><td class=3D"content_header metadata" style=3D"border-collapse:col=
+lapse;padding:8px 0"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0">=
+<tbody><tr><td class=3D"content_header_photo" style=3D"border-collapse:coll=
+apse;vertical-align:top" valign=3D"top"><a href=3D"https://www.quora.com/qe=
+mail/tc?aoid=3D1Z9vgRtp0f6&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D8&amp;id=3D76f=
+6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#2b6dad"=
+><div><div class=3D"hover_menu hidden white_bg show_nub"><div class=3D"hove=
+r_menu_contents"> </div></div><span class=3D"photo_tooltip IdentityPhoto Ho=
+verMenu Photo"><img class=3D"profile_photo_img" src=3D"http://qph.fs.quorac=
+dn.net/main-thumb-155258513-50-adhsjpxarmfdlhureyqlykiizcqqbmmd.jpeg" alt=
+=3D"Rishabh Chakraborty" style=3D"outline:0;text-decoration:none;-ms-interp=
+olation-mode:bicubic;border:0;display:block;height:40px;width:40px;border-r=
+adius:100px;border-style:none" height=3D"40" width=3D"40" /></span></div></=
+a></td><td class=3D"content_header_text" style=3D"border-collapse:collapse;=
+padding-left:8px;color:#333"><table cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rs=
+pace:0"><tbody><tr><td style=3D"border-collapse:collapse"><a class=3D"user_=
+link" href=3D"https://www.quora.com/qemail/tc?aoid=3D1Z9vgRtp0f6&amp;aoty=
+=3D3&amp;aty=3D4&amp;cp=3D8&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" styl=
+e=3D"text-decoration:none;color:#333;font-weight:bold;font-size:15px;line-h=
+eight:1.4">Rishabh Chakraborty</a><span style=3D"font-size:15px;line-height=
+:1.4">, GATE CS Aspirant</span></td></tr><tr><td class=3D"answer_details" s=
+tyle=3D"border-collapse:collapse;color:#999;font-size:13px"><a href=3D"http=
+s://www.quora.com/qemail/tc?aoid=3DzXdXd9gso9W&amp;aoty=3D1&amp;aty=3D4&amp=
+;cp=3D8&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration=
+:none;color:#999">Updated Feb 16</a></td></tr></tbody></table></td></tr></t=
+body></table></td></tr><tr><td class=3D"item_content" style=3D"border-colla=
+pse:collapse;display:block;font-family:-apple-system,BlinkMacSystemFont,'Se=
+goe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;col=
+or:#333;font-size:15px;line-height:1.4"><a href=3D"https://www.quora.com/qe=
+mail/tc?al_pri=3D0&amp;aoid=3DzXdXd9gso9W&amp;aoty=3D1&amp;aty=3D4&amp;cp=
+=3D8&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:no=
+ne;color:#333333"><div><div class=3D"truncated_q_text truncated_para_breaks=
+ TruncatedAnswerForEmail TruncatedQText TruncatedAnswer TruncatedAnswerForD=
+igestEmail" style=3D"display:inline;line-height:1.6"><span class=3D"rendere=
+d_qtext" style=3D"word-break:break-word"><p class=3D"qtext_para u-ltr u-tex=
+t-align--start" style=3D"margin:1em 0;display:inline;line-height:1.6">Well!=
+</p><p class=3D"qtext_para u-ltr u-text-align--start" style=3D"margin:1em 0=
+;display:inline;line-height:1.6">Yesterday was my GATE CS 2021 paper. My pa=
+per was on morning shift-1.</p><p class=3D"qtext_para u-ltr u-text-align--s=
+tart" style=3D"margin:1em 0;display:inline;line-height:1.6">IIT Bombay rece=
+ntly introduced MSQ (Multiple Select Questions) in GATE. It was unexpected =
+that we ...</p></span> <a class=3D"read_more_blue" href=3D"https://www.quor=
+a.com/qemail/tc?al_pri=3D8&amp;aoid=3DzXdXd9gso9W&amp;aoty=3D1&amp;aty=3D4&=
+amp;cp=3D8&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decorat=
+ion:none;color:#168de9">Read More =C2=BB</a></div></div><tr><td style=3D"bo=
+rder-collapse:collapse"><div class=3D"non_quora_share_embed_wrapper"><div c=
+lass=3D"item_metadata"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D=
+0&amp;aoid=3DzXdXd9gso9W&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D8&amp;id=3D76f6f=
+481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#2b6dad"><=
+/a></div></div></td></tr></a></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></div></div><div class=3D"no_para_breaks"><=
+div><table class=3D"polish_separator_wrapper" style=3D"border-collapse:coll=
+apse;mso-table-lspace:0;mso-table-rspace:0;cellpadding:0;border:0;width:100=
+%" width=3D"100%"><tbody><tr><td style=3D"border-collapse:collapse"></td><t=
+d class=3D"polish_separator" style=3D"border-collapse:collapse;border-botto=
+m:1px solid #eee;height:1px;width:140px" width=3D"140" height=3D"1"></td><t=
+d style=3D"border-collapse:collapse"></td></tr></tbody></table><table class=
+=3D"story_wrapper" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:=
+collapse;mso-table-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><=
+tbody><tr><td class=3D"story " style=3D"border-collapse:collapse;padding:20=
+px 0;border-bottom:0"><table class=3D"digest_story_wrapper" cellpadding=3D"=
+0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-tab=
+le-lspace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td cl=
+ass=3D"reason" style=3D"border-collapse:collapse;padding-bottom:4px"><table=
+ class=3D"digest_reason" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" s=
+tyle=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tb=
+ody><tr><td valign=3D"top" style=3D"border-collapse:collapse"></td></tr></t=
+body></table></td></tr><tr><td style=3D"border-collapse:collapse"><a class=
+=3D"question_text" href=3D"https://www.quora.com/qemail/tc?al_pri=3D1&amp;a=
+oid=3DVrkH0G0yK4m&amp;aoty=3D2&amp;aty=3D4&amp;cp=3D9&amp;id=3D76f6f481733b=
+403f8edfdbecc1c08afc" style=3D"text-decoration:none;display:block;font-size=
+:19px;letter-spacing:-0.5px;font-weight:bold;color:#333;line-height:1.4"><s=
+pan class=3D"rendered_qtext" style=3D"word-break:break-word">How was your I=
+IT interview for an M.Tech?</span></a></td></tr><tr><td style=3D"border-col=
+lapse:collapse"><table class=3D"item_content_wrapper" cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lsp=
+ace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D=
+"content_header metadata" style=3D"border-collapse:collapse;padding:8px 0">=
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-col=
+lapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class=
+=3D"content_header_photo" style=3D"border-collapse:collapse;vertical-align:=
+top" valign=3D"top"><a href=3D"https://www.quora.com/qemail/tc?aoid=3DYzwUz=
+bDMjBB&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D9&amp;id=3D76f6f481733b403f8edfdbe=
+cc1c08afc" style=3D"text-decoration:none;color:#2b6dad"><div><div class=3D"=
+hover_menu hidden white_bg show_nub"><div class=3D"hover_menu_contents"> </=
+div></div><span class=3D"photo_tooltip IdentityPhoto HoverMenu Photo"><img =
+class=3D"profile_photo_img" src=3D"http://qph.fs.quoracdn.net/main-thumb-32=
+9167570-50-tchsagpapzprgogiwkgkisrnmzfallvo.jpeg" alt=3D"Hrushikesh Chavan"=
+ style=3D"outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;bor=
+der:0;display:block;height:40px;width:40px;border-radius:100px;border-style=
+:none" height=3D"40" width=3D"40" /></span></div></a></td><td class=3D"cont=
+ent_header_text" style=3D"border-collapse:collapse;padding-left:8px;color:#=
+333"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"borde=
+r-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td s=
+tyle=3D"border-collapse:collapse"><a class=3D"user_link" href=3D"https://ww=
+w.quora.com/qemail/tc?aoid=3DYzwUzbDMjBB&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D=
+9&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;=
+color:#333;font-weight:bold;font-size:15px;line-height:1.4">Hrushikesh Chav=
+an</a><span style=3D"font-size:15px;line-height:1.4">, MTech from Indian In=
+stitute of Technology, Kanpur (2020)</span></td></tr><tr><td class=3D"answe=
+r_details" style=3D"border-collapse:collapse;color:#999;font-size:13px"><a =
+href=3D"https://www.quora.com/qemail/tc?aoid=3DaymwZ53ndg6&amp;aoty=3D1&amp=
+;aty=3D4&amp;cp=3D9&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"tex=
+t-decoration:none;color:#999">Updated Feb 4</a></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr><tr><td class=3D"item_content" style=3D"b=
+order-collapse:collapse;display:block;font-family:-apple-system,BlinkMacSys=
+temFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',san=
+s-serif;color:#333;font-size:15px;line-height:1.4"><a href=3D"https://www.q=
+uora.com/qemail/tc?al_pri=3D0&amp;aoid=3DaymwZ53ndg6&amp;aoty=3D1&amp;aty=
+=3D4&amp;cp=3D9&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-de=
+coration:none;color:#333333"><div><div class=3D"truncated_q_text truncated_=
+para_breaks TruncatedAnswerForEmail TruncatedQText TruncatedAnswer Truncate=
+dAnswerForDigestEmail" style=3D"display:inline;line-height:1.6"><span class=
+=3D"rendered_qtext" style=3D"word-break:break-word"><p class=3D"qtext_para =
+u-ltr u-text-align--start" style=3D"margin:1em 0;display:inline;line-height=
+:1.6">A2A.</p><p class=3D"qtext_para u-ltr u-text-align--start" style=3D"ma=
+rgin:1em 0;display:inline;line-height:1.6">All interviews are as usual. I w=
+as placed in Eaton. In technical round they mostly asked questions from CV.=
+ Then sub questions related to my MTech, BTech projects, inte...</p></span>=
+ <a class=3D"read_more_blue" href=3D"https://www.quora.com/qemail/tc?al_pri=
+=3D8&amp;aoid=3DaymwZ53ndg6&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D9&amp;id=3D76=
+f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#168de9=
+">Read More =C2=BB</a></div></div><tr><td style=3D"border-collapse:collapse=
+"><div class=3D"non_quora_share_embed_wrapper"><div class=3D"item_metadata"=
+><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3DaymwZ53nd=
+g6&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D9&amp;id=3D76f6f481733b403f8edfdbecc1c=
+08afc" style=3D"text-decoration:none;color:#2b6dad"></a></div></div></td></=
+tr></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbod=
+y></table></div></div><div class=3D"no_para_breaks"><div><table class=3D"po=
+lish_separator_wrapper" style=3D"border-collapse:collapse;mso-table-lspace:=
+0;mso-table-rspace:0;cellpadding:0;border:0;width:100%" width=3D"100%"><tbo=
+dy><tr><td style=3D"border-collapse:collapse"></td><td class=3D"polish_sepa=
+rator" style=3D"border-collapse:collapse;border-bottom:1px solid #eee;heigh=
+t:1px;width:140px" width=3D"140" height=3D"1"></td><td style=3D"border-coll=
+apse:collapse"></td></tr></tbody></table><table class=3D"story_wrapper" cel=
+lspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-lsp=
+ace:0;mso-table-rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D=
+"story " style=3D"border-collapse:collapse;padding:20px 0;border-bottom:0">=
+<table class=3D"digest_story_wrapper" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-=
+rspace:0;width:100%" width=3D"100%"><tbody><tr><td class=3D"reason" style=
+=3D"border-collapse:collapse;padding-bottom:4px"><table class=3D"digest_rea=
+son" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-colla=
+pse:collapse;mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td valign=
+=3D"top" style=3D"border-collapse:collapse"></td></tr></tbody></table></td>=
+</tr><tr><td style=3D"border-collapse:collapse"><a class=3D"question_text" =
+href=3D"https://www.quora.com/qemail/tc?al_pri=3D1&amp;aoid=3D1bbfORoXMiu&a=
+mp;aoty=3D2&amp;aty=3D4&amp;cp=3D10&amp;id=3D76f6f481733b403f8edfdbecc1c08a=
+fc" style=3D"text-decoration:none;display:block;font-size:19px;letter-spaci=
+ng:-0.5px;font-weight:bold;color:#333;line-height:1.4"><span class=3D"rende=
+red_qtext" style=3D"word-break:break-word">I accepted a job offer, but then=
+ received a much better one two weeks later. What is the right thing to do?=
+</span></a></td></tr><tr><td style=3D"border-collapse:collapse"><table clas=
+s=3D"item_content_wrapper" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;wi=
+dth:100%" width=3D"100%"><tbody><tr><td class=3D"content_header metadata" s=
+tyle=3D"border-collapse:collapse;padding:8px 0"><table cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;mso-table-ls=
+pace:0;mso-table-rspace:0"><tbody><tr><td class=3D"content_header_photo" st=
+yle=3D"border-collapse:collapse;vertical-align:top" valign=3D"top"><a href=
+=3D"https://www.quora.com/qemail/tc?aoid=3D8uxOFBWZqCi&amp;aoty=3D3&amp;aty=
+=3D4&amp;cp=3D10&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-d=
+ecoration:none;color:#2b6dad"><div><div class=3D"hover_menu hidden white_bg=
+ show_nub"><div class=3D"hover_menu_contents"> </div></div><span class=3D"p=
+hoto_tooltip IdentityPhoto HoverMenu Photo"><img class=3D"profile_photo_img=
+" src=3D"http://qph.fs.quoracdn.net/main-thumb-1258459331-50-xkdxiqdnweymml=
+qkrjnqhsvhmnpewqhb.jpeg" alt=3D"Shaunak Bhattachharje" style=3D"outline:0;t=
+ext-decoration:none;-ms-interpolation-mode:bicubic;border:0;display:block;h=
+eight:40px;width:40px;border-radius:100px;border-style:none" height=3D"40" =
+width=3D"40" /></span></div></a></td><td class=3D"content_header_text" styl=
+e=3D"border-collapse:collapse;padding-left:8px;color:#333"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;m=
+so-table-lspace:0;mso-table-rspace:0"><tbody><tr><td style=3D"border-collap=
+se:collapse"><a class=3D"user_link" href=3D"https://www.quora.com/qemail/tc=
+?aoid=3D8uxOFBWZqCi&amp;aoty=3D3&amp;aty=3D4&amp;cp=3D10&amp;id=3D76f6f4817=
+33b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#333;font-weig=
+ht:bold;font-size:15px;line-height:1.4">Shaunak Bhattachharje</a><span styl=
+e=3D"font-size:15px;line-height:1.4">, Salesforce DevOps Engineer at Copado=
+ (2020-present)</span></td></tr><tr><td class=3D"answer_details" style=3D"b=
+order-collapse:collapse;color:#999;font-size:13px"><a href=3D"https://www.q=
+uora.com/qemail/tc?aoid=3D85II8NA2PNj&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D10&=
+amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;co=
+lor:#999">Written Sep 8</a></td></tr></tbody></table></td></tr></tbody></ta=
+ble></td></tr><tr><td class=3D"item_content" style=3D"border-collapse:colla=
+pse;display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',R=
+oboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#333;f=
+ont-size:15px;line-height:1.4"><a href=3D"https://www.quora.com/qemail/tc?a=
+l_pri=3D0&amp;aoid=3D85II8NA2PNj&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D10&amp;i=
+d=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:#=
+333333"><div><div class=3D"truncated_q_text truncated_para_breaks Truncated=
+AnswerForEmail TruncatedQText TruncatedAnswer TruncatedAnswerForDigestEmail=
+" style=3D"display:inline;line-height:1.6"><div class=3D"truncated_thumbnai=
+l_holder thumbnail_small thumbnail_featured_image" style=3D"display:inline;=
+float:right"><span class=3D"rendered_qtext" style=3D"word-break:break-word"=
+><div class=3D"ui_qtext_image_outer"><div class=3D"qtext_image_wrapper"><im=
+g class=3D"landscape qtext_image zoomable_in zoomable_in_feed" src=3D"http:=
+//qph.fs.quoracdn.net/main-qimg-c439c8d4e5a85d9a64072661c8488857" style=3D"=
+outline:0;text-decoration:none;-ms-interpolation-mode:bicubic;border:0;marg=
+in-left:10px;max-width:200px;max-height:100px;float:left;border-style:none"=
+ /></div></div></span></div><span class=3D"rendered_qtext" style=3D"word-br=
+eak:break-word"><p class=3D"qtext_para u-ltr u-text-align--start" style=3D"=
+margin:1em 0;display:inline;line-height:1.6">I know one of my friends who w=
+as in a similar situation as this. Just to maintain confidentiality, I woul=
+d term the current organization as Company A and the two offers fro...</p><=
+/span> <a class=3D"read_more_blue" href=3D"https://www.quora.com/qemail/tc?=
+al_pri=3D8&amp;aoid=3D85II8NA2PNj&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D10&amp;=
+id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"text-decoration:none;color:=
+#168de9">Read More =C2=BB</a></div></div><tr><td style=3D"border-collapse:c=
+ollapse"><div class=3D"non_quora_share_embed_wrapper"><div class=3D"item_me=
+tadata"><a href=3D"https://www.quora.com/qemail/tc?al_pri=3D0&amp;aoid=3D85=
+II8NA2PNj&amp;aoty=3D1&amp;aty=3D4&amp;cp=3D10&amp;id=3D76f6f481733b403f8ed=
+fdbecc1c08afc" style=3D"text-decoration:none;color:#2b6dad"></a></div></div=
+></td></tr></a></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></div></div></td></tr></tbody></table></td><td class=3D"w=
+30" style=3D"border-collapse:collapse"> </td></tr></tbody></table></td></tr=
+><tr><td style=3D"border-collapse:collapse"><div class=3D"polish_button_wra=
+pper" style=3D"text-align:center;margin-bottom:25px"><a class=3D"polish_act=
+ion_button" href=3D"https://www.quora.com/qemail/tc?aoid&amp;aoty=3D7&amp;a=
+ty=3D4&amp;cp=3D0&amp;id=3D76f6f481733b403f8edfdbecc1c08afc" style=3D"font-=
+size:15px;line-height:1.4;border-radius:3px;box-shadow:0 1px 1px 0 rgba(200=
+,200,200,0.2);display:inline-block;outline:0;padding:15px 20px;text-align:c=
+enter;text-decoration:none;cursor:pointer;background-color:#168de9;color:#f=
+ff;padding:15px 25px">Read More in Your Feed</a></div></td></tr><tr><td sty=
+le=3D"border-collapse:collapse"><table cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0" width=3D"100%" style=3D"border-collapse:collapse;mso-table-lsp=
+ace:0;mso-table-rspace:0"><tbody><tr><div class=3D"polish_button_wrapper" s=
+tyle=3D"text-align:center;margin-bottom:25px"><div class=3D"polish_app_link=
+" style=3D"font-size:15px;line-height:1.4;border-radius:3px;box-shadow:0 1p=
+x 1px 0 rgba(200,200,200,0.2);display:inline-block;outline:0;padding:15px 2=
+0px;text-align:center;text-decoration:none;cursor:pointer;background-color:=
+#ebf0ff;border-radius:4px;color:#000;padding:15px 15px;box-sizing:border-bo=
+x;width:100%"><div class=3D"app_download_text"><h3 style=3D"color:black">Ne=
+ver miss a story. Designed for readers on the go.</h3></div><div class=3D"a=
+pp_download_icons" style=3D"display:inline-block"><span class=3D"apple_badg=
+e"><a href=3D"http://www.quora.com/app?campaign=3Demail_footer_links_experi=
+ment&amp;inject=3D1&amp;landing_url=3Dhttps%3A%2F%2Fwww.quora.com%2Fqemail%=
+2Ftc%3Faoid%26aoty%3D7%26aty%3D4%26cp%3D0%26id%3D76f6f481733b403f8edfdbecc1=
+c08afc&amp;source=3Ddigest&amp;target=3Diphone" style=3D"text-decoration:no=
+ne;color:#2b6dad"><img class=3D"u-inline-block" style=3D"outline:0;text-dec=
+oration:none;-ms-interpolation-mode:bicubic;border:0;padding-left:10px;marg=
+in-bottom:10px;height:40px" src=3D"http://qsf.fs.quoracdn.net/-4-images.app=
+le_app_store_badges.en.png-26-4e3b66753949d78b.png" alt=3D"Download on the =
+App Store" height=3D"40" /></a></span><span><a href=3D"http://www.quora.com=
+/app?campaign=3Demail_footer_links_experiment&amp;inject=3D1&amp;landing_ur=
+l=3Dhttps%3A%2F%2Fwww.quora.com%2Fqemail%2Ftc%3Faoid%26aoty%3D7%26aty%3D4%2=
+6cp%3D0%26id%3D76f6f481733b403f8edfdbecc1c08afc&amp;source=3Ddigest&amp;tar=
+get=3Dandroid" style=3D"text-decoration:none;color:#2b6dad"><img class=3D"u=
+-inline-block" style=3D"outline:0;text-decoration:none;-ms-interpolation-mo=
+de:bicubic;border:0;height:60.0px" src=3D"https://play.google.com/intl/en_u=
+s/badges/images/generic/en_badge_web_generic.png" alt=3D"Get it on Google P=
+lay" height=3D"60.0" /></a></span></div></div></div></tr></tbody></table></=
+td></tr></tbody></table></td></tr><tr><td class=3D"polish_footer_section fo=
+oter_container_wrapper" align=3D"center" style=3D"border-collapse:collapse;=
+margin-top:16px;max-width:525px"><table class=3D"footer_container" cellpadd=
+ing=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse:collapse;=
+mso-table-lspace:0;mso-table-rspace:0;font-size:11px;color:#999;padding-top=
+:16px;width:100%;text-align:center" width=3D"100%" align=3D"center"><tr><td=
+ style=3D"border-collapse:collapse"><div class=3D"footer_text_wrapper" styl=
+e=3D"padding:25px 20px"><div><span style=3D"display:block;padding-bottom:8p=
+x;color:#999">This email was sent by Quora (605 Castro Street, Mountain Vie=
+w, CA 94041). </span><span style=3D"display:block;padding-bottom:8px;color:=
+#999">If you don't want to receive this type of email in the future, please=
+ <a class=3D"unsubscribe_link" href=3D"http://www.quora.com/email_optout/qe=
+mail_unsubscribe?email_track_id=3D76f6f481733b403f8edfdbecc1c08afc&amp;t=3D=
+1614762440465859&amp;token=3D1a1f5b2750e52fd46cfeebb97f79c1be4abf2fba6f23ba=
+57b98e874519d765a64d2c3f9a65a07826e21ad08777e19c0965b4f3e8329a75b82048500c3=
+876bf71&amp;type=3D2&amp;uid=3D291050071" style=3D"color:#999;text-decorati=
+on:underline">unsubscribe</a>.</span><span style=3D"display:block;padding-b=
+ottom:8px;color:#999"><a href=3D"http://www.quora.com/" style=3D"color:#999=
+;text-decoration:underline">http://www.quora.com/</a></span></div></div></t=
+d></tr></table></td></tr></tbody></table></td></tr></tbody></table></div></=
+body></html>
+--===============8440082298998347272==--

@@ -1,0 +1,386 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp465357ejf;
+        Fri, 6 Aug 2021 09:24:03 -0700 (PDT)
+X-Received: by 2002:a6b:ec0d:: with SMTP id c13mr711389ioh.108.1628267043156;
+        Fri, 06 Aug 2021 09:24:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628267043; cv=none;
+        d=google.com; s=arc-20160816;
+        b=TH4nmYuDGlv1i2PEb4TV5nWeugu5ARNJgMZJGsJMKneuX3dfeQjFCaq4glXWXNDcj9
+         0RUTCEm0IAjL6rtoY2g3QJ1it/lC+qx283n37YJhJUZsgZfeX0fV8d1LQ2rcSZo7h4mG
+         n8raAeXBY9jSHVQIT6AroHTXp2aUORwUHMc6Y/kwRVGuPBGnVj/NEIodGOzSSN4Ha8Fp
+         c3wPrOvceeu/AyGAm2sac9NbyooMVio1s/IA32CfqtnLPNivqHcPX3j4jAT3t0FHtt5y
+         oN+b6zhQ2FI8nXHNxPPApPSSvtcRYDvbIDBQkASchgtt1lRmYUzM/xEpQAjscbSePBV5
+         LFIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:list-id:reply-to:date:mime-version
+         :dkim-signature;
+        bh=v3D5Jowdv4vJZHRU/WIGeC2RezZYa7IPnuV4sSW6nSg=;
+        b=RIh/lgjVkdsGNsjUSsfQp0KbdUxVgwrT8yb0v3EeD6L0/BJGf3Aijj6IxbQavePJwH
+         gXV+//7bYUPKj8PLBcfLNDFD7E9xa7wOQqLC0WZx2asxzlQntqUybwKg6JFjm/GUXh1t
+         YkqdWAPRVMT9io2zjh1Ial51wdwGVK8T372Q6lqURHKYJCqP4guKem7NI4RS/0RxKBVK
+         r+SQX3DJwD5Td7BeSO88ohWAxc8UQ2wNNbU0vQAWeYQuDEgBCR/qFoXcnHCeiAdTc7St
+         3GB9qs4iZLHvdMaPBmLBCioh2IfyN2SCnx9plfy2WHPTJYLjvZbOhkMRtgh2p25k0opC
+         J9Gg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=gKzQpAdP;
+       spf=pass (google.com: domain of 3iminyqobacslcluaz-tnyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ImINYQobACsLcLUaZ-TNYHWWPK.NVVNSLbZLYJVUaLUa.JVT@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3ImINYQobACsLcLUaZ-TNYHWWPK.NVVNSLbZLYJVUaLUa.JVT@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id i12sor5814421iol.70.2021.08.06.09.24.02
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Fri, 06 Aug 2021 09:24:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3iminyqobacslcluaz-tnyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=gKzQpAdP;
+       spf=pass (google.com: domain of 3iminyqobacslcluaz-tnyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ImINYQobACsLcLUaZ-TNYHWWPK.NVVNSLbZLYJVUaLUa.JVT@M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:reply-to:list-id:message-id:subject:from:to;
+        bh=v3D5Jowdv4vJZHRU/WIGeC2RezZYa7IPnuV4sSW6nSg=;
+        b=gKzQpAdP+kWRIBSKOvxq39Q+K4ka1pBim/D4LvUlJ4A7S7Uw5ZaH5iMqH9Z18lXY2Q
+         tHi1gFVJGa6PMgCq3bjcNPAL8a0OkIuJEWkDFmIpnc6Pc9mYnzS5cUv5vWB76ZBCBFOQ
+         a3nca9ZV2hVKrSUXAaWcDm4vomNUVOyuWyhccvXTJQtCUMcwaRxl9U0gYiq1Z//EObGL
+         +2y6QV4SZOSb9z3um7Eo/DSIhX75/2BJQRvz3jczM8UwQQ6NhxIIXZGlw1e5HLSqwYzy
+         uLnzYLfFgRgKCmvM2O/kZ2OBoWUsdW+97Lm0rIpDcWukLcwoI8kGAgn24ho/YyxQAJRk
+         we9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:reply-to:list-id:message-id
+         :subject:from:to;
+        bh=v3D5Jowdv4vJZHRU/WIGeC2RezZYa7IPnuV4sSW6nSg=;
+        b=aoS0xHvOu+Eweh+733PsNdNEhrL7fO695W6vIiFfpcYVBqUtGwS4SMWlLtZuVKBjDg
+         QkbyNMNGckCeCfPXbTiOHk39TuNW4qGg7NEKdbHYdaew+KO6E3g7QmGByJmhEIupqdaP
+         gwy2N1awtGVWs00A9wmIw6UjOCVWUGtQ9by1xpbv7HoJOTTlciQMj0822t1pGn39UFDy
+         QTEtFWuWqrMHHEsVfNzhSaA7COJV2MMhhRXTpn1HO9aNhvcKPZ20EoILrNZj+UT6oYzv
+         lnGZVLXC+KJTOBLq1QItJBu6GK56ibvMxjW3Pipequp9t7TEuGABqgQAXhOmN91y91MB
+         1dAA==
+X-Gm-Message-State: AOAM531jUov0MFcHGay2zei+wChphx16XNEAyqLTBsPZApJcBpFObZzO
+	ruex3+4QvHoHOUqanAMgcjToUNTYn1Kyp10Wy5X4QMG1yHUr
+X-Google-Smtp-Source: ABdhPJyO8sCDJjpAhTT+FJj4fViykH0pGEH4+JRbMUgGrJk5pH0o3k/RBCm4lj6PvS7OEU+306QsYnXHqhq8/XLbWpOwWWoZ+vq0
+MIME-Version: 1.0
+X-Received: by 2002:a02:2307:: with SMTP id u7mr10613917jau.28.1628267042810;
+ Fri, 06 Aug 2021 09:24:02 -0700 (PDT)
+Date: Fri, 06 Aug 2021 09:24:02 -0700
+Reply-To: Google Events <no-reply-eventsatgoogle@google.com>
+List-Id: 4974586355384320
+X-Google-Appengine-App-Id: s~events-mgr
+X-Google-Appengine-App-Id-Alias: events-mgr
+Message-ID: <000000000000afaefd05c8e676dd@google.com>
+Subject: GSoC 2021 Virtual Student Summit
+From: Google Events <no-reply-eventsatgoogle@google.com>
+To: dmugil2000@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000afaedf05c8e676da"
+
+--000000000000afaedf05c8e676da
+Content-Type: text/plain; charset="UTF-8"
+
+
+
+![Google](https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_col
+or_120x48dp.png)
+
+GSoC 2021 Student Summit
+
+  
+You're invited to attend the first Google Summer of Code Student Summit!
+
+  
+On August 27th, our half day, virtual summit will aim to inspire and inform
+our students with talks from Googlers, GSoC mentors and former students who
+will share their personal and professional GSoC and open source journeys.
+
+  
+Only Google Summer of Code 2021 participating students are invited to attend.
+
+[Register Now](https://events.withgoogle.com/gsoc-student-summit-2021-virtual/
+link/?token=e615910d8c35588a4988d9d429c4b6bbe071e1f6&redirect_url=%2Fgsoc-
+student-summit-2021-virtual%2F)
+
+See you online,
+
+**The GSoC Team**
+
+![](https://storage.googleapis.com/djfiles/dcdcdc.png)
+
+You received this email because you registered for a Google event. If you
+don't want to receive any more emails about this event, you can opt out [here.
+](https://events.withgoogle.com/optout/f5651763421841f3a7736e44b06ad074/)
+
+![](https://storage.googleapis.com/djfiles/dcdcdc.png)
+
+![Google
+logo](http://www.gstatic.com/gmktg/logo/google_footer_logo_updated.png)
+
+Google LLC, 1600 Amphitheatre Parkway,
+
+Mountain View, CA 94043
+
+USA
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+![](http://www.gstatic.com/gmktg/dub-img/1x1_transparent.png)
+
+
+--000000000000afaedf05c8e676da
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html lang=3D"en-us"><head><title>GSoC 2021 Virtual Student Summit</title>
+<meta content=3D"text/html; charset=3Dutf-8"/>
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" name=3D"viewpor=
+t"/>
+<meta content=3D"target-densitydpi=3Ddevice-dpi" name=3D"viewport"/>
+<meta content=3D"telephone=3Dno" name=3D"format-detection"/>
+<meta content=3D"date=3Dno" name=3D"format-detection"/>
+<meta charset=3D"utf-8"/>
+<style type=3D"text/css">body, table, td, a { -webkit-text-size-adjust: 100=
+%; -ms-text-size-adjust: 100%; } table, td { mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt; } img { -ms-interpolation-mode: bicubic; } img { border: 0;=
+ height: auto; line-height: 100%; outline: none; text-decoration: none; } t=
+able { border-collapse: collapse; } body { height: 100%; margin: 0; padding=
+: 0; width: 100%; } a[x-apple-data-detectors] { color: inherit; text-decora=
+tion: none; font-size: inherit; font-family: inherit; font-weight: inherit;=
+ line-height: inherit; } @media screen and (max-width: 480px) { * { font-fa=
+mily: 'Roboto', sans-serif; } .mobile-none { display: none; } .mobile-cente=
+r { text-align: center; } .mobile-fluid { width: 100%; } .snippet { font-si=
+ze: 14px; line-height: 16px; } .headline { font-size: 34px; line-height: 38=
+px; } .subhead { font-size: 20px; line-height: 24px; } .body-line { font-si=
+ze: 18px; line-height: 24px; } .footnote { font-size: 14px; line-height: 18=
+px; padding: 0 15px 15px; } } div[style*=3D"margin: 16px 0;"] { margin: 0; =
+}</style>
+</head>
+<body>
+<div id=3D"wrapper">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#F5F5F5" style=3D"background-color: #F5F5F5=
+;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"max-width: 480px;" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" bgcolor=3D"#F5F5F5" style=3D"padding: 15px; background=
+-color: #F5F5F5;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"max-width: 480px;" width=3D"100%">
+<tbody><tr>
+<td align=3D"left">
+<img alt=3D"Google" src=3D"https://www.gstatic.com/images/branding/googlelo=
+go/1x/googlelogo_color_120x48dp.png" style=3D"display: block; border: 0px;"=
+ width=3D"120"/>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td align=3D"center" bgcolor=3D"#ffffff" style=3D"padding: 0 0 0 0; padding=
+-left: 0; padding-right: 0; background-color: #ffffff;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"max-width: 480px;" width=3D"100%">
+<tbody><tr>
+<td align=3D"left">
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td align=3D"center" bgcolor=3D"#FFFFFF" style=3D"padding: 0 30px; backgrou=
+nd-color: #FFFFFF;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"max-width: 480px;" width=3D"100%">
+<tbody><tr>
+<td align=3D"left" class=3D"headline" style=3D"font-family: 'Google Sans', =
+Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-heigh=
+t: 32px; color: #444444; padding-top: 20px; padding-bottom: 8px;">
+                                    GSoC 2021 Student Summit=C2=A0
+                                </td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"body-line" style=3D"font-family: 'Roboto', Aria=
+l, Helvetica, sans-serif; font-size: 16px; line-height: 24px; color: #44444=
+4; font-weight: 400; letter-spacing: 0px; padding-bottom: 16px;">
+<br/>You're invited to attend the first Google Summer of Code Student Summi=
+t!<br/><br/>On August 27th, our half day, virtual summit will aim to inspir=
+e and inform our students with talks from Googlers, GSoC mentors and former=
+ students who will share their personal and professional GSoC and open sour=
+ce journeys.=C2=A0 =C2=A0=C2=A0<br/><br/>Only Google Summer of Code 2021 pa=
+rticipating students are invited to attend.=C2=A0<br/>
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"btn-line" style=3D"padding: 6px 0 22px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbo=
+dy><tr><td align=3D"center" bgcolor=3D"#4285F4" height=3D"50" style=3D"back=
+ground-color: #4285F4; border-radius: 2px;"><a href=3D"https://events.withg=
+oogle.com/gsoc-student-summit-2021-virtual/link/?token=3De615910d8c35588a49=
+88d9d429c4b6bbe071e1f6&amp;redirect_url=3D%2Fgsoc-student-summit-2021-virtu=
+al%2F" style=3D"display: block; font-family: 'Google Sans', Arial, Helvetic=
+a, sans-serif; color: #ffffff; font-size: 13pt; padding: 8px 22px;text-deco=
+ration: none;  letter-spacing: 0;" target=3D"_blank"><span contenteditable=
+=3D"false">Register Now</span></a></td></tr></tbody></table>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"body-line" style=3D"font-family: 'Roboto', Aria=
+l, Helvetica, sans-serif; font-size: 16px; line-height: 24px; color: #44444=
+4; font-weight: 400; letter-spacing: 0px; padding-bottom: 16px;">
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"body-line" style=3D"font-family: 'Roboto', Aria=
+l, Helvetica, sans-serif; font-size: 16px; font-weight: 400; line-height: 2=
+4px; color: #444444;">
+                                    See you online,
+                                </td>
+</tr>
+<tr>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding-bottom: 16px;">
+<strong>The GSoC Team</strong>
+</td>
+</tr>
+<tr>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 2px; font-weight: 400; line-height: 2px; color: #444444; p=
+adding-bottom: 16px;">
+<img src=3D"https://storage.googleapis.com/djfiles/dcdcdc.png" style=3D"dis=
+play: inline-block; border: 0px;" width=3D"30"/>
+</td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"body-line" style=3D"font-family: 'Roboto', Aria=
+l, Helvetica, sans-serif; font-size: 16px; font-weight: 400; line-height: 2=
+4px; color: #444444; padding-bottom: 8px;">
+</td>
+</tr>
+<tr>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding-bottom: 16px;">
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collap=
+se; color: #444444; font-size: 16px; font-family: 'Roboto', Arial, Helvetic=
+a, sans-serif;">
+<tbody><tr>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding: 0; margin: 0;" valign=3D"top">
+</td>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding: 0; margin: 0;" valign=3D"top">
+</td>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding: 0; margin: 0;" valign=3D"top">
+</td>
+<td align=3D"left" style=3D"font-family: 'Roboto', Arial, Helvetica, sans-s=
+erif; font-size: 16px; font-weight: 400; line-height: 24px; color: #444444;=
+ padding: 0; margin: 0;" valign=3D"top">
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td align=3D"center" bgcolor=3D"#F5F5F8" style=3D"padding: 15px 0; backgrou=
+nd-color: #F5F5F8;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"max-width: 480px;" width=3D"100%">
+<tbody><tr>
+<td align=3D"left" class=3D"footnote" style=3D"font-family: 'Roboto', Arial=
+, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #999999=
+; font-weight: 400; letter-spacing: 0px; padding-bottom: 15px;">
+                                        You received this email because you=
+ registered for a Google event. If you don't want to receive any more email=
+s about this event, you can opt out <span contenteditable=3D"false" data-hi=
+nt=3D"Optout link" data-placeholder=3D'&lt;a style=3D"text-decoration: none=
+; color: #4285F4;" href=3D"https://events.withgoogle.com/optout/f5651763421=
+841f3a7736e44b06ad074/"&gt;here.&lt;/a&gt;' data-token=3D"%3Ca%20style%3D%2=
+2text-decoration%3A%20none%3B%20color%3A%20%234285F4%3B%22%20href%3D%22%5Bo=
+ptout-link%5D%22%3Ehere.%3C%2Fa%3E"><a href=3D"https://events.withgoogle.co=
+m/optout/f5651763421841f3a7736e44b06ad074/" style=3D"text-decoration: none;=
+ color: #4285F4;">here.</a></span>
+</td>
+</tr>
+<tr>
+<td align=3D"center" style=3D"font-family: 'Roboto', Arial, Helvetica, sans=
+-serif; font-size: 2px; font-weight: 400; line-height: 2px; color: #999999;=
+ padding-top: 30px; padding-bottom: 20px;">
+<img src=3D"https://storage.googleapis.com/djfiles/dcdcdc.png" style=3D"dis=
+play: inline-block; border: 0px;" width=3D"30"/>
+</td>
+</tr>
+<tr>
+<td align=3D"center">
+<img alt=3D"Google logo" src=3D"http://www.gstatic.com/gmktg/logo/google_fo=
+oter_logo_updated.png" style=3D"display: block; border: 0px;" width=3D"76"/=
+>
+</td>
+</tr>
+<tr>
+<td align=3D"center" class=3D"footnote" style=3D"font-family: 'Roboto', Ari=
+al, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #9999=
+99; font-weight: 400; letter-spacing: 0px; padding-top: 10px; padding-botto=
+m: 15px;">
+<span style=3D"width: 300px; margin: 0 auto; display: block;">Google LLC, 1=
+600 Amphitheatre Parkway,<br/>Mountain View, CA 94043<br/>USA<br/></span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"mobile-none" style=3D"-=
+premailer-cellpadding: 0; -premailer-cellspacing: 0; border: 0; border-coll=
+apse: collapse; color: #4d4d4d; font-family: 'Roboto', Arial, Helvetica, sa=
+ns-serif; font-size: 1px;">
+<tbody><tr>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+<td align=3D"left" style=3D"line-height: 1px; margin: 0; padding: 0; text-a=
+lign: left;"><img height=3D"1" src=3D"http://www.gstatic.com/gmktg/dub-img/=
+1x1_transparent.png" style=3D"border: none; display: block; outline: none;"=
+ width=3D"100"/></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+</body></html>
+--000000000000afaedf05c8e676da--

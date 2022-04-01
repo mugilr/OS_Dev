@@ -1,0 +1,984 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp641586eja;
+        Fri, 5 Mar 2021 08:06:02 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx2Itl4VdZchUO5zRctqFklnk5zRnYaqIGh3G/TgCxaPdqdBKstxNU7yRFGpmSX8rznXlL3
+X-Received: by 2002:a63:c901:: with SMTP id o1mr9533949pgg.232.1614960362000;
+        Fri, 05 Mar 2021 08:06:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614960361; cv=none;
+        d=google.com; s=arc-20160816;
+        b=S3SNSqKFFonCheG/6wyn+2URU0bsy3wEpuOYKOlWJ068895zoNvPEfQxOMCxlcZNhE
+         369vXs9ZLMlT4WkOyDKsLYEytTNkGBA2RtGyhS+sLzSDotjrBCiUQghATyltCu/K4P0x
+         YGzbj6FC5y/JO/7P7gTZ0i0uKLGLZ/c9SfFuYa/Jwint9tDo656jNe+atGYERtqwPqCp
+         nPqZiWyX+cwZk/BVyy5SsfQvw+XIbl9eKgBNqEANYNkMgYPmUZ9pQ+hCDeiX0fU1eU9K
+         0srH6CijklRSVgVeEM7KC9b2nKSmypbMT7RHxG2oEnYHy9HcvAZOJl3zk/U6IQgVlGhK
+         R7ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-id:list-unsubscribe:feedback-id:from:subject:reply-to
+         :mime-version:date:message-id:to:dkim-signature;
+        bh=tB1RGpRdaw/pK+7iQEvIkOXC2VSpkhrI1Fz1gqcS7xk=;
+        b=mpBwzzTE9z/L7Br00gERPb8uD41dZrsoqLVitjjx6E2eRAaE2fiVXjL4Zu4DbYB5L/
+         cHxX+Vejvj1Tt6Cy7ei3DqNXQQTu1AqUVTt1zTWPxGeF+2LxlewfMaGIh1AhVvtsTRE6
+         LyEu2X9pkUBgARvHY8lM11Hpu+Ss0iAwXpO2yT0JQRKVLP5QlrMOz5MyKdH8lCSxSdmO
+         hzQLiA7ePqyfzQLRlQSlJhHUsf2Vq50eRuEUkLSE+3B5qbeTgZ7W0QNU7dj1X6Lali18
+         79a/4JCgy480GRko5zUe79sp/ot4F3eB52Qhe/mgodMJyZq4UgYLOxlem/+85l+ECIlx
+         pW3g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@marketing.angel.co header.s=scph0420 header.b=a6U7218Y;
+       spf=pass (google.com: domain of msprvs1=18698qurwwu__=bounces-283541@bounce.angel.co designates 156.70.4.30 as permitted sender) smtp.mailfrom="msprvs1=18698QuRwWu__=bounces-283541@bounce.angel.co";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=angel.co
+Return-Path: <msprvs1=18698QuRwWu__=bounces-283541@bounce.angel.co>
+Received: from mta-70-4-30.sparkpostmail.com (mta-70-4-30.sparkpostmail.com. [156.70.4.30])
+        by mx.google.com with ESMTPS id a21si2974944pfc.257.2021.03.05.08.06.00
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Mar 2021 08:06:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of msprvs1=18698qurwwu__=bounces-283541@bounce.angel.co designates 156.70.4.30 as permitted sender) client-ip=156.70.4.30;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@marketing.angel.co header.s=scph0420 header.b=a6U7218Y;
+       spf=pass (google.com: domain of msprvs1=18698qurwwu__=bounces-283541@bounce.angel.co designates 156.70.4.30 as permitted sender) smtp.mailfrom="msprvs1=18698QuRwWu__=bounces-283541@bounce.angel.co";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=angel.co
+X-MSFBL: TLk1oLoAtmyLofyj04sSWirnyGiIoKzNiOiVJr6/AIA=|eyJjdXN0b21lcl9pZCI
+	6IjI4MzU0MSIsInN1YmFjY291bnRfaWQiOiIwIiwiciI6ImRtdWdpbDIwMDBAZ21
+	haWwuY29tIiwibWVzc2FnZV9pZCI6IjYwNDFiZDU2NDI2MDMxNmNkYzgxIiwidGV
+	uYW50X2lkIjoic3BjIn0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marketing.angel.co;
+	s=scph0420; t=1614960317; i=@marketing.angel.co;
+	bh=tB1RGpRdaw/pK+7iQEvIkOXC2VSpkhrI1Fz1gqcS7xk=;
+	h=To:Message-ID:Date:Content-Type:Subject:From;
+	b=a6U7218Yt1meJ9QO+qej8XS6G3KYJ0eczb+vlqNYWMMGyNybVCR6ux+Cdnp++8HIT
+	 eb0DQTgCbTiyzPBNRO3rdN2OneOnTAfLFfBkULwn6p3GpYWThvIW1fn4QY8iC39HqD
+	 8uynoQULLEf3KNRk3VUj/qZbWCDeSCe7RKz6wWmQ=
+To: dmugil2000@gmail.com
+Message-ID: <CD.18.40858.DB652406@as.mta1vrest.cc.prd.sparkpost>
+Date: Fri, 05 Mar 2021 16:05:17 +0000
+Content-Type: multipart/alternative; boundary="_----Q9onRtLnLP2w9nu8ftsEgQ===_1D/18-40858-DB652406"
+MIME-Version: 1.0
+Reply-To: newsletters@angel.co
+Subject: =?utf-8?B?VHdpdHRlcuKAmXMgcGF5d2FsbCBiZXQ=?=
+X-Campaign-ID: 2069044
+From: "AngelList Weekly" <newsletters@marketing.angel.co>
+X-Message-ID: c67e31341aea4851b6c1247b46125cf8
+X-Feedback-ID: 2840553:2069044:31251:iterable
+Feedback-ID: 2840553:2069044:31251:iterable
+List-Unsubscribe: <mailto:unsubscribe@unsub.spmta.com?subject=unsubscribe:9QUyeiQaChQTDvqbsnm_SX0aczAYawT0xcQnlkvGhlI~|eyAicmNwdF90byI6ICJkbXVnaWwyMDAwQGdtYWlsLmNvbSIsICJ0ZW5hbnRfaWQiOiAic3BjIiwgImN1c3RvbWVyX2lkIjogIjI4MzU0MSIsICJzdWJhY2NvdW50X2lkIjogIjAiLCAibWVzc2FnZV9pZCI6ICI2MDQxYmQ1NjQyNjAzMTZjZGM4MSIgfQ~~>
+List-Id: <spc.283541.0.sparkpostmail.com>
+
+--_----Q9onRtLnLP2w9nu8ftsEgQ===_1D/18-40858-DB652406
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+Twitter rolls out features in effort double its user base and revenues =0A =
+<https://angel.co/> View Online =0A<http://links.angel.co/e/evib=3F_t=3D26b=
+4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DHC=
+AGSV8b2YptU5VYuRMtjNIWh81HYEIMxTP1YjzNjl0Y21uo7vqQwuCL8VSMoNvjFmFfrml_s60OH=
+64q7SUgN6bhLZZ9TpCEJY9OdSo62MO8qQx-222Wp8hi1o5He2m->=0ATwitter rolls out ne=
+w features  =0A<https://angel.co/today/stories/twitter-s-super-follow-creat=
+or-subscription-takes-shots-at-substack-and-patreon-38279>=0A =0A<https://a=
+ngel.co/today/stories/twitter-s-super-follow-creator-subscription-takes-sho=
+ts-at-substack-and-patreon-38279>=0AAlexander Shatov=0A=0ADon=E2=80=99t cal=
+l it a comeback.=C2=A0=0A=0A=C2=A0=0A=0AFollowing a surge in users and reve=
+nue =0A<https://www.investors.com/news/technology/twitter-stock-soars-recor=
+d-high-reveals-growth-plan-twtr/>=0A, Twitter announced a series of new fea=
+tures=E2=80=94includingthe dreaded paywall =0A<https://twitter.com/kitefiel=
+dmusic/status/1365071026074185729>=E2=80=94that CEO Jack =0ADorsey hopes wi=
+ll breathe new life into the seven-year-old company.=C2=A0=0A=0A=C2=A0=0A=
+=0A=E2=80=9CWe=E2=80=99re slow, we=E2=80=99re not innovative, and we=E2=80=
+=99re not trusted,=E2=80=9D Dorsey wrote in an =0Aanalyst report as the com=
+pany unveiled plans to double development velocity,=0Adouble its daily acti=
+ve users =0A<https://www.cnbc.com/2021/02/25/twitter-cfo-company-confident-=
+about-strategy-to-double-revenues-in-2-years.html>=0A, and double annual re=
+venue by the end of 2023.=C2=A0=0A=0A=C2=A0=0A=0AMost notable is Super Foll=
+ows, which allows creators to charge for exclusive =0Acontent for the first=
+ time. Here=E2=80=99s how TechCrunchexplained it =0A<https://techcrunch.com=
+/2021/02/25/twitters-super-follow-creator-subscription-takes-shots-at-subst=
+ack-and-patreon/>=0A: =E2=80=9CIt combines the community trends of Discord,=
+ the newsletter insights of =0ASubstack, the audio chat rooms of Clubhouse,=
+ and the creator support of Patreon =0Ainto a creator subscription.=E2=80=
+=9D=0A=0A=C2=A0=0A=0AOther features include Twitter Communities, which give=
+s a place for those =0ASuper Followers to congregate (similar to a Facebook=
+ Groups), and Spaces, which =0Aallows up to 10 fans at time to talk in audi=
+o chat rooms (similar to Clubhouse =0Aand Mark Cuban=E2=80=99sFireside <htt=
+ps://firesidechat.com/>). Last year Twitter =0Aintroduced Review, a newslet=
+ters option (similar to Substack), andaudio tweets =0A<https://thehill.com/=
+policy/technology/503255-twitter-announces-audio-tweets>.=C2=A0=0A=0A=C2=A0=
+=0A=0AIt=E2=80=99s unknown when some of these features will roll out. Also,=
+ the company =0Ahasn=E2=80=99t disclosed how much of a percentage it=E2=80=
+=94or Apple, for that matter =0A<https://www.theverge.com/21445923/platform=
+-fees-apps-games-business-marketplace-apple-google>=0A=E2=80=94would take f=
+rom sales.=0A=0A=C2=A0=0A=0AThe new features helped lift Twitter=E2=80=99s =
+stock price to a record high last week, =0Aand it remains at new-record hig=
+hs. How users respond to the paywall will go a =0Along way in determining w=
+hether it can remain there.=0AView Story =0A<https://angel.co/today/stories=
+/twitter-s-super-follow-creator-subscription-takes-shots-at-substack-and-pa=
+treon-38279>=0AHot startups hiring now =F0=9F=94=A5=0A=0A <https://angel.co=
+/company/agencyenterprise> AE Studio =0A<https://angel.co/company/agencyent=
+erprise>=C2=A0- Let's create something great. =0ADevelopment, Data Science,=
+ Design & Product Strategy. Explore 4 jobs =0A<https://angel.co/company/age=
+ncyenterprise/jobs>. =0A <https://angel.co/company/flow-code> Flowcode =0A<=
+https://angel.co/company/flow-code>=C2=A0- We connect the real world to the=
+ digital =0Aworld, instantly and magically. Explore 8 jobs =0A<https://ange=
+l.co/company/flow-code/jobs>. =0A <https://angel.co/company/lark-3> Lark <h=
+ttps://angel.co/company/lark-3>=C2=A0- =0AEnabling virtual management of di=
+abetes and heart disease. Explore 18 jobs =0A<https://angel.co/company/lark=
+-3/jobs>. =0A <https://angel.co/company/peloton> Peloton <https://angel.co/=
+company/peloton>=C2=A0=0A- Better ourselves, inspire each other, and unite =
+the world through fitness. =0AExplore 659 jobs <https://angel.co/company/pe=
+loton/jobs>. =0AFunding and acquisitions=0A=0ALos Angeles-based West Tenth,=
+ a digital marketplace targeting the estimated =0A2.4M women who exited the=
+ workforce over the past year =0A<https://angel.co/today/stories/west-tenth=
+-bags-1-5m-for-women-s-digital-marketplace-38606>=0A, raised$1.5M in seed f=
+unding led by Better Ventures. The platform enables =0Awomen to monetize th=
+eir small business, connecting them with customers and =0Aoffering them a s=
+torefront.=0A=0ASan Francisco-based Fuzzy <https://angel.co/company/fuzzy> =
+announced an $18M =0ASeries B forits pet telemedicine platform in a deal le=
+d by Greycroft =0A<https://angel.co/today/stories/fuzzy-lands-18m-series-b-=
+for-pet-telemedicine-platform-38603>=0A. The company offers a subscription-=
+based, all-digital veterinary practice. The =0Acompany started as a physica=
+l veterinary practice and pivoted to all-virtual in =0A2019.=C2=A0=0A=0ASub=
+scription coffee startup Bottomless <https://angel.co/company/bottomless-2>=
+=0A, a Y Combinator alumnus, raised a$4.5M Series A led by O=E2=80=99Shaugh=
+nessy Asset =0AManagement. The coffee comes with adigital scale that trigge=
+rs automatic =0Arefills when beans are running low =0A<https://angel.co/tod=
+ay/stories/bottomless-closes-4-5m-series-a-to-scale-its-subscription-coffee=
+-business-38698>=0A. Bottomless aims to 10x its customer base this year.=0A=
+=0AAngelList Weekly=0A=0A90 Gold St=0A=0ASan Francisco, CA 94133=0A=0AUnsub=
+scribe =0A<http://links.angel.co/e/encryptedUnsubscribe=3F_r=3D26b4e8aeb47d=
+4cd3acd5eba415f76f62&_s=3Dc67e31341aea4851b6c1247b46125cf8&_t=3DHCAGSV8b2Yp=
+tU5VYuRMtjNIWh81HYEIMxTP1YjzNjl3n1rQg8ovfwfI8NIJHmHu60HcnjyLg0GwFaH72SxFetR=
+CUt80E03QUiXV6jxPOUVCw8-A10xaPHHV1FvzOvaoVh4C1l7W0i8JxZWZpq6WHFeD0dl55JJjg1=
+khSFK3sPtPjSGShUpTckMLi_wJBcWwKTUmVJf3xsMeJzWMsJuEFbRWvN8lgo26DMlE8PabVo_o%=
+3D>=0A |Update preferences <https://angel.co/settings/notifications>
+--_----Q9onRtLnLP2w9nu8ftsEgQ===_1D/18-40858-DB652406
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns=3D"http://www.=
+w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn=
+:schemas-microsoft-com:office:office" style=3D"line-height: inherit;"> <hea=
+d> <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:Pixels=
+PerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]--> <=
+meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"> <m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width"> <!--[if !mso]><!-->=
+ <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"> <!--<![endif]-=
+-> <title></title> <!--[if !mso]><!--> <!--<![endif]--> <style type=3D"text=
+/css">body{margin:0;padding:0}table,td,tr{vertical-align:top;border-collaps=
+e:collapse}*{line-height:inherit}a[x-apple-data-detectors=3Dtrue]{color:inh=
+erit!important;text-decoration:none!important}</style> <style type=3D"text/=
+css" id=3D"media-query">@media(max-width:600px){.block-grid,.col{min-width:=
+320px!important;max-width:100%!important;display:block!important}.block-gri=
+d{width:100%!important}.col{width:100%!important}.col_cont{margin:0 auto}im=
+g.fullwidth,img.fullwidthOnMobile{max-width:100%!important}.no-stack .col{m=
+in-width:0!important;display:table-cell!important}.no-stack.two-up .col{wid=
+th:50%!important}.no-stack .col.num2{width:16.6%!important}.no-stack .col.n=
+um3{width:25%!important}.no-stack .col.num4{width:33%!important}.no-stack .=
+col.num5{width:41.6%!important}.no-stack .col.num6{width:50%!important}.no-=
+stack .col.num7{width:58.3%!important}.no-stack .col.num8{width:66.6%!impor=
+tant}.no-stack .col.num9{width:75%!important}.no-stack .col.num10{width:83.=
+3%!important}.video-block{max-width:none!important}.mobile_hide{min-height:=
+0;max-height:0;max-width:0;display:none;overflow:hidden;font-size:0}.deskto=
+p_hide{display:block!important;max-height:none!important}}</style> </head> =
+<body class=3D"clean-body" style=3D"line-height: inherit; margin: 0; paddin=
+g: 0; -webkit-text-size-adjust: 100%; background-color: #f2f4f7;">=0D=0A<di=
+v style=3D"color:transparent;visibility:hidden;opacity:0;font-size:0px;bord=
+er:0;max-height:1px;width:1px;margin:0px;padding:0px;border-width:0px!impor=
+tant;display:none!important;line-height:0px!important;"><img border=3D"0" w=
+idth=3D"1" height=3D"1" src=3D"http://go.sparkpostmail2.com/q/yX-q0z2sEyC7F=
+Cb9KTzsQA~~/AARTlQA~/RgRiJNu9PVcDc3BjQgpgQb1WQmAxbNyBUhRkbXVnaWwyMDAwQGdtYW=
+lsLmNvbVgEAAAAAA~~"/></div>=0D=0A<span style=3D"color:transparent;visibilit=
+y:hidden;display:none;opacity:0;height:0;width:0;font-size:0;">Twitter roll=
+s out features in effort double its user base and revenues</span><img src=
+=3D"http://links.angel.co/e/eo=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&amp;=
+_m=3Dc67e31341aea4851b6c1247b46125cf8&amp;_e=3DHCAGSV8b2YptU5VYuRMtjNIWh81H=
+YEIMxTP1YjzNjl3n1rQg8ovfwfI8NIJHmHu60HcnjyLg0GwFaH72SxFetRCUt80E03QUiXV6jxP=
+OUVB0zJXPNh1BVG6TPZ2sLVMRllsjq_ifzNhgev8qlo7dpzjwLTssPpnxXVBfEbpbdBk%3D" st=
+yle=3D"border:0;width:1px;height:1px;border-width:0px!important;display:non=
+e!important;line-height:0!important;" width=3D"1" height=3D"1"/> <!--[if IE=
+]><div class=3D"ie-browser"><![endif]--> <table class=3D"nl-container" styl=
+e=3D"line-height: inherit; table-layout: fixed; vertical-align: top; min-wi=
+dth: 320px; border-spacing: 0; border-collapse: collapse; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; background-color: #f2f4f7; width: 100%;" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" bgcolor=
+=3D"#f2f4f7" valign=3D"top"> <tbody style=3D"line-height: inherit;"> <tr st=
+yle=3D"line-height: inherit; border-collapse: collapse; vertical-align: top=
+;" valign=3D"top"> <td style=3D"line-height: inherit; border-collapse: coll=
+apse; word-break: break-word; vertical-align: top;" valign=3D"top"> <!--[if=
+ (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0"><tr><td align=3D"center" style=3D"background-color:#f2f4f7"><![end=
+if]--> <div style=3D"line-height: inherit; background-color: transparent;">=
+ <div class=3D"block-grid two-up" style=3D"line-height: inherit; min-width:=
+ 320px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-word;=
+ word-break: break-word; Margin: 0 auto; background-color: transparent;"> <=
+div style=3D"line-height: inherit; border-collapse: collapse; display: tabl=
+e; width: 100%; background-color: transparent;"> <!--[if (mso)|(IE)]><table=
+ width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"b=
+ackground-color:transparent;"><tr><td align=3D"center"><table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"la=
+yout-full-width" style=3D"background-color:transparent"><![endif]--> <!--[i=
+f (mso)|(IE)]><td align=3D"center" width=3D"290" style=3D"background-color:=
+transparent;width:290px; border-top: 0px solid transparent; border-left: 0p=
+x solid transparent; border-bottom: 0px solid transparent; border-right: 0p=
+x solid transparent;" valign=3D"top"><table width=3D"100%" cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right: 0px; paddi=
+ng-left: 0px; padding-top:32px; padding-bottom:24px;"><![endif]--> <div cla=
+ss=3D"col num6" style=3D"line-height: inherit; display: table-cell; vertica=
+l-align: top; max-width: 320px; min-width: 288px; width: 290px;"> <div clas=
+s=3D"col_cont" style=3D"line-height: inherit; width: 100% !important;"> <!-=
+-[if (!mso)&(!IE)]><!--> <div style=3D"line-height: inherit; border-top: 0p=
+x solid transparent; border-left: 0px solid transparent; border-bottom: 0px=
+ solid transparent; border-right: 0px solid transparent; padding-top: 32px;=
+ padding-bottom: 24px; padding-right: 0px; padding-left: 0px;"> <!--<![endi=
+f]--> <div class=3D"img-container left fixedwidth" align=3D"left" style=3D"=
+line-height: inherit; padding-right: 0px; padding-left: 0px;"> <!--[if mso]=
+><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr=
+ style=3D"line-height:0px"><td style=3D"padding-right: 0px;padding-left: 0p=
+x;" align=3D"left"><![endif]--><a href=3D"http://links.angel.co/u/click=3F_=
+t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&=
+_e=3DzvmtUBrOZl1gFL7Sd_pEQMGvT0xW8lO00rfx5kN747bvC7mCCsBOOKP5r5LnoG8w8Qqqqn=
+VSE3R1NkJH4tXn8dO6NPsiUdkvHs9TOHoa66FAxIRI8Bs-j_sTfXShhoYJ9u6wvu7Af3pTJSlMf=
+E3aNg_t2xT7ZOJR8OPXKMs9Qo9EyjMotOlprott8EMGyIGmq1AqAraY-IZWNKoA27MmW-fT708Z=
+qX_ZK2_ORwCnycCpnAVHM9xYBm05hr3ycyJ3rPrgG43inPeg4nvej53OiZtTDMBnDji4MfNC9KN=
+0ePwz33HpmYbwXFBD1YXe0Jz8UZrfjOq-Dv9u25VwYl2t6xCgdAvLjJI4kXWDJ804744%3D" ta=
+rget=3D"_blank" style=3D"line-height: inherit; outline: none;" tabindex=3D"=
+-1"><img class=3D"left fixedwidth" border=3D"0" src=3D"https://d15k2d11r6t6=
+rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6=
+dd6a/aedf6ecdad2542989742c495e7f0aede/editor_images/e42af5e046593d1104a77ae=
+f9c27b4584b171e611dd6facbbf26d97ed28027e1d5bf87053d6682f3de1196fa705bb857c8=
+9cc5c1b15276c1ffe7d313e6a5f6d0.png" alt=3D"AngelList Logo" title=3D"AngelLi=
+st Logo" style=3D"line-height: inherit; text-decoration: none; -ms-interpol=
+ation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 139px=
+; display: block;" width=3D"139"></a> <!--[if mso]></td></tr></table><![end=
+if]--> </div> <!--[if (!mso)&(!IE)]><!--> </div> <!--<![endif]--> </div> </=
+div> <!--[if (mso)|(IE)]></td></tr></table><![endif]--> <!--[if (mso)|(IE)]=
+></td><td align=3D"center" width=3D"290" style=3D"background-color:transpar=
+ent;width:290px; border-top: 0px solid transparent; border-left: 0px solid =
+transparent; border-bottom: 0px solid transparent; border-right: 0px solid =
+transparent;" valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0"><tr><td style=3D"padding-right: 0px; padding-left:=
+ 0px; padding-top:15px; padding-bottom:5px;"><![endif]--> <div class=3D"col=
+ num6" style=3D"line-height: inherit; display: table-cell; vertical-align: =
+top; max-width: 320px; min-width: 288px; width: 290px;"> <div class=3D"col_=
+cont" style=3D"line-height: inherit; width: 100% !important;"> <!--[if (!ms=
+o)&(!IE)]><!--> <div style=3D"line-height: inherit; border-top: 0px solid t=
+ransparent; border-left: 0px solid transparent; border-bottom: 0px solid tr=
+ansparent; border-right: 0px solid transparent; padding-top: 15px; padding-=
+bottom: 5px; padding-right: 0px; padding-left: 0px;"> <!--<![endif]--> <div=
+ class=3D"mobile_hide" style=3D"line-height: inherit;"> <div class=3D"butto=
+n-container" align=3D"right" style=3D"line-height: inherit; padding-top: 5p=
+x; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;"> <!--[if ms=
+o]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" s=
+tyle=3D"border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt;"><tr><td style=3D"padding-top: 5px; padding-right: 5=
+px; padding-bottom: 5px; padding-left: 5px" align=3D"right"><v:roundrect xm=
+lns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-co=
+m:office:word" href=3D"http://links.angel.co/e/evib=3F_t=3D26b4e8aeb47d4cd3=
+acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DHCAGSV8b2YptU5V=
+YuRMtjNIWh81HYEIMxTP1YjzNjl0Y21uo7vqQwuCL8VSMoNvjFmFfrml_s60OH64q7SUgN6bhLZ=
+Z9TpCEJY9OdSo62MO8qQx-222Wp8hi1o5He2m-" style=3D"height:28.5pt;width:58.5pt=
+;v-text-anchor:middle;" arcsize=3D"0%" strokeweight=3D"0.75pt" strokecolor=
+=3D"transparent" fill=3D"false"><w:anchorlock/><v:textbox inset=3D"0,0,0,0"=
+><center style=3D"color:#999; font-family:Arial, sans-serif; font-size:13px=
+"><![endif]--><a href=3D"http://links.angel.co/e/evib=3F_t=3D26b4e8aeb47d4c=
+d3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DHCAGSV8b2YptU=
+5VYuRMtjNIWh81HYEIMxTP1YjzNjl0Y21uo7vqQwuCL8VSMoNvjFmFfrml_s60OH64q7SUgN6bh=
+LZZ9TpCEJY9OdSo62MO8qQx-222Wp8hi1o5He2m-" target=3D"_blank" style=3D"line-h=
+eight: inherit; -webkit-text-size-adjust: none; text-decoration: none; disp=
+lay: inline-block; color: #999; background-color: transparent; border-radiu=
+s: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px; width: auto; w=
+idth: auto; border-top: 1px solid transparent; border-right: 1px solid tran=
+sparent; border-bottom: 1px solid transparent; border-left: 1px solid trans=
+parent; padding-top: 2px; padding-bottom: 2px; font-family: Helvetica Neue,=
+ Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; wo=
+rd-break: keep-all;"><span style=3D"line-height: inherit; padding-left: 2px=
+; padding-right: 2px; font-size: 13px; display: inline-block; letter-spacin=
+g: undefined;"><span style=3D"font-size: 16px; line-height: 2; word-break: =
+break-word; mso-line-height-alt: 32px;"><span style=3D"font-size: 13px; lin=
+e-height: 26px;" data-mce-style=3D"font-size: 13px; line-height: 26px;">Vie=
+w Online</span></span></span></a> <!--[if mso]></center></v:textbox></v:rou=
+ndrect></td></tr></table><![endif]--> </div> </div> <!--[if (!mso)&(!IE)]><=
+!--> </div> <!--<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></=
+table><![endif]--> <!--[if (mso)|(IE)]></td></tr></table></td></tr></table>=
+<![endif]--> </div> </div> </div> <div style=3D"line-height: inherit; backg=
+round-color: transparent;"> <div class=3D"block-grid " style=3D"line-height=
+: inherit; min-width: 320px; max-width: 580px; overflow-wrap: break-word; w=
+ord-wrap: break-word; word-break: break-word; Margin: 0 auto; background-co=
+lor: #ffffff;"> <div style=3D"line-height: inherit; border-collapse: collap=
+se; display: table; width: 100%; background-color: #ffffff;"> <!--[if (mso)=
+|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"background-color:transparent;"><tr><td align=3D"center"><table =
+cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width:580px"><tr =
+class=3D"layout-full-width" style=3D"background-color:#ffffff"><![endif]-->=
+ <!--[if (mso)|(IE)]><td align=3D"center" width=3D"580" style=3D"background=
+-color:#ffffff;width:580px; border-top: 0px solid transparent; border-left:=
+ 0px solid transparent; border-bottom: 0px solid transparent; border-right:=
+ 0px solid transparent;" valign=3D"top"><table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right: 32px;=
+ padding-left: 32px; padding-top:8px; padding-bottom:32px;"><![endif]--> <d=
+iv class=3D"col num12" style=3D"line-height: inherit; min-width: 320px; max=
+-width: 580px; display: table-cell; vertical-align: top; width: 580px;"> <d=
+iv class=3D"col_cont" style=3D"line-height: inherit; width: 100% !important=
+;"> <!--[if (!mso)&(!IE)]><!--> <div style=3D"line-height: inherit; border-=
+top: 0px solid transparent; border-left: 0px solid transparent; border-bott=
+om: 0px solid transparent; border-right: 0px solid transparent; padding-top=
+: 8px; padding-bottom: 32px; padding-right: 32px; padding-left: 32px;"> <!-=
+-<![endif]--> <div style=3D"line-height: inherit; font-size: 16px; text-ali=
+gn: center; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;"> <h=
+3 style=3D"font-size: 24px; line-height: 24px; text-align: center;"><a styl=
+e=3D"line-height: inherit; color: #006aff; text-decoration: none;" href=3D"=
+http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3D=
+c67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQNvC7NB9Iw83F86sQ=
+umkPkNjCK26-bJFIV-TGvyrHyKTmJKjeVeXKV_fpr-bfceruFYlzuVGHRmTYztTJBaX2g7Otkt7=
+KtONP3MO1A_tRz7ON5tDjtnd-mf8ZBFgWrHE-_u3zCQlrIDNnT_DqPTW10pDxNRkM8YfSVTVnlk=
+C-b3KkpGabZtK6FevJGONsAwCWRmFF2PSTIdlaCMtEhRt2E08mHNkPvf5bEqelJP2aboMWML-_B=
+TaLzWqHbaukdMngl5mHdtj3k07yHFJ0wbZUn1grS7EcqrDfnriu4cvWgCCQpQGhrAF0nfORtCA7=
+et4RpfEIbgBjWpERDACqiCVSE1vHIsng7CaDd_nebsCVWZIVMsrMK1VQzvqvDeFNvyRw12slhs9=
+2m65w_vbgCd1CGC6qiYnTyPEAvKi_H3ZhZN9oWypy9VnYA6fpesugWNEXMiJoP-Wfi2lnV_Mw3O=
+Eb50%3D">Twitter rolls out new features </a></h3> </div> <div class=3D"img-=
+container center autowidth" align=3D"center" style=3D"line-height: inherit;=
+ padding-right: 0px; padding-left: 0px;"> <!--[if mso]><table width=3D"100%=
+" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr style=3D"line-height=
+:0px"><td style=3D"padding-right: 0px;padding-left: 0px;" align=3D"center">=
+<![endif]--><a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd=
+3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL=
+7Sd_pEQNvC7NB9Iw83F86sQumkPkNjCK26-bJFIV-TGvyrHyKTmJKjeVeXKV_fpr-bfceruFYlz=
+uVGHRmTYztTJBaX2g7Otkt7KtONP3MO1A_tRz7ON5tDjtnd-mf8ZBFgWrHE-_u3zCQlrIDNnT_D=
+qPTW10pDxNRkM8YfSVTVnlkC-b3KkpGabZtK6FevJGONsAwCWRmFF2PSTIdlaCMtEhRt2E08mHN=
+kPvf5bEqelJP2aboMWML-_BTaLzWqHbaukdMngu0RtxmTLkF16Z14zR1rLmOrOPi-5EiMHa3pEL=
+qkg52YXTaemAyel5MbpSpXHubUwFCwkyuqOjHIcaSiZAXsgkSs-u9I73ovY9pVZTt2askgRk6ME=
+yXCw29AZZ006utDlldlp-YpBIgnC1suGSMtYqJObOZZLHWlOUuHqcHiv8CmJC28bfcmA-n0h3UB=
+QhQc673tqsVRcTXlu3qEZUtKO8U%3D" target=3D"_blank" style=3D"line-height: inh=
+erit; outline: none;" tabindex=3D"-1"><img class=3D"center autowidth" align=
+=3D"center" border=3D"0" src=3D"https://d15k2d11r6t6rl.cloudfront.net/publi=
+c/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/26b4e8aeb47d4cd3ac=
+d5eba415f76f62/alexander-shatov-k1xf2D7jWUs-unsplash.jpg" style=3D"line-hei=
+ght: inherit; text-decoration: none; -ms-interpolation-mode: bicubic; heigh=
+t: auto; border: 0; width: 100%; max-width: 516px; display: block;" width=
+=3D"516"></a> <!--[if mso]></td></tr></table><![endif]--> </div> <!--[if ms=
+o]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><=
+tr><td style=3D"padding-right: 0px; padding-left: 0px; padding-top: 0px; pa=
+dding-bottom: 0px; font-family: Arial, sans-serif"><![endif]--> <div style=
+=3D"color: #555555; font-family: Helvetica Neue, Helvetica, Arial, sans-ser=
+if; line-height: 1.2; padding-top: 0px; padding-right: 0px; padding-bottom:=
+ 0px; padding-left: 0px;"> <div class=3D"txtTinyMce-wrapper" style=3D"line-=
+height: 1.2; font-size: 12px; color: #555555; font-family: Helvetica Neue, =
+Helvetica, Arial, sans-serif; mso-line-height-alt: 14px;"> <p style=3D"font=
+-size: 10px; line-height: 1.2; word-break: break-word; mso-line-height-alt:=
+ 12px; margin: 0;"><span style=3D"line-height: inherit; font-size: 10px;"><=
+em style=3D"line-height: inherit;">Alexander Shatov</em></span></p> </div> =
+</div> <!--[if mso]></td></tr></table><![endif]--> <!--[if mso]><table widt=
+h=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=
+=3D"padding-right: 0px; padding-left: 0px; padding-top: 22px; padding-botto=
+m: 0px; font-family: Arial, sans-serif"><![endif]--> <div style=3D"color: #=
+17181a; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-h=
+eight: 1.5; padding-top: 22px; padding-right: 0px; padding-bottom: 0px; pad=
+ding-left: 0px;"> <div class=3D"txtTinyMce-wrapper" style=3D"line-height: 1=
+.5; font-size: 12px; color: #17181a; font-family: 'Helvetica Neue', Helvet=
+ica, Arial, sans-serif; mso-line-height-alt: 18px;"> <p style=3D"line-heigh=
+t: 1.5; word-break: break-word; font-size: 16px; mso-line-height-alt: 24px;=
+ margin: 0;"><span style=3D"line-height: inherit; font-size: 16px;">Don=E2=
+=80=99t call it a comeback.&nbsp;</span></p> <p style=3D"line-height: 1.5; =
+word-break: break-word; font-size: 16px; mso-line-height-alt: 24px; margin:=
+ 0;"><span style=3D"line-height: inherit; font-size: 16px;">&nbsp;</span></=
+p> <p style=3D"line-height: 1.5; word-break: break-word; font-size: 16px; m=
+so-line-height-alt: 24px; margin: 0;"><span style=3D"line-height: inherit; =
+font-size: 16px;">Following a <a href=3D"http://links.angel.co/u/click=3F_t=
+=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_=
+e=3DzvmtUBrOZl1gFL7Sd_pEQPnw-eJMwNFScMdRFaDhEBlwMg-Bnc5y0unwduWkGKb57y7RVyC=
+6PB3Ofu5lBIEi5DVVMNulWYeRt2ekfG3Hbnmb_m4jJ8iXEAsaeBfiQMLSpE5p5RuR_P1e8yohfr=
+-TGmYrsG7qUAoMzd5VOqqNl0ZKj0rjS_kAvXp7YgqWbtDJKiSuvWdVbG8vyVmpr-IpKsADoMoJi=
+4VWkG8WRWFbHAXylXQcFGwEqCIjYR-C4RSoe0KDjWYCuUEPiQOZNDvnNiBIAJfRkloxxkVllzXR=
+ytmLJQLB6uDdXe_mBmABCQ4k1k5sARrksj_BFpFLCXVUzHfWwpbJhT6PCOJc6SVGWfj0VK3VHWZ=
+9HIN3T0RYNr0aZB7dX53wJIt_tn-ZRtTe40XfLT0lsdid38IlR1EseHJQKoOXoHtMykhyk0cR31=
+E7NmlkHPUQYDkykMvg5UGCnQ%3D%3D" style=3D"line-height: inherit; color: #006a=
+ff;">surge in users and revenue</a>, Twitter announced a series of new feat=
+ures=E2=80=94including <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4=
+e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3Dzvm=
+tUBrOZl1gFL7Sd_pEQMqhpi7oWn-BL2OcjfasluLdCCPcvCDddqYFFS07Tq64G6cyFlKEtfdh8s=
+YJY470tf-YL7hapqy4V5ks63k3D_KXVfoD3SRrXYzNGUG9Xp6V_7XtQBxZkFWSeauoKhAuZvuub=
+t9JmJMAXVDGspmSVjpVcwyzCGGBpJfHeEJWw_9VuhDRD-12XtOLbLVaEBTu7UK-axdFEXYomUNm=
+jQU-KA-9lQH-IfQWl_m_KZJ0PR5LLMOd_KszQZegm4odeAJuDzd5AXOq-OWyHn00UdZEVKkRc4T=
+6By1FGKpU8ZILtKPzLq7CzSZgWPDivUEK0Z-OqVgV1EN7Kvn0tFLCLJYBV7NS-0fPEaG-j_eWlf=
+J2vf7UvxscFrEnCvtP3k9a0t95oA%3D%3D" style=3D"line-height: inherit; color: #=
+006aff;">the dreaded paywall</a>=E2=80=94that CEO Jack Dorsey hopes will br=
+eathe new life into the seven-year-old company.&nbsp;</span></p> <p style=
+=3D"line-height: 1.5; word-break: break-word; font-size: 16px; mso-line-hei=
+ght-alt: 24px; margin: 0;"><span style=3D"line-height: inherit; font-size: =
+16px;">&nbsp;</span></p> <p style=3D"line-height: 1.5; word-break: break-wo=
+rd; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style=3D"=
+line-height: inherit; font-size: 16px;">=E2=80=9CWe=E2=80=99re slow, we=E2=
+=80=99re not innovative, and we=E2=80=99re not trusted,=E2=80=9D Dorsey wro=
+te in an analyst report as the company unveiled plans to double development=
+ velocity, <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3=
+acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7=
+Sd_pEQIIkf2nZFlzbcywsgrXeEprdaIJQirLa7ohzgRxLrNwgIGJjwdmuFnL32x4Uyv0hdIRz8A=
+xJtDSuEfqjEh_AtkymFMQ7lOYu_5nWwzruYblxgwrngiscAIZx9q_51kMtz36PqDdj5ZvAKybN4=
+gxwH2xsvKbc52UFhSmegijMwt2l9DYQmwpBipuSQ510WmahOee82nETvMm-iNmniStfMyCrwpwc=
+jTM_-1fNbb3Q3v9G8f0of7TUIrPps10AEHMiMZ0SNYak58ywQamAOwuesgaUD9TGhh0ZrD_7DDD=
+9uyUDg-Rfj9ZBceAULLKkB6mW4_POhC1Ayns7_us38VFx76rCG5-knY1M6FiY1Ahj3Ns_n4hy_p=
+1dvOR0GqBHzEsRSe3Ft8-1h3qcteiBS8TaFc9v9ADgHtKXxezpSu6vTw2uQ7JQRN4hH6aJginxi=
+KzDYA%3D%3D" style=3D"line-height: inherit; color: #006aff;">double its dai=
+ly active users</a>, and double annual revenue by the end of 2023.&nbsp;</s=
+pan></p> <p style=3D"line-height: 1.5; word-break: break-word; font-size: 1=
+6px; mso-line-height-alt: 24px; margin: 0;"><span style=3D"line-height: inh=
+erit; font-size: 16px;">&nbsp;</span></p> <p style=3D"line-height: 1.5; wor=
+d-break: break-word; font-size: 16px; mso-line-height-alt: 24px; margin: 0;=
+"><span style=3D"line-height: inherit; font-size: 16px;">Most notable is Su=
+per Follows, which allows creators to charge for exclusive content for the =
+first time. Here=E2=80=99s how TechCrunch <a href=3D"http://links.angel.co/=
+u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c124=
+7b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQI2Yba0MBLubpQjVeWjZS5KYAFhisCvAdFAKeuv=
+bhgUe01VPN1fwCfAxHagRMQ99DZdJ7IBaqG5H8Ey0kklehkdcP79miHYbJazOYjlTsEIyovs_wx=
+TU0PbhZE9kplwKDh2V4TSFrJzy4GXEMOIZCdK_Le3sV3z6LrjeIY7bAYuxJjy06-xhjjhraO084=
+v_0k0e6E6R6f8G0UQSZOeRIdv2nLEtVzv0kh7VcJqM0o8vHFuep8WDpYlt6ssm1FSvsv5-qGc8t=
+QoFKYK2Q5MXSnH58JmktBvaFk9_dJkDyxrY5i8_nNEE_P9ycu5kEkGg8OWPECATjH1axgADKNc5=
+cu60IpdPXBnfAjs31V4gyD_z4j1s1cJh4q9Pnxs_VZcc0bf4hgIFyKTr9A5DS2O0lGBDlRmK85f=
+DGkYKo7DW81Tzufq9U_LDjR05rsYaKJ2iljtl-NF_wUcdqZ2qXO0zNy1Y%3D" style=3D"line=
+-height: inherit; color: #006aff;">explained it</a>: =E2=80=9CIt combines t=
+he community trends of Discord, the newsletter insights of Substack, the au=
+dio chat rooms of Clubhouse, and the creator support of Patreon into a crea=
+tor subscription.=E2=80=9D</span></p> <p style=3D"line-height: 1.5; word-br=
+eak: break-word; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><s=
+pan style=3D"line-height: inherit; font-size: 16px;">&nbsp;</span></p> <p s=
+tyle=3D"line-height: 1.5; word-break: break-word; font-size: 16px; mso-line=
+-height-alt: 24px; margin: 0;"><span style=3D"line-height: inherit; font-si=
+ze: 16px;">Other features include Twitter Communities, which gives a place =
+for those Super Followers to congregate (similar to a Facebook Groups), and=
+ Spaces, which allows up to 10 fans at time to talk in audio chat rooms (si=
+milar to Clubhouse and Mark Cuban=E2=80=99s <a href=3D"http://links.angel.c=
+o/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1=
+247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQDwADsTyE7DBuvNLpNEdYY-1VcsHH5keik7iW=
+o5TWHqQ3NHqdHNrLeQwyvs9dYYsSxbhXN_CkhpxfDIAXKe5DjNufcOtmNWOMXS36ghsxpDDGoBn=
+iQ1FSdvvtHgCxuJTcM-hPT42Jy4WGhG6zAmRvzTU26DaLvVSbQdSgBWiA9G-HcmQRsyjiyWtw9p=
+O3PZzO3iOZZMZ6CFfQyniu1Cij24UAYJ4JL0pX_S9Ip_bekFq6CnXhpA-4Yj8L00hnKl9huk8ub=
+rBhsq8qRf0WRua7zjo49Z__Ns-q8M0pcFqfRdiLauogpZSlnWe2ZNb03-jGthQyXKC7aK8QN3vJ=
+B0FP20%3D" style=3D"line-height: inherit; color: #006aff;">Fireside</a>). L=
+ast year Twitter introduced Review, a newsletters option (similar to Substa=
+ck), and <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3ac=
+d5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd=
+_pEQF8D-gzHzTYm0xNjW0BItu4fAiskCKGNCQati4ShoXk_pHidaV_pzogbGAsNUEah5U1wPZ7X=
+cR8Llh-LfFvVgs3W-Lk0bCu7yB0dvgq1JoMj4QJ0hpBqBbzGdCvjZjmTFGNMwgR8FuOwPPRt0Ys=
+CEq0bGI0nw91xw2nVJxQHhun0P05nJUbOvMCDQusnCYnwDKmgD0UzYkGlLnWWRa5PaSMyxpB7JT=
+6NJsTfckTb1kNCQLKRVrMzp-3UFyG1n2ubpRN3O_8Irg1je5J-a0PaxzTSJoe6jKbyqDWbGFREW=
+JMZBxqiYebWdxjrje1Gaq-WlPYnS6WCOyLNcK7tPO_j67v7KbZmYkb4DLNME_tiv6n1ibPndQ3f=
+4pNXh388JdH0ieboAtmSlccXVlLDgHMIWJw%3D" style=3D"line-height: inherit; colo=
+r: #006aff;">audio tweets</a>.&nbsp;</span></p> <p style=3D"line-height: 1.=
+5; word-break: break-word; mso-line-height-alt: 18px; margin: 0;">&nbsp;</p=
+> <p style=3D"line-height: 1.5; word-break: break-word; font-size: 16px; ms=
+o-line-height-alt: 24px; margin: 0;"><span style=3D"line-height: inherit; f=
+ont-size: 16px;">It=E2=80=99s unknown when some of these features will roll=
+ out. Also, the company hasn=E2=80=99t disclosed how much of a percentage i=
+t=E2=80=94<a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3a=
+cd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7S=
+d_pEQFCltRVVb1XgSZEUHbd9IjR2ahuxd7Wg5LJCDQecV5fVtXrY6y3UpvfX6VtuLRMSHCrI1SJ=
+2VruRlI1Lz6hlXdGVQZZtxAC1XMiaBADEiajHNMLyoFS1kjdrDKQ7ax43CSJySD4kg8Y1klgc4A=
+LTKhrihPt6yfZicLOxcgGbftFXk_yq8JCSVm3EsZmXzcRy9dzO1DLMi6pVk_lnCnH8mg2GdOmlt=
+bEUJ7-nrbN1ga6eTwneGibrkl_ePnn7CSo4r7uaQ_71bjaRMVairuS1eiCDgKkuOEwF6sQh-5pc=
+XeB0f0Ys5t_ae4qswL8tqQUrq7OtgUYc-R_FUISMpHzPDEf6JMhKgz0wi1RLHBRvKJbEVXDXB0Z=
+XxGrWC6zuFSLKSGyC79KeIlvvF-7m7tp1Q2hx6uokdp5htPkeay1ga31T" style=3D"line-he=
+ight: inherit; color: #006aff;">or Apple, for that matter</a>=E2=80=94would=
+ take from sales.</span></p> <p style=3D"line-height: 1.5; word-break: brea=
+k-word; mso-line-height-alt: 18px; margin: 0;">&nbsp;</p> <p style=3D"line-=
+height: 1.5; word-break: break-word; font-size: 16px; mso-line-height-alt: =
+24px; margin: 0;"><span style=3D"line-height: inherit; font-size: 16px;">Th=
+e new features helped lift Twitter=E2=80=99s stock price to a record high l=
+ast week, and it remains at new-record highs. How users respond to the payw=
+all will go a long way in determining whether it can remain there.</span></=
+p> </div> </div> <!--[if mso]></td></tr></table><![endif]--> <div class=3D"=
+button-container" align=3D"center" style=3D"line-height: inherit; padding-t=
+op: 30px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;"> <!-=
+-[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"border-spacing: 0; border-collapse: collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt;"><tr><td style=3D"padding-top: 30px; padding=
+-right: 0px; padding-bottom: 0px; padding-left: 0px" align=3D"center"><v:ro=
+undrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-mi=
+crosoft-com:office:word" href=3D"http://links.angel.co/u/click=3F_t=3D26b4e=
+8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3Dzvmt=
+UBrOZl1gFL7Sd_pEQNvC7NB9Iw83F86sQumkPkNjCK26-bJFIV-TGvyrHyKTmJKjeVeXKV_fpr-=
+bfceruFYlzuVGHRmTYztTJBaX2g7Otkt7KtONP3MO1A_tRz7ON5tDjtnd-mf8ZBFgWrHE-_u3zC=
+QlrIDNnT_DqPTW10pDxNRkM8YfSVTVnlkC-b3KkpGabZtK6FevJGONsAwCWRmFF2PSTIdlaCMtE=
+hRt2E08mHNkPvf5bEqelJP2aboMWML-_BTaLzWqHbaukdMngu6q45zYW_YJRL9WJ3qDVH5A32Hc=
+GwrKFfrQfM1UBytgpWHCPAHDDcwQLfikFwuq_oXX612cEWog3TWZGePpq3c5FTpBIv1B1fBPoNb=
+dXI56MQNyApsh-VcRjYwS2PLwOpM8rv2DD028mpuKNzGnntNpMqfi7GFI18_KnLJ_PODuMKDGKe=
+u5SvfEnT6HC-afmZDSwOK5TL8YgcnxwnRc9xc%3D" style=3D"height:31.5pt;width:417p=
+t;v-text-anchor:middle;" arcsize=3D"10%" stroke=3D"false" fillcolor=3D"#006=
+aff"><w:anchorlock/><v:textbox inset=3D"0,0,0,0"><center style=3D"color:#ff=
+ffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href=3D=
+"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=
+=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQNvC7NB9Iw83F8=
+6sQumkPkNjCK26-bJFIV-TGvyrHyKTmJKjeVeXKV_fpr-bfceruFYlzuVGHRmTYztTJBaX2g7Ot=
+kt7KtONP3MO1A_tRz7ON5tDjtnd-mf8ZBFgWrHE-_u3zCQlrIDNnT_DqPTW10pDxNRkM8YfSVTV=
+nlkC-b3KkpGabZtK6FevJGONsAwCWRmFF2PSTIdlaCMtEhRt2E08mHNkPvf5bEqelJP2aboMWML=
+-_BTaLzWqHbaukdMngiwbx3CFboXu4Qlwx256taxRE6GMG83BrhlKrLuFTQGzemqsCmirwsFYeE=
+z9Cj_AGs3rima7eP2AQaQAVqlprvR-dgQYpL9slGQCMr4BGOUOZhHthk-Z7K2T3a1aYWbAHJXqs=
+8yb3qBlMzHg2sU0t9HEpmOKiFzh8jF3pIRKa-yc5F7q8WWWPaNvMXNUjLomOFmI3x7W6j5CYSnO=
+OUTnSJk%3D" target=3D"_blank" style=3D"line-height: inherit; -webkit-text-s=
+ize-adjust: none; text-decoration: none; display: block; color: #ffffff; ba=
+ckground-color: #006aff; border-radius: 4px; -webkit-border-radius: 4px; -m=
+oz-border-radius: 4px; width: 100%; width: calc(100% - 2px); border-top: 1p=
+x solid #006aff; border-right: 1px solid #006aff; border-bottom: 1px solid =
+#006aff; border-left: 1px solid #006aff; padding-top: 5px; padding-bottom: =
+5px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; text-align:=
+ center; mso-border-alt: none; word-break: keep-all;"><span style=3D"line-h=
+eight: inherit; padding-left: 20px; padding-right: 20px; font-size: 16px; d=
+isplay: inline-block; letter-spacing: undefined;"><span style=3D"font-size:=
+ 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;">=
+View Story</span></span></a> <!--[if mso]></center></v:textbox></v:roundrec=
+t></td></tr></table><![endif]--> </div> <!--[if (!mso)&(!IE)]><!--> </div> =
+<!--<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></table><![end=
+if]--> <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->=
+ </div> </div> </div> <div style=3D"line-height: inherit; background-color:=
+ #f2f4f7;"> <div class=3D"block-grid " style=3D"line-height: inherit; min-w=
+idth: 320px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-=
+word; word-break: break-word; Margin: 0 auto; background-color: #f2f4f7;"> =
+<div style=3D"line-height: inherit; border-collapse: collapse; display: tab=
+le; width: 100%; background-color: #f2f4f7;"> <!--[if (mso)|(IE)]><table wi=
+dth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"back=
+ground-color:#f2f4f7;"><tr><td align=3D"center"><table cellpadding=3D"0" ce=
+llspacing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"layout-full=
+-width" style=3D"background-color:#f2f4f7"><![endif]--> <!--[if (mso)|(IE)]=
+><td align=3D"center" width=3D"580" style=3D"background-color:#f2f4f7;width=
+:580px; border-top: 0px solid transparent; border-left: 0px solid transpare=
+nt; border-bottom: 0px solid transparent; border-right: 0px solid transpare=
+nt;" valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0"><tr><td style=3D"padding-right: 0px; padding-left: 0px; pad=
+ding-top:8px; padding-bottom:8px;"><![endif]--> <div class=3D"col num12" st=
+yle=3D"line-height: inherit; min-width: 320px; max-width: 580px; display: t=
+able-cell; vertical-align: top; width: 580px;"> <div class=3D"col_cont" sty=
+le=3D"line-height: inherit; width: 100% !important;"> <!--[if (!mso)&(!IE)]=
+><!--> <div style=3D"line-height: inherit; border-top: 0px solid transparen=
+t; border-left: 0px solid transparent; border-bottom: 0px solid transparent=
+; border-right: 0px solid transparent; padding-top: 8px; padding-bottom: 8p=
+x; padding-right: 0px; padding-left: 0px;"> <!--<![endif]--> <div style=3D"=
+line-height: inherit;"></div> <!--[if (!mso)&(!IE)]><!--> </div> <!--<![end=
+if]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></table><![endif]--> <!-=
+-[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]--> </div> </=
+div> </div> <div style=3D"line-height: inherit; background-color: transpare=
+nt;"> <div class=3D"block-grid " style=3D"line-height: inherit; min-width: =
+320px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-word; =
+word-break: break-word; Margin: 0 auto; background-color: #ffffff;"> <div s=
+tyle=3D"line-height: inherit; border-collapse: collapse; display: table; wi=
+dth: 100%; background-color: #ffffff;"> <!--[if (mso)|(IE)]><table width=3D=
+"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"background=
+-color:transparent;"><tr><td align=3D"center"><table cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"layout-full-w=
+idth" style=3D"background-color:#ffffff"><![endif]--> <!--[if (mso)|(IE)]><=
+td align=3D"center" width=3D"580" style=3D"background-color:#ffffff;width:5=
+80px; border-top: 0px solid transparent; border-left: 0px solid transparent=
+; border-bottom: 0px solid transparent; border-right: 0px solid transparent=
+;" valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tr><td style=3D"padding-right: 32px; padding-left: 32px; pad=
+ding-top:32px; padding-bottom:32px;"><![endif]--> <div class=3D"col num12" =
+style=3D"line-height: inherit; min-width: 320px; max-width: 580px; display:=
+ table-cell; vertical-align: top; width: 580px;"> <div class=3D"col_cont" s=
+tyle=3D"line-height: inherit; width: 100% !important;"> <!--[if (!mso)&(!IE=
+)]><!--> <div style=3D"line-height: inherit; border-top: 0px solid transpar=
+ent; border-left: 0px solid transparent; border-bottom: 0px solid transpare=
+nt; border-right: 0px solid transparent; padding-top: 32px; padding-bottom:=
+ 32px; padding-right: 32px; padding-left: 32px;"> <!--<![endif]--> <!--[if =
+mso]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tr><td style=3D"padding-right: 0px; padding-left: 0px; padding-top: 0px; =
+padding-bottom: 16px; font-family: Arial, sans-serif"><![endif]--> <div sty=
+le=3D"color: #555555; font-family: Helvetica Neue, Helvetica, Arial, sans-s=
+erif; line-height: 1.2; padding-top: 0px; padding-right: 0px; padding-botto=
+m: 16px; padding-left: 0px;"> <div class=3D"txtTinyMce-wrapper" style=3D"li=
+ne-height: 1.2; font-size: 12px; color: #555555; font-family: Helvetica Neu=
+e, Helvetica, Arial, sans-serif; mso-line-height-alt: 14px;"> <p style=3D"f=
+ont-size: 24px; line-height: 1.2; word-break: break-word; mso-line-height-a=
+lt: 29px; margin: 0;"><span style=3D"line-height: inherit; font-size: 24px;=
+ color: #17181a;"><strong style=3D"line-height: inherit;">Hot startups hiri=
+ng now =F0=9F=94=A5</strong></span></p> </div> </div> <!--[if mso]></td></t=
+r></table><![endif]--> <div style=3D"line-height: inherit; font-size: 16px;=
+ text-align: center; font-family: Helvetica Neue, Helvetica, Arial, sans-se=
+rif;"> <table class=3D"max-width" border=3D"0" style=3D"line-height: inheri=
+t; vertical-align: top; border-collapse: collapse; font-size: 16px; width: =
+100%; text-align: left; max-width: 100% !important; height: auto !important=
+;" width=3D"100%" align=3D"left" valign=3D"top"> <tbody style=3D"line-heigh=
+t: inherit;"> <tr style=3D"line-height: inherit; vertical-align: top; borde=
+r-collapse: collapse;" valign=3D"top"> <td width=3D"48" valign=3D"top" styl=
+e=3D"line-height: inherit; vertical-align: top; border-collapse: collapse; =
+padding: 12px 0;"> <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8ae=
+b47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBr=
+OZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSPeYz18sNQDfRMmOkQAB_vjO_ihZIoTxC--85x4ts=
+HWJTHfCnGSpxwj6qKSO3EWeJpCdJIXw_zMyQoz8eb8vueJ70my8e0BsSCF552OAWqH1G7Z83WRg=
+FKaRHv53si72wu6P-Bvy1yQn0v0cCsH9_HqJw8bnhioSPsrY-RdkyRqlFfNAi3YPErw2ZiAruKw=
+N_L4s3j_cap--qCyHE1OdIFyJT8ImzXEwiUTPDrsBqzSDdHEhWE6f3ebHYkVfwgdDVvJJaOc3c1=
+k76DI03f0ECXTWHDEkQdk5j7s0EIddWBzWXR3EDJEJc9pNE7Djbgy-1orZVnustuUkY3BE0BCt2=
+Eg" style=3D"line-height: inherit;"> <img width=3D"48" src=3D"https://photo=
+s.angel.co/startups/i/3763276-176756797dd4252083dbe5567411a3ed-medium_jpg.j=
+pg=3Fbuster=3D1556132211" style=3D"line-height: inherit;"> </a> </td> <td v=
+align=3D"middle" style=3D"line-height: inherit; border-collapse: collapse; =
+padding: 12px 0 12px 12px; color: #17181a; vertical-align: middle;"> <stron=
+g style=3D"line-height: inherit;"><a href=3D"http://links.angel.co/u/click=
+=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125=
+cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSPeYz18sNQDfRMmOkQAB_vjO_=
+ihZIoTxC--85x4tsHWJTHfCnGSpxwj6qKSO3EWeJpCdJIXw_zMyQoz8eb8vueJ70my8e0BsSCF5=
+52OAWqH1G7Z83WRgFKaRHv53si72wvmnjLdERjERjCgN4y_sOYGquEY-djaVT2GIgKbnrTCDM5T=
+ucjPO7fViEWLdlRPrDuSOWLxfkSD6jByKW_9CDinG_ZZbp0cxcsm5_t9PN7g0WFFUYVfjS9rCT9=
+Xu0jFcvDiXGBCmi49SbNCdt9KnlBZIXrA3Cjk_PnbSrkMqoQZOApGbmZXG4YbrSLWIVGRMR5zY8=
+AJ5ZQCm2Ezk7k1rdvE" style=3D"line-height: inherit; color: #006aff;">AE Stud=
+io</a>=C2=A0</strong>- Let's create something great. Development, Data Scie=
+nce, Design & Product Strategy. <span style=3D"line-height: inherit; font-w=
+eight: 600; font-style: normal; font-variant-ligatures: normal; font-varian=
+t-caps: normal; font-family: helvetica, arial, sans-serif; font-size: 16px;=
+ color: rgb(22, 32, 64); text-align: left;"> <a href=3D"http://links.angel.=
+co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c=
+1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSPeYz18sNQDfRMm=
+OkQAB_vj3SB6kAAvslXHgB_3jqaJTM1Tqi9JmeEpS0wmioGvBHE13t8wVhtQ18D5JgY6yFuTtXw=
+DdUoQ3czOBSLz_lk_1c8xfIZWQFnU2zS3DlvDXHZbLoOBe3sH0eLZfXDiDQdt2ZE0BFH1N_TT7N=
+f25b2CJ4ZpJBa1u25xRMDKR6MmqF2CBKdZQPPGHvdQRfFq0RUeTimemRKX1Qf6gvsaC5fNt5rrh=
+gL2lLfCcLKZCIdI3TbKsGuPnbFlvqwr35n37EqH7ngtVHgfuxUpGPCNkc-zOEOtqbm_I9mKQDpW=
+c-0NDf0BdDrJ1iXHZKkqr3RQFT0f" style=3D"line-height: inherit; font-size: 16p=
+x; font-weight: normal; color: #006aff;">Explore 4 jobs</a></span>. </td> <=
+/tr> </tbody> </table> </div> <div style=3D"line-height: inherit; font-size=
+: 16px; text-align: center; font-family: Helvetica Neue, Helvetica, Arial, =
+sans-serif;"> <table class=3D"max-width" border=3D"0" style=3D"line-height:=
+ inherit; vertical-align: top; border-collapse: collapse; font-size: 16px; =
+width: 100%; text-align: left; max-width: 100% !important; height: auto !im=
+portant;" width=3D"100%" align=3D"left" valign=3D"top"> <tbody style=3D"lin=
+e-height: inherit;"> <tr style=3D"line-height: inherit; vertical-align: top=
+; border-collapse: collapse;" valign=3D"top"> <td width=3D"48" valign=3D"to=
+p" style=3D"line-height: inherit; vertical-align: top; border-collapse: col=
+lapse; padding: 12px 0;"> <a href=3D"http://links.angel.co/u/click=3F_t=3D2=
+6b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3D=
+zvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMyR6meW7BWCqjx3t2quaxfDnTT_ykuE4_=
+IMsMaMJIr7v_TqqWqBBvgPd2ZxUjpiayj__Gs62Xd3wzw5mgszhCWAhQIsddMxqUubnOsFUS4K5=
+H7qmi-Vgynw7LRY5RsC6l6Je-uO23qGD44NCFHV0E1VJdHTBHkd9ojK2x7BedzcJXG-Bp86O4ps=
+ppzYJVIga3J7Hp17AFXtCidhxW9rpZfROubmY3ughG-lUIHmL2tf6P1vVHosDxwjCEL794ol1K9=
+r9ZTJ74iDpM79eE6CjjpQoyUpda5GDA3mKDZXnWrXz8UHKdMi-bgOhk-3u8Lh5Gbm80A7SOdzej=
+lgeABRvbO" style=3D"line-height: inherit;"> <img width=3D"48" src=3D"https:=
+//photos.angel.co/startups/i/6824070-4652e202dcaecb2b35823c43289c27a9-mediu=
+m_jpg.jpg=3Fbuster=3D1601493202" style=3D"line-height: inherit;"> </a> </td=
+> <td valign=3D"middle" style=3D"line-height: inherit; border-collapse: col=
+lapse; padding: 12px 0 12px 12px; color: #17181a; vertical-align: middle;">=
+ <strong style=3D"line-height: inherit;"><a href=3D"http://links.angel.co/u=
+/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247=
+b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMyR6meW7BWCqjx3t2q=
+uaxfDnTT_ykuE4_IMsMaMJIr7v_TqqWqBBvgPd2ZxUjpiayj__Gs62Xd3wzw5mgszhCWAhQIsdd=
+MxqUubnOsFUS4K6tFlX9T4-SWoBLiso4WJSlEPjbx3U51QU-sv0jlJLBK5SUs2dNldMx9tDvs2b=
+AuFrxA9EB5IQNo_A0hRY6jks5fWMaXGdWqe73EpGF9JTfYZWdDuFDI4LWyr5bMNdpjG-RMI4C2f=
+2XvosQQmM0C3Kgt30xjh8kAgjnpUO-lDtWV1Ot261xHJanllqQwg_igSmWYkRbqDnYA1NgDqnZW=
+erGIV-5473J61PXiDgz9AzXb" style=3D"line-height: inherit; color: #006aff;">F=
+lowcode</a>=C2=A0</strong>- We connect the real world to the digital world,=
+ instantly and magically. <span style=3D"line-height: inherit; font-weight:=
+ 600; font-style: normal; font-variant-ligatures: normal; font-variant-caps=
+: normal; font-family: helvetica, arial, sans-serif; font-size: 16px; color=
+: rgb(22, 32, 64); text-align: left;"> <a href=3D"http://links.angel.co/u/c=
+lick=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b4=
+6125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSN9AMw0Vub4D8w7SfOu8E=
+1TTN8s_V92fl1SPSpyqrBAfk_R_ETT4ZEG9Zea_K79yXIMbuOypFo8JewSvbX7JvrA6QdQhWEs7=
+1nGdwyDTy-30lhV726F83sbKDsFoer2x2Uk1IXuGhAOtcD5xVIamkx5Ip__1NkPa9P1yVtTpcs-=
+o0w8d3m1uIbee8TgljdRImdOZpdDPp67ZpPnYjVZLHYmP1ccnj9_LvEJcY6n6beHWeW3m6y0bgM=
+tNNVyk5fCgzv0bfA0ru40Xt9uJhdgayUr1gZaybZFL23py44HmQJMhH--SEYEu-06soZasyAwZV=
+1x2IYvrUpD7qDQlLM0x-yR" style=3D"line-height: inherit; font-size: 16px; fon=
+t-weight: normal; color: #006aff;">Explore 8 jobs</a></span>. </td> </tr> <=
+/tbody> </table> </div> <div style=3D"line-height: inherit; font-size: 16px=
+; text-align: center; font-family: Helvetica Neue, Helvetica, Arial, sans-s=
+erif;"> <table class=3D"max-width" border=3D"0" style=3D"line-height: inher=
+it; vertical-align: top; border-collapse: collapse; font-size: 16px; width:=
+ 100%; text-align: left; max-width: 100% !important; height: auto !importan=
+t;" width=3D"100%" align=3D"left" valign=3D"top"> <tbody style=3D"line-heig=
+ht: inherit;"> <tr style=3D"line-height: inherit; vertical-align: top; bord=
+er-collapse: collapse;" valign=3D"top"> <td width=3D"48" valign=3D"top" sty=
+le=3D"line-height: inherit; vertical-align: top; border-collapse: collapse;=
+ padding: 12px 0;"> <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8a=
+eb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUB=
+rOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMaxzY6wFiF6UueZSGSRgmiRjNaTlTQ7pSjTVhhy=
+WXBpOXN3C70xJivAeu8-BGjZ38AhQK2XObIoAW2nJNVJQn8df_TraAnNzn3q942chj8f8ukO5Nz=
+s5YgRGAj9AXpwyAISFW82HiJWKDKGYpO1fB-FfE2zTpiGusOke01-fTgXO_YN1mEOm8w-6hoilx=
+KY02hjecXIKrk8HiHDrh8dk4uA9AzrjQGc5puUSyMUqnI1Fc1RCaYe3qr_sd8MLlQtPOAKNN15p=
+n3DrHyWRB-3gJoxVLa9uFOSwVwtTLoKitPkkdZv4ySqiBVmN0hxLxD2mA%3D" style=3D"line=
+-height: inherit;"> <img width=3D"48" src=3D"https://photos.angel.co/startu=
+ps/i/60577-881936f1e57cc1d39c5ff6f1a09708e1-medium_jpg.jpg=3Fbuster=3D14267=
+02316" style=3D"line-height: inherit;"> <td valign=3D"middle" style=3D"line=
+-height: inherit; border-collapse: collapse; padding: 12px 0 12px 12px; col=
+or: #17181a; vertical-align: middle;"> <strong style=3D"line-height: inheri=
+t;"><a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba=
+415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQG=
+IeFBwsfNVsaxuAg0RYRSMaxzY6wFiF6UueZSGSRgmiRjNaTlTQ7pSjTVhhyWXBpOXN3C70xJivA=
+eu8-BGjZ38AhQK2XObIoAW2nJNVJQn8df_TraAnNzn3q942chj8fyR0XQv9PqgavK30StCtSOe2=
+fsOwZRCz__tO9cyDV0WczfYeJR7XL-QHwN893l35jqxSn1ns1-lzhmeWqgdEFxJi46kAxOGVcrI=
+VjDdLfhDT0hBwFtrfZ-GomoOVOzTyehqAZ6EFAkWYkEsiBfBjSx8kUzrSHuZoy3_KyWMYkkIXE8=
+TXvdXEqGt-A8H06WT68iSYhwoIB34CJf6eBrAo-fM%3D" style=3D"line-height: inherit=
+; color: #006aff;">Lark</a>=C2=A0</strong>- Enabling virtual management of =
+diabetes and heart disease. <span style=3D"line-height: inherit; font-weigh=
+t: 600; font-style: normal; font-variant-ligatures: normal; font-variant-ca=
+ps: normal; font-family: helvetica, arial, sans-serif; font-size: 16px; col=
+or: rgb(22, 32, 64); text-align: left;"> <a href=3D"http://links.angel.co/u=
+/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247=
+b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSPQ5VDy3l_EtsvonYPO=
+DYkmen6bH4EL-5I3yG6jgiWD75EdWIKH6gd5ZUimKBfhmgzvVJFUbXq9hHUopVAd6gGDx90gKu6=
+5AWItkUVMUjiqvW_9viZEWLwOremDKXrC4ymfgBlxrWhCQnwhMAanBFWm7kzzmFvBjwoSRfY-Pf=
+oXJi-ustP78J2LcyNO-xO7he3x7hajpVhxw3SqJi0iVi2xWzGlNbT5BO47weJsWUn97jGJWabVZ=
+yi7p2FMkW2nXHTbDws7J2uNbq4m7E__I0mjkzwMdwAl7Nv-m4l4fOs6zI0-M6re2BtVlfj6IEmP=
+4S4SjIJRqiJgT7eNOukV7sl2" style=3D"line-height: inherit; font-size: 16px; f=
+ont-weight: normal; color: #006aff;">Explore 18 jobs</a></span>. </td> </a>=
+ </td> </tr> </tbody> </table> </div> <div style=3D"line-height: inherit; f=
+ont-size: 16px; text-align: center; font-family: Helvetica Neue, Helvetica,=
+ Arial, sans-serif;"> <table class=3D"max-width" border=3D"0" style=3D"line=
+-height: inherit; vertical-align: top; border-collapse: collapse; font-size=
+: 16px; width: 100%; text-align: left; max-width: 100% !important; height: =
+auto !important;" width=3D"100%" align=3D"left" valign=3D"top"> <tbody styl=
+e=3D"line-height: inherit;"> <tr style=3D"line-height: inherit; vertical-al=
+ign: top; border-collapse: collapse;" valign=3D"top"> <td width=3D"48" vali=
+gn=3D"top" style=3D"line-height: inherit; vertical-align: top; border-colla=
+pse: collapse; padding: 12px 0;"> <a href=3D"http://links.angel.co/u/click=
+=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125=
+cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSN2_XJxcns_N03oGhA0OpavbU=
+omGDnWpnJ5c23gRTEVlL1yN9EI5j4lIIdCO8xXLn-tXvOXUDv0KeBg44piK5w3dqVrlajtqNYZ2=
+RiRDdty61GEoKa6MCi_rxn36p0y9NWUg8kbhqX3fo-E1AzRtytd9HMwfhoJWAa5ihbERqj-Nx3n=
+WVY1_rq8TESTfJdY5WscpXBp4cbTEI9thE889b274gSHvtq3-9VNQYhE436tgvG4XS7g2tp7pBB=
+o32DUqnPGWHh-gchkrgCyy0B5kzpoE4NoO4gATYxMGfpKXDIx49JP7PyWcIHxjCcaE4Zr7OsNat=
+_rqa_EhI-vQ27sD-0j" style=3D"line-height: inherit;"> <img width=3D"48" src=
+=3D"https://photos.angel.co/startups/i/543156-4a8ba229962e3363aacf67aff5d47=
+e9d-medium_jpg.jpg=3Fbuster=3D1589642480" style=3D"line-height: inherit;"> =
+</a> </td> <td valign=3D"middle" style=3D"line-height: inherit; border-coll=
+apse: collapse; padding: 12px 0 12px 12px; color: #17181a; vertical-align: =
+middle;"> <strong style=3D"line-height: inherit;"><a href=3D"http://links.a=
+ngel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea48=
+51b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSN2_XJxcns=
+_N03oGhA0OpavbUomGDnWpnJ5c23gRTEVlL1yN9EI5j4lIIdCO8xXLn-tXvOXUDv0KeBg44piK5=
+w3dqVrlajtqNYZ2RiRDdty66Y0dSzXkn22GaEy7qhRcon8c2mf7Q4BugJ8JcwS0FPUfXzy2QYv5=
+hd6tT6XNq96zwTt3Q7jOj8XdGz8wKznYRT6b_3nw7KyonKBhpQ1dFBs0G7UERycyOz4kXO0cpDZ=
+mYIbvZjrFqpwQjAN-aTs1NBs6txuosgOSxAE3Hh27a6GHAKy-p741JNPYIBAws7iy4pasg_YGv0=
+_J18wqkc9piEFdeVTP1CxEniaLbzXMYI6" style=3D"line-height: inherit; color: #0=
+06aff;">Peloton</a>=C2=A0</strong>- Better ourselves, inspire each other, a=
+nd unite the world through fitness. <span style=3D"line-height: inherit; fo=
+nt-weight: 600; font-style: normal; font-variant-ligatures: normal; font-va=
+riant-caps: normal; font-family: helvetica, arial, sans-serif; font-size: 1=
+6px; color: rgb(22, 32, 64); text-align: left;"> <a href=3D"http://links.an=
+gel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea485=
+1b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMssX2CSKUV=
+BAU2t7QmUrGPv_C1P6GTvT6uYKqjbov4qWDUzgVhvxblG5Fz-geIsXYPYr2xb6TNXbzn5PztFGd=
+RazGksexLAOvpnUW75VrFfarJtVbejul95n95n2OGgDTep1mRcf95zGZzuC5VD5LMFyhnhixogi=
+5CTxWaEx5G5oG1ELz44zXqVwiPh2wCeO8GNs6X2fve5-Bn84ahvqxFjYtahEE9WFUhBt0sxw7uK=
+76EpWQsqCHGCN3xGd9kEDEOfrpKH3dDcdL4xRkdqRCbqoUmaSK5EwTPff0xT1Owe8vturxtNsti=
+IRhIplxv6s6RE6FQ5IXf6xI_pTHpPOK9" style=3D"line-height: inherit; font-size:=
+ 16px; font-weight: normal; color: #006aff;">Explore 659 jobs</a></span>. <=
+/td> </tr> </tbody> </table> </div> <!--[if (!mso)&(!IE)]><!--> </div> <!--=
+<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></table><![endif]-=
+-> <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]--> </d=
+iv> </div> </div> <div style=3D"line-height: inherit; background-color: #f2=
+f4f7;"> <div class=3D"block-grid " style=3D"line-height: inherit; min-width=
+: 320px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-word=
+; word-break: break-word; Margin: 0 auto; background-color: #f2f4f7;"> <div=
+ style=3D"line-height: inherit; border-collapse: collapse; display: table; =
+width: 100%; background-color: #f2f4f7;"> <!--[if (mso)|(IE)]><table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"backgro=
+und-color:#f2f4f7;"><tr><td align=3D"center"><table cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"layout-full-wi=
+dth" style=3D"background-color:#f2f4f7"><![endif]--> <!--[if (mso)|(IE)]><t=
+d align=3D"center" width=3D"580" style=3D"background-color:#f2f4f7;width:58=
+0px; border-top: 0px solid transparent; border-left: 0px solid transparent;=
+ border-bottom: 0px solid transparent; border-right: 0px solid transparent;=
+" valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0"><tr><td style=3D"padding-right: 0px; padding-left: 0px; paddin=
+g-top:8px; padding-bottom:8px;"><![endif]--> <div class=3D"col num12" style=
+=3D"line-height: inherit; min-width: 320px; max-width: 580px; display: tabl=
+e-cell; vertical-align: top; width: 580px;"> <div class=3D"col_cont" style=
+=3D"line-height: inherit; width: 100% !important;"> <!--[if (!mso)&(!IE)]><=
+!--> <div style=3D"line-height: inherit; border-top: 0px solid transparent;=
+ border-left: 0px solid transparent; border-bottom: 0px solid transparent; =
+border-right: 0px solid transparent; padding-top: 8px; padding-bottom: 8px;=
+ padding-right: 0px; padding-left: 0px;"> <!--<![endif]--> <div style=3D"li=
+ne-height: inherit;"></div> <!--[if (!mso)&(!IE)]><!--> </div> <!--<![endif=
+]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></table><![endif]--> <!--[=
+if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]--> </div> </di=
+v> </div> <div style=3D"line-height: inherit; background-color: transparent=
+;"> <div class=3D"block-grid " style=3D"line-height: inherit; min-width: 32=
+0px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-word; wo=
+rd-break: break-word; Margin: 0 auto; background-color: #ffffff;"> <div sty=
+le=3D"line-height: inherit; border-collapse: collapse; display: table; widt=
+h: 100%; background-color: #ffffff;"> <!--[if (mso)|(IE)]><table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"background-c=
+olor:transparent;"><tr><td align=3D"center"><table cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"layout-full-wid=
+th" style=3D"background-color:#ffffff"><![endif]--> <!--[if (mso)|(IE)]><td=
+ align=3D"center" width=3D"580" style=3D"background-color:#ffffff;width:580=
+px; border-top: 0px solid transparent; border-left: 0px solid transparent; =
+border-bottom: 0px solid transparent; border-right: 0px solid transparent;"=
+ valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td style=3D"padding-right: 32px; padding-left: 32px; paddi=
+ng-top:32px; padding-bottom:32px;"><![endif]--> <div class=3D"col num12" st=
+yle=3D"line-height: inherit; min-width: 320px; max-width: 580px; display: t=
+able-cell; vertical-align: top; width: 580px;"> <div class=3D"col_cont" sty=
+le=3D"line-height: inherit; width: 100% !important;"> <!--[if (!mso)&(!IE)]=
+><!--> <div style=3D"line-height: inherit; border-top: 0px solid transparen=
+t; border-left: 0px solid transparent; border-bottom: 0px solid transparent=
+; border-right: 0px solid transparent; padding-top: 32px; padding-bottom: 3=
+2px; padding-right: 32px; padding-left: 32px;"> <!--<![endif]--> <!--[if ms=
+o]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><=
+tr><td style=3D"padding-right: 0px; padding-left: 0px; padding-top: 0px; pa=
+dding-bottom: 16px; font-family: Arial, sans-serif"><![endif]--> <div style=
+=3D"color: #555555; font-family: Helvetica Neue, Helvetica, Arial, sans-ser=
+if; line-height: 1.2; padding-top: 0px; padding-right: 0px; padding-bottom:=
+ 16px; padding-left: 0px;"> <div class=3D"txtTinyMce-wrapper" style=3D"line=
+-height: 1.2; font-size: 12px; color: #555555; font-family: Helvetica Neue,=
+ Helvetica, Arial, sans-serif; mso-line-height-alt: 14px;"> <p style=3D"fon=
+t-size: 24px; line-height: 1.2; word-break: break-word; mso-line-height-alt=
+: 29px; margin: 0;"><span style=3D"line-height: inherit; font-size: 24px; c=
+olor: #17181a;"><strong style=3D"line-height: inherit;">Funding and acquisi=
+tions</strong></span></p> </div> </div> <!--[if mso]></td></tr></table><![e=
+ndif]--> <!--[if mso]><table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0"><tr><td style=3D"padding-right: 0px; padding-left: 0px;=
+ padding-top: 20px; padding-bottom: 10px; font-family: Arial, sans-serif"><=
+![endif]--> <div style=3D"color: #17181a; font-family: 'Helvetica Neue', He=
+lvetica, Arial, sans-serif; line-height: 1.5; padding-top: 20px; padding-ri=
+ght: 0px; padding-bottom: 10px; padding-left: 0px;"> <div class=3D"txtTinyM=
+ce-wrapper" style=3D"line-height: 1.5; font-size: 12px; color: #17181a; fon=
+t-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; mso-line-height-a=
+lt: 18px;"> <p style=3D"line-height: 1.5; word-break: break-word; font-size=
+: 16px; mso-line-height-alt: 24px; margin: 0;"><span style=3D"line-height: =
+inherit; font-size: 16px;">Los Angeles-based <strong style=3D"line-height: =
+inherit;">West Tenth</strong>, <a href=3D"http://links.angel.co/u/click=3F_=
+t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&=
+_e=3DzvmtUBrOZl1gFL7Sd_pEQNvC7NB9Iw83F86sQumkPkNi7wZp910myf_5z74BqJd4kuHhTZ=
+3HfRkHbBoxr7JkUOnPXaq-kkDtS7noqn3mQ_yDTcRw7a7a6jvS-juXiYjIZUchDldbfteFruNVZ=
+JClVrOiKpoyHgte5_tq87kVoETTPIPxOJT_1lzNvvFvrWL1V7wj4GUyEC9pmVp1C5vIDLjOEXp6=
+ajOqfZux_LeZLCuI_uU9BSuW_OjxsbyK1LPghy_LfVtHIpaA6rqqr_Nzl-J8jnEHznFfz0LxT9r=
+ZcGsP2KDH5veXedK7q7CGWM11yR7nYypuTu1vWaKOdR7K0sfKw_tGQ2o5HnZoGGSdGqj-k_G9R1=
+KIicpOqqoapuSwQloib8cCwsh_8qT-uxewHGATLuc1x_1MM02f2WufZX17PMf4mT6iqLhR0gUv2=
+lhE" target=3D"_blank" style=3D"line-height: inherit; text-decoration: unde=
+rline; color: #006aff;" rel=3D"noopener">a digital marketplace targeting th=
+e estimated 2.4M women who exited the workforce over the past year</a>, rai=
+sed <strong style=3D"line-height: inherit;">$1.5M</strong> in seed funding =
+led by Better Ventures. The platform enables women to monetize their small =
+business, connecting them with customers and offering them a storefront.</s=
+pan></p> </div> </div> <!--[if mso]></td></tr></table><![endif]--> <!--[if =
+mso]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tr><td style=3D"padding-right: 0px; padding-left: 0px; padding-top: 20px;=
+ padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]--> <div st=
+yle=3D"color: #17181a; font-family: Helvetica Neue, Helvetica, Arial, sans-=
+serif; line-height: 1.5; padding-top: 20px; padding-right: 0px; padding-bot=
+tom: 10px; padding-left: 0px;"> <div class=3D"txtTinyMce-wrapper" style=3D"=
+line-height: 1.5; font-size: 12px; color: #17181a; font-family: Helvetica N=
+eue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px;"> <p style=3D=
+"line-height: 1.5; word-break: break-word; font-size: 16px; mso-line-height=
+-alt: 24px; margin: 0;"><span style=3D"line-height: inherit; font-size: 16p=
+x;">San Francisco-based <a href=3D"http://links.angel.co/u/click=3F_t=3D26b=
+4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3Dzv=
+mtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMGJfqsuOJbjjPXCVRavF6clHRO2GJBViSzo=
+JUnGM-Gy_rFw6h506AmwQi_nqZg1gxNjwV-Dk3ITS0l9u8-UR_Sdzw1COmIuprsqHAajH4RjjQQ=
+ZBzutxQ0yqARqQrRsewO5kRT2Ei3Lqs4LyQCLBgLuCQly4ceEJAFdcA7M0yv_4Q_5gY77r_-nsR=
+1pV2yDTkVl84PKVwU5i2CIZYdGQY46Uhtets6PXhR1wfxsKVW83VYSHW0BxbeC01KgV6M8S9AcD=
+XD_MCwAEjs2IJEqQKNdWI2_0yarTAGWsVOVVQJa50sPxFI_T_xVLcrejPNLyY%3D" target=3D=
+"_blank" style=3D"line-height: inherit; text-decoration: underline; color: =
+#006aff;" rel=3D"noopener"><strong style=3D"line-height: inherit;">Fuzzy</s=
+trong></a> announced an <strong style=3D"line-height: inherit;">$18M</stron=
+g> Series B for <a href=3D"http://links.angel.co/u/click=3F_t=3D26b4e8aeb47=
+d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl=
+1gFL7Sd_pEQNvC7NB9Iw83F86sQumkPkP4xBkbwaK5dKwGaC7hkcqTglWfILaCgYAj3ACP3gJYZ=
+N3AUI0weqEzTBLmXZC0cqgL8okb_NgBSrd9jNFYKkP3pPuqYsEyHvir-AxI7J1Ml8kNX8bWxowy=
+a-q4aRC7ChO4HBiguSBsd9V3p94XJhZNaZC6WwJjUUzlrflWkwS9pC4CGVRmokMh-7T8TGzn04R=
+m3j0j6ZYEEWbSazlKXzQG-WM-rtSaSZOch5dk8_3tJ1XUCDoMG7DGHaJZXiYKTlZH7QqbIrAudP=
+Iqxh6a7khObtX3UJxU4giGKpXSTZi7jpUJ_aqgnWU5nnOoUgGgYuAZOeVwITj-y6AQU4nyzt8_s=
+GVHFDkmgBdQMFOvec3yfPINJpQzOf_JEkQi_q0E2n5o2z2DbgqF5H6O2_EJnTq9" target=3D"=
+_blank" style=3D"line-height: inherit; text-decoration: underline; color: #=
+006aff;" rel=3D"noopener">its pet telemedicine platform in a deal led by Gr=
+eycroft</a>. The company offers a subscription-based, all-digital veterinar=
+y practice. The company started as a physical veterinary practice and pivot=
+ed to all-virtual in 2019.&nbsp;</span></p> </div> </div> <!--[if mso]></td=
+></tr></table><![endif]--> <!--[if mso]><table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0"><tr><td style=3D"padding-right: 0px; =
+padding-left: 0px; padding-top: 20px; padding-bottom: 10px; font-family: Ar=
+ial, sans-serif"><![endif]--> <div style=3D"color: #17181a; font-family: He=
+lvetica Neue, Helvetica, Arial, sans-serif; line-height: 1.5; padding-top: =
+20px; padding-right: 0px; padding-bottom: 10px; padding-left: 0px;"> <div c=
+lass=3D"txtTinyMce-wrapper" style=3D"line-height: 1.5; font-size: 12px; col=
+or: #17181a; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso=
+-line-height-alt: 18px;"> <p style=3D"line-height: 1.5; word-break: break-w=
+ord; font-size: 16px; mso-line-height-alt: 24px; margin: 0;"><span style=3D=
+"line-height: inherit; font-size: 16px;">Subscription coffee startup <stron=
+g style=3D"line-height: inherit;"><a href=3D"http://links.angel.co/u/click=
+=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125=
+cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQGIeFBwsfNVsaxuAg0RYRSMjDvhMwPCQTDRurtMha93CYw=
+A2i42PiaVOgL-sY5Q9MsMxVkOWNH4xj3Sy8AECVoabJU4u7NXuvWRv95rqEjbjolTRfr36L4sUp=
+1dPzQW1Qx9xPDCwI3qRdXAzU6U4XXgRur5dRSyFgAoKNwNTdmMJY4fwNHEUmDmT0Cp9kaMXv1C6=
+3xLx5daXXrtAp728goPx-OT-FYMkcvR4PoEnnRbL13tUEk8e-51yzcwEKGNWW2jLPBJwAkIkFwY=
+y-nu0SeimS6LbQdjTDPbjS6hL7ejgIcRRAIURSbfDLmDmxivaeuP1yx-BYqtHvqwD6BurP0NKYB=
+GxPJbPFwRstCgMBQgI" target=3D"_blank" style=3D"line-height: inherit; text-d=
+ecoration: underline; color: #006aff;" rel=3D"noopener">Bottomless</a></str=
+ong>, a Y Combinator alumnus, raised a <strong style=3D"line-height: inheri=
+t;">$4.5M</strong> Series A led by O=E2=80=99Shaughnessy Asset Management. =
+The coffee comes with a <a href=3D"http://links.angel.co/u/click=3F_t=3D26b=
+4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341aea4851b6c1247b46125cf8&_e=3Dzv=
+mtUBrOZl1gFL7Sd_pEQNvC7NB9Iw83F86sQumkPkN27mTgUZ-JHQnfposRzE0EtsAqV-wDRUif0=
+-kpxKZxB3sh1DMKR_BGRpN0zwmN9JY7yPb99LV8Fw1uCL21BLRljz-lY0cRS9fQmfvPOLhFDRgh=
+27hUttzfOBeiJLk2_Um_d-yVK44AQDK4LYS4XZygx4sAvRwtfzPKFtk_76PdI6TUm1cW_A8u7Iv=
+iZl9SEH_TIsxGyicwsqv_ABgMDtQGsV3c1sPNzhm60yRmilBt01BguBIBDXaLhnuiLMudRcobB7=
+oRmQhNN9FNOzT3DpPgAxpGvEgkL2bxVceR2bVENTOITkEXR1yo1G44uSDvh6GBhu-o-sn3PQxc7=
+xWMENoShEOCqjiA3ONdHKGPtwAwJFSrZ3ib9xpcKmccapdBhRXlU014ntKEazhILSDQjC-AcxBr=
+lYKjEXeI7BIo1ylbvw%3D%3D" target=3D"_blank" style=3D"line-height: inherit; =
+text-decoration: underline; color: #006aff;" rel=3D"noopener">digital scale=
+ that triggers automatic refills when beans are running low</a>. Bottomless=
+ aims to 10x its customer base this year.</span></p> </div> </div> <!--[if =
+mso]></td></tr></table><![endif]--> <!--[if (!mso)&(!IE)]><!--> </div> <!--=
+<![endif]--> </div> </div> <!--[if (mso)|(IE)]></td></tr></table><![endif]-=
+-> <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]--> </d=
+iv> </div> </div> <div style=3D"line-height: inherit; background-color: tra=
+nsparent;"> <div class=3D"block-grid " style=3D"line-height: inherit; min-w=
+idth: 320px; max-width: 580px; overflow-wrap: break-word; word-wrap: break-=
+word; word-break: break-word; Margin: 0 auto; background-color: #f2f4f7;"> =
+<div style=3D"line-height: inherit; border-collapse: collapse; display: tab=
+le; width: 100%; background-color: #f2f4f7;"> <!--[if (mso)|(IE)]><table wi=
+dth=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"back=
+ground-color:transparent;"><tr><td align=3D"center"><table cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0" style=3D"width:580px"><tr class=3D"layout-=
+full-width" style=3D"background-color:#f2f4f7"><![endif]--> <!--[if (mso)|(=
+IE)]><td align=3D"center" width=3D"580" style=3D"background-color:#f2f4f7;w=
+idth:580px; border-top: 0px solid transparent; border-left: 0px solid trans=
+parent; border-bottom: 0px solid transparent; border-right: 0px solid trans=
+parent;" valign=3D"top"><table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0"><tr><td style=3D"padding-right: 0px; padding-left: 0px;=
+ padding-top:40px; padding-bottom:20px;"><![endif]--> <div class=3D"col num=
+12" style=3D"line-height: inherit; min-width: 320px; max-width: 580px; disp=
+lay: table-cell; vertical-align: top; width: 580px;"> <div class=3D"col_con=
+t" style=3D"line-height: inherit; width: 100% !important;"> <!--[if (!mso)&=
+(!IE)]><!--> <div style=3D"line-height: inherit; border-top: 0px solid tran=
+sparent; border-left: 0px solid transparent; border-bottom: 0px solid trans=
+parent; border-right: 0px solid transparent; padding-top: 40px; padding-bot=
+tom: 20px; padding-right: 0px; padding-left: 0px;"> <!--<![endif]--> <!--[i=
+f mso]><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0"><tr><td style=3D"padding-right: 10px; padding-left: 10px; padding-top: 1=
+0px; padding-bottom: 20px; font-family: Arial, sans-serif"><![endif]--> <di=
+v style=3D"color: #676c73; font-family: Helvetica Neue, Helvetica, Arial, s=
+ans-serif; line-height: 1.8; padding-top: 10px; padding-right: 10px; paddin=
+g-bottom: 20px; padding-left: 10px;"> <div class=3D"txtTinyMce-wrapper" sty=
+le=3D"line-height: 1.8; font-size: 12px; color: #676c73; font-family: Helve=
+tica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 22px;"> <p st=
+yle=3D"font-size: 12px; line-height: 1.8; word-break: break-word; text-alig=
+n: center; mso-line-height-alt: 22px; margin: 0;"><span style=3D"line-heigh=
+t: inherit; font-size: 12px;">AngelList Weekly</span></p> <p style=3D"font-=
+size: 12px; line-height: 1.8; word-break: break-word; text-align: center; m=
+so-line-height-alt: 22px; margin: 0;"><span style=3D"line-height: inherit; =
+font-size: 12px;">90 Gold St</span></p> <p style=3D"font-size: 12px; line-h=
+eight: 1.8; word-break: break-word; text-align: center; mso-line-height-alt=
+: 22px; margin: 0;"><span style=3D"line-height: inherit; font-size: 12px;">=
+San Francisco, CA 94133</span></p> <p style=3D"font-size: 12px; line-height=
+: 1.8; word-break: break-word; text-align: center; mso-line-height-alt: 22p=
+x; margin: 0;"><span style=3D"line-height: inherit; font-size: 12px;"><a st=
+yle=3D"line-height: inherit; text-decoration: underline; color: #788ea6;" h=
+ref=3D"http://links.angel.co/e/encryptedUnsubscribe=3F_r=3D26b4e8aeb47d4cd3=
+acd5eba415f76f62&_s=3Dc67e31341aea4851b6c1247b46125cf8&_t=3DHCAGSV8b2YptU5V=
+YuRMtjNIWh81HYEIMxTP1YjzNjl3n1rQg8ovfwfI8NIJHmHu60HcnjyLg0GwFaH72SxFetRCUt8=
+0E03QUiXV6jxPOUVCw8-A10xaPHHV1FvzOvaoVh4C1l7W0i8JxZWZpq6WHFeD0dl55JJjg1khSF=
+K3sPtPjSGShUpTckMLi_wJBcWwKTUmVJf3xsMeJzWMsJuEFbRWvN8lgo26DMlE8PabVo_o%3D" =
+target=3D"_blank" rel=3D"noopener">Unsubscribe</a> | <a style=3D"line-heigh=
+t: inherit; text-decoration: underline; color: #788ea6;" href=3D"http://lin=
+ks.angel.co/u/click=3F_t=3D26b4e8aeb47d4cd3acd5eba415f76f62&_m=3Dc67e31341a=
+ea4851b6c1247b46125cf8&_e=3DzvmtUBrOZl1gFL7Sd_pEQFneEHxkPnwWrMwtrj-qpR6lc6o=
+iBBCeRSDDUing3dagNYnuGLfG73w3G-bJ6x1X0qarHOOgt_hm6zzt4Dp0QFPuj5S7aqLEmtWlVS=
+IaWD9eUeLVx_EIyjAjT_tQuv_Sy-cxlOxljTpkGO4Q-dE4H70uyqYcR2y__2v0R0Nu3D6ZDcPYj=
+7SjLyt5Wwk2rHpaPSgCir5W7R7PXthuh-8PBWV1yfg30TxdMSkYVPjFhEqHvReaksDrG9c0cfoW=
+BsxZBAL6Ir6jYnpcMgez7wR10P8lusU3RH8cRiywj-9lWtoOqw0RrbY_y0bFp0vCXJUEPvexU4S=
+MKUE3RnglOi9a6Q_BFYW4mwZ0u6OWjhBr8P_U" target=3D"_blank" rel=3D"noopener">U=
+pdate preferences</a></span></p> </div> </div> <!--[if mso]></td></tr></tab=
+le><![endif]--> <!--[if (!mso)&(!IE)]><!--> </div> <!--<![endif]--> </div> =
+</div> <!--[if (mso)|(IE)]></td></tr></table><![endif]--> <!--[if (mso)|(IE=
+)]></td></tr></table></td></tr></table><![endif]--> </div> </div> </div> <!=
+--[if (mso)|(IE)]></td></tr></table><![endif]--> </td> </tr> </tbody> </tab=
+le> <!--[if (IE)]></div><![endif]--> =0D=0A<img border=3D"0" width=3D"1" he=
+ight=3D"1" alt=3D"" src=3D"http://go.sparkpostmail2.com/q/WlcpKOsGR-D6jkO-I=
+qzW6g~~/AARTlQA~/RgRiJNu9PlcDc3BjQgpgQb1WQmAxbNyBUhRkbXVnaWwyMDAwQGdtYWlsLm=
+NvbVgEAAAAAA~~">=0D=0A</body> </html>
+--_----Q9onRtLnLP2w9nu8ftsEgQ===_1D/18-40858-DB652406--
+

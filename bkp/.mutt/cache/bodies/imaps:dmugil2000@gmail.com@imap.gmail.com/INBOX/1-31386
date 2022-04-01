@@ -1,0 +1,1268 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp4755523ejk;
+        Tue, 2 Mar 2021 07:23:08 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzf2V/+mecTEN2GWFYAoXVZJV76fEzgUN5C9Hk3gz/DxD5G5KBL3crsyAiOfFZYaWR4LcOP
+X-Received: by 2002:a17:90a:8d84:: with SMTP id d4mr4948349pjo.56.1614698588458;
+        Tue, 02 Mar 2021 07:23:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614698588; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jQSJb0FzygJZFjaOOUW7thmVIyZsPWMRy52sEsTRTE2qtfgKGGT4jiDbFvIYOAEZHf
+         Xi0A5/rVNBejLQGdjp+qAwUbmxhOGUWHlVgQo3Qx98FiCXCrYJCfa7iQTkRMeYLvTllm
+         WKVTkKNC3kX2EvIoLo46IuHzKejaic9BYruXzC3MeZXIfFVnsqOyDyHg4SfS6Q7yRNA2
+         pQsujmPgejOjCTyoNToG9lJIiNDjlp2g+To4v/tcz2fDJPjjBsBw/lkodBxhPkJyb2Uc
+         Elpw46Kn0iDq3jVM7gQeAizmCl/PDxZa4uFv9mcWUuhEiX41ekTwhp8Am4eirIkfNa8A
+         lsQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:subject:mime-version:date:message-id:to:dkim-signature;
+        bh=/rBP4aRA3GFCOBNu31vK7Mve67K5BufgWagAUpGyuEA=;
+        b=vs57xOa+So5UbQV94VsotLNXioEXKtG9Nn1Gb9QbiuZdGr77zK/m+APeE3yCG74XpM
+         zqRXG8gp4Fm3w5MBcQ6qP6d/t3BtPeyzFLRImAGB6clhvQDXXTigfzeO4zKSay+0Rh9Z
+         Yzo7yS7prkiWnPLN/Fkkb2ADBgQo+7ZkcJPTN05dQx2lWzArI5ux/m9HT/XZpytq5M1g
+         QSLeaotDtiXzF2bQ3DhXq46Mv2q/nlRtwGhYLuNuRIz8RDM1l17I6fwb+otSEfmKPyWs
+         OBUpvFiYwfJIBCrjpqrGsaQlUxVvHl4FALPurR+/9uAj0Qlkg0E53eqnk0Zrgu2UZVWb
+         CsYw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@news.edx.org header.s=scph1120 header.b=W0H+7R9N;
+       spf=pass (google.com: domain of msprvs1=18695jmn6guan=bounces-266693-64@news.edx.org designates 156.70.13.154 as permitted sender) smtp.mailfrom="msprvs1=18695jMN6GUAn=bounces-266693-64@news.edx.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=edx.org
+Return-Path: <msprvs1=18695jMN6GUAn=bounces-266693-64@news.edx.org>
+Received: from mta-70-13-154.sparkpostmail.com (mta-70-13-154.sparkpostmail.com. [156.70.13.154])
+        by mx.google.com with ESMTPS id m23si19888073pgl.274.2021.03.02.07.23.07
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 02 Mar 2021 07:23:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of msprvs1=18695jmn6guan=bounces-266693-64@news.edx.org designates 156.70.13.154 as permitted sender) client-ip=156.70.13.154;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@news.edx.org header.s=scph1120 header.b=W0H+7R9N;
+       spf=pass (google.com: domain of msprvs1=18695jmn6guan=bounces-266693-64@news.edx.org designates 156.70.13.154 as permitted sender) smtp.mailfrom="msprvs1=18695jMN6GUAn=bounces-266693-64@news.edx.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=edx.org
+X-MSFBL: Mnr05L3iW8WZIYDSYs1enDux1bGO79TTfWh/S0ZSC1c=|eyJzdWJhY2NvdW50X2l
+	kIjoiNjQiLCJtZXNzYWdlX2lkIjoiNjAzNzViNTgzZTYwZjUzOTIzY2EiLCJ0ZW5
+	hbnRfaWQiOiJzcGMiLCJjdXN0b21lcl9pZCI6IjI2NjY5MyIsInIiOiJkbXVnaWw
+	yMDAwQGdtYWlsLmNvbSJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=news.edx.org;
+	s=scph1120; t=1614698587; i=@news.edx.org;
+	bh=/rBP4aRA3GFCOBNu31vK7Mve67K5BufgWagAUpGyuEA=;
+	h=To:Message-ID:Date:Content-Type:Subject:From;
+	b=W0H+7R9N9mxKcsdVny1rSgN3IJ0/x/SLDA/NhhsK7O1miyn7lmCBvQ54b0V8SNP5g
+	 PF7UYcafYXP1zyNb+I4hsCZtl3ov7ge73E5o6RJiwcsg1StGkZBH90MBTrP7yRt/6k
+	 WslOozkj7BuR79gIh+D7OYnxmhqws+I9B9qyze2s=
+To: dmugil2000@gmail.com
+Message-ID: <32.AC.37790.B585E306@an.mta1vrest.cc.prd.sparkpost>
+Date: Tue, 02 Mar 2021 15:23:07 +0000
+Content-Type: multipart/alternative; boundary="_----MMo7OmoT5QINakFTVAulwg===_6F/9C-37790-B585E306"
+MIME-Version: 1.0
+Subject: Your weekly course recommendations are in
+From: "edX" <edX@news.edx.org>
+
+--_----MMo7OmoT5QINakFTVAulwg===_6F/9C-37790-B585E306
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+
+Find your next favorite  edX =0A( https://clicks.edx.org/f/a/BemW2iwWJsODtn=
+NQRMOYBg~~/AAQRxQA~/RgRiIN1bP0QUaHR0cHM6Ly93d3cuZWR4Lm9yZy9XA3NwY0IKYDdbWD5=
+g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )           Courses =0A( http=
+s://clicks.edx.org/f/a/HimkRecVmb4Jcj9hqKwd7Q~~/AAQRxQA~/RgRiIN1bP0QaaHR0cH=
+M6Ly93d3cuZWR4Lm9yZy9jb3Vyc2VXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpb=
+C5jb21YBAAAAEA~ ) / Programs =0A( https://clicks.edx.org/f/a/Z0EQMURWZHOlQF=
+suOlvZvA~~/AAQRxQA~/RgRiIN1bP0QmaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U_cHJvZ3J=
+hbT1hbGxXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ ) / M=
+y Account =0A( https://clicks.edx.org/f/a/XtFeGf71AWUCqMd-wyO_rg~~/AAQRxQA~=
+/RgRiIN1bP0QdaHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvbG9naW5XA3NwY0IKYDdbWD5g9Tkjyl=
+IUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )  We=0Ahand-picked these courses sp=
+ecifically for you =0A( https://clicks.edx.org/f/a/YWfTyLdy9D2LGSZYoxCTMQ~~=
+/AAQRxQA~/RgRiIN1bP0QlaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_dGFiPWNvdXJzZVcDc=
+3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=0AWelcome =
+to your weekly course recommendations. With over 2,500=0Acourses to choose =
+from we wanted to get you one step closer to=0Afinding the course for you! =
+Explore these top courses today.=0AGet started =E2=96=B8 ( https://clicks.e=
+dx.org/f/a/YWfTyLdy9D2LGSZYoxCTMQ~~/AAQRxQA~/RgRiIN1bP0QlaHR0cHM6Ly93d3cuZW=
+R4Lm9yZy9zZWFyY2g_dGFiPWNvdXJzZVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtY=
+WlsLmNvbVgEAAAAQA~~ )=0A=0ABusiness & Management=0A=0A=0AEntrepreneurship i=
+n Emerging Economies (=0Ahttps://clicks.edx.org/f/a/Ngywe32SA6KsEvy8s1kS-w~=
+~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZW50cmVwcmVuZXVy=
+c2hpcC1pbi1lbWVyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGFydmFyZHhzdzQ3eDN0MjAyMFc=
+Dc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0AEntrepren=
+eurship in Emerging Economies (=0Ahttps://clicks.edx.org/f/a/Ngywe32SA6KsEv=
+y8s1kS-w~~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZW50cmV=
+wcmVuZXVyc2hpcC1pbi1lbWVyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGFydmFyZHhzdzQ3eD=
+N0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=
+HarvardX                Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a=
+/Ngywe32SA6KsEvy8s1kS-w~~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3cuZWR4Lm9yZy9j=
+b3Vyc2UvZW50cmVwcmVuZXVyc2hpcC1pbi1lbWVyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGF=
+ydmFyZHhzdzQ3eDN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbV=
+gEAAAAQA~~ )=0A=0A=0AIntroduction to Project Management (=0Ahttps://clicks.=
+edx.org/f/a/e__OiaiFl5EsGxi50ImxSg~~/AAQRxQA~/RgRiIN1bP0RSaHR0cHM6Ly93d3cuZ=
+WR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXByb2plY3QtbWFuYWdlbWVudC1hZGVsYWlkZXgt=
+cHJvamVjdDEwMXgtMVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAA=
+AQA~~ )=0AIntroduction to Project Management (=0Ahttps://clicks.edx.org/f/a=
+/e__OiaiFl5EsGxi50ImxSg~~/AAQRxQA~/RgRiIN1bP0RSaHR0cHM6Ly93d3cuZWR4Lm9yZy9j=
+b3Vyc2UvaW50cm9kdWN0aW9uLXByb2plY3QtbWFuYWdlbWVudC1hZGVsYWlkZXgtcHJvamVjdDE=
+wMXgtMVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0AA=
+delaideX                Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a=
+/e__OiaiFl5EsGxi50ImxSg~~/AAQRxQA~/RgRiIN1bP0RSaHR0cHM6Ly93d3cuZWR4Lm9yZy9j=
+b3Vyc2UvaW50cm9kdWN0aW9uLXByb2plY3QtbWFuYWdlbWVudC1hZGVsYWlkZXgtcHJvamVjdDE=
+wMXgtMVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=
+=0A=0AIntroduction to Connected Strategy (=0Ahttps://clicks.edx.org/f/a/Ew4=
+lg8qG11U02ZT7GQS55g~~/AAQRxQA~/RgRiIN1bP0RVaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vy=
+c2UvY29ubmVjdGVkLXN0cmF0ZWd5LWNvdXJzZS12MXdoYXJ0b25jb25uZWN0ZWRzdHJhdGVneTF=
+0MjAyMVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0AI=
+ntroduction to Connected Strategy (=0Ahttps://clicks.edx.org/f/a/Ew4lg8qG11=
+U02ZT7GQS55g~~/AAQRxQA~/RgRiIN1bP0RVaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY29=
+ubmVjdGVkLXN0cmF0ZWd5LWNvdXJzZS12MXdoYXJ0b25jb25uZWN0ZWRzdHJhdGVneTF0MjAyMV=
+cDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0AWharton =
+               Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a/Ew4lg8qG=
+11U02ZT7GQS55g~~/AAQRxQA~/RgRiIN1bP0RVaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY=
+29ubmVjdGVkLXN0cmF0ZWd5LWNvdXJzZS12MXdoYXJ0b25jb25uZWN0ZWRzdHJhdGVneTF0MjAy=
+MVcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0A=0A=0A=
+Operations Management (=0Ahttps://clicks.edx.org/f/a/ak4XEnhklxaAKifC8gzz2Q=
+~~/AAQRxQA~/RgRiIN1bP0QyaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb3BlcmF0aW9ucy1=
+tYW5hZ2VtZW50LTJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAE=
+A~ )=0AOperations Management (=0Ahttps://clicks.edx.org/f/a/ak4XEnhklxaAKif=
+C8gzz2Q~~/AAQRxQA~/RgRiIN1bP0QyaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb3BlcmF0=
+aW9ucy1tYW5hZ2VtZW50LTJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21=
+YBAAAAEA~ )=0AIIMBx                Enroll Now =E2=96=B8 (=0Ahttps://clicks.=
+edx.org/f/a/ak4XEnhklxaAKifC8gzz2Q~~/AAQRxQA~/RgRiIN1bP0QyaHR0cHM6Ly93d3cuZ=
+WR4Lm9yZy9jb3Vyc2Uvb3BlcmF0aW9ucy1tYW5hZ2VtZW50LTJXA3NwY0IKYDdbWD5g9TkjylIU=
+ZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A=0ALean Production (=0Ahttps://=
+clicks.edx.org/f/a/86AIipohftg13DfAVchtow~~/AAQRxQA~/RgRiIN1bP0REaHR0cHM6Ly=
+93d3cuZWR4Lm9yZy9jb3Vyc2UvbGVhbi1wcm9kdWN0aW9uLWNvdXJzZS12MXR1bXhxcGxzM3gyd=
+DIwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0ALea=
+n Production (=0Ahttps://clicks.edx.org/f/a/86AIipohftg13DfAVchtow~~/AAQRxQ=
+A~/RgRiIN1bP0REaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvbGVhbi1wcm9kdWN0aW9uLWNv=
+dXJzZS12MXR1bXhxcGxzM3gydDIwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWF=
+pbC5jb21YBAAAAEA~ )=0ATUMx                Enroll Now =E2=96=B8 (=0Ahttps://=
+clicks.edx.org/f/a/86AIipohftg13DfAVchtow~~/AAQRxQA~/RgRiIN1bP0REaHR0cHM6Ly=
+93d3cuZWR4Lm9yZy9jb3Vyc2UvbGVhbi1wcm9kdWN0aW9uLWNvdXJzZS12MXR1bXhxcGxzM3gyd=
+DIwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A=
+=0AIntroduction to Corporate Finance (=0Ahttps://clicks.edx.org/f/a/GaDJEMk=
+1C3MVOeMqmjE34w~~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uv=
+aW50cm9kdWN0aW9uLXRvLWNvcnBvcmF0ZS1maW5hbmNlLWNvdXJzZS12MWNvbHVtYmlheGNvcnB=
+maW4xeDN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA=
+~~ )=0AIntroduction to Corporate Finance (=0Ahttps://clicks.edx.org/f/a/GaD=
+JEMk1C3MVOeMqmjE34w~~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vy=
+c2UvaW50cm9kdWN0aW9uLXRvLWNvcnBvcmF0ZS1maW5hbmNlLWNvdXJzZS12MWNvbHVtYmlheGN=
+vcnBmaW4xeDN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAA=
+AAQA~~ )=0AColumbiaX                Enroll Now =E2=96=B8 (=0Ahttps://clicks=
+.edx.org/f/a/GaDJEMk1C3MVOeMqmjE34w~~/AAQRxQA~/RgRiIN1bP0ReaHR0cHM6Ly93d3c=
+uZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWNvcnBvcmF0ZS1maW5hbmNlLWNvdXJzZS=
+12MWNvbHVtYmlheGNvcnBmaW4xeDN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQ=
+GdtYWlsLmNvbVgEAAAAQA~~ )=0A=0AComputer Science=0A=0A=0ACS50's Introduction=
+ to Game Development (=0Ahttps://clicks.edx.org/f/a/tDZ6QNw1RGpY_4T2kNNFpg~=
+~/AAQRxQA~/RgRiIN1bP0RBaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY3M1MHMtaW50cm9k=
+dWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG1lbnRXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEB=
+nbWFpbC5jb21YBAAAAEA~ )=0ACS50's Introduction to Game Development (=0Ahttps=
+://clicks.edx.org/f/a/tDZ6QNw1RGpY_4T2kNNFpg~~/AAQRxQA~/RgRiIN1bP0RBaHR0cHM=
+6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY3M1MHMtaW50cm9kdWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG=
+1lbnRXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0AHarv=
+ardX                Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a/tDZ=
+6QNw1RGpY_4T2kNNFpg~~/AAQRxQA~/RgRiIN1bP0RBaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vy=
+c2UvY3M1MHMtaW50cm9kdWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG1lbnRXA3NwY0IKYDdbWD5g9Tk=
+jylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A=0A=0AData Science: Computati=
+onal Thinking with Python (=0Ahttps://clicks.edx.org/f/a/nX7qeD055hQ2nvuSF5=
+z2OQ~~/AAQRxQA~/RgRiIN1bP0RqaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2l=
+lbmNlLWNvbXB1dGF0aW9uYWwtdGhpbmtpbmctd2l0aC1weXRob24tY291cnNlLXYxYmVya2VsZX=
+l4ZGF0YTgxeDJ0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEA=
+AAAQA~~ )=0AData Science: Computational Thinking with Python (=0Ahttps://cl=
+icks.edx.org/f/a/nX7qeD055hQ2nvuSF5z2OQ~~/AAQRxQA~/RgRiIN1bP0RqaHR0cHM6Ly93=
+d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2llbmNlLWNvbXB1dGF0aW9uYWwtdGhpbmtpbmctd2l=
+0aC1weXRob24tY291cnNlLXYxYmVya2VsZXl4ZGF0YTgxeDJ0MjAyMFcDc3BjQgpgN1tYPmD1OS=
+PKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0ABerkeleyX                Enr=
+oll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a/nX7qeD055hQ2nvuSF5z2OQ~~/A=
+AQRxQA~/RgRiIN1bP0RqaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2llbmNlLWN=
+vbXB1dGF0aW9uYWwtdGhpbmtpbmctd2l0aC1weXRob24tY291cnNlLXYxYmVya2VsZXl4ZGF0YT=
+gxeDJ0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ =
+)=0A=0A=0AIntroduction to Kubernetes (=0Ahttps://clicks.edx.org/f/a/ftSkubL=
+FminGoWXFC-8sYQ~~/AAQRxQA~/RgRiIN1bP0RcaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uv=
+aW50cm9kdWN0aW9uLXRvLWt1YmVybmV0ZXMtY291cnNlLXYxbGludXhmb3VuZGF0aW9ueGxmczE=
+1OHgzdDIwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=
+=0AIntroduction to Kubernetes (=0Ahttps://clicks.edx.org/f/a/ftSkubLFminGoW=
+XFC-8sYQ~~/AAQRxQA~/RgRiIN1bP0RcaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9=
+kdWN0aW9uLXRvLWt1YmVybmV0ZXMtY291cnNlLXYxbGludXhmb3VuZGF0aW9ueGxmczE1OHgzdD=
+IwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0ALinu=
+xFoundationX                Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org=
+/f/a/ftSkubLFminGoWXFC-8sYQ~~/AAQRxQA~/RgRiIN1bP0RcaHR0cHM6Ly93d3cuZWR4Lm9y=
+Zy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWt1YmVybmV0ZXMtY291cnNlLXYxbGludXhmb3VuZGF=
+0aW9ueGxmczE1OHgzdDIwMjBXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb2=
+1YBAAAAEA~ )=0A=0A=0AMarketing Analytics: Competitive Analysis and Market S=
+egmentation (=0Ahttps://clicks.edx.org/f/a/yUfd48lmpIvsEcbQabULnA~~/AAQRxQA=
+~/RgRiIN1bP0RdaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvbWFya2V0aW5nLWFuYWx5dGljc=
+y1jb21wZXRpdGl2ZS1hbmFseXNpcy1hbmQtbWFya2V0LXNlZ21lbnRhdGlvbi0wVwNzcGNCCmA3=
+W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA )=0AMarketing Analytics: C=
+ompetitive Analysis and Market Segmentation (=0Ahttps://clicks.edx.org/f/a/=
+yUfd48lmpIvsEcbQabULnA~~/AAQRxQA~/RgRiIN1bP0RdaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb=
+3Vyc2UvbWFya2V0aW5nLWFuYWx5dGljcy1jb21wZXRpdGl2ZS1hbmFseXNpcy1hbmQtbWFya2V0=
+LXNlZ21lbnRhdGlvbi0wVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQ=
+AAABA )=0ABerkeleyX                Enroll Now =E2=96=B8 (=0Ahttps://clicks.=
+edx.org/f/a/yUfd48lmpIvsEcbQabULnA~~/AAQRxQA~/RgRiIN1bP0RdaHR0cHM6Ly93d3cuZ=
+WR4Lm9yZy9jb3Vyc2UvbWFya2V0aW5nLWFuYWx5dGljcy1jb21wZXRpdGl2ZS1hbmFseXNpcy1h=
+bmQtbWFya2V0LXNlZ21lbnRhdGlvbi0wVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21=
+haWwuY29tWAQAAABA )=0A=0AEconomics & Finance=0A=0A=0AIntroduction to FinTec=
+h (=0Ahttps://clicks.edx.org/f/a/oPEUMXtTKyDJv1jJFHs02w~~/AAQRxQA~/RgRiIN1b=
+P0QyaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWZpbnRlY2hXA3N=
+wY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0AIntroduction =
+to FinTech (=0Ahttps://clicks.edx.org/f/a/oPEUMXtTKyDJv1jJFHs02w~~/AAQRxQA~=
+/RgRiIN1bP0QyaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWZpbn=
+RlY2hXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0AHKUx=
+                Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a/oPEUMXt=
+TKyDJv1jJFHs02w~~/AAQRxQA~/RgRiIN1bP0QyaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uv=
+aW50cm9kdWN0aW9uLXRvLWZpbnRlY2hXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWF=
+pbC5jb21YBAAAAEA~ )=0A=0A=0AClimate Change: Financial Risks and Opportuniti=
+es (=0Ahttps://clicks.edx.org/f/a/xcruPWXPv794gdiWOWoxqg~~/AAQRxQA~/RgRiIN1=
+bP0RzaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY2xpbWF0ZS1jaGFuZ2UtZmluYW5jaWFsLX=
+Jpc2tzLWFuZC1vcHBvcnR1bml0aWVzLWNvdXJzZS12MWltcGVyaWFsYnVzaW5lc3N4aWNiczAwN=
+TN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=
+=0AClimate Change: Financial Risks and Opportunities (=0Ahttps://clicks.edx=
+.org/f/a/xcruPWXPv794gdiWOWoxqg~~/AAQRxQA~/RgRiIN1bP0RzaHR0cHM6Ly93d3cuZWR=
+4Lm9yZy9jb3Vyc2UvY2xpbWF0ZS1jaGFuZ2UtZmluYW5jaWFsLXJpc2tzLWFuZC1vcHBvcnR1bm=
+l0aWVzLWNvdXJzZS12MWltcGVyaWFsYnVzaW5lc3N4aWNiczAwNTN0MjAyMFcDc3BjQgpgN1tYP=
+mD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )=0AImperialBusinessX      =
+          Enroll Now =E2=96=B8 (=0Ahttps://clicks.edx.org/f/a/xcruPWXPv794g=
+diWOWoxqg~~/AAQRxQA~/RgRiIN1bP0RzaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY2xpbW=
+F0ZS1jaGFuZ2UtZmluYW5jaWFsLXJpc2tzLWFuZC1vcHBvcnR1bml0aWVzLWNvdXJzZS12MWltc=
+GVyaWFsYnVzaW5lc3N4aWNiczAwNTN0MjAyMFcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAw=
+QGdtYWlsLmNvbVgEAAAAQA~~ )=0ATwitter ( https://clicks.edx.org/f/a/uAzdTj6gN=
+SzqeHXtMZGPQw~~/AAQRxQA~/RgRiIN1bP0QdaHR0cHM6Ly90d2l0dGVyLmNvbS9lZFhPbmxpbm=
+VXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0ALinkedIn=
+ ( https://clicks.edx.org/f/a/uGHSHDJRg-_WK02nL06-hA~~/AAQRxQA~/RgRiIN1bP0Q=
+jaHR0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFueS9lZHhXA3NwY0IKYDdbWD5g9TkjylIUZG=
+11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )  Facebook =0A( https://clicks.edx.org/=
+f/a/Fz31J32mRToy7KL3eYN2vQ~~/AAQRxQA~/RgRiIN1bP0QhaHR0cDovL3d3dy5mYWNlYm9va=
+y5jb20vRWR4T25saW5lVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQA=
+AABA )  Instagram =0A( https://clicks.edx.org/f/a/W4_J3fdM1LcJBUaI75MpyQ~~/=
+AAQRxQA~/RgRiIN1bP0QkaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9lZHhvbmxpbmUvVwNzcG=
+NCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA )  Reddit =0A( https=
+://clicks.edx.org/f/a/1ZQ77IVtPyo4xt0CsQe2cw~~/AAQRxQA~/RgRiIN1bP0QbaHR0cDo=
+vL3d3dy5yZWRkaXQuY29tL3IvZWR4VwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haW=
+wuY29tWAQAAABA )               Download edX's App =0A( https://clicks.edx.o=
+rg/f/a/jm50LGcFnJRzTvYrXfpewA~~/AAQRxQA~/RgRiIN1bP0QmaHR0cHM6Ly9lZHguYXBwLm=
+xpbmsvZW1haWwtYXBwLWluc3RhbGxXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpb=
+C5jb21YBAAAAEA~ )  Download edX's Google=0APlay App ( https://clicks.edx.or=
+g/f/a/jm50LGcFnJRzTvYrXfpewA~~/AAQRxQA~/RgRiIN1bP0QmaHR0cHM6Ly9lZHguYXBwLmx=
+pbmsvZW1haWwtYXBwLWluc3RhbGxXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC=
+5jb21YBAAAAEA~ )=0ASave 10% on select programs! Click here. =0A( https://cl=
+icks.edx.org/f/a/Q01GIJvJ2OJPKTjj9Jg5gA~~/AAQRxQA~/RgRiIN1bP0QoaHR0cHM6Ly93=
+d3cuZWR4Lm9yZy9iZW5lZml0cy1vZi1idW5kbGluZ1cDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWw=
+yMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )      edX for Business=0A=E2=80=94 eLearning=
+ Solutions for Your Company =0A( https://clicks.edx.org/f/a/HsrMAY51zUliMqH=
+cZlDGyg~~/AAQRxQA~/RgRiIN1bP0QZaHR0cHM6Ly9idXNpbmVzcy5lZHgub3JnL1cDc3BjQgpg=
+N1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~ )      =C2=A9 2021 edX=
+ Inc. All rights=0Areserved.      Unsubscribe ( https://clicks.edx.org/f/a/=
+oMcUgz2eq98I57SKgrE1Iw~~/AAQRxQA~/RgRiIN1bP4SfAWh0dHBzOi8vZGFzaGJvYXJkLTA2L=
+mJyYXplLmNvbS9lbmNfdXNlci91bnN1YnNjcmliZT9kPUM1eWNoZ2tSbmF0aVZLd0k3RmczMWcl=
+M0QlM0QlMjQ2bzdWS0lxVTYyZ283JTJCSzhMT2hDa081Rjhoa016RWRyMHdaSnZ3TTU3Q0pTc0x=
+DUGNScDQlMkJzUkN6WllTJTBBeEFnR0dnclAzeXNteExZV3daWGVtS2pPNko3RUNnNjV1bURhem=
+NQaERrMHNYOUNST1E1alJZcnRhSUtlJTBBbEZGS1ZVYkJOY0xkRWliZEE1ZkhlUGFHVlhNbCUyR=
+nl2SWNWMTN6TkgyblJJbmJZajVPOVlHY1R0NGc4UU4lMEE3UUF6cFduYUhkTDZ5aGpKbDVQaHRI=
+R3p3Z3R4dEdjb2JQNjVRYnpLTTJLTWM5WXRuUGhSNUc2cyUyQjhpOSUwQUdWTHdPblclMkJ3Q1N=
+HcHNPN1hHZFdzMDRMdUpkZDUwTG83R1lGVkR6dmVvTFlEeDNsJTJGTzg5QU5ES0Y1cyUzRCYxPT=
+FXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~ )=0A| Update=
+ Preference ( https://clicks.edx.org/f/a/uwM2JmytstfHB5O3el_ycw~~/AAQRxQA~/=
+RgRiIN1bP4QAAmh0dHBzOi8vMDYuZW1haWxpbmJvdW5kcHJvY2Vzc2luZy5jb20vZW1haWwvbWF=
+uYWdlX3N1YnNjcmlwdGlvbnMvWU1zWHpzQjUlMkZCVzJKSEFDYXBicSUyRnclM0QlM0QlMjRCdn=
+VqR3RRM01IdmFqVkVTMUhleDAlMkZTZHhnTHJjdlhOMWV0VHFkNWZnekklM0Q_ZD1DNXljaGdrU=
+m5hdGlWS3dJN0ZnMzFnJTNEJTNEJTI0Nm83VktJcVU2MmdvNyUyQks4TE9oQ2tPNUY4aGtNekVk=
+cjB3Wkp2d001N0NKU3NMQ1BjUnA0JTJCc1JDelpZUyUwQXhBZ0dHZ3JQM3lzbXhMWVd3WlhlbUt=
+qTzZKN0VDZzY1dW1EYXpjUGhEazBzWDlDUk9RNWpSWXJ0YUlLZSUwQWxGRktWVWJCTmNMZEVpYm=
+RBNWZIZVBhR1ZYTWwlMkZ5dkljVjEzek5IMm5SSW5iWWo1TzlZR2NUdDRnOFFOJTBBN1FBenBXb=
+mFIZEw2eWhqSmw1UGh0SEd6d2d0eHRHY29iUDY1UWJ6S00yS01jOVl0blBoUjVHNnMlMkI4aTkl=
+MEFHVkx3T25XJTJCd0NTR3BzTzdYR2RXczA0THVKZGQ1MExvN0dZRlZEenZlb0xZRHgzbCUyRk8=
+4OUFOREtGNXMlM0QmMT0xVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWA=
+QAAABA )=0A141 Portland St. 9th Floor, Cambridge, MA 02139
+--_----MMo7OmoT5QINakFTVAulwg===_6F/9C-37790-B585E306
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html xmlns=3D"http://www.=
+w3.org/1999/xhtml"> <head> <meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8"> <meta http-equiv=3D"X-UA-Compatible" content=3D"I=
+E=3Dedge"> <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial=
+-scale=3D1.0"> <title>Your weekly course recommendations are in</title> <li=
+nk href=3D"https://fonts.googleapis.com/css=3Ffamily=3DOpen+Sans" rel=3D"st=
+ylesheet"> <style type=3D"text/css"> * {margin-top:0px;margin-bottom:0px;pa=
+dding:0px;border:none;outline:none;list-style:none;-webkit-text-size-adjust=
+: none;} body {margin:0 !important;padding:0 !important;width: 100% !import=
+ant;-webkit-text-size-adjust: 100% !important;-ms-text-size-adjust: 100% !i=
+mportant;-webkit-font-smoothing: antialiased !important;} img {border:0 !im=
+portant;display: block !important;outline: none !important;} table {border-=
+collapse: collapse;mso-table-lspace:0px;mso-table-rspace: 0px;} td {border-=
+collapse:collapse;mso-line-height-rule:exactly;} .ExternalClass {width: 100=
+%;line-height: 100%;} a[x-apple-data-detectors] {color: inherit !important;=
+text-decoration: none !important;font-size: inherit !important;font-family:=
+ inherit !important;font-weight: inherit !important;line-height: inherit !i=
+mportant;} /* Hover styles for buttons -- b=3Dblue - p=3Dpink */ .button-td=
+-b, .button-b, .button-td-p, .button-p { transition: all 100ms ease-in; } .=
+button-td-b:hover, .button-b:hover { background: #005585 !important; border=
+-color: #005585 !important; color: #ffffff !important; } .button-td-p:hover=
+, .button-p:hover { background: #D03529 !important; border-color: #D03529 !=
+important; color: #ffffff !important; } @media only screen and (max-width:5=
+80px){ .width_100percent {width: 100% !important;} .min_width {min-width: 3=
+20px !important;} .mobile_img {width: 100% !important; height: auto !import=
+ant;} .hide {display: none !important;} .show {display: block !important; w=
+idth: auto !important; overflow: visible !important; float: none !important=
+; max-height: inherit !important; line-height: inherit !important;} .width_=
+10 {width: 10px !important;} .width_20 {width: 20px !important;} .width_30 =
+{width: 30px !important;} .width_50 {width: 50px !important;} .width_80 {wi=
+dth: 80px !important;} .width_110 {width: 110px !important;} .width_5percen=
+t {width: 5% !important;} .width_35percent {width: 35% !important;} .width_=
+60percent {width: 60% !important;} .height_auto {height: auto !important;} =
+.height_10 {height: 10px !important;} .height_20 {height: 20px !important;=
+} .height_25 {height: 25px !important;} .height_30 {height: 30px !important=
+;} .height_35 {height: 35px !important;} .height_40 {height: 40px !importan=
+t;} .height_66 {height: 66px !important;} .padding_0 {padding: 0 !important=
+;} .padding_20 {padding: 20px !important;} .paddingsides_20 {padding-left:2=
+0px !important;padding-right: 20px !important;} .paddingbottom_10 {padding-=
+bottom: 10px !important;} .paddingbottom_20 {padding-bottom: 20px !importan=
+t;} .paddingbottom_30 {padding-bottom: 30px !important;} .paddingbottom_40 =
+{padding-bottom: 40px !important;} .font_15 {font-size: 15px !important; li=
+ne-height:18px !important;} .font_24 {font-size: 24px !important; line-heig=
+ht:27px !important;} .font_26 {font-size: 26px !important; line-height:29px=
+ !important;} .maxwidth_140 {max-width: 140px !important;} #logo {width: 74=
+px !important;height: 35px !important;} .nav_height {height: 38px !importan=
+t;} .header_padding {padding:25px 20px 10px 20px !important;} .item_padding=
+ {padding:25px 0 0 0 !important;} .bg_header {background-size: auto 66px !i=
+mportant;height:66px !important; width: 100% !important;} } @media only scr=
+een and (max-width:360px){ .w100 {width: 100% !important;} } </style> <!--[=
+if (mso)|(mso 16)]> <style type=3D"text/css"> body, table, td, a, span { fo=
+nt-family: Arial, Helvetica, sans-serif !important; } a {text-decoration: n=
+one;} </style> <![endif]--> </head> <body marginwidth=3D"0" marginheight=3D=
+"0" style=3D"margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0;wi=
+dth:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%=
+;-webkit-font-smoothing:antialiased;" offset=3D"0" topmargin=3D"0" leftmarg=
+in=3D"0"> <!-- Background table start --> <table width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" bgcolor=3D"#F5F5F5">=
+ <tr> <td valign=3D"top" align=3D"center"> <!-- Container table start --> <=
+table width=3D"600" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" cl=
+ass=3D"width_100percent"> <tr> <td valign=3D"top" align=3D"center" style=3D=
+"min-width:600px;" class=3D"min_width"> <!-- start Contents --> <!-- =3D=3D=
+=3D=3D=3D=3D=3D Pre-Header =3D=3D=3D=3D=3D=3D=3D --> <table width=3D"100%" =
+cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"center" valign=3D"to=
+p" style=3D"font-family:sans-serif;color:#F5F5F5;font-size:1px;line-height:=
+1px;">Find your next favorite</td> </tr> <tr> <td height=3D"29" style=3D"li=
+ne-height:1px;font-size:1px;" class=3D"height_10">&nbsp;</td> </tr> </table=
+> <!-- =3D=3D=3D=3D=3D=3D=3D Masthead =3D=3D=3D=3D=3D=3D=3D -->            =
+   <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">=0A           =
+     <tr>=0A                  <td width=3D"5" class=3D"width_20">&nbsp;</td=
+>=0A                  <td align=3D"left" valign=3D"top">=0A                =
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">=0A          =
+            <tr>=0A                        <td align=3D"left" valign=3D"top=
+">=0A                          <table cellpadding=3D"10" cellspacing=3D"0" =
+align=3D"left" class=3D"w100">=0A                            <tr><td align=
+=3D"center" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/KPrHjuUfG3=
+ez1gB5MO6ABA~~/AAQRxQA~/RgRiIN1bP0RhaHR0cHM6Ly93d3cuZWR4Lm9yZy8_dXRtX3NvdXJ=
+jZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm=
+9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQ=
+A~~" target=3D"_blank"><img src=3D"https://appboy-images.com/appboy/communi=
+cation/assets/image_assets/images/5fc568622213594dcbda2623/original.png=3F1=
+606772834" width=3D"110" height=3D"57" border=3D"0" style=3D"display:block;=
+" alt=3D"edX" id=3D"logo"></a></td></tr>=0A                          </tabl=
+e>=0A                          <!--[if mso]>=0A                            =
+</td>=0A                            <td align=3D"left" valign=3D"top">=0A  =
+                        <![endif]-->=0A                          <table cel=
+lpadding=3D"0" cellspacing=3D"0" align=3D"right" class=3D"w100">=0A        =
+                    <tr>=0A                              <td height=3D"52" =
+align=3D"center" valign=3D"bottom" class=3D"nav_height">=0A                =
+                <table cellpadding=3D"0" cellspacing=3D"0">=0A             =
+                     <tr>=0A                                    <td align=
+=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/ClwizfJbvtsr=
+HZtcCxKWkg~~/AAQRxQA~/RgRiIN1bP0RnaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U_dXRtX=
+3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJz=
+ZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVg=
+EAAAAQA~~" target=3D"_blank" style=3D"font-family:'inter',Arial,sans-serif;=
+font-size:18px;line-height:21px;text-decoration:none;color:#00262B;" class=
+=3D"font_15"><span style=3D"color:#00262B;">Courses</span></a></td>=0A     =
+                               <td align=3D"left" valign=3D"top" style=3D"f=
+ont-family:'inter',Arial,sans-serif;font-size:18px;line-height:21px;color:#=
+D23228;padding:0 7px;" class=3D"font_15">/</td>=0A                         =
+           <td align=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.=
+org/f/a/-JVrBjr9QSWIKhQgZx1ppg~~/AAQRxQA~/RgRiIN1bP0RzaHR0cHM6Ly93d3cuZWR4L=
+m9yZy9jb3Vyc2U_cHJvZ3JhbT1hbGwmdXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWls=
+JnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD=
+1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank" style=3D"f=
+ont-family:'inter',Arial,sans-serif;font-size:18px;line-height:21px;text-de=
+coration:none;color:#00262B;" class=3D"font_15"><span style=3D"color:#00262=
+B;">Programs</span></a></td>=0A                                    <td alig=
+n=3D"left" valign=3D"top" style=3D"font-family:'inter',Arial,sans-serif;fon=
+t-size:18px;line-height:21px;color:#D23228;padding:0 7px;" class=3D"font_15=
+">/</td>=0A                                    <td align=3D"left" valign=3D=
+"top"><a href=3D"https://clicks.edx.org/f/a/ovoJy1eVa1aJRNYgNFI3JQ~~/AAQRxQ=
+A~/RgRiIN1bP0RqaHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvbG9naW4_dXRtX3NvdXJjZT1icmF6=
+ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDI=
+xMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" targ=
+et=3D"_blank" style=3D"font-family:'inter',Arial,sans-serif;font-size:18px;=
+line-height:21px;text-decoration:none;color:#00262B;" class=3D"font_15"><sp=
+an style=3D"color:#00262B;">My Account</span></a></td>=0A                  =
+                </tr>=0A                                </table>=0A        =
+                      </td>=0A                            </tr>=0A         =
+                 </table>=0A                        </td>=0A               =
+       </tr>=0A                    </table>=0A                  </td>=0A   =
+               <td width=3D"5" class=3D"width_20">&nbsp;</td>=0A           =
+     </tr>=0A              </table>=0A <!-- =3D=3D=3D=3D=3D=3D=3D end of Ma=
+sthead =3D=3D=3D=3D=3D=3D=3D --><!-- =3D=3D=3D=3D=3D=3D=3D Hero =3D=3D=3D=
+=3D=3D=3D=3D --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">=
+ <tr> <td height=3D"30" style=3D"line-height:1px;font-size:1px;" class=3D"h=
+eight_20">&nbsp;</td> </tr> <tr> <td align=3D"left" valign=3D"top"> <table =
+width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"cente=
+r" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/rbBgIZaKbVr7YQ7j-gI=
+oIQ~~/AAQRxQA~/RgRiIN1bP0RyaHR0cHM6Ly93d3cuZWR4Lm9yZy9zZWFyY2g_dGFiPWNvdXJz=
+ZSZ1dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXl=
+fQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haW=
+wuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://appboy-images.com/app=
+boy/communication/assets/image_assets/images/603d0ad0d3d4dd4d41f2c0b8/origi=
+nal.png=3F1614613200" width=3D"600" border=3D"0" style=3D"display:block;hei=
+ght:auto;" alt=3D"We hand-picked these courses specifically for you" class=
+=3D"mobile_img"></a></td> </tr> <tr> <td align=3D"left" valign=3D"top"> <ta=
+ble width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#fffffe">=
+ <tr> <td align=3D"left" valign=3D"top" style=3D"padding:20px;"> <table wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> </tr><tr><td align=3D=
+"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font-si=
+ze:18px;line-height:23px;text-decoration:none;color:#707070;padding:2px 0 2=
+px 0;">Welcome to your weekly course recommendations. With over 2,500 cours=
+es to choose from we wanted to get you one step closer to finding the cours=
+e for you! Explore these top courses today. <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D=
+"padding: 10px 0 0px 20px;font-family:'Inter',Arial,sans-serif;font-size:18=
+px;line-height:21px;text-decoration:none;color:#707070;"> <table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"padding: 10px !important; w=
+idth: 90%;"> </table> </td> </tr> </table> <table width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D"=
+padding:10px 0px;"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0"> <tr> </tr> </table> </td> </tr> </table> <table width=3D"100%" cellpadd=
+ing=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding: 2px 0px;" class=3D"paddingsides_10"> <!-- item --> <table widt=
+h=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td style=3D"padding-b=
+ottom: 0px;"> <!-- button --> <table width=3D"100%" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-spacing:0;width:100%;min-width:100%;"> <tr> <t=
+d bgcolor=3D"#FFFFFF" align=3D"left"> <!--[if (gte mso 9)|(IE)]> <table wid=
+th=3D"150" cellpadding=3D"0" cellspacing=3D"0" align=3D"left" style=3D"bord=
+er-spacing:0"> <tr> <td style=3D"padding:0;mso-padding-alt:8px 0;border-rad=
+ius:5px;" bgcolor=3D"#0174b3"> <![endif]--> <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;font-family:'Inter',Ar=
+ial,sans-serif;width:100%;max-width:140px;border-radius:5px;" align=3D"left=
+"> <tr> <td style=3D"width:100%;padding:0;text-align:center;border-radius:5=
+px;" bgcolor=3D"#B63066"> <a target=3D"_blank" href=3D"https://clicks.edx.o=
+rg/f/a/rbBgIZaKbVr7YQ7j-gIoIQ~~/AAQRxQA~/RgRiIN1bP0RyaHR0cHM6Ly93d3cuZWR4Lm=
+9yZy9zZWFyY2g_dGFiPWNvdXJzZSZ1dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmd=
+XRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5=
+I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" name=3D"" title=3D"" style=3D"dis=
+play:inline-block;width:100%;font-size:18px;font-weight:normal;line-height:=
+26px;padding:8px 0;text-align:center;text-decoration:none; color: #FFFFFF;f=
+ont-family:'Open Sans',Arial,sans-serif;background-color:#D03529;border-rad=
+ius:0px;">Get started =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9=
+)|(IE)]> </td> </tr> </table> <![endif]--> </td> </tr> </table> </td> </tr>=
+ </table> <!-- end item --> </td> </tr> </table> </td> </tr> </table> </td>=
+ </tr> </table> </td> </tr> </table> </td> </tr> </table> <!-- end Hero -->=
+ <!-- popular courses (option 1)--> <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0"> <tr> <td height=3D"30" style=3D"line-height:1px;font-si=
+ze:1px;" class=3D"height_20">&nbsp;</td> </tr> <tr> <td align=3D"left" vali=
+gn=3D"top"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcol=
+or=3D"#fffffe"> <tr> <td align=3D"left" valign=3D"top"> <!-- header --> <ta=
+ble width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"l=
+eft" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font-size=
+:28px;line-height:25px;font-weight:bold;padding:30px 20px 10px 20px;" class=
+=3D"header_padding"><span style=3D"color:#d03529;">Business</span>&nbsp;<sp=
+an style=3D"color:#00262B;">&amp; Management</span></td> </tr> </table> <!-=
+- content --> <!-- content --> <table width=3D"100%" cellpadding=3D"0" cell=
+spacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:0 30=
+px;" class=3D"paddingsides_20"> <!-- start item -->   <table width=3D"100%"=
+ cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top=
+" style=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"t=
+op" style=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" cl=
+ass=3D"width_35percent"><a href=3D"https://clicks.edx.org/f/a/W9YP-Cndu7a0a=
+InICDLxhQ~~/AAQRxQA~/RgRiIN1bP0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZW50cm=
+VwcmVuZXVyc2hpcC1pbi1lbWVyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGFydmFyZHhzdzQ3e=
+DN0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1=
+ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDB=
+AZ21haWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://prod-discovery=
+.edx-cdn.org/media/course/image/387c5b5b-ef7f-43b9-b9b5-4163f3c74a49-c7a02=
+a264e7c.small.jpg" width=3D"135" border=3D"0" style=3D"display:block;height=
+:auto;" alt=3D"Entrepreneurship in Emerging Economies" class=3D"mobile_img"=
+></a></td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=
+=3D"left" valign=3D"top" class=3D"width_60percent"> <table width=3D"100%" c=
+ellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top">=
+<a href=3D"https://clicks.edx.org/f/a/W9YP-Cndu7a0aInICDLxhQ~~/AAQRxQA~/RgR=
+iIN1bP0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZW50cmVwcmVuZXVyc2hpcC1pbi1lbW=
+VyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGFydmFyZHhzdzQ3eDN0MjAyMD91dG1fc291cmNlP=
+WJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21v=
+XzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" t=
+arget=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;font-size:16=
+px;line-height:19px;text-decoration:none;color:#707070;font-weight:bold;"><=
+span style=3D"color:#707070;">Entrepreneurship in Emerging Economies</span>=
+</a></td> </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family=
+:'Inter',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:n=
+one;color:#707070;padding:0 0 20px 0;">HarvardX</td> </tr> <tr> <td> <!-- b=
+utton --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFF=
+FF" align=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpad=
+ding=3D"0" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr=
+> <td style=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=
+=3D"#B63066"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;wi=
+dth:100%;max-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=
+=3D"width:100%;padding:0;text-align:center;border-radius:5px;" class=3D"but=
+ton-td-p"> <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/W9YP-Cnd=
+u7a0aInICDLxhQ~~/AAQRxQA~/RgRiIN1bP0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZ=
+W50cmVwcmVuZXVyc2hpcC1pbi1lbWVyZ2luZy1lY29ub21pZXMtY291cnNlLXYxaGFydmFyZHhz=
+dzQ3eDN0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWd=
+uPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbD=
+IwMDBAZ21haWwuY29tWAQAAABA" name=3D"" title=3D"" style=3D"display:inline-bl=
+ock;width:100% !important;font-size:18px;line-height:26px;padding:8px 0;tex=
+t-align:center;text-decoration:none; color: #D03529;font-family:'Inter',Ari=
+al,sans-serif;background-color:#ffffff;border: 1px solid #D03529;border-rad=
+ius:0px;" class=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> </table> =
+<!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]--> </td> </tr> </=
+table> </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr> <td heigh=
+t=3D"1" style=3D"line-height:1px;font-size:1px;background-color:#CECECE">&n=
+bsp;</td> </tr> </table> </td> </tr> </table> <!-- end item --> <!-- start =
+item -->   <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> =
+<td align=3D"left" valign=3D"top" style=3D"padding:30px 0 0 0;" class=3D"it=
+em_padding"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr=
+> <td align=3D"left" valign=3D"top" style=3D"padding: 0 0 20px 0;"> <table =
+width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td width=3D"135" =
+align=3D"left" valign=3D"top" class=3D"width_35percent"><a href=3D"https://=
+clicks.edx.org/f/a/F-y2vkifQHm8rJyXNQh-7Q~~/AAQRxQA~/RgRiIN1bP0SfaHR0cHM6Ly=
+93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXByb2plY3QtbWFuYWdlbWVudC1hZGVsY=
+WlkZXgtcHJvamVjdDEwMXgtMT91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRt=
+X2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8p=
+SFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https:=
+//prod-discovery.edx-cdn.org/media/course/image/327c8e4f-315a-417b-9857-046=
+dfc90c243-677b97464958.small.jpg" width=3D"135" border=3D"0" style=3D"displ=
+ay:block;height:auto;" alt=3D"Introduction to Project Management" class=3D"=
+mobile_img"></a></td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td>=
+ <td align=3D"left" valign=3D"top" class=3D"width_60percent"> <table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" vali=
+gn=3D"top"><a href=3D"https://clicks.edx.org/f/a/F-y2vkifQHm8rJyXNQh-7Q~~/A=
+AQRxQA~/RgRiIN1bP0SfaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXB=
+yb2plY3QtbWFuYWdlbWVudC1hZGVsYWlkZXgtcHJvamVjdDEwMXgtMT91dG1fc291cmNlPWJyYX=
+plJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwM=
+jEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=
+=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;font-size:16px;li=
+ne-height:19px;text-decoration:none;color:#707070;font-weight:bold;"><span =
+style=3D"color:#707070;">Introduction to Project Management</span></a></td>=
+ </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'Inter',=
+Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;color=
+:#707070;padding:0 0 20px 0;">AdelaideX</td> </tr> <tr> <td> <!-- button --=
+> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border=
+-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=
+=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0=
+" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td sty=
+le=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B6306=
+6"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;m=
+ax-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:=
+100%;padding:0;text-align:center;border-radius:5px;" class=3D"button-td-p">=
+ <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/F-y2vkifQHm8rJyXNQ=
+h-7Q~~/AAQRxQA~/RgRiIN1bP0SfaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN=
+0aW9uLXByb2plY3QtbWFuYWdlbWVudC1hZGVsYWlkZXgtcHJvamVjdDEwMXgtMT91dG1fc291cm=
+NlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb=
+21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA=
+" name=3D"" title=3D"" style=3D"display:inline-block;width:100% !important;=
+font-size:18px;line-height:26px;padding:8px 0;text-align:center;text-decora=
+tion:none; color: #D03529;font-family:'Inter',Arial,sans-serif;background-c=
+olor:#ffffff;border: 1px solid #D03529;border-radius:0px;" class=3D"button-=
+p">Enroll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)|(IE)]>=
+ </td> </tr> </table> <![endif]--> </td> </tr> </table> </td> </tr> </table=
+> </td> </tr> </table> </td> </tr> <tr> <td height=3D"1" style=3D"line-heig=
+ht:1px;font-size:1px;background-color:#CECECE">&nbsp;</td> </tr> </table> <=
+/td> </tr> </table> <!-- end item --> <!-- start item -->   <table width=3D=
+"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=
+=3D"top" style=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" vali=
+gn=3D"top" style=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"=
+top" class=3D"width_35percent"><a href=3D"https://clicks.edx.org/f/a/SchL6M=
+e0vuhc9esQGoZQDA~~/AAQRxQA~/RgRiIN1bP0SiaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U=
+vY29ubmVjdGVkLXN0cmF0ZWd5LWNvdXJzZS12MXdoYXJ0b25jb25uZWN0ZWRzdHJhdGVneTF0Mj=
+AyMT91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkY=
+XlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21h=
+aWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://prod-discovery.edx-=
+cdn.org/media/course/image/ab26a0c8-003e-4a61-9f18-0f0395c3b4c6-b96f7005533=
+0.small.jpg" width=3D"135" border=3D"0" style=3D"display:block;height:auto;=
+" alt=3D"Introduction to Connected Strategy" class=3D"mobile_img"></a></td>=
+ <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"left" v=
+align=3D"top" class=3D"width_60percent"> <table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a href=3D=
+"https://clicks.edx.org/f/a/SchL6Me0vuhc9esQGoZQDA~~/AAQRxQA~/RgRiIN1bP0Sia=
+HR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY29ubmVjdGVkLXN0cmF0ZWd5LWNvdXJzZS12MXdo=
+YXJ0b25jb25uZWN0ZWRzdHJhdGVneTF0MjAyMT91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW0=
+9ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCm=
+A3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank" style=
+=3D"font-family:'Inter',Arial,sans-serif;font-size:16px;line-height:19px;te=
+xt-decoration:none;color:#707070;font-weight:bold;"><span style=3D"color:#7=
+07070;">Introduction to Connected Strategy</span></a></td> </tr> <tr> <td a=
+lign=3D"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;=
+font-size:16px;line-height:19px;text-decoration:none;color:#707070;padding:=
+0 0 20px 0;">Wharton</td> </tr> <tr> <td> <!-- button --> <table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;width:10=
+0%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=3D"left"> <!--[if (=
+gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0" cellspacing=3D"0" =
+align=3D"left" style=3D"border-spacing:0"> <tr> <td style=3D"padding:0;mso-=
+padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B63066"> <![endif]--> <ta=
+ble width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spac=
+ing:0;font-family:'Inter',Arial,sans-serif;width:100%;max-width:150px;borde=
+r-radius:5px;" align=3D"left"> <tr> <td style=3D"width:100%;padding:0;text-=
+align:center;border-radius:5px;" class=3D"button-td-p"> <a target=3D"_blank=
+" href=3D"https://clicks.edx.org/f/a/SchL6Me0vuhc9esQGoZQDA~~/AAQRxQA~/RgRi=
+IN1bP0SiaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY29ubmVjdGVkLXN0cmF0ZWd5LWNvdXJ=
+zZS12MXdoYXJ0b25jb25uZWN0ZWRzdHJhdGVneTF0MjAyMT91dG1fc291cmNlPWJyYXplJnV0bV=
+9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyV=
+wNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" name=3D"" titl=
+e=3D"" style=3D"display:inline-block;width:100% !important;font-size:18px;l=
+ine-height:26px;padding:8px 0;text-align:center;text-decoration:none; color=
+: #D03529;font-family:'Inter',Arial,sans-serif;background-color:#ffffff;bor=
+der: 1px solid #D03529;border-radius:0px;" class=3D"button-p">Enroll Now =
+=E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)|(IE)]> </td> </tr> <=
+/table> <![endif]--> </td> </tr> </table> </td> </tr> </table> </td> </tr> =
+</table> </td> </tr> <tr> <td height=3D"1" style=3D"line-height:1px;font-si=
+ze:1px;background-color:#CECECE">&nbsp;</td> </tr> </table> </td> </tr> </t=
+able> <!-- end item --> <!-- start item -->   <table width=3D"100%" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100%" cell=
+padding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" sty=
+le=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" class=3D"=
+width_35percent"><a href=3D"https://clicks.edx.org/f/a/T1yo6jjBJVf4_0VJlUTQ=
+_A~~/AAQRxQA~/RgRiIN1bP0R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb3BlcmF0aW9uc=
+y1tYW5hZ2VtZW50LTI_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1w=
+YWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXV=
+naWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><img src=3D"https://pr=
+od-discovery.edx-cdn.org/media/course/image/66d85856-511a-43e8-98b8-3acc4da=
+8d275-d4d4749d1a88.small.jpg" width=3D"135" border=3D"0" style=3D"display:b=
+lock;height:auto;" alt=3D"Operations Management" class=3D"mobile_img"></a><=
+/td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"lef=
+t" valign=3D"top" class=3D"width_60percent"> <table width=3D"100%" cellpadd=
+ing=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a href=
+=3D"https://clicks.edx.org/f/a/T1yo6jjBJVf4_0VJlUTQ_A~~/AAQRxQA~/RgRiIN1bP0=
+R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb3BlcmF0aW9ucy1tYW5hZ2VtZW50LTI_dXRtX=
+3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJz=
+ZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVg=
+EAAAAQA~~" target=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;=
+font-size:16px;line-height:19px;text-decoration:none;color:#707070;font-wei=
+ght:bold;"><span style=3D"color:#707070;">Operations Management</span></a><=
+/td> </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'Int=
+er',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;c=
+olor:#707070;padding:0 0 20px 0;">IIMBx</td> </tr> <tr> <td> <!-- button --=
+> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border=
+-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=
+=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0=
+" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td sty=
+le=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B6306=
+6"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;m=
+ax-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:=
+100%;padding:0;text-align:center;border-radius:5px;" class=3D"button-td-p">=
+ <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/T1yo6jjBJVf4_0VJlU=
+TQ_A~~/AAQRxQA~/RgRiIN1bP0R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb3BlcmF0aW9=
+ucy1tYW5hZ2VtZW50LTI_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW=
+1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkb=
+XVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" name=3D"" title=3D"" style=3D"display:=
+inline-block;width:100% !important;font-size:18px;line-height:26px;padding:=
+8px 0;text-align:center;text-decoration:none; color: #D03529;font-family:'I=
+nter',Arial,sans-serif;background-color:#ffffff;border: 1px solid #D03529;b=
+order-radius:0px;" class=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> =
+</table> <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]--> </td>=
+ </tr> </table> </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr> =
+<td height=3D"1" style=3D"line-height:1px;font-size:1px;background-color:#C=
+ECECE">&nbsp;</td> </tr> </table> </td> </tr> </table> <!-- end item --> <!=
+-- start item -->   <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:30px 0 0 0;" cl=
+ass=3D"item_padding"> <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding: 0 0 20px 0=
+;"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td wid=
+th=3D"135" align=3D"left" valign=3D"top" class=3D"width_35percent"><a href=
+=3D"https://clicks.edx.org/f/a/HOUejSjkMRlDuV1zTaAmfw~~/AAQRxQA~/RgRiIN1bP0=
+SRaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvbGVhbi1wcm9kdWN0aW9uLWNvdXJzZS12MXR1b=
+XhxcGxzM3gydDIwMjA_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1w=
+YWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXV=
+naWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><img src=3D"https://pr=
+od-discovery.edx-cdn.org/media/course/image/00152a61-93ae-41e3-89fe-82a7fe1=
+e3995-7b16d5e1c99e.small.jpg" width=3D"135" border=3D"0" style=3D"display:b=
+lock;height:auto;" alt=3D"Lean Production" class=3D"mobile_img"></a></td> <=
+td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"left" val=
+ign=3D"top" class=3D"width_60percent"> <table width=3D"100%" cellpadding=3D=
+"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a href=3D"ht=
+tps://clicks.edx.org/f/a/HOUejSjkMRlDuV1zTaAmfw~~/AAQRxQA~/RgRiIN1bP0SRaHR0=
+cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvbGVhbi1wcm9kdWN0aW9uLWNvdXJzZS12MXR1bXhxcGx=
+zM3gydDIwMjA_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj=
+1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyM=
+DAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank" style=3D"font-family:'Inter'=
+,Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;colo=
+r:#707070;font-weight:bold;"><span style=3D"color:#707070;">Lean Production=
+</span></a></td> </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font=
+-family:'Inter',Arial,sans-serif;font-size:16px;line-height:19px;text-decor=
+ation:none;color:#707070;padding:0 0 20px 0;">TUMx</td> </tr> <tr> <td> <!-=
+- button --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFF=
+FFF" align=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpa=
+dding=3D"0" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <t=
+r> <td style=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=
+=3D"#B63066"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;wi=
+dth:100%;max-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=
+=3D"width:100%;padding:0;text-align:center;border-radius:5px;" class=3D"but=
+ton-td-p"> <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/HOUejSjk=
+MRlDuV1zTaAmfw~~/AAQRxQA~/RgRiIN1bP0SRaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uvb=
+GVhbi1wcm9kdWN0aW9uLWNvdXJzZS12MXR1bXhxcGxzM3gydDIwMjA_dXRtX3NvdXJjZT1icmF6=
+ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDI=
+xMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" name=
+=3D"" title=3D"" style=3D"display:inline-block;width:100% !important;font-s=
+ize:18px;line-height:26px;padding:8px 0;text-align:center;text-decoration:n=
+one; color: #D03529;font-family:'Inter',Arial,sans-serif;background-color:#=
+ffffff;border: 1px solid #D03529;border-radius:0px;" class=3D"button-p">Enr=
+oll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)|(IE)]> </td>=
+ </tr> </table> <![endif]--> </td> </tr> </table> </td> </tr> </table> </td=
+> </tr> </table> </td> </tr> <tr> <td height=3D"1" style=3D"line-height:1px=
+;font-size:1px;background-color:#CECECE">&nbsp;</td> </tr> </table> </td> <=
+/tr> </table> <!-- end item --> <!-- start item -->   <table width=3D"100%"=
+ cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top=
+" style=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"t=
+op" style=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" cl=
+ass=3D"width_35percent"><a href=3D"https://clicks.edx.org/f/a/oEldQ7FCUaGIR=
+SbBrvfiNg~~/AAQRxQA~/RgRiIN1bP0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm=
+9kdWN0aW9uLXRvLWNvcnBvcmF0ZS1maW5hbmNlLWNvdXJzZS12MWNvbHVtYmlheGNvcnBmaW4xe=
+DN0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1=
+ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDB=
+AZ21haWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://prod-discovery=
+.edx-cdn.org/media/course/image/9ed274f9-9db1-4e08-93a6-0fa07e684970-b981b=
+527b9e1.small.jpg" width=3D"135" border=3D"0" style=3D"display:block;height=
+:auto;" alt=3D"Introduction to Corporate Finance" class=3D"mobile_img"></a>=
+</td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"le=
+ft" valign=3D"top" class=3D"width_60percent"> <table width=3D"100%" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a hre=
+f=3D"https://clicks.edx.org/f/a/oEldQ7FCUaGIRSbBrvfiNg~~/AAQRxQA~/RgRiIN1bP=
+0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWNvcnBvcmF0ZS1m=
+aW5hbmNlLWNvdXJzZS12MWNvbHVtYmlheGNvcnBmaW4xeDN0MjAyMD91dG1fc291cmNlPWJyYXp=
+lJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMj=
+EwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=
+=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;font-size:16px;li=
+ne-height:19px;text-decoration:none;color:#707070;font-weight:bold;"><span =
+style=3D"color:#707070;">Introduction to Corporate Finance</span></a></td> =
+</tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'Inter',A=
+rial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;color:=
+#707070;padding:0 0 20px 0;">ColumbiaX</td> </tr> <tr> <td> <!-- button -->=
+ <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-=
+spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=
+=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0=
+" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td sty=
+le=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B6306=
+6"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;m=
+ax-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:=
+100%;padding:0;text-align:center;border-radius:5px;" class=3D"button-td-p">=
+ <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/oEldQ7FCUaGIRSbBrv=
+fiNg~~/AAQRxQA~/RgRiIN1bP0SraHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN=
+0aW9uLXRvLWNvcnBvcmF0ZS1maW5hbmNlLWNvdXJzZS12MWNvbHVtYmlheGNvcnBmaW4xeDN0Mj=
+AyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkY=
+XlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21h=
+aWwuY29tWAQAAABA" name=3D"" title=3D"" style=3D"display:inline-block;width:=
+100% !important;font-size:18px;line-height:26px;padding:8px 0;text-align:ce=
+nter;text-decoration:none; color: #D03529;font-family:'Inter',Arial,sans-se=
+rif;background-color:#ffffff;border: 1px solid #D03529;border-radius:0px;" =
+class=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (g=
+te mso 9)|(IE)]> </td> </tr> </table> <![endif]--> </td> </tr> </table> </t=
+d> </tr> </table> </td> </tr> </table> </td> </tr> </table> </td> </tr> </t=
+able> <!-- end item --> </td> </tr> </table> <!-- end content --> </td> </t=
+r> </table> </td> </tr> </table> <!-- end of popular courses (option 1)--> =
+<!-- popular courses (option 1)--> <table width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0"> <tr> <td height=3D"30" style=3D"line-height:1px;font-siz=
+e:1px;" class=3D"height_20">&nbsp;</td> </tr> <tr> <td align=3D"left" valig=
+n=3D"top"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolo=
+r=3D"#fffffe"> <tr> <td align=3D"left" valign=3D"top"> <!-- header --> <tab=
+le width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"le=
+ft" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font-size:=
+28px;line-height:25px;font-weight:bold;padding:30px 20px 10px 20px;" class=
+=3D"header_padding"><span style=3D"color:#d03529;">Computer</span>&nbsp;<sp=
+an style=3D"color:#00262B;">Science</span></td> </tr> </table> <!-- content=
+ --> <!-- content --> <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:0 30px;" cl=
+ass=3D"paddingsides_20"> <!-- start item -->   <table width=3D"100%" cellpa=
+dding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100%" cell=
+padding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" sty=
+le=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" class=3D"=
+width_35percent"><a href=3D"https://clicks.edx.org/f/a/ClZyCOEND8J6_XBf0jKZ=
+qg~~/AAQRxQA~/RgRiIN1bP0SOaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY3M1MHMtaW50c=
+m9kdWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG1lbnQ_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVt=
+PWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgp=
+gN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><i=
+mg src=3D"https://prod-discovery.edx-cdn.org/media/course/image/8d1da557-03=
+db-4175-b881-e0480d706d96-d23628f08e28.small.jpg" width=3D"135" border=3D"0=
+" style=3D"display:block;height:auto;" alt=3D"CS50's Introduction to Game D=
+evelopment" class=3D"mobile_img"></a></td> <td width=3D"15" class=3D"width_=
+5percent">&nbsp;</td> <td align=3D"left" valign=3D"top" class=3D"width_60pe=
+rcent"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td=
+ align=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/ClZyCO=
+END8J6_XBf0jKZqg~~/AAQRxQA~/RgRiIN1bP0SOaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U=
+vY3M1MHMtaW50cm9kdWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG1lbnQ_dXRtX3NvdXJjZT1icmF6ZS=
+Z1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxM=
+DMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=
+=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;font-size:16px;li=
+ne-height:19px;text-decoration:none;color:#707070;font-weight:bold;"><span =
+style=3D"color:#707070;">CS50's Introduction to Game Development</span></a>=
+</td> </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'In=
+ter',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;=
+color:#707070;padding:0 0 20px 0;">HarvardX</td> </tr> <tr> <td> <!-- butto=
+n --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" al=
+ign=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=
+=3D"0" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <t=
+d style=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#=
+B63066"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;width=
+:100%;max-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D=
+"width:100%;padding:0;text-align:center;border-radius:5px;" class=3D"button=
+-td-p"> <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/ClZyCOEND8J=
+6_XBf0jKZqg~~/AAQRxQA~/RgRiIN1bP0SOaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY3M1=
+MHMtaW50cm9kdWN0aW9uLXRvLWdhbWUtZGV2ZWxvcG1lbnQ_dXRtX3NvdXJjZT1icmF6ZSZ1dG1=
+fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMl=
+cDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" name=3D"" t=
+itle=3D"" style=3D"display:inline-block;width:100% !important;font-size:18p=
+x;line-height:26px;padding:8px 0;text-align:center;text-decoration:none; co=
+lor: #D03529;font-family:'Inter',Arial,sans-serif;background-color:#ffffff;=
+border: 1px solid #D03529;border-radius:0px;" class=3D"button-p">Enroll Now=
+ =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)|(IE)]> </td> </tr> =
+</table> <![endif]--> </td> </tr> </table> </td> </tr> </table> </td> </tr>=
+ </table> </td> </tr> <tr> <td height=3D"1" style=3D"line-height:1px;font-s=
+ize:1px;background-color:#CECECE">&nbsp;</td> </tr> </table> </td> </tr> </=
+table> <!-- end item --> <!-- start item -->   <table width=3D"100%" cellpa=
+dding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100%" cell=
+padding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" sty=
+le=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0" cellsp=
+acing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" class=3D"=
+width_35percent"><a href=3D"https://clicks.edx.org/f/a/J5-O-vSjcP5pbL3T0MHk=
+rg~~/AAQRxQA~/RgRiIN1bP0S3aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2llb=
+mNlLWNvbXB1dGF0aW9uYWwtdGhpbmtpbmctd2l0aC1weXRob24tY291cnNlLXYxYmVya2VsZXl4=
+ZGF0YTgxeDJ0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXB=
+haWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdW=
+dpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://prod-=
+discovery.edx-cdn.org/media/course/image/66f81e22-3e81-44a4-8838-dc529a099b=
+e5-d8be49e50d29.small.jpg" width=3D"135" border=3D"0" style=3D"display:bloc=
+k;height:auto;" alt=3D"Data Science: Computational Thinking with Python" cl=
+ass=3D"mobile_img"></a></td> <td width=3D"15" class=3D"width_5percent">&nbs=
+p;</td> <td align=3D"left" valign=3D"top" class=3D"width_60percent"> <table=
+ width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left=
+" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/J5-O-vSjcP5pbL3T0MHk=
+rg~~/AAQRxQA~/RgRiIN1bP0S3aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2llb=
+mNlLWNvbXB1dGF0aW9uYWwtdGhpbmtpbmctd2l0aC1weXRob24tY291cnNlLXYxYmVya2VsZXl4=
+ZGF0YTgxeDJ0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXB=
+haWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdW=
+dpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank" style=3D"font-family:'Int=
+er',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;c=
+olor:#707070;font-weight:bold;"><span style=3D"color:#707070;">Data Science=
+: Computational Thinking with Python</span></a></td> </tr> <tr> <td align=
+=3D"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font=
+-size:16px;line-height:19px;text-decoration:none;color:#707070;padding:0 0 =
+20px 0;">BerkeleyX</td> </tr> <tr> <td> <!-- button --> <table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;width:100%=
+;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=3D"left"> <!--[if (gt=
+e mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0" cellspacing=3D"0" al=
+ign=3D"left" style=3D"border-spacing:0"> <tr> <td style=3D"padding:0;mso-pa=
+dding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B63066"> <![endif]--> <tabl=
+e width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacin=
+g:0;font-family:'Inter',Arial,sans-serif;width:100%;max-width:150px;border-=
+radius:5px;" align=3D"left"> <tr> <td style=3D"width:100%;padding:0;text-al=
+ign:center;border-radius:5px;" class=3D"button-td-p"> <a target=3D"_blank" =
+href=3D"https://clicks.edx.org/f/a/J5-O-vSjcP5pbL3T0MHkrg~~/AAQRxQA~/RgRiIN=
+1bP0S3aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvZGF0YS1zY2llbmNlLWNvbXB1dGF0aW9uY=
+WwtdGhpbmtpbmctd2l0aC1weXRob24tY291cnNlLXYxYmVya2VsZXl4ZGF0YTgxeDJ0MjAyMD91=
+dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ29=
+1cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY2=
+9tWAQAAABA" name=3D"" title=3D"" style=3D"display:inline-block;width:100% !=
+important;font-size:18px;line-height:26px;padding:8px 0;text-align:center;t=
+ext-decoration:none; color: #D03529;font-family:'Inter',Arial,sans-serif;ba=
+ckground-color:#ffffff;border: 1px solid #D03529;border-radius:0px;" class=
+=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (gte ms=
+o 9)|(IE)]> </td> </tr> </table> <![endif]--> </td> </tr> </table> </td> </=
+tr> </table> </td> </tr> </table> </td> </tr> <tr> <td height=3D"1" style=
+=3D"line-height:1px;font-size:1px;background-color:#CECECE">&nbsp;</td> </t=
+r> </table> </td> </tr> </table> <!-- end item --> </td> </tr> </table> <!-=
+- end content --> <!-- bg header --> <!-- {include "bg_computerscience"} --=
+> <!-- content --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:0 30px;" class=
+=3D"paddingsides_20"> <!-- start item -->   <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D=
+"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100%" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" class=3D"wi=
+dth_35percent"><a href=3D"https://clicks.edx.org/f/a/vqrecdOTGNfYb36EJ33a2Q=
+~~/AAQRxQA~/RgRiIN1bP0SpaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9=
+uLXRvLWt1YmVybmV0ZXMtY291cnNlLXYxbGludXhmb3VuZGF0aW9ueGxmczE1OHgzdDIwMjA_dX=
+RtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0Nvd=
+XJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNv=
+bVgEAAAAQA~~" target=3D"_blank"><img src=3D"https://prod-discovery.edx-cdn.=
+org/media/course/image/8566d539-69cb-43a5-94c2-000502df1a92-3717b6f99abc.sm=
+all.png" width=3D"135" border=3D"0" style=3D"display:block;height:auto;" al=
+t=3D"Introduction to Kubernetes" class=3D"mobile_img"></a></td> <td width=
+=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"left" valign=3D"t=
+op" class=3D"width_60percent"> <table width=3D"100%" cellpadding=3D"0" cell=
+spacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a href=3D"https://cl=
+icks.edx.org/f/a/vqrecdOTGNfYb36EJ33a2Q~~/AAQRxQA~/RgRiIN1bP0SpaHR0cHM6Ly93=
+d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWt1YmVybmV0ZXMtY291cnNlLXYxbGl=
+udXhmb3VuZGF0aW9ueGxmczE1OHgzdDIwMjA_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPW=
+VtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN=
+1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank" styl=
+e=3D"font-family:'Inter',Arial,sans-serif;font-size:16px;line-height:19px;t=
+ext-decoration:none;color:#707070;font-weight:bold;"><span style=3D"color:#=
+707070;">Introduction to Kubernetes</span></a></td> </tr> <tr> <td align=3D=
+"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font-si=
+ze:16px;line-height:19px;text-decoration:none;color:#707070;padding:0 0 20p=
+x 0;">LinuxFoundationX</td> </tr> <tr> <td> <!-- button --> <table width=3D=
+"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;width:=
+100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=3D"left"> <!--[if=
+ (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0" cellspacing=3D"0=
+" align=3D"left" style=3D"border-spacing:0"> <tr> <td style=3D"padding:0;ms=
+o-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B63066"> <![endif]--> <=
+table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing:0;font-family:'Inter',Arial,sans-serif;width:100%;max-width:150px;bor=
+der-radius:5px;" align=3D"left"> <tr> <td style=3D"width:100%;padding:0;tex=
+t-align:center;border-radius:5px;" class=3D"button-td-p"> <a target=3D"_bla=
+nk" href=3D"https://clicks.edx.org/f/a/vqrecdOTGNfYb36EJ33a2Q~~/AAQRxQA~/Rg=
+RiIN1bP0SpaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWt1YmVyb=
+mV0ZXMtY291cnNlLXYxbGludXhmb3VuZGF0aW9ueGxmczE1OHgzdDIwMjA_dXRtX3NvdXJjZT1i=
+cmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18=
+yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" =
+name=3D"" title=3D"" style=3D"display:inline-block;width:100% !important;fo=
+nt-size:18px;line-height:26px;padding:8px 0;text-align:center;text-decorati=
+on:none; color: #D03529;font-family:'Inter',Arial,sans-serif;background-col=
+or:#ffffff;border: 1px solid #D03529;border-radius:0px;" class=3D"button-p"=
+>Enroll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)|(IE)]> <=
+/td> </tr> </table> <![endif]--> </td> </tr> </table> </td> </tr> </table> =
+</td> </tr> </table> </td> </tr> <tr> <td height=3D"1" style=3D"line-height=
+:1px;font-size:1px;background-color:#CECECE">&nbsp;</td> </tr> </table> </t=
+d> </tr> </table> <!-- end item --> <!-- start item -->   <table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D=
+"top" style=3D"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D=
+"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=
+=3D"top" style=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"t=
+op" class=3D"width_35percent"><a href=3D"https://clicks.edx.org/f/a/8dcJkHj=
+CqtdTqCzzq-Qtcw~~/AAQRxQA~/RgRiIN1bP0SqaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2Uv=
+bWFya2V0aW5nLWFuYWx5dGljcy1jb21wZXRpdGl2ZS1hbmFseXNpcy1hbmQtbWFya2V0LXNlZ21=
+lbnRhdGlvbi0wP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ2=
+49VHVlc2RheV9Db3Vyc2VfUHJvbW9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsM=
+jAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank"><img src=3D"https://prod-dis=
+covery.edx-cdn.org/media/course/image/17217ffc-8c0c-4b7a-9ca7-01a6fbbce380-=
+1298caf70e72.small.jpg" width=3D"135" border=3D"0" style=3D"display:block;h=
+eight:auto;" alt=3D"Marketing Analytics: Competitive Analysis and Market Se=
+gmentation" class=3D"mobile_img"></a></td> <td width=3D"15" class=3D"width_=
+5percent">&nbsp;</td> <td align=3D"left" valign=3D"top" class=3D"width_60pe=
+rcent"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td=
+ align=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/8dcJkH=
+jCqtdTqCzzq-Qtcw~~/AAQRxQA~/RgRiIN1bP0SqaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2U=
+vbWFya2V0aW5nLWFuYWx5dGljcy1jb21wZXRpdGl2ZS1hbmFseXNpcy1hbmQtbWFya2V0LXNlZ2=
+1lbnRhdGlvbi0wP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ=
+249VHVlc2RheV9Db3Vyc2VfUHJvbW9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2ls=
+MjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank" style=3D"font-family:'Inter=
+',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;col=
+or:#707070;font-weight:bold;"><span style=3D"color:#707070;">Marketing Anal=
+ytics: Competitive Analysis and Market Segmentation</span></a></td> </tr> <=
+tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sa=
+ns-serif;font-size:16px;line-height:19px;text-decoration:none;color:#707070=
+;padding:0 0 20px 0;">BerkeleyX</td> </tr> <tr> <td> <!-- button --> <table=
+ width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing=
+:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=3D"left"=
+> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0" cellspa=
+cing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td style=3D"pad=
+ding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B63066"> <![en=
+dif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+border-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;max-width:=
+150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:100%;padd=
+ing:0;text-align:center;border-radius:5px;" class=3D"button-td-p"> <a targe=
+t=3D"_blank" href=3D"https://clicks.edx.org/f/a/8dcJkHjCqtdTqCzzq-Qtcw~~/AA=
+QRxQA~/RgRiIN1bP0SqaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvbWFya2V0aW5nLWFuYWx5=
+dGljcy1jb21wZXRpdGl2ZS1hbmFseXNpcy1hbmQtbWFya2V0LXNlZ21lbnRhdGlvbi0wP3V0bV9=
+zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249VHVlc2RheV9Db3Vyc2=
+VfUHJvbW9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YB=
+AAAAEA~" name=3D"" title=3D"" style=3D"display:inline-block;width:100% !imp=
+ortant;font-size:18px;line-height:26px;padding:8px 0;text-align:center;text=
+-decoration:none; color: #D03529;font-family:'Inter',Arial,sans-serif;backg=
+round-color:#ffffff;border: 1px solid #D03529;border-radius:0px;" class=3D"=
+button-p">Enroll Now =E2=96=B8</a> </td> </tr> </table> <!--[if (gte mso 9)=
+|(IE)]> </td> </tr> </table> <![endif]--> </td> </tr> </table> </td> </tr> =
+</table> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table> <!-=
+- end item --> </td> </tr> </table> <!-- end content --> </td> </tr> </tabl=
+e> </td> </tr> </table> <!-- end of popular courses (option 1)--> <!-- popu=
+lar courses (option 1)--> <table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0"> <tr> <td height=3D"30" style=3D"line-height:1px;font-size:1px;" c=
+lass=3D"height_20">&nbsp;</td> </tr> <tr> <td align=3D"left" valign=3D"top"=
+> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#fff=
+ffe"> <tr> <td align=3D"left" valign=3D"top"> <!-- header --> <table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" vali=
+gn=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font-size:28px;lin=
+e-height:25px;font-weight:bold;padding:30px 20px 10px 20px;" class=3D"heade=
+r_padding"><span style=3D"color:#d03529;">Economics</span>&nbsp;<span style=
+=3D"color:#00262B;">&amp; Finance</span></td> </tr> </table> <!-- content -=
+-> <!-- content --> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:0 30px;" class=
+=3D"paddingsides_20"> <!-- start item -->   <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D=
+"padding:30px 0 0 0;" class=3D"item_padding"> <table width=3D"100%" cellpad=
+ding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=
+=3D"padding: 0 0 20px 0;"> <table width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0"> <tr> <td width=3D"135" align=3D"left" valign=3D"top" class=3D"wi=
+dth_35percent"><a href=3D"https://clicks.edx.org/f/a/EopVkOlhQSsasDRx_tCVyA=
+~~/AAQRxQA~/RgRiIN1bP0R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9=
+uLXRvLWZpbnRlY2g_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYW=
+lnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVna=
+WwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><img src=3D"https://prod=
+-discovery.edx-cdn.org/media/course/image/15923a19-7f31-4767-a7a0-73da8886f=
+7b8-be5909a46055.small.jpg" width=3D"135" border=3D"0" style=3D"display:blo=
+ck;height:auto;" alt=3D"Introduction to FinTech" class=3D"mobile_img"></a><=
+/td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td align=3D"lef=
+t" valign=3D"top" class=3D"width_60percent"> <table width=3D"100%" cellpadd=
+ing=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D"top"><a href=
+=3D"https://clicks.edx.org/f/a/EopVkOlhQSsasDRx_tCVyA~~/AAQRxQA~/RgRiIN1bP0=
+R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN0aW9uLXRvLWZpbnRlY2g_dXRtX=
+3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJz=
+ZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVg=
+EAAAAQA~~" target=3D"_blank" style=3D"font-family:'Inter',Arial,sans-serif;=
+font-size:16px;line-height:19px;text-decoration:none;color:#707070;font-wei=
+ght:bold;"><span style=3D"color:#707070;">Introduction to FinTech</span></a=
+></td> </tr> <tr> <td align=3D"left" valign=3D"top" style=3D"font-family:'I=
+nter',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none=
+;color:#707070;padding:0 0 20px 0;">HKUx</td> </tr> <tr> <td> <!-- button -=
+-> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"borde=
+r-spacing:0;width:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=
+=3D"left"> <!--[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0=
+" cellspacing=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td sty=
+le=3D"padding:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B6306=
+6"> <![endif]--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"border-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;m=
+ax-width:150px;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:=
+100%;padding:0;text-align:center;border-radius:5px;" class=3D"button-td-p">=
+ <a target=3D"_blank" href=3D"https://clicks.edx.org/f/a/EopVkOlhQSsasDRx_t=
+CVyA~~/AAQRxQA~/RgRiIN1bP0R_aHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvaW50cm9kdWN=
+0aW9uLXRvLWZpbnRlY2g_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW=
+1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkb=
+XVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" name=3D"" title=3D"" style=3D"display:=
+inline-block;width:100% !important;font-size:18px;line-height:26px;padding:=
+8px 0;text-align:center;text-decoration:none; color: #D03529;font-family:'I=
+nter',Arial,sans-serif;background-color:#ffffff;border: 1px solid #D03529;b=
+order-radius:0px;" class=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> =
+</table> <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]--> </td>=
+ </tr> </table> </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr> =
+<td height=3D"1" style=3D"line-height:1px;font-size:1px;background-color:#C=
+ECECE">&nbsp;</td> </tr> </table> </td> </tr> </table> <!-- end item --> <!=
+-- start item -->   <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding:30px 0 0 0;" cl=
+ass=3D"item_padding"> <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0"> <tr> <td align=3D"left" valign=3D"top" style=3D"padding: 0 0 20px 0=
+;"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td wid=
+th=3D"135" align=3D"left" valign=3D"top" class=3D"width_35percent"><a href=
+=3D"https://clicks.edx.org/f/a/CsgVrgj_DBntxlsGUk05Iw~~/AAQRxQA~/RgRiIN1bP0=
+TAaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY2xpbWF0ZS1jaGFuZ2UtZmluYW5jaWFsLXJpc=
+2tzLWFuZC1vcHBvcnR1bml0aWVzLWNvdXJzZS12MWltcGVyaWFsYnVzaW5lc3N4aWNiczAwNTN0=
+MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXN=
+kYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ2=
+1haWwuY29tWAQAAABA" target=3D"_blank"><img src=3D"https://prod-discovery.ed=
+x-cdn.org/media/course/image/51cf8a23-cffe-4b00-a0e7-badc59927767-c43b00d27=
+ebf.small.jpg" width=3D"135" border=3D"0" style=3D"display:block;height:aut=
+o;" alt=3D"Climate Change: Financial Risks and Opportunities" class=3D"mobi=
+le_img"></a></td> <td width=3D"15" class=3D"width_5percent">&nbsp;</td> <td=
+ align=3D"left" valign=3D"top" class=3D"width_60percent"> <table width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"left" valign=3D=
+"top"><a href=3D"https://clicks.edx.org/f/a/CsgVrgj_DBntxlsGUk05Iw~~/AAQRxQ=
+A~/RgRiIN1bP0TAaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY2xpbWF0ZS1jaGFuZ2UtZmlu=
+YW5jaWFsLXJpc2tzLWFuZC1vcHBvcnR1bml0aWVzLWNvdXJzZS12MWltcGVyaWFsYnVzaW5lc3N=
+4aWNiczAwNTN0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbX=
+BhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtd=
+WdpbDIwMDBAZ21haWwuY29tWAQAAABA" target=3D"_blank" style=3D"font-family:'In=
+ter',Arial,sans-serif;font-size:16px;line-height:19px;text-decoration:none;=
+color:#707070;font-weight:bold;"><span style=3D"color:#707070;">Climate Cha=
+nge: Financial Risks and Opportunities</span></a></td> </tr> <tr> <td align=
+=3D"left" valign=3D"top" style=3D"font-family:'Inter',Arial,sans-serif;font=
+-size:16px;line-height:19px;text-decoration:none;color:#707070;padding:0 0 =
+20px 0;">ImperialBusinessX</td> </tr> <tr> <td> <!-- button --> <table widt=
+h=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;wi=
+dth:100%;min-width:100%;"> <tr> <td bgcolor=3D"#FFFFFF" align=3D"left"> <!-=
+-[if (gte mso 9)|(IE)]> <table width=3D"150" cellpadding=3D"0" cellspacing=
+=3D"0" align=3D"left" style=3D"border-spacing:0"> <tr> <td style=3D"padding=
+:0;mso-padding-alt:8px 0;border-radius:5px;" bgcolor=3D"#B63066"> <![endif]=
+--> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"bord=
+er-spacing:0;font-family:'Inter',Arial,sans-serif;width:100%;max-width:150p=
+x;border-radius:5px;" align=3D"left"> <tr> <td style=3D"width:100%;padding:=
+0;text-align:center;border-radius:5px;" class=3D"button-td-p"> <a target=3D=
+"_blank" href=3D"https://clicks.edx.org/f/a/CsgVrgj_DBntxlsGUk05Iw~~/AAQRxQ=
+A~/RgRiIN1bP0TAaHR0cHM6Ly93d3cuZWR4Lm9yZy9jb3Vyc2UvY2xpbWF0ZS1jaGFuZ2UtZmlu=
+YW5jaWFsLXJpc2tzLWFuZC1vcHBvcnR1bml0aWVzLWNvdXJzZS12MWltcGVyaWFsYnVzaW5lc3N=
+4aWNiczAwNTN0MjAyMD91dG1fc291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbX=
+BhaWduPVR1ZXNkYXlfQ291cnNlX1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtd=
+WdpbDIwMDBAZ21haWwuY29tWAQAAABA" name=3D"" title=3D"" style=3D"display:inli=
+ne-block;width:100% !important;font-size:18px;line-height:26px;padding:8px =
+0;text-align:center;text-decoration:none; color: #D03529;font-family:'Inter=
+',Arial,sans-serif;background-color:#ffffff;border: 1px solid #D03529;borde=
+r-radius:0px;" class=3D"button-p">Enroll Now =E2=96=B8</a> </td> </tr> </ta=
+ble> <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]--> </td> </t=
+r> </table> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table> =
+</td> </tr> </table> <!-- end item --> </td> </tr> </table> <!-- end conten=
+t --> </td> </tr> </table> </td> </tr> </table> <!-- end of popular courses=
+ (option 1)--> <!-- =3D=3D=3D=3D=3D=3D=3D Bottom e-mail banner =3D=3D=3D=3D=
+=3D=3D=3D --> <!-- =3D=3D=3D=3D=3D=3D=3D end of Bottom e-mail banner =3D=3D=
+=3D=3D=3D=3D=3D --> <!-- =3D=3D=3D=3D=3D=3D=3D FOOTER =3D=3D=3D=3D=3D=3D=3D=
+ --> =0A<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=0A=09<tb=
+ody>=0A=09=09<tr>=0A=09=09=09<td class=3D"height_20" height=3D"10" style=3D=
+"line-height:1px;font-size:1px;"></td>=0A=09=09</tr>=0A=09=09<tr>=0A=09=09=
+=09<td align=3D"left" class=3D"paddingsides_20" valign=3D"top">=0A=09=09=09=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=0A=09=09=09=09<t=
+body>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"30" style=3D"=
+line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=
+=09<!-- social -->=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"l=
+eft" valign=3D"top">=0A=09=09=09=09=09=09<table cellpadding=3D"0" cellspaci=
+ng=3D"0">=0A=09=09=09=09=09=09=09<tbody>=0A=09=09=09=09=09=09=09=09<tr>=0A=
+=09=09=09=09=09=09=09=09=09<td width=3D"15"></td>=0A=09=09=09=09=09=09=09=
+=09=09<td align=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f=
+/a/lAaSK5aZC6zSgTxPaZxD5A~~/AAQRxQA~/RgRiIN1bP0RqaHR0cHM6Ly90d2l0dGVyLmNvbS=
+9lZFhPbmxpbmU_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnb=
+j1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwy=
+MDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><img alt=3D"Twitter" border=
+=3D"0" src=3D"https://media.sailthru.com/595/1k2/b/7/5be3395300a00.png" sty=
+le=3D"display:block;height:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=
+=09=09=09=09<td width=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td align=
+=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/U4yS5i5VlMQ3=
+XlkmCNjd4w~~/AAQRxQA~/RgRiIN1bP0RwaHR0cDovL3d3dy5saW5rZWRpbi5jb20vY29tcGFue=
+S9lZHg_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVz=
+ZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGd=
+tYWlsLmNvbVgEAAAAQA~~" target=3D"_blank"><img alt=3D"LinkedIn" border=3D"0"=
+ src=3D"https://media.sailthru.com/595/1k2/b/7/5be3397de9f8e.png" style=3D"=
+display:block;height:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=
+=09=09<td width=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left=
+" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/HtOkF6UNxZnyXeewP4qc=
+DQ~~/AAQRxQA~/RgRiIN1bP0RuaHR0cDovL3d3dy5mYWNlYm9vay5jb20vRWR4T25saW5lP3V0b=
+V9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249VHVlc2RheV9Db3Vy=
+c2VfUHJvbW9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21=
+YBAAAAEA~" target=3D"_blank"><img alt=3D"Facebook" border=3D"0" src=3D"http=
+s://media.sailthru.com/595/1k2/b/7/5be339a32fc31.png" style=3D"display:bloc=
+k;height:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=09<td wid=
+th=3D"15"></td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"t=
+op"><a href=3D"https://clicks.edx.org/f/a/XHbuMsf18bc4agdU3zsrhA~~/AAQRxQA~=
+/RgRiIN1bP0RxaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9lZHhvbmxpbmUvP3V0bV9zb3VyY2=
+U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249VHVlc2RheV9Db3Vyc2VfUHJvb=
+W9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~=
+" target=3D"_blank"><img alt=3D"Instagram" border=3D"0" src=3D"https://medi=
+a.sailthru.com/595/1k3/5/3/5ccc7c9a76b04.jpg" style=3D"display:block;height=
+:auto;" width=3D"40"></a></td>=0A=09=09=09=09=09=09=09=09=09<td width=3D"15=
+"></td>=0A=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a h=
+ref=3D"https://clicks.edx.org/f/a/rFazAKr9jUggXktXtbS0eg~~/AAQRxQA~/RgRiIN1=
+bP0RoaHR0cDovL3d3dy5yZWRkaXQuY29tL3IvZWR4P3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZG=
+l1bT1lbWFpbCZ1dG1fY2FtcGFpZ249VHVlc2RheV9Db3Vyc2VfUHJvbW9fMjAyMTAzMDJXA3NwY=
+0IKYDdbWD5g9TkjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" target=3D"_blank">=
+<img alt=3D"Reddit" border=3D"0" src=3D"https://media.sailthru.com/595/1k2/=
+b/7/5be339cbc452e.png" style=3D"display:block;height:auto;" width=3D"40"></=
+a></td>=0A=09=09=09=09=09=09=09=09</tr>=0A=09=09=09=09=09=09=09</tbody>=0A=
+=09=09=09=09=09=09</table>=0A=09=09=09=09=09=09</td>=0A=09=09=09=09=09</tr>=
+=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"10" style=3D"line-=
+height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<!=
+-- apps -->=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" va=
+lign=3D"top">=0A=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0=
+">=0A=09=09=09=09=09=09=09<tbody>=0A=09=09=09=09=09=09=09=09<tr>=0A=09=09=
+=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"https://c=
+licks.edx.org/f/a/bQtewV_AROljDGa1FrchaA~~/AAQRxQA~/RgRiIN1bP0RzaHR0cHM6Ly9=
+lZHguYXBwLmxpbmsvZW1haWwtYXBwLWluc3RhbGw_dXRtX3NvdXJjZT1icmF6ZSZ1dG1fbWVkaX=
+VtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlcDc3BjQ=
+gpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_blank">=
+<img alt=3D"Download edX's App" border=3D"0" src=3D"https://media.sailthru.=
+com/595/1k2/b/7/5be338f1d96e3.png" style=3D"display:block;height:auto;" wid=
+th=3D"126"></a></td>=0A=09=09=09=09=09=09=09=09=09<td width=3D"15"></td>=0A=
+=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><a href=3D"htt=
+ps://clicks.edx.org/f/a/bQtewV_AROljDGa1FrchaA~~/AAQRxQA~/RgRiIN1bP0RzaHR0c=
+HM6Ly9lZHguYXBwLmxpbmsvZW1haWwtYXBwLWluc3RhbGw_dXRtX3NvdXJjZT1icmF6ZSZ1dG1f=
+bWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18yMDIxMDMwMlc=
+Dc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" target=3D"_b=
+lank"><img alt=3D"Download edX's Google Play App" border=3D"0" src=3D"https=
+://media.sailthru.com/595/1k2/b/7/5be33880e3f90.png" style=3D"display:block=
+;height:auto;" width=3D"126"></a></td>=0A=09=09=09=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09=09=09</tbody>=0A=09=09=09=09=09=09</table>=0A=09=09=09=09=
+=09=09</td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=
+=09<td height=3D"30" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=
+=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"2=
+0" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" valign=3D"top"><=
+a href=3D"https://clicks.edx.org/f/a/b8Cj1_uHrR2RQdsBFcJsBg~~/AAQRxQA~/RgRi=
+IN1bP0R1aHR0cHM6Ly93d3cuZWR4Lm9yZy9iZW5lZml0cy1vZi1idW5kbGluZz91dG1fc291cmN=
+lPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNlX1Byb2=
+1vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQAAABA"=
+ style=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14px;line-heig=
+ht:17px;text-decoration:none;color:#414141;font-weight:bold;" target=3D"_bl=
+ank"><span style=3D"color:#414141;">Save 10% on select programs!</span> <sp=
+an style=3D"color:#00262b;">Click here</span><span style=3D"color:#0075B4">=
+.</span></a></td>=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=
+=09=09=09<td height=3D"20" style=3D"line-height:1px;font-size:1px;"></td>=
+=0A=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=
+=3D"left" valign=3D"top"><a href=3D"https://clicks.edx.org/f/a/5g4c2chxIwzx=
+6t4KgsbvBg~~/AAQRxQA~/RgRiIN1bP0RmaHR0cHM6Ly9idXNpbmVzcy5lZHgub3JnLz91dG1fc=
+291cmNlPWJyYXplJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPVR1ZXNkYXlfQ291cnNl=
+X1Byb21vXzIwMjEwMzAyVwNzcGNCCmA3W1g-YPU5I8pSFGRtdWdpbDIwMDBAZ21haWwuY29tWAQ=
+AAABA" style=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14px;lin=
+e-height:17px;text-decoration:none;color:#707070;" target=3D"_blank"><span =
+style=3D"color:#00262b;">edX for Business</span><span style=3D"color:#70707=
+0;"> =E2=80=94 eLearning Solutions for Your Company</span></a></td>=0A=09=
+=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"2=
+0" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" style=3D"font-fa=
+mily:'Open Sans',Arial,sans-serif;color:#707070;font-size:14px;line-height:=
+17px;" valign=3D"top">=C2=A9 2021 edX Inc. All rights reserved.</td>=0A=09=
+=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"2=
+0" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=
+=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" style=3D"font-fa=
+mily:'Open Sans',Arial,sans-serif;color:#707070;font-size:14px;line-height:=
+17px;" valign=3D"top"><span style=3D'font-family: "Open Sans", Arial, sans-=
+serif; font-size: 14px; line-height: 17px; text-decoration: none; color: rg=
+b(112, 112, 112);'><a href=3D"https://clicks.edx.org/f/a/4dumgus4H0vr0jxjcZ=
+oq3A~~/AAQRxQA~/RgRiIN1bP4TsAWh0dHBzOi8vZGFzaGJvYXJkLTA2LmJyYXplLmNvbS9lbmN=
+fdXNlci91bnN1YnNjcmliZT9kPUM1eWNoZ2tSbmF0aVZLd0k3RmczMWclM0QlM0QlMjQ2bzdWS0=
+lxVTYyZ283JTJCSzhMT2hDa081Rjhoa016RWRyMHdaSnZ3TTU3Q0pTc0xDUGNScDQlMkJzUkN6W=
+llTJTBBeEFnR0dnclAzeXNteExZV3daWGVtS2pPNko3RUNnNjV1bURhemNQaERrMHNYOUNST1E1=
+alJZcnRhSUtlJTBBbEZGS1ZVYkJOY0xkRWliZEE1ZkhlUGFHVlhNbCUyRnl2SWNWMTN6TkgyblJ=
+JbmJZajVPOVlHY1R0NGc4UU4lMEE3UUF6cFduYUhkTDZ5aGpKbDVQaHRIR3p3Z3R4dEdjb2JQNj=
+VRYnpLTTJLTWM5WXRuUGhSNUc2cyUyQjhpOSUwQUdWTHdPblclMkJ3Q1NHcHNPN1hHZFdzMDRMd=
+UpkZDUwTG83R1lGVkR6dmVvTFlEeDNsJTJGTzg5QU5ES0Y1cyUzRCYxPTE_dXRtX3NvdXJjZT1i=
+cmF6ZSZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1UdWVzZGF5X0NvdXJzZV9Qcm9tb18=
+yMDIxMDMwMlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~" =
+style=3D"font-family:'Open Sans',Arial,sans-serif;font-size:14px;line-heigh=
+t:17px;text-decoration:none;color:#707070;" target=3D"_blank">Unsubscribe</=
+a>=C2=A0| <a href=3D"https://clicks.edx.org/f/a/X2JTckePmKHU0kV7H4stZA~~/AA=
+QRxQA~/RgRiIN1bP4RNAmh0dHBzOi8vMDYuZW1haWxpbmJvdW5kcHJvY2Vzc2luZy5jb20vZW1h=
+aWwvbWFuYWdlX3N1YnNjcmlwdGlvbnMvWU1zWHpzQjUlMkZCVzJKSEFDYXBicSUyRnclM0QlM0Q=
+lMjRCdnVqR3RRM01IdmFqVkVTMUhleDAlMkZTZHhnTHJjdlhOMWV0VHFkNWZnekklM0Q_ZD1DNX=
+ljaGdrUm5hdGlWS3dJN0ZnMzFnJTNEJTNEJTI0Nm83VktJcVU2MmdvNyUyQks4TE9oQ2tPNUY4a=
+GtNekVkcjB3Wkp2d001N0NKU3NMQ1BjUnA0JTJCc1JDelpZUyUwQXhBZ0dHZ3JQM3lzbXhMWVd3=
+WlhlbUtqTzZKN0VDZzY1dW1EYXpjUGhEazBzWDlDUk9RNWpSWXJ0YUlLZSUwQWxGRktWVWJCTmN=
+MZEVpYmRBNWZIZVBhR1ZYTWwlMkZ5dkljVjEzek5IMm5SSW5iWWo1TzlZR2NUdDRnOFFOJTBBN1=
+FBenBXbmFIZEw2eWhqSmw1UGh0SEd6d2d0eHRHY29iUDY1UWJ6S00yS01jOVl0blBoUjVHNnMlM=
+kI4aTklMEFHVkx3T25XJTJCd0NTR3BzTzdYR2RXczA0THVKZGQ1MExvN0dZRlZEenZlb0xZRHgz=
+bCUyRk84OUFOREtGNXMlM0QmMT0xP3V0bV9zb3VyY2U9YnJhemUmdXRtX21lZGl1bT1lbWFpbCZ=
+1dG1fY2FtcGFpZ249VHVlc2RheV9Db3Vyc2VfUHJvbW9fMjAyMTAzMDJXA3NwY0IKYDdbWD5g9T=
+kjylIUZG11Z2lsMjAwMEBnbWFpbC5jb21YBAAAAEA~" style=3D"font-family:'Open Sans=
+',Arial,sans-serif;font-size:14px;line-height:17px;text-decoration:none;col=
+or:#707070;" target=3D"_blank">Update Preference</a></span></td>=0A=09=09=
+=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=3D"20" =
+style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</tr>=0A=09=
+=09=09=09=09<tr>=0A=09=09=09=09=09=09<td align=3D"left" style=3D"font-famil=
+y:'Open Sans',Arial,sans-serif;color:#707070;font-size:14px;line-height:17p=
+x;" valign=3D"top">141 Portland St. 9th Floor, Cambridge, MA 02139</td>=0A=
+=09=09=09=09=09</tr>=0A=09=09=09=09=09<tr>=0A=09=09=09=09=09=09<td height=
+=3D"30" style=3D"line-height:1px;font-size:1px;"></td>=0A=09=09=09=09=09</t=
+r>=0A=09=09=09=09</tbody>=0A=09=09=09</table>=0A=09=09=09</td>=0A=09=09</tr=
+>=0A=09</tbody>=0A</table>=0A <!-- =3D=3D=3D=3D=3D=3D=3D end of FOOTER =3D=
+=3D=3D=3D=3D=3D=3D --> <!-- end Contents --> </td> </tr> <tr> <td align=3D"=
+center" valign=3D"top"><img src=3D"%7Bbeacon_src%7D" width=3D"1" height=3D"=
+1" border=3D"0" style=3D"display:block;" alt=3D""></td> </tr> <tr> <td> <di=
+v style=3D"display:none; white-space:nowrap; font:15px courier; line-height=
+:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div> </td=
+> </tr> </table> <!-- End of Container table --> </td> </tr> </table> <!-- =
+End of Background table --> =0D=0A<img border=3D"0" width=3D"1" height=3D"1=
+" alt=3D"" src=3D"https://clicks.edx.org/q/amxDzM254g0A30kv4pgFUA~~/AAQRxQA=
+~/RgRiIN1bPlcDc3BjQgpgN1tYPmD1OSPKUhRkbXVnaWwyMDAwQGdtYWlsLmNvbVgEAAAAQA~~"=
+>=0D=0A</body></html>
+--_----MMo7OmoT5QINakFTVAulwg===_6F/9C-37790-B585E306--
+

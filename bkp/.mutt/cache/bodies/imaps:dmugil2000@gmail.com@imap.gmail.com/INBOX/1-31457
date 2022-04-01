@@ -1,0 +1,1353 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp2132974eja;
+        Mon, 8 Mar 2021 13:46:45 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwCodJc0WvgViAS6HgLEgdyVQrbOUINRgZGs9Y3NKDXT/OtC/+bJimeM1AymUluDaNyxw8b
+X-Received: by 2002:a05:6214:2b06:: with SMTP id jx6mr22602087qvb.48.1615240004912;
+        Mon, 08 Mar 2021 13:46:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615240004; cv=none;
+        d=google.com; s=arc-20160816;
+        b=o8jLe5isf4MGzvRDLwCqY98FWHoYLAh+9vaP046/34SIDxv5VyaOdrmDeNjlKSrElG
+         Bnc3qYPV67WIBWgRpDxX/igSHyJiJxrk10Q6rNjpNF87mRY9QE7FaWVEXKpWr3jLnHhB
+         NBqS7enYKrmFsqvel8dq5fWa66HPxFidahBm+D0GeUO2KuPts5CUYu3r0cFwD6YF8PxX
+         i3Y1ABcHPPzevJfeIw7XPci6Kz/Ze0exDWkL2Dq6Tjy83rVuNQ+QmT0EfYxJv5/ti2jU
+         M8crx7yrX2jrz6ZhhKcClDE1ts+zfIjxVCtBT8kSTAe6a+zzq7K81doZFfKi0DDVI9iL
+         0cJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:precedence:mime-version:subject:message-id:to:reply-to
+         :from:date:list-unsubscribe:dkim-signature:dkim-signature;
+        bh=wZ2GiJopH1oRv87nDzoFdLZfMtR52hWsePEOMnevm+4=;
+        b=PFScGTbfFwXPcDOeU+0UVZEPRgsPGwQO7ayN23vDEkqN5I7MUAB798NkXf3Wd94Qd9
+         5ndlrQ4cfFHVMJJZdRT6JTCSDqkUOwkpWlrfy5MI3x9Ussj68OdnH5Id7v7eD8NDHhhp
+         bCcnFlxrpBpzNEK0LduFr6mRpih5DNDRvMKIrFapuBM8HfIqTc3LOQTinDKf62FfUfcC
+         Tu0WObqazVvxtWh/IXd5O8MNe69eoozLoGZhZhv2e87c+RnL31GUkQcCPfaXNpbR0z7p
+         vyEH2c4yIUOYptgJOVslH2R9X0OHR++12hktOLDMxnTER3Y3PaV2/z+6GMuvFHFeYQ+g
+         wDDg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@8112310m.linuxfoundation.org header.s=hs1 header.b=lGefKpyz;
+       dkim=pass header.i=@linuxfoundation.org header.s=hs1-8112310 header.b="pp5oBmy/";
+       spf=pass (google.com: domain of 1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org designates 158.247.20.24 as permitted sender) smtp.mailfrom="1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Return-Path: <1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org>
+Received: from bid46zu.8112310m.linuxfoundation.org (bid46zu.8112310m.linuxfoundation.org. [158.247.20.24])
+        by mx.google.com with ESMTPS id e127si7224431qkd.342.2021.03.08.13.46.44
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 08 Mar 2021 13:46:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of 1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org designates 158.247.20.24 as permitted sender) client-ip=158.247.20.24;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@8112310m.linuxfoundation.org header.s=hs1 header.b=lGefKpyz;
+       dkim=pass header.i=@linuxfoundation.org header.s=hs1-8112310 header.b="pp5oBmy/";
+       spf=pass (google.com: domain of 1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org designates 158.247.20.24 as permitted sender) smtp.mailfrom="1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: by 172.16.181.43 with SMTP id ayy69zrozcsinkd1ph59b7184uodu990lzg2ox1;
+        Mon, 8 Mar 2021 21:46:41 GMT
+DKIM-Signature: v=1; s=hs1; d=8112310m.linuxfoundation.org; 
+        i=@8112310m.linuxfoundation.org; 
+        h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=wZ2GiJopH1oRv87nDzoFdLZfMtR52hWsePEOMnevm+4=; 
+        b=lGefKpyzZcx/tMJ1Vu1TVY3TsXGREEPbEqlJkWUV3KKHdrLbMklLViQIwbcxrM
+         c5mBXx2oq8rpv0wqoybTaMEaM5fSuAa7qwqw5qx7HgZFxKpiJSPbDxtBA1dqgfB
+         JvsylZ05cfUcIjvnGQZwVv474lFJmfKcgj9TKv95kqaSC62WGQ8iRRwehpol+rN
+         Zy4XivJatkMPMDrYmUq5RadifdVCm6KKszf4IwcoBXR6bGxfz6G8WHF9MVBQG5t
+         nkSE5dReNQSqI2hwHNB0Z/55lfwR3BayBRwWLgE2UHVBF41/ai4SiTWyApjBSIo
+         sE61XELX14yqaODQ1vp935/mSZZw==; q=dns/txt; t=1615240001;
+DKIM-Signature: v=1; s=hs1-8112310; d=linuxfoundation.org; 
+        i=@linuxfoundation.org; 
+        h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=wZ2GiJopH1oRv87nDzoFdLZfMtR52hWsePEOMnevm+4=; 
+        b=pp5oBmy/w68brQDanaHsQimUWgd6Ar7ZBh0npsLO+AXqL7aSlM/IVnz06fhZh2
+         iltgTwQtdZR3cI+t/FYUat+JdVaJ6Z5YnsGBC/QD8pRnGxFnvxHDo38ZO1yXn3F
+         3S0il3qNjN1mrtc3iSfWy7E1ydOig+Fk4z7G1TU75UqwZ7ZDMVlZKELx9l5BBoO
+         0xhRn4TKspiF3iqeD4lNQfHjfB+qLmL14twk1eXqRv5gHAv4bmyh3jDCg7oVg5m
+         4bHiBZ+MZQOLy8sRjqXStHsPE+pM3LPfJdddIZbA+KtKBS5g7pLqDQyMO38zWMv
+         ZM09vBdiJMlMKiw5XGEhNjN5WIEA==; q=dns/txt; t=1615240001;
+Return-Path: <1axcdlssr4srsz0iswyz784jjtunxrhhhnybse-dmugil2000=gmail.com@8112310m.linuxfoundation.org>
+X-HS-Cid: 1axflnb3jjoohhkdyyq8ce53ataozxj42tefji
+List-Unsubscribe: <mailto:1axdqyewj1by4ua2xkux4mbzv3drxch8xnvlta-dmugil2000=gmail.com@8112310m.linuxfoundation.org?subject=unsubscribe>
+Date: Mon, 8 Mar 2021 13:46:41 -0800
+From: The Linux Foundation <no-reply@linuxfoundation.org>
+Reply-To: no-reply@linuxfoundation.org
+To: dmugil2000@gmail.com
+Message-ID: <1615239657719.09b2b088-d9b4-4e10-8c67-3793d811e7f8@8112310m.linuxfoundation.org>
+Subject: Last Chance to Join Open Networking & Edge Executive Forum, Attend
+ For Free
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_776680_1994502269.1615240000797"
+Precedence: bulk
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://www.hubspot.com/abuse-complaints)
+Feedback-ID: aee35r8:aib6m2x8:aidf:HubSpot
+
+------=_Part_776680_1994502269.1615240000797
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+ONEEF_21_Email_Virtual_1920x1000_v1-01 (https://email.linuxfoundation.org/e=
+2t/sc2/MmZ-8ykJX-GW72hZHD6zg3GlW5hkYZw59kG-SVkZjJc60QzWhdBzP8M04 )
+
+Open Networking & Edge Executive Forum is THIS WEEK, March 10-12.  See the =
+speaker line-up below - full of executive ecosystem leadership ready to add=
+ress the state of the industry + 2021 priorities.
+
+Attend for Free!
+
+Members of the Linux Foundation, LF Networking and LF Edge attend for free =
+- use discount code when registering: LFMEM100. Register here (https://emai=
+l.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3GlW5hkYZw59kG-SVkZjJc60=
+QzWhdBzP8N04 ) .
+
+Speakers on Wednesday, March 10
+
+09:00 =E2=80=93 12:00 PST (UTC-8)
+
+- Tom Arthur, Chief Executive Officer, Dianomic
+- Chris Bainter, Vice President, Global Business Development, FLIR Systems
+- Andre Fuetsch, Executive Vice President & Chief Technology Officer, AT&T =
+Services, Inc.
+- Arpit Joshipura, General Manager of Networking, IoT and Edge, The Linux F=
+oundation
+- Steve Mullaney, CEO & President, Aviatrix
+- George Nazi, Global Vice President, Telco, Media & Entertainment Industry=
+ Solutions Lead, Google Cloud
+- Said Ouissal, Founder & CEO, ZEDEDA
+- Amol Phadke, Managing Director: Global Telecom Industry Solutions, Google=
+ Cloud
+- Dr. Jonathan Smith, Program Manager, Information Innovation Office (I2O),=
+ DARPA
+- Subha Tatavarti, Sr. Director Technology Commercialization, Walmart
+- Priyanka Sharma, General Manager, Cloud Native Computing Foundation
+
+Speakers on Thursday, March 11
+
+17:00 =E2=80=93 20:00 PST (UTC-8)
+
+- Tareq Amin, Group Chief Technology Officer, Rakuten
+- Dr. Junlan Feng, Chief Scientist & General Manager, China Mobile Research
+- Leding Li, Chief Architect of IoT, Baidu
+- Sun Qiong, SDN Research Center Director, China Telecom Research Institute
+- Bill Ren, Chief Open Source Liaison Officer, ICT Infrastructure Open Sour=
+ce GM, Huawei
+- Mark Shan, Senior Technical Manager, Tencent and Board Chair, TARS Founda=
+tion
+
+- Jie Hu, Director of Open Source, ZTE
+
+Speakers on Friday, March 12
+
+07:00 =E2=80=93 10:00 PST (UTC-8)
+
+- Brian Barritt, Software Engineering Manager, Facebook Connectivity
+- Johan Krebbers, IT Chief Technology Officer & Vice President, TaCIT Archi=
+tecture, Shell
+- Manish Mangal, Chief Technology Officer, Network Services, Tech Mahindra
+- Madeleine Noland, President, Advanced Television Systems Committee
+- Jacob Smith, Vice President, Bare Metal Strategy & Marketing, Equinix
+- Matt Trifiro, Chief Marketing Officer, Vapor IO
+- Shawn Zandi, Head of Network Engineering, LinkedIn
+
+-
+
+Anders Rosengren, Head of Architecture & Technology, Ericsson
+
+-
+
+Chris Rice, Chief Executive Officer - Sterlite Technologies Limited (STL) A=
+ccess Solutions, Sterlite Technologies Limited
+
+- Jonne Soininen, Head of Open Source Initiatives, Nokia
+
+VIEW SPEAKER BIOS
+(https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3GlW5hkYZw5=
+9kG-SVkZjJc60QzWhdBzP8P04 )
+
+Event Schedule
+
+This is a virtual event taking place across three days, at a different time=
+ each day to best accommodate the global audience. All sessions will be rec=
+orded and available for attendees post-event as well.
+
+Wednesday, March 10th, 09:00 =E2=80=93 12:40 PST (UTC-8)
+
+Thursday, March 11th, 17:00 =E2=80=93 20:40 PST (UTC-8)
+
+Friday, March 12th, 07:00 =E2=80=93 10:40 PST (UTC-8)
+
+VIEW THE SCHEDULE
+(https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3GlW5hkYZw5=
+9kG-SVkZjJc60QzWhdBzP8Q04 )
+
+REGISTER NOW
+(https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3GlW5hkYZw5=
+9kG-SVkZjJc60QzWhdBzP8R04 )
+
+Facebook (https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3G=
+lW5hkYZw59kG-SVkZjJc60QzWhdBzP8S04 )
+
+LinkedIn (https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3G=
+lW5hkYZw59kG-SVkZjJc60QzWhdBzP8T04 )
+
+Twitter (https://email.linuxfoundation.org/e2t/sc2/MmZ-8ykJX-GW72hZHD6zg3Gl=
+W5hkYZw59kG-SVkZjJc60QzWhdBzP8V04 )
+
+548 Market St, PMB 57274, San Francisco, CA 94104-5401, United States
+
+Unsubscribe (https://email.linuxfoundation.org/hs/manage-preferences/unsubs=
+cribe-all?d=3DVnd69s5kYJJWVMdL7B3P28b6W1N4h9T3P3Q7wW3ZsjYm3_fR8QN67wXZ0mWcP=
+CW7B-dBm8V3RW4V25rPR7GZLYXW6k2jnC93cx9WN4KW3Sh1yf0NN31DwNr_WfnwW3PqhJh6sByn=
+dmVnhhn153&v=3D3&_hsenc=3Dp2ANqtz-9YpTCx7aRTXuThIclA3OAtKCwBt7cEmSDR0yF1a5F=
+4-pT6X3wTjAqyjKbq6eafg3tfboFHxbj7m3c2r0GgggppxGcD6w&_hsmi=3D114810910 )
+
+Manage preferences (https://email.linuxfoundation.org/hs/manage-preferences=
+/unsubscribe?d=3DVnd69s5kYJJWVMdL7B3P28b6W1N4h9T3P3Q7wW3ZsjYm3_fR8QN67wXZ0m=
+WcPCW7B-dBm8V3RW4V25rPR7GZLYXW6k2jnC93cx9WN4KW3Sh1yf0NN31DwNr_WfnwW3PqhJh6s=
+ByndmVnhhn153&v=3D3&_hsenc=3Dp2ANqtz-9YpTCx7aRTXuThIclA3OAtKCwBt7cEmSDR0yF1=
+a5F4-pT6X3wTjAqyjKbq6eafg3tfboFHxbj7m3c2r0GgggppxGcD6w&_hsmi=3D114810910 )
+------=_Part_776680_1994502269.1615240000797
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"en"><head>
+    <title>Last Chance to Join Open Networking &amp; Edge Executive Forum, =
+Attend For Free</title>
+    <meta property=3D"og:title" content=3D"Last Chance to Join Open Network=
+ing &amp; Edge Executive Forum, Attend For Free">
+    <meta name=3D"twitter:title" content=3D"Last Chance to Join Open Networ=
+king &amp; Edge Executive Forum, Attend For Free">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+    <!--[if gte mso 9]>
+  <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+</style>
+<![endif]-->
+   =20
+     =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"https://email.linuxfoundation.org/-temporary-slug-fb21a71e-9db4-45=
+ba-8e12-9a441fb55181"><meta name=3D"robots" content=3D"noindex,follow"><!--=
+[if !((mso)|(IE))]><!-- --><style type=3D"text/css">.moz-text-html .hse-col=
+umn-container{max-width:600px !important;width:600px !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-6{max-width:300px !important;width:300px !impor=
+tant}
+.moz-text-html .hse-section .hse-size-12{max-width:600px !important;width:6=
+00px !important}
+[owa] .hse-column-container{max-width:600px !important;width:600px !importa=
+nt}[owa] .hse-column{display:table-cell;vertical-align:top}
+[owa] .hse-section .hse-size-6{max-width:300px !important;width:300px !impo=
+rtant}
+[owa] .hse-section .hse-size-12{max-width:600px !important;width:600px !imp=
+ortant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-6{=
+max-width:300px !important;width:300px !important}
+.hse-section .hse-size-12{max-width:600px !important;width:600px !important=
+}}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_em=
+ail_entries_table img{height:auto !important;width:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+}</style><!--<![endif]--><style type=3D"text/css">body[data-outlook-cycle] =
+img.stretch-on-mobile,body[data-outlook-cycle] .hs_rss_email_entries_table =
+img{height:auto !important;width:100% !important}
+body[data-outlook-cycle] .hs_padded{padding-left:20px !important;padding-ri=
+ght:20px !important}
+a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !im=
+portant;font-size:inherit !important;font-family:inherit !important;font-we=
+ight:inherit !important;line-height:inherit !important}
+#outlook a{padding:0}.yshortcuts a{border-bottom:none !important}a{text-dec=
+oration:underline}
+.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass td=
+,.ExternalClass div,.ExternalClass span,.ExternalClass font{line-height:100=
+%}
+p{margin:0}body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-we=
+bkit-font-smoothing:antialiased;moz-osx-font-smoothing:grayscale}</style></=
+head>
+  <body bgcolor=3D"#999999" style=3D"margin:0 !important; padding:0 !import=
+ant; font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-bre=
+ak:break-word">
+   =20
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+ =20
+    <v:fill type=3D"tile" size=3D"100%,100%" color=3D"#999999"/>
+ =20
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" style=3D"background-color:#999999" b=
+gcolor=3D"#999999">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; margin:0; pad=
+ding:0; width:100% !important; min-width:320px !important; height:100% !imp=
+ortant" width=3D"100%" height=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Arial, sans-se=
+rif; font-size:15px; color:#23496d; word-break:break-word">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section-1" class=3D"hse-section h=
+se-section-first" style=3D"padding-left:10px; padding-right:10px; padding-t=
+op:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-1-1" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module-1-1-1" class=3D"hs_cos_wrapper hs_cos_wr=
+apper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Arial, sans-serif; color:=
+#23496d; word-break:break-word; text-align:center; padding:0px; font-size:0=
+px">
+               =20
+                    <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr=
+82d500XhCVCG9zr5pKf55W93kvSZ4nXQ56N91mn8J3lGnpV1-WJV7CgDB4W4287hk8l1X-wW83N=
+pXK3FFMr_W8ws4c-2lTYxgVgsfrQ5QzR4dW6VPph46HmXjhVSTCVf1P8plTW38FSMk69DGrTW6R=
+j3GL5wBSyKW1rQzn31MlXMDW1Wl-X52k_SR4W7CYKXs3FgZB9W7cM81z98vYZqW1SFnCk1cY59s=
+W5qdV3L9lQLRhW2cMH175ZQ5yyW672KvJ6yTBSRW3_hJ476cb-J-Vgt8dg1l07dFVjW_086N6rf=
+zW5pTj4T2H1MNXW8nnGZv2MgbckW99j7hG55JkwmW7f-9mB9cjtZTVMpHnH5_rVDpW3MQ3kX3yH=
+qVhVjXjRL3LV-rC3m941" target=3D"_blank" style=3D"color:#00a4bd; mso-line-he=
+ight-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"ONEEF_21_Email_Virtual_1920x1000_v1-01" src=3D"=
+https://email.linuxfoundation.org/hs-fs/hubfs/ONEEF_21_Email_Virtual_1920x1=
+000_v1-01.png?width=3D1200&amp;upscale=3Dtrue&amp;name=3DONEEF_21_Email_Vir=
+tual_1920x1000_v1-01.png" style=3D"outline:none; text-decoration:none; -ms-=
+interpolation-mode:bicubic; border:none; max-width:100%; font-size:16px" wi=
+dth=3D"600" align=3D"middle" srcset=3D"https://email.linuxfoundation.org/hs=
+-fs/hubfs/ONEEF_21_Email_Virtual_1920x1000_v1-01.png?upscale=3Dtrue&amp;wid=
+th=3D1200&amp;upscale=3Dtrue&amp;name=3DONEEF_21_Email_Virtual_1920x1000_v1=
+-01.png 600w, https://email.linuxfoundation.org/hs-fs/hubfs/ONEEF_21_Email_=
+Virtual_1920x1000_v1-01.png?upscale=3Dtrue&amp;width=3D2400&amp;upscale=3Dt=
+rue&amp;name=3DONEEF_21_Email_Virtual_1920x1000_v1-01.png 1200w" sizes=3D"(=
+max-width: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-3" class=3D"hse-section" style=3D"padding-left:10px; p=
+adding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-3-3" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:25px 20px 10px"><div id=3D"hs_cos_wrapper_module-3-3-1" class=3D"hs=
+_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"col=
+or: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-general=
+-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapper_modu=
+le-3-3-1_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_typ=
+e_rich_text" style=3D"color: inherit; font-size: inherit; line-height: inhe=
+rit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_text"><p=
+ style=3D"mso-line-height-rule:exactly; line-height:125%; font-size:14px"><=
+span style=3D"color: #000000;"><strong><span style=3D"font-size: 15px;">Ope=
+n Networking &amp; Edge Executive Forum is THIS WEEK, March 10-12</span>.</=
+strong>&nbsp; See the speaker line-up below - full of executive ecosystem l=
+eadership ready to address the state of the industry + 2021 priorities.</sp=
+an></p>
+<p style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:125%"=
+>&nbsp;</p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%; font-size:15px"=
+><span style=3D"color: #000000;"><strong>Attend for Free!</strong></span></=
+p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%; font-size:14px"=
+><span style=3D"color: #000000;">Members of the Linux Foundation, LF Networ=
+king and LF Edge attend for free - use discount code when registering: <str=
+ong>LFMEM100. <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d500=
+XhCVCG9zr5pKf55W93kvSZ4nXQ56N91mn8J3lGnpV1-WJV7CgC80W3hd8F56wFKrYW2Jj3MM3V7=
+PHrW7GyWtg48kYNBW41dSqP92mRRyVHb5dj7j_KbfVqNGTN8ltnMQW8RkY9c4Jt2HkW9f19vB3G=
+GXRyW79XhYV5BZQ_qW244mcf8wwdr_Vs6vzT1pNLB7W33nt181SKF-SVb6MWk1GN7V3W9jd1v51=
+vch6PW8w4Nyh8tQRqZW4K5Zwm3-CP7LW96zY0z2t3v4_V7xQMd63BrzkW55Lm7v66_LHLW6QbY2=
+R5g5Y96W7hRhDD8FtKWTW2NbNnY8x5B6MW1f9P5S42MYSbW13xGJG50D2RyW8fx98V4LmklpW8r=
+1r5N6Q6-R33h181" rel=3D"noopener" style=3D"color:#00a4bd; mso-line-height-r=
+ule:exactly" data-hs-link-id=3D"0" target=3D"_blank">Register here</a></str=
+ong><span style=3D"font-weight: normal;">.</span></span></p></div></div></t=
+d></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1613276365100" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1613276365100_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 20px"><div id=3D"hs_cos_wrapper_module_161419815119134" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:560px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+   =20
+    <td width=3D"100%" valign=3D"middle" style=3D"border-collapse:collapse;=
+ mso-line-height-rule:exactly; font-family:Arial, sans-serif; font-size:15p=
+x; color:#23496d; word-break:break-word; line-height:0; border:transparent;=
+ border-bottom:1px solid #000000; mso-border-bottom-alt:1px solid #000000; =
+border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1613271689800" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF" bgcolor=3D"#FFFFFF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1614194621444_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 20px 0px"><div id=3D"hs_cos_wrapper_module_16141946213932" cla=
+ss=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" styl=
+e=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos=
+-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrap=
+per_module_16141946213932_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; line-height:125%">=
+<span style=3D"color: #000000;"><strong>Speakers on Wednesday, March 10</st=
+rong></span></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><em><span style=
+=3D"color: #000000;"><strong>09:00 =E2=80=93 12:00 PST (UTC-8)</strong></sp=
+an></em></p>
+<ul style=3D"mso-line-height-rule:exactly; line-height:150%; font-size:14px=
+">
+<li style=3D"mso-line-height-rule:exactly; line-height:150%"><span style=3D=
+"color: #000000;"><strong>Tom Arthur</strong>, Chief Executive Officer, <st=
+rong>Dianomic</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%"><span style=3D=
+"color: #000000;"><strong>Chris Bainter</strong>, Vice President, Global Bu=
+siness Development, <strong>FLIR Systems</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%"><span style=3D=
+"color: #000000;"><strong>Andre Fuetsch</strong>, Executive Vice President =
+&amp; Chief Technology Officer, <strong>AT&amp;T Services, Inc.</strong></s=
+pan></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Arpit Joshipura</strong>, Genera=
+l Manager of Networking, IoT and Edge, <strong>The Linux Foundation</strong=
+></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Steve Mullaney</strong>, CEO &am=
+p; President, <strong>Aviatrix</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>George Nazi</strong>, Global Vic=
+e President, Telco, Media &amp; Entertainment Industry Solutions Lead, <str=
+ong>Google Cloud</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Said Ouissal</strong>, Founder &=
+amp; CEO, <strong>ZEDEDA</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Amol Phadke</strong>, Managing D=
+irector: Global Telecom Industry Solutions, <strong>Google Cloud</strong></=
+span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Dr. Jonathan Smith</strong>, Pro=
+gram Manager, Information Innovation Office (I2O), <strong>DARPA</strong></=
+span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Subha Tatavart</strong>i, Sr. Di=
+rector Technology Commercialization, <strong>Walmart</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Priyanka Sharma</strong>, Genera=
+l Manager,<strong> Cloud Native Computing Foundation</strong></span></li>
+</ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:125%">
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+</ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:125%"></ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:125%">
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+</ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:125%"></ul>
+<p style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:125%"=
+>&nbsp;</p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;"><strong>Speakers on Thursday, March 11</strong></span></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><em><span style=
+=3D"color: #000000;"><strong>17:00 =E2=80=93 20:00 PST (UTC-8)</strong></sp=
+an></em></p>
+<ul style=3D"mso-line-height-rule:exactly; line-height:150%; font-size:14px=
+">
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Tareq Amin</strong>, Group Chief=
+ Technology Officer, <strong>Rakuten</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Dr. Junlan Feng</strong>, Chief =
+Scientist &amp; General Manager, <strong>China Mobile Research</strong></sp=
+an></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Leding Li</strong>, Chief Archit=
+ect of IoT, <strong>Baidu</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Sun Qiong</strong>, SDN Research=
+ Center Director, <strong>China Telecom Research Institute</strong></span><=
+/li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Bill Ren</strong>, Chief Open So=
+urce Liaison Officer, ICT Infrastructure Open Source GM, <strong>Huawei</st=
+rong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Mark Shan</strong>, Senior Techn=
+ical Manager, <strong>Tencent</strong> and Board Chair, <strong>TARS Founda=
+tion<br></strong></span></li>
+<li style=3D"mso-line-height-rule:exactly; line-height:150%" aria-level=3D"=
+1"><span style=3D"color: #000000;"><strong>Jie Hu</strong>, Director of Ope=
+n Source, <strong>ZTE<br><br></strong></span></li>
+</ul>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;"><strong>Speakers on Friday, March 12</strong></span></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><em><span style=
+=3D"color: #000000;"><strong>07:00 =E2=80=93 10:00 PST (UTC-8)</strong></sp=
+an></em></p>
+<ul style=3D"mso-line-height-rule:exactly; line-height:150%">
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Brian Barritt</strong>, Software Engineering Manag=
+er, <strong>Facebook Connectivity</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Johan Krebbers</strong>, IT Chief Technology Offic=
+er &amp; Vice President, TaCIT Architecture, <strong>Shell</strong></span><=
+/li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Manish Manga</strong>l, Chief Technology Officer, =
+Network Services, <strong>Tech Mahindra</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"font-size: 14px;"=
+><span style=3D"color: #000000;"><strong>Madeleine Noland</strong>, Preside=
+nt, <strong>Advanced Television Systems Committee&nbsp;</strong></span></sp=
+an></li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Jacob Smith</strong>, Vice President, Bare Metal S=
+trategy &amp; Marketing, <strong>Equinix</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Matt Trifiro</strong>, Chief Marketing Officer, <s=
+trong>Vapor IO</strong></span></li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Shawn Zandi</strong>, Head of Network Engineering,=
+ <strong>LinkedIn</strong></span>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul>
+</li>
+<li style=3D"mso-line-height-rule:exactly">
+<div style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:150=
+%"><span style=3D"color: #000000;"><strong>Anders Rosengren</strong>, Head =
+of Architecture &amp; Technology, <strong>Ericsson</strong></span></div>
+</li>
+<li style=3D"mso-line-height-rule:exactly">
+<div style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:150=
+%"><span style=3D"color: #000000;"><strong>Chris Rice</strong>, Chief Execu=
+tive Officer - Sterlite Technologies Limited (STL) Access Solutions,<strong=
+> Sterlite Technologies Limited</strong></span></div>
+</li>
+<li style=3D"mso-line-height-rule:exactly"><span style=3D"color: #000000; f=
+ont-size: 14px;"><strong>Jonne Soininen</strong>, Head of Open Source Initi=
+atives, <strong>Nokia</strong></span></li>
+</ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:125%"></ul>
+<ul style=3D"mso-line-height-rule:exactly; line-height:175%"></ul></div></d=
+iv></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; pa=
+dding:0px 20px 10px"><div id=3D"hs_cos_wrapper_module_16152233962162" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#197FC4;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:=
+break-word; border-radius:8px; cursor:auto; background-color:#197FC4">
+   <!--<![endif]-->
+        <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d500XhCVCG=
+9zr5pKf55W93kvSZ4nXQ56N91mn8_3lGnJV1-WJV7Cg-2DW6mwV4H8LRWfSN7ybRXZs-8RfM5Q0=
+8X4JVHCW33BQk77F8bfyMvXkS6c0Y2lW7xyMwx1dcGM6W3h2QWW1PH9G8W3qCHbM8ZXcWBW5s2X=
+s-3QHKp1VXG5tC8nGtRmW3bLf942WpV0qW1s5tX45F17MtW2yp1yX8FLSC6VDfcgQ16H1dhW1vS=
+X-_7p_4L1W5g4-NR5bHDhtW6WzJGy52SWs5W7XK9pj1SBJm4W4_XG5N14cLyzW6NX2NB5gQztxW=
+43Jd_P1mzd9bW8f6cD71CbmxjW9kRfrC75TXWTW8zrD003p2HLnW62WvNR1ZmDf5W16sdZp37gc=
+vsW5C6-Vd376_WWV7812H8jxTPf36qs1" target=3D"_blank" style=3D"color:#00a4bd;=
+ mso-line-height-rule:exactly; font-size:15px; font-family:Arial, sans-seri=
+f; Margin:0; text-transform:none; text-decoration:none; padding:12px 18px; =
+display:block" data-hs-link-id=3D"0">
+          <strong style=3D"color:#ffffff;font-weight:bold;text-decoration:n=
+one;font-style:normal;">VIEW SPEAKER BIOS</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1613329175113" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1613329175113_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:0px 20px 10px"><div id=3D"hs_cos_wrapper_module_161334574753218" cl=
+ass=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" sty=
+le=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-co=
+s-general-type=3D"widget" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:560px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+   =20
+    <td width=3D"100%" valign=3D"middle" style=3D"border-collapse:collapse;=
+ mso-line-height-rule:exactly; font-family:Arial, sans-serif; font-size:15p=
+x; color:#23496d; word-break:break-word; line-height:0; border:transparent;=
+ border-bottom:1px solid #000000; mso-border-bottom-alt:1px solid #000000; =
+border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"module_1613345740470" class=3D"hse-section" style=3D"padding-l=
+eft:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"module_1613345740470_1" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 20px"><div id=3D"hs_cos_wrapper_module_161334574035317" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_161334574035317_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><div style=3D"mso-line-height-rule:exactly; line-height:125%=
+; font-size:14px">
+<p style=3D"mso-line-height-rule:exactly; line-height:125%; font-size:16px"=
+><span style=3D"color: #000000;"><strong>Event Schedule</strong></span></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;">This is a virtual event taking place across three days, at=
+ a different time each day to best accommodate the global audience. All ses=
+sions will be recorded and available for attendees post-event as well.&nbsp=
+;</span></p>
+<br>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;">Wednesday, March 10th, 09:00 =E2=80=93 12:40 PST (UTC-8)</=
+span></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;">Thursday, March 11th, 17:00 =E2=80=93 20:40 PST (UTC-8)</s=
+pan></p>
+<p style=3D"mso-line-height-rule:exactly; line-height:125%"><span style=3D"=
+color: #000000;">Friday, March 12th, 07:00 =E2=80=93 10:40 PST (UTC-8)</spa=
+n></p>
+</div></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1615223501514" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1615223501514_0" class=3D"hse-column hse-size-6">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 0px 10px 20px"><div id=3D"hs_cos_wrapper_module_16141988850144=
+1" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module=
+" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-=
+hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#197FC4;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:=
+break-word; border-radius:8px; cursor:auto; background-color:#197FC4">
+   <!--<![endif]-->
+        <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d500XhCVCG=
+9zr5pKf55W93kvSZ4nXQ56N91mn8_3lGnJV1-WJV7CgH0DW7c5rKv5Ld9RYW2-2kfX6n6MSBW2H=
+0Vbj7h2QZpW645k9z4p2C7sW4m83z_98vYgCW2JT7dg1jxdrZW6sWlBb2LBJCDW4dH2fD5NDbtt=
+N3Thdcx9bp51N9dYN1BnyRLBW2VgBNg1QZqNMW8m9Tk14b8XtRW3BFDzY1pxJMGW2HGQkC4XxV-=
+CW1zTC462L74-9W1mFmrZ7ZQYy_W2c7mWg5ZsQGdW1NmVmm56r05pW7NcVJg7qq4mYW8H-mZF2F=
+SqwrW7XClXf19VkPHW6ZYFMl6Cs9rsW1L7sVp2q49YvW7LCm6q3FSDkdVRWk2w95DFBXW1hD3jg=
+7xDHF7W7HgCkG8H1fdhW6fc81P7pfH2-39t41" target=3D"_blank" style=3D"color:#00=
+a4bd; mso-line-height-rule:exactly; font-size:15px; font-family:Arial, sans=
+-serif; Margin:0; text-transform:none; text-decoration:none; padding:12px 1=
+8px; display:block" data-hs-link-id=3D"0">
+          <strong style=3D"color:#ffffff;font-weight:bold;text-decoration:n=
+one;font-style:normal;">VIEW THE SCHEDULE</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1615223501514_1" class=3D"hse-column hse-size-6">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 20px 10px 0px"><div id=3D"hs_cos_wrapper_module_16141987308973=
+7" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module=
+" style=3D"color: inherit; font-size: inherit; line-height: inherit;" data-=
+hs-cos-general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#197FC4;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#197FC4" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:=
+break-word; border-radius:8px; cursor:auto; background-color:#197FC4">
+   <!--<![endif]-->
+        <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d500XhCVCG=
+9zr5pKf55W93kvSZ4nXQ56N91mn8J3lGnpV1-WJV7CgN6RW2V60FL4yC3SjV3B-FF48BfCcW4fw=
+wWZ7DQp08W8rWClv2gFLcdW4HldHg88KXZPW8djcNp8Yb4SrW2dtVxz4SCYxPN8cVCjFN229wW2=
+vd-Cq809BB9N2B6hjV2BKLCW8z9c6B47HC2RW5st5F558pp0xW55q8NT6LsPX2W9frVWg4JLVYy=
+N5Vr5Sw3kwRrW5YRkd_2VG1SVW6dkM318CmLnWN7GmcbRMFfbyVPgtNP1lG_91W1Ylvwc3Sk0d-=
+W375bSt2jMKtjW1w7m8X8pRfbMW4bfwww20M9W5VbTgW02rckyKW72gYmd3ncB7CW74Xgdh98qQ=
+JL39Nt1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-height-rule:exa=
+ctly; font-size:15px; font-family:Arial, sans-serif; Margin:0; text-transfo=
+rm:none; text-decoration:none; padding:12px 18px; display:block" data-hs-li=
+nk-id=3D"1">
+          <strong style=3D"color:#ffffff;font-weight:bold;text-decoration:n=
+one;font-style:normal;">REGISTER NOW</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-6" class=3D"hse-section" style=3D"padding-left:10px; p=
+adding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-6-1" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; =
+padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16133291610625" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:560px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+   =20
+    <td width=3D"100%" valign=3D"middle" style=3D"border-collapse:collapse;=
+ mso-line-height-rule:exactly; font-family:Arial, sans-serif; font-size:15p=
+x; color:#23496d; word-break:break-word; line-height:0; border:transparent;=
+ border-bottom:1px solid #000000; mso-border-bottom-alt:1px solid #000000; =
+border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]-->
+</div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Arial, sans-serif; font-size:15px; color:#23496d; word-break:break-word; pa=
+dding:0px 20px 10px"><div id=3D"hs_cos_wrapper_module_161334552247714" clas=
+s=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module">
+<table role=3D"presentation" align=3D"center" style=3D"border-spacing:0 !im=
+portant; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0=
+pt; width:auto; text-align:center" class=3D"hs_cos_wrapper_type_social_modu=
+le" width=3D"auto">
+  <tbody>
+    <tr align=3D"center">
+     =20
+      <td style=3D"border-collapse:collapse; mso-line-height-rule:exactly; =
+font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:br=
+eak-word">
+        <table role=3D"presentation" align=3D"center" style=3D"border-spaci=
+ng:0 !important; border-collapse:collapse; mso-table-lspace:0pt; mso-table-=
+rspace:0pt; width:auto; text-align:center" class=3D"hs_cos_wrapper_type_soc=
+ial_module_single" width=3D"auto">
+          <tbody>
+            <tr align=3D"center">
+             =20
+              <td class=3D"display_block_on_small_screens" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Arial, sans-se=
+rif; font-size:15px; color:#23496d; word-break:break-word; padding:8px 5px;=
+ line-height:1; vertical-align:middle" valign=3D"middle">
+                <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d5=
+00XhCVCG9zr5pKf55W93kvSZ4nXQ56N91mn853lGmQV1-WJV7CgXSPW2RwcP68HkqQLW96vPTW8=
+bJH27W4Tdp-l7jfCnvW8Zn7524vrVRXW77kjQv6x0Qm6W2DFKSz88LtvgW6J1dM-8hfWpsW80rj=
+ZH3n6GqgVLQg566xT-d1W8MMplQ6942rhW1TcFTw5J3WGKW2sLsFr3cLdNXW81gX077G15y8W5W=
+TY1W2vVpXxW38Jvcq6vJ8D1VKF_2f8BtMqjV8Mlqb8kZ9PvW3gG_P55d-50bW7cTThJ9kYzZ2W1=
+zlCH141TybfW6x8VnD766PKwW4kll1K7Z6-b635Xw1" style=3D"color:#00a4bd; mso-lin=
+e-height-rule:exactly; text-decoration:none !important" data-hs-link-id=3D"=
+0" target=3D"_blank">
+                 =20
+                 =20
+                  <img src=3D"https://email.linuxfoundation.org/hs/hsstatic=
+/TemplateAssets/static-1.24/img/hs_default_template_images/modules/Follow+M=
+e+-+Email/facebook_circle_color.png" alt=3D"Facebook" height=3D"25" style=
+=3D"outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; bor=
+der:none; width:auto!important; height:25px!important; vertical-align:middl=
+e" valign=3D"middle" width=3D"auto">
+                 =20
+                </a>
+              </td>
+             =20
+             =20
+          </tr>
+        </tbody>
+      </table>
+  =09=09</td>
+     =20
+      <td style=3D"border-collapse:collapse; mso-line-height-rule:exactly; =
+font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:br=
+eak-word">
+        <table role=3D"presentation" align=3D"center" style=3D"border-spaci=
+ng:0 !important; border-collapse:collapse; mso-table-lspace:0pt; mso-table-=
+rspace:0pt; width:auto; text-align:center" class=3D"hs_cos_wrapper_type_soc=
+ial_module_single" width=3D"auto">
+          <tbody>
+            <tr align=3D"center">
+             =20
+              <td class=3D"display_block_on_small_screens" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Arial, sans-se=
+rif; font-size:15px; color:#23496d; word-break:break-word; padding:8px 5px;=
+ line-height:1; vertical-align:middle" valign=3D"middle">
+                <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d5=
+00XhCVCG9zr5pKf55W93kvSZ4nXQ56N91mn8p3lGn5V1-WJV7CgMVqW4Ps7Pd5c2mVrW8YhN323=
+b8rHTN8-tj8xVGHZ5N1FJzmXg7FjDW2vGb0C5GqmvvN4b2ywxbgz3YW86qfcb2nCWV5W9c55Yd7=
+9lLYdW13RrFp7vTFlDW6njJQq8fn5FfW5RhYFt54whj6W7TKk0L8LpNTyW6JB5s45SMzNvW16W-=
+hY2Rj4pFW3JyCXS5jV_KKW2tkpdZ7CyFGKVFd5GN4bZ7FjW5HKhyW4vHGcZV-7GzN65tp06W2Hd=
+bVH1dlqtlW2l4bnV3cYldBW5w_TRG7CLCRhN4Qs1YV2yZM8N8wQQGDkHF8k32wc1" style=3D"=
+color:#00a4bd; mso-line-height-rule:exactly; text-decoration:none !importan=
+t" data-hs-link-id=3D"0" target=3D"_blank">
+                 =20
+                 =20
+                  <img src=3D"https://email.linuxfoundation.org/hs/hsstatic=
+/TemplateAssets/static-1.24/img/hs_default_template_images/modules/Follow+M=
+e+-+Email/linkedin_circle_color.png" alt=3D"LinkedIn" height=3D"25" style=
+=3D"outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; bor=
+der:none; width:auto!important; height:25px!important; vertical-align:middl=
+e" valign=3D"middle" width=3D"auto">
+                 =20
+                </a>
+              </td>
+             =20
+             =20
+          </tr>
+        </tbody>
+      </table>
+  =09=09</td>
+     =20
+      <td style=3D"border-collapse:collapse; mso-line-height-rule:exactly; =
+font-family:Arial, sans-serif; font-size:15px; color:#23496d; word-break:br=
+eak-word">
+        <table role=3D"presentation" align=3D"center" style=3D"border-spaci=
+ng:0 !important; border-collapse:collapse; mso-table-lspace:0pt; mso-table-=
+rspace:0pt; width:auto; text-align:center" class=3D"hs_cos_wrapper_type_soc=
+ial_module_single" width=3D"auto">
+          <tbody>
+            <tr align=3D"center">
+             =20
+              <td class=3D"display_block_on_small_screens" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Arial, sans-se=
+rif; font-size:15px; color:#23496d; word-break:break-word; padding:8px 5px;=
+ line-height:1; vertical-align:middle" valign=3D"middle">
+                <a href=3D"https://email.linuxfoundation.org/e2t/tc/VVr82d5=
+00XhCVCG9zr5pKf55W93kvSZ4nXQ56N91mn853lGmQV1-WJV7CgGWsW1pSrPl1fF2ldW8Kk16c4=
+3Y28QW6f82rW1MR2NqW4YDXm05ZvqZTW8lTHWV6snB3DW1Xc7s_817yrfW3hKd126JCnRtW4L_5=
+1T6pwMFrW8M0JYs4T6t2pW1Gmz-b9k0PyQW2ZrWm33RTB7pW3WdGht4XyV8rW1xdFbG3pFhzkW2=
+ztS9p3KlKsnW9f4m887LMQnlW6XdDzM8mlmCWW2ZWvk18FqqShVxyBnH5nyymHW4ffVfF9gTSGl=
+N86G3Z1N2VJ7W2TbrJ65b--QkW4FZz-F3YX1Vg37Cj1" style=3D"color:#00a4bd; mso-li=
+ne-height-rule:exactly; text-decoration:none !important" data-hs-link-id=3D=
+"0" target=3D"_blank">
+                 =20
+                 =20
+                  <img src=3D"https://email.linuxfoundation.org/hs/hsstatic=
+/TemplateAssets/static-1.24/img/hs_default_template_images/modules/Follow+M=
+e+-+Email/twitter_circle_color.png" alt=3D"Twitter" height=3D"25" style=3D"=
+outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; border:=
+none; width:auto!important; height:25px!important; vertical-align:middle" v=
+align=3D"middle" width=3D"auto">
+                 =20
+                </a>
+              </td>
+             =20
+             =20
+          </tr>
+        </tbody>
+      </table>
+  =09=09</td>
+     =20
+    </tr>
+  </tbody>
+</table>
+</div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-7" class=3D"hse-section hse-section-last" style=3D"pad=
+ding-left:10px; padding-right:10px; padding-bottom:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; padding-top:30px">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation">
+      <tr>
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-top:30px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-7-1" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module-7-1-1" class=3D"hs_cos_wrapper hs_cos_wr=
+apper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"module">
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+<table role=3D"presentation" class=3D"hse-footer hse-secondary" width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !importan=
+t; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; fo=
+nt-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496=
+d; margin-bottom:0; padding:0">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Arial, sans-serif; font-s=
+ize:15px; color:#23496d; word-break:break-word; text-align:center; margin-b=
+ottom:0; line-height:135%; padding:10px 20px">
+                <p style=3D"mso-line-height-rule:exactly; font-family:Arial=
+, sans-serif; font-size:12px; font-weight:normal; text-decoration:none; fon=
+t-style:normal; color:#23496d; direction:lrt" dir=3D"lrt">
+                  548 Market St, PMB 57274, San Francisco, CA 94104-5401, U=
+nited States
+                </p>
+                <p style=3D"mso-line-height-rule:exactly">
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://email.linuxf=
+oundation.org/hs/manage-preferences/unsubscribe-all?d=3DVnd69s5kYJJWVMdL7B3=
+P28b6W1N4h9T3P3Q7wW3ZsjYm3_fR8QN67wXZ0mWcPCW7B-dBm8V3RW4V25rPR7GZLYXW6k2jnC=
+93cx9WN4KW3Sh1yf0NN31DwNr_WfnwW3PqhJh6sByndmVnhhn153&amp;v=3D3&amp;utm_sour=
+ce=3Dhs_email&amp;utm_medium=3Demail&amp;utm_content=3D114810910&amp;_hsenc=
+=3Dp2ANqtz-9Saq5hHaeO8zjdFiSnYHdtNPfqgUoIo_je_O3ICGShOxg0z2EOOTrirto82ybpBc=
+jv5PQpeFahPGTmYeP0wq0HN3U7Bw&amp;_hsmi=3D114810910" style=3D"mso-line-heigh=
+t-rule:exactly; font-family:Helvetica,Arial,sans-serif; font-size:12px; col=
+or:#00a4bd; font-weight:normal; text-decoration:underline; font-style:norma=
+l" data-hs-link-id=3D"0" target=3D"_blank">Unsubscribe</a>
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://email.linuxf=
+oundation.org/hs/manage-preferences/unsubscribe?d=3DVnd69s5kYJJWVMdL7B3P28b=
+6W1N4h9T3P3Q7wW3ZsjYm3_fR8QN67wXZ0mWcPCW7B-dBm8V3RW4V25rPR7GZLYXW6k2jnC93cx=
+9WN4KW3Sh1yf0NN31DwNr_WfnwW3PqhJh6sByndmVnhhn153&amp;v=3D3&amp;utm_source=
+=3Dhs_email&amp;utm_medium=3Demail&amp;utm_content=3D114810910&amp;_hsenc=
+=3Dp2ANqtz-9Saq5hHaeO8zjdFiSnYHdtNPfqgUoIo_je_O3ICGShOxg0z2EOOTrirto82ybpBc=
+jv5PQpeFahPGTmYeP0wq0HN3U7Bw&amp;_hsmi=3D114810910" style=3D"mso-line-heigh=
+t-rule:exactly; font-family:Helvetica,Arial,sans-serif; font-size:12px; col=
+or:#00a4bd; font-weight:normal; text-decoration:underline; font-style:norma=
+l" data-hs-link-id=3D"0" target=3D"_blank">Manage preferences</a>
+                 =20
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+</div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://email.linuxfoundation.org/e2t/to/VVr82d500XhCVCG9zr5pKf=
+55W93kvSZ4nXQ56f91mmX722" alt=3D"" width=3D"1" height=3D"1" border=3D"0" st=
+yle=3D"display:none!important;min-height:1px!important;width:1px!important;=
+border-width:0!important;margin-top:0!important;margin-bottom:0!important;m=
+argin-right:0!important;margin-left:0!important;padding-top:0!important;pad=
+ding-bottom:0!important;padding-right:0!important;padding-left:0!important"=
+></body></html>
+------=_Part_776680_1994502269.1615240000797--
+

@@ -1,0 +1,348 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp5722958ejk;
+        Wed, 3 Mar 2021 09:42:43 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxXa3cHKYlRoHkc4UKNaQNXjRzmfvrNOlQ/2ORg3HSoz2djPvnj4NaI5fabuoqmlHbhy+vO
+X-Received: by 2002:a05:620a:124f:: with SMTP id a15mr43508qkl.125.1614793362949;
+        Wed, 03 Mar 2021 09:42:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614793362; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hI18v6B7JGxHGtSqvAiYM8kvNUmV6HQCPs55+pEm358EUFwkwX8/dPUXKQxlYGauc9
+         jrf3yzKuH5HQ3caLXq/6mJgIcXH+gTKz8liLazIpwMJEQBpQsT6je0zjY/oUGRlpfVjB
+         lyrtaLkMhBKXabW3PQ+PbdKutev4UoFtuUlJ89Hta+kp6PlfvgyFl6m/unsJrdW2adJ3
+         zOz1Pcup/Z5Cxi0oM5ti/p8Uy3ckmZuFmj/E6e4Mce8R6nRSSeZPk/Txj1l/pMRTkQz0
+         VXqF8bj2MoaF7bI/+GkaZmwK70b5IxW3mOlrh5jtQGbf6JPTNOse2FD2bC/emh3ZYKw/
+         VkRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:message-id
+         :subject:reply-to:from:to:date:dkim-signature;
+        bh=WwLSwi+EVKYyFtUPXG5MAuejkFi2WPTW0i8DF6+xtjA=;
+        b=Knmg+0O0Vj6QQgBzZizu2WGSRsLpKVVH4Q48JMWo1rbHBVzk/3lS5G6PPs58LBv3Ln
+         gNCeyHw2PdTW4mhet/vuifS+N0VMzS/JtCxQ8HEa4h+qD6C8wpcYcU63nIAIX6WzoOmc
+         RjnezOHj8JNdUlRNuDNa8vweT7I10SKdwFWD9bTT3QmvSCtLVxpoTTNERAziovP3Ch+s
+         mEX8lCwqyj9YUdMGWNrHkq/GAjOb1HsmAaQ5FAh1kUQ8OegGOB6aMMoQfAWjD1CG0B1S
+         YyPbWw0k5dRGOqY/b2LyZL35zhWrlRWI2SN4zXoey+wFPhfnk5EFySx1FhInY1Ta98hn
+         Gcnw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=fsR5Y4ma;
+       spf=pass (google.com: domain of 01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com designates 54.240.11.171 as permitted sender) smtp.mailfrom=01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=amcatmail.com
+Return-Path: <01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com>
+Received: from a11-171.smtp-out.amazonses.com (a11-171.smtp-out.amazonses.com. [54.240.11.171])
+        by mx.google.com with ESMTPS id e4si5470136qtg.307.2021.03.03.09.42.42
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Wed, 03 Mar 2021 09:42:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com designates 54.240.11.171 as permitted sender) client-ip=54.240.11.171;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=fsR5Y4ma;
+       spf=pass (google.com: domain of 01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com designates 54.240.11.171 as permitted sender) smtp.mailfrom=01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@amazonses.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=amcatmail.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1614793362;
+	h=Date:To:From:Reply-To:Subject:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=6KDau9midXp7x4ucUkk3Ohf2l3atFxdGeGErVFEjfGg=;
+	b=fsR5Y4maeJJJTwgMvCo4KeGzhaFUKxBKgUpDMtTfL5O1UlkWNMApFPTq4smWTCyS
+	eZad59fgXfa0Nz/HWWh//HPwPg9wbXTiPMwHxVL9DKG4BNJip/QxHfp6QpL+Lq85p7y
+	IQKSWMDkj0X0wHUjqTMWXZQggMvQjJvK+4NL829A=
+Date: Wed, 3 Mar 2021 17:42:41 +0000
+To: dmugil2000@gmail.com
+From: Aspiring Minds <donot-reply@amcatmail.com>
+Reply-To: Aspiring Minds <donot-reply@amcatmail.com>
+Subject: =?UTF-8?B?Q29nbml6YW50IENhbXB1cyBTZWxlY3Rpb24gMjAyMSAtIEludGVydmlldyBJbnZpdGU=?=
+Message-ID: <01000177f92f48d0-09622576-18d7-43f5-8afe-641a073b4f19-000000@email.amazonses.com>
+X-Priority: 3
+X-Mailer: PHPMailer 5.2.9 (https://github.com/PHPMailer/PHPMailer/)
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="b1_bddb403e3d43512d2f5c4089f3de6fa5"
+Content-Transfer-Encoding: 8bit
+X-SES-Outgoing: 2021.03.03-54.240.11.171
+Feedback-ID: 1.us-east-1.jTbLHn5j5YgMUczvi9VEWbfwPh4u/ls47N+LFMSr4Xg=:AmazonSES
+
+--b1_bddb403e3d43512d2f5c4089f3de6fa5
+Content-Type: multipart/alternative;
+	boundary="b2_bddb403e3d43512d2f5c4089f3de6fa5"
+
+--b2_bddb403e3d43512d2f5c4089f3de6fa5
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+ 
+
+
+
+
+
+
+
+
+	
+		
+			
+			
+				
+					
+						 
+						
+						Smartmeet
+						
+					
+				
+			
+			
+		
+	
+
+
+
+	
+		
+			
+			
+			Hi Mugilraj  D
+
+			Congratulations on getting shortlisted for the online interview with Cognizant!
+
+			Your interview has been scheduled on Aspiring Mind’s Smartmeet platform from: 01:30 pm, 04th March 2021, UTC +05:30, IST (New Delhi)  to: 02:45 pm, 04th March 2021, UTC +05:30, IST (New Delhi) . Please click on the button below to join
+			
+
+			
+				
+					
+						
+						
+							
+								
+									Join Interview
+								
+							
+						
+						
+					
+				
+			
+			
+		
+		
+		
+	
+
+
+
+	
+		
+			
+			Here are some tips before you start the interview:
+
+			
+				Ensure you are in a quiet area with good lighting.
+				For the best experience, the latest version of Mozilla Firefox (most Preferred) and Google Chrome/Chromium is recommended in all Operating Systems, kindly install updated versions of Mozilla Firefox and Google Chrome beforehand.
+				An internet connection with good speed (at least 6 mbps) will ensure a smooth process throughout the session.
+				Preferably, use a laptop or a desktop with webcam, speaker and microphone enabled. 
+				Please make sure you test your webcam and microphone prior to the Interview, both will be required throughout the entire duration the exercise
+				To ensure your webcam / microphone is working, please click on https://interviews.aspiringminds.com/devicetest?=
+				During the course of the interview, the browser may ask for permissions to access your webcam and mic. Please permit the browser to do so.
+				If you have entered the platform and observe that the interview hasn’t started yet, it is probably because the interviewer hasn’t yet joined the session. You are requested to refresh the URL. After a minute or so, you will be able to
+				If the interview has not started, the candidates are requested to stay in the window for at least 15 minutes from the scheduled time. Please inform your TPO about the delay post 15 minutes.
+				Have a pen and paper at hand, you will need both for the duration of the exercise.
+				Make drinking water available before interview, as you cannot leave the session once it begins.
+				We recommend you to close all applications and do a restart before the interview starts. Some of our work from home applications like Teams and Skype will tend to create a link to the webcam even if not in use, particularly if you have used them for calls earlier. Restarting and beginning afresh can help avoid this.
+				Please keep your resume document within easy reach as interviewer might ask you to attach the same in chat section in the session as a first thing.
+			
+
+			 Please ensure you are ready to begin at 01:30 pm, 04th March 2021, UTC +05:30, IST (New Delhi) . We will not be able to reschedule if you are late.
+
+			The session will be recorded throughout the duration of the assessment.
+
+			On the day, if you have any difficulties accessing the Smartmeet platform, please contact the live chat support by clicking on https://www.myamcat.com/troubleshooting
+
+			Disclaimer:
+
+			1) Cognizant does not entertain payments of any kind from candidates or vendors for employment. Requests for such payments should be promptly reported to TAGCompliance@Cognizant.com.
+
+			2) If you encounter anyone who claims to offer jobs at Cognizant in return for any benefit (monetary or non-monetary), please do not entertain them. Please be informed that Cognizant shall not be held responsible for any such instances or payments you make.
+
+			3) We recommend that you do not respond to spam emails/ messages you do not trust; never disclose your personal or financial details to anyone you do not know. If any such mails purporting to come from Cognizant are received, we advise you to contact us at TAGCompliance@Cognizant.com.
+
+			4) Please report the phishing attempt to the following email id: CSIRT@Cognizant.com.
+
+			5) To ascertain that you are receiving an official call from cognizant, please ensure you collect the recruiter's details (full name; employee ID; and mobile number) during the call. Please refrain from paying/depositing any money and promptly add it to your spam mail. In case you have already made a payment, please lodge a complaint with the nearest police station so that necessary action can be taken against the imposters.
+			
+		
+	
+
+
+
+	
+		
+			Good Luck
+			The Smartmeet Team
+
+
+--b2_bddb403e3d43512d2f5c4089f3de6fa5
+Content-Type: text/html; charset=us-ascii
+
+<html>
+<head>
+</head>
+<body style="background: #F1F1F1;width:auto;text-align:center;">&nbsp;</body>
+</html>
+<p><br />
+<title></title>
+</p>
+
+<div align="center" style="width: 100%; background-color: #f7f7f7">
+<div style="max-width: 600px; font-family: arial">
+<table align="center" bgcolor="#f0f0f0" border="0" cellpadding="0" cellspacing="0" id="main1" style="background-color:#f7f7f7; width:600px">
+	<tbody>
+		<tr>
+			<td colspan="2" style="padding-bottom:20px; padding-top:20px; position:relative; text-align:center!important; vertical-align:middle; width:50%" width="50%">
+			<table style="width:100%">
+				<tbody>
+					<tr>
+						<td style="position:relative; text-align:right; width:43%" width="50%">&nbsp;</td>
+						<td style="text-align:left; width:57%" width="50%">
+						<div style="color:#223a52; display:inline-block; font-size:30px; margin-top:-3px; margin-left:10px;vertical-align: middle;">Smartmeet</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table align="" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" id="main2" style="background-color:#ffffff; width:600px">
+	<tbody>
+		<tr>
+			<td colspan="2" style="color:#333333; padding:30px 30px 20px 20px; vertical-align:top">
+			<div align="left" style="color: black">
+			<p style="line-height: 24px; font-family: arial; color: black; text-align: justify"><strong>Hi Mugilraj  D</strong></p>
+
+			<p style="line-height:1.295; text-align:justify; margin-top:19px; margin-bottom:19px"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Congratulations on getting shortlisted for the online interview with Cognizant!</span></span></span></span></span></span></p>
+
+			<p style="line-height:1.295; text-align:justify; margin-top:19px; margin-bottom:19px"><span style="font-size:11pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">Your interview has been scheduled on Aspiring Mind&rsquo;s Smartmeet platform from: 01:30 pm, 04th March 2021, UTC +05:30, IST (New Delhi)  to: 02:45 pm, 04th March 2021, UTC +05:30, IST (New Delhi) . Please click on the button below to join</span></span></span></span></span></span></p>
+			</div>
+
+			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+				<tbody>
+					<tr>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td align="center" bgcolor="#D6E0F8" style="border-radius:10px; padding:7px"><a href="https://interviews.aspiringminds.com?pubkey=MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEyjfucGqwh78qkfHm1pcJKowu9wpcoeaEjLfc81jXszFPZvPF7Oy+HNFgiFt+iE7QNRr3C+Z+HVbzuxXv3rqEgA==&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3Lm15YW1jYXQuY29tXC9hc3Nlc3NtZW50c1wvIiwiYXVkIjoiaHR0cHM6XC9cL2ludGVydmlld3MuYXNwaXJpbmdtaW5kcy5jb20iLCJpYXQiOjE2MTQ3OTMzNjEsIm5iZiI6MTYxNDg0NDgwMCwiZXhwIjoxNjE0ODYzNzAwLCJkYXRhIjp7InBhcnRpY2lwYW50SWQiOiI2NzQ1NDQiLCJ1c2VyVHlwZSI6ImNhbmRpZGF0ZSJ9fQ.T7od4Ivm_NCQ8SYcLVeUW_xuc9B1LElLt22KNH-sQr17Brg6DhXb4M6_pAEsawVYS0EQ2gjLfWfx6EtgdsxJIA&lang=EN_US&region=us" style="font-size: 14px;font-weight: bold; color: black; text-decoration: none; display: inline-block;" target="_blank">Join Interview</a></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="3" cellspacing="10" style="background-color:white; border-top:1px solid lightgray; padding:10px; text-align:left; width:600px">
+	<tbody>
+		<tr>
+			<td align="" colspan="3">
+			<p style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:12.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Here are some tips before you start the interview:</span></span></strong></span></span></span></p>
+
+			<ul>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Ensure you are in a quiet area with good lighting.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">For the best experience, the latest version of&nbsp;<strong>Mozilla Firefox&nbsp;</strong>(most Preferred) and&nbsp;<strong>Google Chrome/Chromium </strong>is recommended in all Operating Systems,&nbsp;kindly install updated versions of Mozilla Firefox and Google Chrome beforehand.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">An internet connection with good speed (at least 6 mbps) will ensure a smooth process throughout the session.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Preferably, use a laptop or a desktop with webcam, speaker and microphone enabled.&nbsp;</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Please make sure you test your webcam and microphone prior to the Interview, both will be required throughout the entire duration the exercise</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">To ensure your webcam / microphone is working, please click on </span></span><a href="https://interviews.aspiringminds.com/devicetest"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:blue">https://interviews.aspiringminds.com/devicetest</span></span></a><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">?=</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">During the course of the interview, the browser may ask for permissions to access your webcam and mic. Please <strong>permit the browser</strong> to do so.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="color:black"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">If you have entered the platform and observe that the interview hasn&rsquo;t started yet, it is probably because the interviewer hasn&rsquo;t yet joined the session. You are requested to <strong>refresh the URL.</strong> After a minute or so, you will be able to</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">If the interview has not started, the candidates are requested to stay in the window for at least 15 minutes from the scheduled time. Please inform your TPO about the delay post 15 minutes.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Have a pen and paper at hand, you will need both for the duration of the exercise.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Make drinking water available before interview, as you cannot leave the session&nbsp;once it begins.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">We recommend you to <strong>close all applications and do a restart before the interview starts</strong>. Some of our work from home applications like Teams and Skype will tend to create a link to the webcam even if not in use, particularly if you have used them for calls earlier. Restarting and beginning afresh can help avoid this.</span></span></span></span></span></span></li>
+				<li style="margin-bottom:11px"><span style="font-size:11pt"><span style="line-height:normal"><span style="tab-stops:list 36.0pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Please keep your resume document&nbsp;within easy reach as interviewer might ask you to attach the same in chat section in the session as a first thing.</span></span></span></span></span></span></li>
+			</ul>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif">&nbsp;<span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">Please ensure you are ready to begin at <strong>01:30 pm, 04th March 2021, UTC +05:30, IST (New Delhi) .</strong>&nbsp;We will not be able to reschedule if you are late.</span></span></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">The session will be recorded throughout the duration of the assessment.</span></span></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">On the day, if you have any difficulties accessing the Smartmeet platform, please contact the live chat support by clicking on </span></span><u><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:blue">https://www.myamcat.com/troubleshooting</span></span></u></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><strong><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#1f497d">Disclaimer:</span></span></strong></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:#1f497d">1</span></span><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">) Cognizant does not entertain payments of any kind from candidates or vendors for employment. Requests for such payments should be promptly reported to </span></span></span><a href="mailto:TAGCompliance@Cognizant.com"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black"><span style="text-decoration:none"><span style="text-underline:none">TAGCompliance@Cognizant.com.</span></span></span></span></span></a></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">2) If you encounter anyone who claims to offer jobs at Cognizant in return for any benefit (monetary or non-monetary), please do not entertain them. Please be informed that Cognizant shall not be held responsible for any such instances or payments you make.</span></span></span></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">3) We recommend that you do not respond to spam emails/ messages you do not trust; never disclose your personal or financial details to anyone you do not know. If any such mails purporting to come from Cognizant are received, we advise you to contact us at </span></span></span><a href="mailto:TAGCompliance@Cognizant.com"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black"><span style="text-decoration:none"><span style="text-underline:none">TAGCompliance@Cognizant.com.</span></span></span></span></span></a></span></span></span></p>
+
+			<p style="margin-top:19px; margin-bottom:19px"><span style="font-size:11pt"><span style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">4) Please report the phishing attempt to the following email id: </span></span></span><a href="mailto:CSIRT@Cognizant.com"><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black"><span style="text-decoration:none"><span style="text-underline:none">CSIRT@Cognizant.com</span></span></span></span></span></a><span style="font-size:9.0pt"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">.</span></span></span></span></span></span></p>
+
+			<p style="line-height:1.2; margin-top:19px; margin-bottom:11px"><span style="font-size:9pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none"><span style="font-size:9.0pt"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,&quot;sans-serif&quot;"><span style="color:black">5) To ascertain that you are receiving an official call from cognizant, please ensure you collect the recruiter&#39;s details (full name; employee ID; and mobile number) during the call. Please refrain from paying/depositing any money and promptly add it to your spam mail. In case you have already made a payment, please lodge a complaint with the nearest police station so that necessary action can be taken against the imposters.</span></span></span></span></span></span></span></span></span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="3" cellspacing="10" style="background-color:#f7f7f7; border-top:1px solid lightgray; padding:10px; text-align:left; width:600px">
+	<tbody>
+		<tr>
+			<td align="" colspan="3" style="line-height:24px; text-align:left"><strong>Good Luck<br />
+			The Smartmeet Team</strong></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+
+
+--b2_bddb403e3d43512d2f5c4089f3de6fa5--
+
+--b1_bddb403e3d43512d2f5c4089f3de6fa5
+Content-Type: text/calendar; charset="UTF-8"; method=REQUEST; name="invite.ics"
+Content-Disposition: attachment; filename=invite.ics
+
+BEGIN:VCALENDAR
+PRODID:-//AMCAT CALENDAR//EN 
+VERSION:2.0
+CALSCALE:GREGORIAN
+TZ:+00
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Atlantic/Reykjavik
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+TZNAME:IST
+DTSTART:19700101T000000Z
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Atlantic/Reykjavik:20210304T080000Z
+DTEND;TZID=Atlantic/Reykjavik:20210304T091500Z
+DTSTAMP:20210303T231241Z
+ORGANIZER;CUTYPE=INDIVIDUAL;CN=SmartMeet Organizer:mailto:smartmeet-organizer@aspiringminds.com
+UID:e9ad64db008164f80e4d705b3c42ab15ab013ca67cf2d50796b0c11d1b8bc95d
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=dmugil2000@gmail.com;X-NUM-GUESTS=0:mailto:dmugil2000@gmail.com
+CREATED:20210303T231241Z
+DESCRIPTION:Cognizant interview invite - Mugilraj  D
+LAST-MODIFIED:20210303T231241Z
+LOCATION: 
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Cognizant interview invite - Mugilraj  D
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
+
+
+--b1_bddb403e3d43512d2f5c4089f3de6fa5--
+

@@ -1,4 +1,5 @@
 int fun1(){
+	int a = 12%2;
 	return 0x12;
 }
 int fun2(){

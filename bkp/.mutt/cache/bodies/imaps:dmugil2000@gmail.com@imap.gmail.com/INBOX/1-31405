@@ -1,0 +1,2107 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:fc8:0:0:0:0 with SMTP id c8csp6008572ejk;
+        Wed, 3 Mar 2021 17:31:31 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxZN5VrZb5/Su+t+5T9fIvv6vrEmjr4TBY33+gXYG8/lKat+9HzlUEzPeOLmpSVeuOcF0Cj
+X-Received: by 2002:a37:c92:: with SMTP id 140mr1939327qkm.177.1614821490955;
+        Wed, 03 Mar 2021 17:31:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614821490; cv=none;
+        d=google.com; s=arc-20160816;
+        b=wubttPr1NJYnzvkmJTXSNPgkvzYZBJYvtWqexBv8IzPmXRXSFlNJfq2d9Or/F1yi/6
+         EV94To7KZLQmPSUA+82exlvvrvA70ys3vgLNziOALbBYLUJYdpfL/wEhgMX7lQ2TG8nV
+         sKIpBD+acWtvITt+05wW7si7NCv9nZTpIz+U+DD6poRbyYG8B3tUALydCRHcTQsKOR0i
+         iM9Uhd2enAVeTazL8Fu5RrvLCJ20gk89QCyMU+ZPQavgT9cUjYrGr65IoLR7OCzav8Gy
+         XTo/E/buC9pD9LoMB0m/QNJ90oRs1F2lZ1OfAFGtgtGCEQs0O1FjW3Y9Jg5Nl+h1xCVf
+         llZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:precedence:form-sub:mime-version:subject:message-id:to
+         :reply-to:from:date:list-unsubscribe:dkim-signature:dkim-signature;
+        bh=8FPq8irnZ4ty+NVZiqffnBWpCNXXNDKchHRFk8viD78=;
+        b=wfTddZdgTBg818pgRsAA1J6b0ekPXaOosJ5mVs5FmeffRm3vrrMkJxRwe6RP0YqELu
+         HkFlua9ofvIk7QVI+pAF2ce8c0EYg4O9tbnNLKpNa9f4rawqtzqJDwyUYJLj5sHZ1MoL
+         zGFtPb+24/whS/duIU/Bb51yLeBT+6dXxGh+/H5XvnAUDL5Drd1PMFqrfM8aURAbR1AT
+         tf+h4FTAu8J90tlCLKhVmb/bNUmmfn1iymkJI8KR122WVTA/b5kVLZ6zxWRAJpD+RTal
+         p2eHN56v4tp4WAfDdwgEgwq5AItbMRGN95gpJztX3EyAoP/IHlLN6SP1kZivvRtq8h9j
+         2MUA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@47251m.altair.com header.s=hs2 header.b=C+VbvrSp;
+       dkim=pass header.i=@altair.com header.s=hs1 header.b=WcfZRY08;
+       spf=pass (google.com: domain of 1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com designates 158.247.20.223 as permitted sender) smtp.mailfrom="1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=altair.com
+Return-Path: <1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com>
+Received: from bid465d.47251m.altair.com (bid465d.47251m.altair.com. [158.247.20.223])
+        by mx.google.com with ESMTPS id c17si5747637qkk.134.2021.03.03.17.31.30
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 03 Mar 2021 17:31:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of 1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com designates 158.247.20.223 as permitted sender) client-ip=158.247.20.223;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@47251m.altair.com header.s=hs2 header.b=C+VbvrSp;
+       dkim=pass header.i=@altair.com header.s=hs1 header.b=WcfZRY08;
+       spf=pass (google.com: domain of 1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com designates 158.247.20.223 as permitted sender) smtp.mailfrom="1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=altair.com
+Received: by 172.16.17.25 with SMTP id ax2nko4a19iuvxw2s75u3qviz2e2aihjed0f2;
+        Thu, 4 Mar 2021 01:31:25 GMT
+DKIM-Signature: v=1; s=hs2; d=47251m.altair.com; 
+        i=@47251m.altair.com; 
+        h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=8FPq8irnZ4ty+NVZiqffnBWpCNXXNDKchHRFk8viD78=; 
+        b=C+VbvrSpN05OaXZ3OyrhFotyUf5XAceg29PGFFeYt4NbAoITU4PPe+00FCLcl1
+         bBl3gv2xow2DY+vyDuXIohUsG5Vd0KFgqf6oFf1IP/OwBurJnwotMyAjXdC/Gd+
+         WLW+R8dDDmuZnDTX45xsv4o1X9eoAXhTaxgFsw91NR2+IwBXSlMxlfsFk/qh/by
+         4ipaP/yJHtnwHOs0DeHBUQ8UCWSgdw2QOPl+YSA9HHK3pguJlcuD11RLE//tFx8
+         di/dJW9H+c71C3NzDv0hvUo+ELFpAZfbkHPyBUZcsUGG/78cn/IOVQb/eQti1db
+         kREK3wOvAygHLNmNYsxstmz0ua0g==; q=dns/txt; t=1614821485;
+DKIM-Signature: v=1; s=hs1; d=altair.com; i=@altair.com; 
+        h=sender:from:reply-to:to:subject:mime-version:content-type:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=8FPq8irnZ4ty+NVZiqffnBWpCNXXNDKchHRFk8viD78=; 
+        b=WcfZRY08W6htCDNP4IkUuPN6z+26v5Lhz6/JG3cAN4drLMSC5iBV+BWpZ91NIf
+         divYD5E51SrVJuqQeMdJh0azXyRpuoQRpAuoNbPprEL9M39h827+PMF1iwW6v+t
+         B3sVOJzBl9S/Sp+Z8zEVZvpAYNnXAJEsPxfmut5ty3FRrVpSLY6UQ6OT3cPKq7K
+         Fzj+M+WMrmLh+5D61ihWzdPiBfqc8VIZ0CTyEKM16pnpHk4liZQ4DVm3QvaY6ZK
+         YKVVhNwcTjxKiE9DQ4TmvIBU2aJq3vX2LPEWddZUR2mFxbfaw6YWmtG9H7x3Sfi
+         vHe2WAYL3n5OefuxYrowOKONL5vg==; q=dns/txt; t=1614821485;
+Return-Path: <1axb26mlriy0q9nrawwhaov9kd0io4d07rk6h6-dmugil2000=gmail.com@47251m.altair.com>
+X-HS-Cid: 1axfv8duxp4vu7b96586vyc9nn3ipjybyannzi
+List-Unsubscribe: <mailto:1axdgc3q50u8arkdlweyb6fxxugewvvuzsiv4u-dmugil2000=gmail.com@47251m.altair.com?subject=unsubscribe>
+Date: Wed, 3 Mar 2021 20:31:25 -0500
+From: Jennifer Ristic <jristic@altair.com>
+Reply-To: info@altair.com
+To: dmugil2000@gmail.com
+Message-ID: <1614821403878.d539b3bf-faeb-4c79-9470-f8be2c3c4ee4@47251m.altair.com>
+Subject: Altair boost barista business with digital twin
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_25498_1705089010.1614821485659"
+Form-Sub: v=1; ip=none
+Precedence: bulk
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://www.hubspot.com/abuse-complaints)
+Feedback-ID: aebaqt:aib54yo4:airvv:HubSpot
+
+------=_Part_25498_1705089010.1614821485659
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+How your peers are using tech to get ahead, how simulation and modeling are=
+ helping renewable energy
+
+March 4, 2021
+
+Altair in 60 Seconds (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6=
+-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN203 )
+
+A60_Thumb_Altair_GruppoCimbali_Top_500x500 (https://web.altair.com/e2t/sc2/=
+Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN213 )
+
+Altair Boosts Barista Business with Digital Twin
+
+Altair is collaborating with one of Italy=E2=80=99s leading coffee machine =
+manufacturers to put data, simulation, and IoT at the core of its innovatio=
+n efforts, reducing the need for physical tests, shortening time-to-market,=
+ and increasing energy efficiency.
+
+Learn more (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9=
+m2wnsW7PgRW67Z_771f1HVPN223 )
+
+How are Your Industry Peers Using Technology to Get Ahead? (https://web.alt=
+air.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN233=
+ )
+
+What's New in Altair EDEM? (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJd=
+Tl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN243 )
+
+Rising Renewables: How Simulation and Modeling are Helping Renewable Energy=
+ (page 26) (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9=
+m2wnsW7PgRW67Z_771f1HVPN253 )
+
+Five Essential Tips to Keep a Lid on Spending When Running Oil and Gas Simu=
+lations in the Cloud (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6=
+-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN263 )
+
+Altair Black Employee Resource Network Drives Impact, Engagement, and Diver=
+sity (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW=
+7PgRW67Z_771f1HVPN273 )
+
+Altair Enlighten Award
+
+A60_thumb_EnlightenAward_Bottom_500x375 (https://web.altair.com/e2t/sc2/Mm-=
+nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN283 )
+
+Great Minds Think Light
+
+The annual Altair Enlighten Award is officially open for nominations. This =
+year, the Award will honor the greatest sustainability and lightweighting a=
+dvancements that show a successful commitment to reducing the carbon footpr=
+int, mitigating water and energy consumption, as well as successful efforts=
+ in material reuse and recycling.
+
+Learn More (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9=
+m2wnsW7PgRW67Z_771f1HVPN293 )
+
+Featured Presentation
+
+A60_Thumb_FutureNeedsComputationalScience_Bottom_500x375 (https://web.altai=
+r.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2b3 )
+
+The Future Needs Computational Science and Engineering
+
+Professor Karen Willcox, director of the Oden Institute for Computational E=
+ngineering and Sciences, University of Texas at Austin explores the critica=
+l role of computational science -- an interdisciplinary field that at its c=
+ore involves mathematical models and simulations to understand physical and=
+ natural systems -- in a data-intensive future for engineering and science.
+
+Watch Now (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m=
+2wnsW7PgRW67Z_771f1HVPN2c3 )
+
+Upcoming Events
+
+March 5 | Industry event - Oil & Gas High Performance Computing Conference =
+(https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW=
+67Z_771f1HVPN2d3 )
+
+March 10 | Altair event - Knowledge Studio Spotlight Series: Fraud Detectio=
+n & Prevention: A Data-Driven Approach (https://web.altair.com/e2t/sc2/Mm-n=
+Fbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2f3 )
+
+March 11 | Altair event - Accelerate Heat Transfer and Fluid Flow Using Qui=
+ckerSim's CFD Toolbox for Compose (https://web.altair.com/e2t/sc2/Mm-nFbkyx=
+5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2g3 )
+
+March 16 | Altair event - Save 20% on your Engineering Software License Cos=
+ts with Altair SAO (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-j=
+W96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2h3 )
+
+Upcoming Online Training
+
+March 8-12 - Analysis of Electric Motors using Flux (https://web.altair.com=
+/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2j3 )
+
+March 8-10 - HyperWorks 2020 Introduction (https://web.altair.com/e2t/sc2/M=
+m-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2k3 )
+
+March 9 - Electric Machine and Actuator Analysis using Flux - Geometry and =
+Mesh (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW=
+7PgRW67Z_771f1HVPN2l3 )
+
+March 9-10 - Inspire Mold (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJdT=
+l6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2m3 )
+
+March 9 - SimSolid Introduction (https://web.altair.com/e2t/sc2/Mm-nFbkyx5Q=
+W8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2n3 )
+
+March 9 - OptiStruct for Linear Analysis (https://web.altair.com/e2t/sc2/Mm=
+-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2p3 )
+
+March 9 - Electric Motor Analysis using FluxMotor (https://web.altair.com/e=
+2t/sc2/Mm-nFbkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2q3 )
+
+Click here for more events (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8fJd=
+Tl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2r3 )
+
+Click here for more training  (https://web.altair.com/e2t/sc2/Mm-nFbkyx5QW8=
+fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771f1HVPN2s3 )
+
+Altair 1820 E Big Beaver  Troy, MI 48083 United States https://web.altair.c=
+om/hs/manage-preferences/unsubscribe?d=3DVncJJ98QxxTCW3H8bnL3T0pxnW1N4jCr3_=
+R592N1JxwY5XgZTzN1fkvKFkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771W1HWGWn7=
+jDJDWW7WZxTg8xHvfSW6F59L32Dnb-zf8XL32p04&v=3D3&_hsenc=3Dp2ANqtz-_Cp87nF2qaG=
+xTbRdj4liK3JSrWGRAFPdj_kjnN-mjHNctfmobGXSq9SbVtZ8eVrTDcYXehDTJ8_fQe7EIbxrzk=
+f7_KYg&_hsmi=3D113965590
+
+Manage subscription settings (https://web.altair.com/hs/manage-preferences/=
+unsubscribe?d=3DVncJJ98QxxTCW3H8bnL3T0pxnW1N4jCr3_R592N1JxwY5XgZTzN1fkvKFky=
+x5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771W1HWGWn7jDJDWW7WZxTg8xHvfSW6F59L3=
+2Dnb-zf8XL32p04&v=3D3&_hsenc=3Dp2ANqtz-_Cp87nF2qaGxTbRdj4liK3JSrWGRAFPdj_kj=
+nN-mjHNctfmobGXSq9SbVtZ8eVrTDcYXehDTJ8_fQe7EIbxrzkf7_KYg&_hsmi=3D113965590 =
+) =E2=80=82|=E2=80=82Unsubscribe (https://web.altair.com/hs/manage-preferen=
+ces/unsubscribe-all?d=3DVncJJ98QxxTCW3H8bnL3T0pxnW1N4jCr3_R592N1JxwY5XgZTzN=
+1fkvKFkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771W1HWGWn7jDJDWW7WZxTg8xHvf=
+SW6F59L32Dnb-zf8XL32p04&v=3D3&_hsenc=3Dp2ANqtz-_Cp87nF2qaGxTbRdj4liK3JSrWGR=
+AFPdj_kjnN-mjHNctfmobGXSq9SbVtZ8eVrTDcYXehDTJ8_fQe7EIbxrzkf7_KYg&_hsmi=3D11=
+3965590 )
+
+Altair World Headquarters 1820 Big Beaver =E2=80=82|=E2=80=82Troy, MI 48083=
+ United States
+
+=C2=A9 2021 Altair Engineering, Inc. All Rights Reserved. Nasdaq: ALTR
+------=_Part_25498_1705089010.1614821485659
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml"><head>
+        <title>Altair boost barista business with digital twin</title>
+        <meta property=3D"og:title" content=3D"Altair boost barista busines=
+s with digital twin">
+        <meta name=3D"twitter:title" content=3D"Altair boost barista busine=
+ss with digital twin">
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Du=
+tf-8">
+       =20
+     =20
+    <style type=3D"text/css" id=3D"hs-inline-css">
+        /*<![CDATA[*/
+        /* everything in this node will be inlined */
+/* =3D=3D=3D=3D Custom Classes =3D=3D=3D=3D */
+/*
+------------------------------------
+Important - to override the default styles you need to add default properti=
+es. Deleting them does not work.
+------------------------------------
+*/
+/* =3D=3D=3D=3D Page Styles =3D=3D=3D=3D */
+body, #backgroundTable { background-color: transparent; /* Use body to dete=
+rmine background color */
+font-family: Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida =
+Grande', sans-serif; }
+#templateTable { width: 700px; background-color: #ffffff; -webkit-font-smoo=
+thing: antialiased; }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { color:#333333; displ=
+ay:block; font-family: Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light'=
+, 'Lucida Grande', sans-serif; font-weight:bold; line-height:100%; margin-t=
+op:0; margin-right:0; margin-bottom:10px; margin-left:0; text-align:left; }
+h1, .h1 { font-size:26px; }
+h2, .h2 { font-size:20px; }
+h3, .h3 { font-size:15px; }
+h4, .h4 { font-size:13px; }
+h5, .h5 { font-size:11px; }
+h6, .h6 { font-size:10px; }
+/* =3D=3D=3D=3D Header Styles =3D=3D=3D=3D */
+#headerTable { background-color: transparent; color:#333333; font-family:Ar=
+ial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-s=
+erif; font-size:10px; line-height:120%; text-align:right; border-collapse: =
+separate !important; padding-right: 0/*email body padding*/; }
+#headerTable a:link, #headerTable a:visited, /* Yahoo! Mail Override */ #he=
+aderTable a .yshortcuts /* Yahoo! Mail Override */{ font-weight:normal; tex=
+t-decoration:underline; font-size:10px; }
+/* =3D=3D=3D=3D Template Wrapper Styles =3D=3D=3D=3D */
+#contentCell { padding: 0/*10px 20px*/; background-color: transparent; }
+#contentTableOuter { border-collapse: separate !important;
+background-color: transparent;
+box-shadow: none;
+padding: 0/*email body padding*/; }
+#contentTableInner { width: 700px; }
+/* =3D=3D=3D=3D Body Styles =3D=3D=3D=3D */
+.bodyContent { color:#333333; font-family:Arial, 'HelveticaNeue-Light', 'He=
+lvetica Neue Light', 'Lucida Grande', sans-serif; font-size: 13px; line-hei=
+ght:150%; text-align:left; }
+/* =3D=3D=3D=3D Column Styles =3D=3D=3D=3D */
+table.columnContentTable { border-collapse:separate !important; border-spac=
+ing:0;
+background-color: transparent; }
+td[class~=3D"columnContent"] { color:#333333; font-family:Arial, 'Helvetica=
+Neue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size=
+:13px; line-height:120%; padding-top:0/*20px*/; padding-right:0/*20px*/; pa=
+dding-bottom:0/*20px*/; padding-left:0/*20px*/; }
+/* =3D=3D=3D=3D Footer Styles =3D=3D=3D=3D */
+#footerTable { background-color: transparent; }
+#footerTable a { color: #999999; }
+      #footer .social  {
+      text-decoration:none!important;
+        border:none!important;
+      }
+#footerTable { color:#999999; font-family:Arial, 'HelveticaNeue-Light', 'He=
+lvetica Neue Light', 'Lucida Grande', sans-serif; font-size:12px; line-heig=
+ht:120%; padding-top:0/*20px*/; padding-right:0/*20px*/; padding-bottom:0/*=
+20px*/; padding-left:0/*20px*/; text-align:center; }
+#footerTable a:link, #footerTable a:visited, /* Yahoo! Mail Override */ #fo=
+oterTable a .yshortcuts /* Yahoo! Mail Override */{ font-weight:normal; tex=
+t-decoration:underline; }
+.hs-image-social-sharing-24 { max-width: 24px; max-height: 24px; }
+/* =3D=3D=3D=3D Standard Resets =3D=3D=3D=3D */
+.ExternalClass{ width:100%; } /* Force HM to display emails at full width *=
+/
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,=
+ .ExternalClass td, .ExternalClass div { line-height: 100%; } /* Force HM t=
+o display normal line spacing */
+body, table, td, p, a, li, blockquote{ -webkit-text-size-adjust:100%; -ms-t=
+ext-size-adjust:100%; } /* Prevent WebKit and Windows mobile changing defau=
+lt text sizes */
+table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; } /* Remove spacing=
+ between tables in Outlook 2007 and up */
+img { vertical-align: bottom; -ms-interpolation-mode:bicubic; } /* Allow sm=
+oother rendering of resized image in Internet Explorer */
+/* Reset Styles */
+body { margin:0; padding:0; }
+table { border-collapse:collapse !important; }
+body, #backgroundTable, #bodyCell{ height:100% !important; margin:0; paddin=
+g:0; width:100% !important; }
+a:link, a:visited { border-bottom: none; }
+/* iOS automatically adds a link to addresses */
+/* Style the footer with the same color as the footer text */
+#footer a { color: #999999;; -webkit-text-size-adjust: none; text-decoratio=
+n: underline; font-weight: normal;}
+/* Hide preview text on rendering */
+#preview_text { display: none; }
+/* =3D=3D=3D=3D Mobile Styles =3D=3D=3D=3D */
+@media only screen and (max-width: 650px) { /* =3D=3D=3D=3D Client-Specific=
+ Mobile Styles =3D=3D=3D=3D */
+    body, table, td, p, a, li, blockquote{ -webkit-text-size-adjust:none !i=
+mportant; } /* Prevent Webkit platforms from changing default text sizes */
+    body{ width:100% !important; min-width:100% !important; } /* Prevent iO=
+S Mail from adding padding to the body */
+    /* =3D=3D=3D=3D Mobile Reset Styles =3D=3D=3D=3D */
+    td[id=3D"bodyCell"] { padding:0/*10px*/ !important; }
+    /* =3D=3D=3D=3D Mobile Template Styles =3D=3D=3D=3D */
+    table[id=3D"templateTable"] { max-width:700px !important; width:100% !i=
+mportant; }
+    table[id=3D"contentTableInner"] { max-width:700px !important; width:300=
+px !important; }
+    /* =3D=3D=3D=3D Image Alignment Styles =3D=3D=3D=3D */
+    h1, .h1 { font-size:26px !important; line-height:125% !important; }
+    h2, .h2 { font-size:20px !important; line-height:125% !important; }
+    h3, .h3 { font-size:15px !important; line-height:125% !important; }
+    h4, .h4 { font-size:13px !important; line-height:125% !important; }
+    h5, .h5 { font-size:11px !important; line-height:125% !important; }
+    h6, .h6 { font-size:10px !important; line-height:125% !important; }
+    .hide { display:none !important; } /* Hide to save space */
+    /* =3D=3D=3D=3D Body Styles =3D=3D=3D=3D */
+    td[class=3D"bodyContent"] { font-size:16px !important; line-height:145%=
+ !important; }
+    /* =3D=3D=3D=3D Footer Styles =3D=3D=3D=3D */
+    td[id=3D"footerTable"]{ padding-left: 0px !important; padding-right: 0p=
+x !important; font-size:12px !important; line-height:145% !important; }
+    /* =3D=3D=3D=3D Image Alignment Styles =3D=3D=3D=3D */
+    table[class=3D"alignImageTable"] { width: 100% !important; }
+    td[class=3D"imageTableTop"] { display: none !important; /*padding-top: =
+10px !important;*/}
+    td[class=3D"imageTableRight"] { display: none !important; }
+    td[class=3D"imageTableBottom"] { padding-bottom: 10px !important; }
+    td[class=3D"imageTableLeft"] { display: none !important; }
+    /* =3D=3D=3D=3D Column Styles =3D=3D=3D=3D */
+    td[class~=3D"column"] { display: block !important; width: 100% !importa=
+nt;
+    /*
+    padding-top: 0 !important; padding-right: 0 !important; padding-bottom:=
+ 0 !important; padding-left: 0 !important;
+    */
+    }
+    td[class~=3DcolumnContent] { font-size:14px !important; line-height:145=
+% !important;
+    padding-top: 0/*10px*/ !important; padding-right: 0/*10px*/ !important;=
+ padding-bottom: 0/*10px*/ !important; padding-left: 0/*10px*/ !important; =
+}
+    #contentCell { padding: 0/*10px 0px*/ !important; }
+    #headerTable { padding-right: 0 !important; }
+    #contentTableOuter { padding: 0 !important; }
+    #preview_text {display: none;}
+/* End Mobile styles*/
+}
+/*=20
+----------------------------------------------------
+Global Altair Email Styles
+----------------------------------------------------
+*/
+.altair-e, .altair-e table, table, .altair-e td { border-collapse:collapse;=
+ mso-table-lspace:0pt; mso-table-rspace:0pt; }
+.altair-e img {border: none!important;}
+/*structure - altair*/
+.altair-e .twoColumn  td { width: 50%; }
+.altair-e .borderRight { border-right: 1px solid #ccc; padding-right: 20px;=
+ margin-right: 20px; }
+.altair-e .imageText {margin-bottom:20px;}
+.altair-e .imageText .column img {width:200px;}
+.altair-e .imageText   td.column { width: auto; }
+.altair-e .imageText.left .column img {padding-right:10px;}
+.altair-e .imageText.right .column img {padding-left:10px;}
+/*typography - altair */
+.altair-e hr { border: 0; height: 1px; background: #ccc; margin: 1em 0 1em =
+0;clear:both; }
+.altair-e .centerText {text-align:center;}
+.altair-e h1, .altair-e h2 { font-weight: bold;  }
+.altair-e h4 { color: #D50032; }
+.altair-e sup { font-size: 10px; line-height: 0; vertical-align: 3px; }
+.altair-e a sup { text-decoration: none; }
+/*view in browser link - altair */
+.altair-e .widget-type-email_view_as_web_page a.hubspot-mergetag { font-siz=
+e: 10px!important; }
+.altair-e .widget-type-email_view_as_web_page {padding-bottom:10px;}
+/*images - altair */
+.altair-e .widget-type-rich_text img {  }
+/*links - altair */
+.altair-e  a, .altair-e .thumbTable a { color: #005776; font-weight:bold;te=
+xt-decoration:none; }
+.altair-e h1 a,
+.altair-e h2 a,
+.altair-e h3 a,
+.altair-e h4 a,
+.altair-e h5 a
+{ color: inherit;  font-weight:inherit;  }
+      .altair-e  a:hover {
+        color:#FA4616!important;
+      }
+.altair-e a.btn {
+    font-size:16px;
+    color:#ffffff;
+    text-decoration:none;
+    border-radius:3px;
+=09-webkit-border-radius:3px;
+=09-moz-border-radius:3px;
+=09background-color:#015496;
+=09border-top:12px solid #015496;
+=09border-bottom:12px solid #015496;
+=09border-right:18px solid #015496;
+=09border-left:18px solid #015496;
+=09display:inline-block;
+}
+.altair-e a.btn:hover {opacity:0.9;}
+.altair-e .img-responsive  {width:100%;height:auto;}
+.altair-e .altair-table {margin:1em 0;}
+.altair-e .altair-table th {background:#d50032;color:#ffffff;}
+.altair-e .altair-table .sold-out td {background:#e2e2e2;}
+.altair-e .altair-table th, .altair-e .altair-table td {border:1px solid #c=
+cc;padding:0 5px;font-size: 13px;}
+/*date box- altair */
+.altair-e .date { vertical-align: bottom; padding-bottom: 10px; }
+.altair-e .date .widget-type-text { color: #005596; font-size: 17px; font-w=
+eight: bold;  }
+/*social links - altair */
+.altair-e .socialLinks a {-webkit-text-size-adjust:100%; -ms-text-size-adju=
+st:100%; color:#444444; font-weight:normal; text-decoration:none;}
+.altair-e .socialLinks img {vertical-align:bottom; -ms-interpolation-mode:b=
+icubic; border:none !important; max-width:32px; max-height:32px;}
+@media only screen and (max-width: 480px) {
+.altair-e .borderRight {border-right:none!important;padding-right:0!importa=
+nt;margin-right:0!important;}
+.altair-e .date div {text-align:left;}
+.altair-e .imageText.right .column img {padding:20px 0 0 0!important;width:=
+100%;}
+.altair-e td.column img {float:none!important;}
+}
+/*
+.altair-e #headerTable , .altair-e #headerTable td, .altair-e #footerTable =
+td, .altair-e #footerTable, .altair-e #contentCell  {background:transparent=
+;}
+*/
+/*=20
+----------------------------------------------------
+Template Specific Styles - Newsletter
+----------------------------------------------------
+*/
+.altair-e.compressed-text p, .altair-e.compressed-text td {font-size:14px;l=
+ine-height:1.2;}
+.altair-e.compressed-text h1, .h1 { font-size:20px; }
+.altair-e.compressed-text h2, .h2 { font-size:18px; }
+.altair-e.compressed-text h3, .h3 { font-size:14px; }
+.altair-e.compressed-text h4, .h4 { font-size:13px; }
+.altair-e.compressed-text h5, .h5 { font-size:11px; }
+.altair-e.compressed-text h6, .h6 { font-size:10px; }
+/*=20
+----------------------------------------------------
+Template Specific Styles - Text-Image
+----------------------------------------------------
+*/
+.altair-e.text-image .twoColumn {}
+/*=20
+----------------------------------------------------
+Template Specific Styles - Webinar
+----------------------------------------------------
+*/
+=20
+.altair-e.webinar .twoColumn  td.column { width: auto; }
+.altair-e.webinar .twoColumn  td.column.one { width: 30%; }
+.altair-e.webinar .twoColumn  td.column.one img {width:180px;}
+.altair-e.webinar .date { vertical-align: middle; padding-bottom: 0; }
+.altair-e.webinar .date .widget-type-text { color: inherit; font-size: 14px=
+; font-weight: bold;  }
+.altair-e.webinar .bodyContent {padding-top:10px;}
+@media only screen and (max-width: 480px) {
+.altair-e.webinar .twoColumn  td.column.one img, #hs_cos_wrapper_logo_image=
+ img {width:100%!important;height:auto;}
+.altair-e.webinar .twoColumn  td.column.one { width:100%!important; }
+}
+/*=20
+----------------------------------------------------
+Template Specific Styles - Altair in 60 Seconds
+----------------------------------------------------
+*/
+/* Structure test
+.altair-e.a60 td {border:1px solid green;)
+*/
+.altair-e.a60 #contentTableInner {width:100%!important;}
+    .altair-e.a60 #templateTable {padding:0!important;border:0!important;}
+.altair-e.a60 #contentTableOuter .vertPadding {padding-top:30px;padding-bot=
+tom:30px;}
+.altair-e.a60 #contentCell {padding:0!important;}
+.a60-news img {width:180px;height:180px;}
+.altair-e.a60 .rightPadding20 {padding-right:20px;}
+.altair-e.a60 .lefRightPadding50 {padding-left:50px;padding-right:50px;}
+.altair-e.a60 .lefRightPadding75 {padding:0 70px;}
+.altair-e.a60 .bottomPadding20 {padding-bottom:20px;}
+.altair-e.a60 .bottomPadding10 {padding-bottom:10px;}
+.altair-e.a60 #headerTable {padding-right:0!important;background:transparen=
+t;}
+.altair-e.a60  #masthead   {background-color:#d50032;padding-top:25px;paddi=
+ng-left:50px;padding-bottom:25px;}
+.altair-e.a60.corp-news  #masthead   {background-color:#ffffff;padding-top:=
+25px;padding-left:50px;padding-bottom:25px;}
+.altair-e.a60 #blue  {background-color:#00a9e0;border-bottom:10px solid #fd=
+cc61;padding-top:30px;padding-bottom:30px;}
+.altair-e.a60 #gray  {background-color:#eaebec;padding:20px;}
+.altair-e.a60 #preheader  {background-color:#eaebec;padding:0 50px;}
+.altair-e.a60 #row3 > td {padding-top:20px;padding-bottom:20px;}
+.altair-e.a60 #social.social  {background-color:#eaebec;border-bottom:1px s=
+olid #ccc;padding-top:30px;padding-bottom:30px;text-align:center!important;=
+}
+.altair-e.a60 #socialShareLinks {text-align:center!important;}
+.altair-e.a60 p {padding:0;margin-top:0;}
+.altair-e.a60 a  {
+    color: #005776;
+    font-weight: normal;
+    padding-bottom:1px;
+    text-decoration:underline;
+}
+.altair-e.a60 a.red,  .altair-e.a60 #row3 a   {
+    color: #005776;
+  font-size:13px;
+}
+.altair-e.a60 a:hover  {
+    color: #FA4616!important;
+}
+.altair-e.a60 #blue * {color:#ffffff;}
+.altair-e.a60 #blue a:hover  {
+    color: inherit!important;
+    border-bottom:1px solid #ffffff!important;
+}
+.altair-e.a60 h1 {
+    font-size:18px;
+}
+.altair-e.a60 #preheader .column {padding:10px 0;}
+/* Mobile Styles */
+@media only screen and (max-width: 650px) {
+    .altair-e.a60 .lefRightPadding50 {padding:0 25px!important;padding-top:=
+20px!important;padding-bottom:20px!important;}
+   =20
+    .altair-e.a60 #masthead {padding:0 25px!important;}
+=09.altair-e.a60 .lefRightPadding75 {padding:0 25px!important;}
+=09.altair-e.a60  #headerTable #masthead.templateColumnWrapper td  {padding=
+:25px 25px!important;}
+=09.a60-news img, .img-responsive img {width:100%!important;height:auto!imp=
+ortant;max-width:none!important;max-height:none!important;}
+=09td[id=3D"bodyCell"] {padding: 0px !important;}
+=09.altair-e.a60 #contentTableInner {width:100%!important;}
+   =20
+    .altair-e.a60 #preheader .column {width:50%!important;display:table-cel=
+l!important;padding:10px 0!important;}
+   =20
+    .altair-e.a60 #contentTableOuter {padding-top:0!important;}
+=09.altair-e.a60 #news-links {padding-top:30px!important;}
+.altair-e.a60 #masthead {}
+.altair-e.a60 .a60-events {width:auto!important;}
+.altair-e.a60 .rightPadding20 {padding-right:0!important;}
+/* END MEDIA QUERY*/
+}
+     =20
+/*=20
+----------------------------------------------------
+Template Specific Styles - TOGGLED
+----------------------------------------------------
+*/
+.altair-e.toggled #contentTableInner { width: 100% !important; }
+.altair-e.toggled #templateTable { padding: 0 !important; border: 0 !import=
+ant; }
+.altair-e.toggled #contentTableOuter .vertPadding { padding-top: 30px; padd=
+ing-bottom: 30px; }
+.altair-e.toggled #contentCell { padding: 0 !important; }
+.a60-news img { width: 180px; height: 180px; }
+.altair-e.toggled .rightPadding20 { padding-right: 20px; }
+.altair-e.toggled .lefRightPadding50, .altair-e.toggled .x_lefRightPadding5=
+0 { padding-left:50px;padding-right:50px; }
+.altair-e.toggled .lefRightPadding75 { padding: 0 50px; }
+.altair-e.toggled .bottomPadding20 { padding-bottom: 20px; }
+.altair-e.toggled .bottomPadding10 { padding-bottom: 10px; }
+.altair-e.toggled #headerTable { padding-right: 0 !important; background: t=
+ransparent; }
+.altair-e.toggled  #masthead { background-color: #80c343;   padding-left: 5=
+0px;   }
+.altair-e.toggled.corp-news  #masthead { background-color: #ffffff; padding=
+-top: 25px; padding-left: 50px; padding-bottom: 25px; }
+.altair-e.toggled #blue { background-color: #80c343;  padding-top: 30px; pa=
+dding-bottom: 30px; }
+.altair-e.toggled #gray {  padding: 20px 0; }
+.altair-e.toggled #row2 > .bodyContent {background-color: #eaebec;}
+.altair-e.toggled #preheader { background-color: #eaebec; padding: 0 50px; =
+}
+.altair-e.toggled #row3 > td { padding-top: 20px; padding-bottom: 20px; }
+.altair-e.toggled #row5 > .bodyContent  {padding:50px;}
+.altair-e.toggled #row6 > .bodyContent {padding:0 50px 50px 50px;}
+.altair-e.toggled #row6 a {border:none!important;}
+.altair-e.toggled #row5, .altair-e.toggled #row6 {background-color:#f1f1f3;=
+}
+.altair-e.toggled #social.social { background-color: #eaebec; border-bottom=
+: 1px solid #ccc; padding-top: 30px; padding-bottom: 30px; text-align: cent=
+er !important; }
+.altair-e.toggled #socialShareLinks { text-align: left ; }
+.altair-e.toggled p { padding: 0; margin-top: 0; }
+.altair-e.toggled  #contentCell h1 { color: #80c343;}
+.altair-e.toggled a { color: #58595b; font-weight: normal; border-bottom: 1=
+px solid #cccccc; padding-bottom: 1px; text-decoration: underline; }
+.altair-e.toggled a.red, .altair-e.toggled #row3 a { color:#80c343; border-=
+bottom: 1px solid #80c343 !important; }
+.altair-e.toggled a:hover { color: #80c343!important; border-bottom: 1px so=
+lid #80c343 !important; }
+.altair-e.toggled #blue * { color: #ffffff; }
+.altair-e.toggled #blue a:hover { color: inherit !important; border-bottom:=
+ 1px solid #ffffff !important; }
+.altair-e.toggled h1 { font-size: 18px; }
+.altair-e.toggled #preheader .column { padding: 10px 0; }
+.altair-e.toggled a { text-decoration: none !important; }
+.altair-e.toggled  #masthead  .spacer {width:150px;}
+ .altair-e.toggled #row3 .rightPadding20 {
+    padding-right: 90px;
+}
+.altair-e.toggled #footer a {text-decoration:none;}
+.altair-e.toggled  #masthead .tagline .spacer {width:150px;}
+/* Mobile Styles */
+@media only screen and (max-width:650px) {
+.altair-e.toggled  #masthead   .spacer {display:none;}
+    .altair-e.toggled .tagline {display:none;}
+.altair-e.toggled  #masthead {text-align:center;}
+    .altair-e.toggled .logo-wrap {text-align:center;}
+    .altair-e.toggled .lefRightPadding50 { padding: 0 25px !important; padd=
+ing-top: 20px !important; padding-bottom: 20px !important; }
+    .altair-e.toggled .lefRightPadding50 {width:calc(100% - 50px)!important=
+;}
+    .altair-e.toggled #masthead { padding: 0 25px !important; text-align:ce=
+nter!important; }
+    .altair-e.toggled .lefRightPadding75 { padding: 0 25px !important; }
+    .altair-e.toggled  #headerTable #masthead.templateColumnWrapper td { pa=
+dding: 25px 25px !important; }
+    .a60-news img, .img-responsive img, .altair-e.toggled #blue img { width=
+: 100% !important; height: auto !important; max-width: none !important; max=
+-height: none !important; }
+    td[id=3D"bodyCell"] { padding: 0px !important; }
+    .altair-e.toggled #contentTableInner { width: 100% !important; }
+    .altair-e.toggled #preheader .column { width: 100% !important; display:=
+ block !important; padding: 10px 0 !important; }
+    .altair-e.toggled .widget-type-email_view_as_web_page  div {text-align:=
+left!important;padding-top:0!important;}
+    .altair-e.toggled #contentTableOuter { padding-top: 0 !important; }
+    .altair-e.toggled #news-links { padding-top: 30px !important; }
+    .altair-e.toggled #masthead { }
+    .altair-e.toggled .a60-events { width: auto !important; }
+    .altair-e.toggled .rightPadding20 { padding-right: 0 !important; }
+   =20
+   .altair-e.toggled #socialShareLinks {margin-bottom:20px;}
+   =20
+    .altair-e.toggled  #row3 > td {padding-top:20px!important;}
+   =20
+  .altair-e.toggled  #socialShareLinks, .altair-e.toggled  #retailers {text=
+-align:center!important;}
+/* END MEDIA QUERY*/ }
+/*]]>*/
+</style>
+        <!-- http://www.emailon@cid.com/blog/details/C13/ensure_that_your_e=
+ntire_email_is_rendered_by_default_in_the_iphone_ipad -->
+        <!--                                                               =
+                                                      -->
+        <!--                                                               =
+                                                      -->
+        <!--                            _/    _/            _/          _/_=
+/_/                        _/                         -->
+        <!--                           _/    _/  _/    _/  _/_/_/    _/    =
+    _/_/_/      _/_/    _/_/_/_/                      -->
+        <!--                          _/_/_/_/  _/    _/  _/    _/    _/_/ =
+   _/    _/  _/    _/    _/                           -->
+        <!--                         _/    _/  _/    _/  _/    _/        _/=
+  _/    _/  _/    _/    _/                            -->
+        <!--                        _/    _/    _/_/_/  _/_/_/    _/_/_/   =
+ _/_/_/      _/_/        _/_/                         -->
+        <!--                                                               =
+_/                                                    -->
+        <!--                                                              _=
+/                                                     -->
+        <!--                                                               =
+                                                      -->
+        <!--                                                 Extra White Sp=
+ace!                                                  -->
+        <!--                                                               =
+                                                      -->
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - =
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" =
+content=3D"https://web.altair.com/-temporary-slug-ea8b47fb-a80b-42f7-b940-5=
+0634fb7390c"><meta name=3D"x-apple-disable-message-reformatting"><meta name=
+=3D"robots" content=3D"noindex,follow"></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"background-color:transparent; font-family:Aria=
+l, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-ser=
+if; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; height:100% !=
+important; margin:0; padding:0; width:100% !important" bgcolor=3D"transpare=
+nt">
+        <!-- Preview text (text which appears right after subject) -->
+        <div id=3D"preview_text" style=3D"display:none!important">How your =
+peers are using tech to get ahead, how simulation and modeling are helping =
+renewable energy</div>
+        <!--  The  backgroundTable table manages the color of the backgroun=
+d and then the templateTable maintains the body of
+        the email template, including preheader & footer. This is the only =
+table you set the width of to, everything else is set to
+        100% and in the CSS above. Having the width here within the table i=
+s just a small win for Lotus Notes. -->
+        <!--  The  backgroundTable table manages the color of the backgroun=
+d and then the templateTable maintains the body of
+        the email template, including preheader & footer. This is the only =
+table you set the width of to, everything else is set to
+        100% and in the CSS above. Having the width here within the table i=
+s just a small win for Lotus Notes. -->
+        <!--
+        #########################################################
+        -----------------------------------------------------------
+        Begin backgroundTable / Change table class for each new template
+        #########################################################
+        -----------------------------------------------------------
+    -->
+        <!-- Begin backgroundTable -->
+        <table align=3D"center" bgcolor=3D"transparent" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" height=3D"100%" width=3D"100%" id=3D"backgrou=
+ndTable" class=3D"altair-e a60" style=3D"-webkit-text-size-adjust:100%; -ms=
+-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso=
+-table-rspace:0pt; background-color:transparent; font-family:Arial, 'Helvet=
+icaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; height=
+:100% !important; margin:0; padding:0; width:100% !important">
+            <tbody><tr>
+                <td align=3D"center" valign=3D"top" id=3D"bodyCell" style=
+=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collap=
+se:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; height:100% !impor=
+tant; margin:0; padding:0; width:100% !important" height=3D"100%" width=3D"=
+100%"> <!-- When nesting tables within a TD, align center keeps it well, ce=
+ntered. -->
+                    <!-- Begin Template Container -->
+                    <!-- This holds everything together in a nice container=
+ -->
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ id=3D"templateTable" style=3D"-webkit-text-size-adjust:100%; -ms-text-size=
+-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rsp=
+ace:0pt; width:700px; background-color:#ffffff; -webkit-font-smoothing:anti=
+aliased; padding:0 !important; border:0 !important" width=3D"700" bgcolor=
+=3D"#ffffff">
+                        <tbody><tr>
+                            <td align=3D"center" valign=3D"top" style=3D"-w=
+ebkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:col=
+lapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                <!-- Begin Template Preheader -->
+                                <div class=3D"header-container-wrapper">
+        </div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" id=3D"headerTable" style=3D"-webkit-text-size-adjust:100%; -ms-te=
+xt-size-adjust:100%; mso-table-lspace:0pt; mso-table-rspace:0pt; background=
+-color:transparent; color:#333333; font-family:Arial, 'HelveticaNeue-Light'=
+, 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:10px; line=
+-height:120%; text-align:right; border-collapse:separate !important; paddin=
+g-right:0 !important; background:transparent" bgcolor=3D"transparent" align=
+=3D"right">
+                                    <tbody><tr>
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent" width=
+=3D"100%" colspan=3D"12" id=3D"preheader" style=3D"-webkit-text-size-adjust=
+:100%; -ms-text-size-adjust:100%; color:#333333; font-family:Arial, 'Helvet=
+icaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-s=
+ize:13px; line-height:150%; text-align:left; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt; background-color:#eaebec; padding:0=
+ 50px" bgcolor=3D"#eaebec">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"middle" colspan=3D"6" =
+width=3D"50.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%; -m=
+s-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; ms=
+o-table-rspace:0pt; padding:10px 0; text-align:left; font-family:Arial, 'He=
+lveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; fo=
+nt-size:13px; line-height:1.5em; color:#333333">
+                            <div class=3D"widget-span widget-type-text a60-=
+date" style=3D"" data-widget-type=3D"text">
+                                <div class=3D"layout-widget-wrapper">
+                                <div id=3D"hs_cos_wrapper_module_1454943295=
+6912336" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_=
+text" style=3D"color: inherit; font-size: inherit; line-height: inherit;" d=
+ata-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"text">March 4, 2021<=
+/div>
+                                </div><!--end layout-widget-wrapper -->
+                            </div><!--end widget-span -->
+                        </td>
+                        <td align=3D"left" valign=3D"middle" colspan=3D"6" =
+width=3D"50.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%; -m=
+s-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; ms=
+o-table-rspace:0pt; padding:10px 0; text-align:left; font-family:Arial, 'He=
+lveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; fo=
+nt-size:13px; line-height:1.5em; color:#333333">
+                            <div class=3D"widget-span widget-type-email_vie=
+w_as_web_page " style=3D"padding-bottom:10px" data-widget-type=3D"email_vie=
+w_as_web_page">
+                            </div><!--end widget-span -->
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent" width=
+=3D"100%" colspan=3D"12" id=3D"masthead" bgcolor=3D"#005776" style=3D"-webk=
+it-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#333333; font-fa=
+mily:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande',=
+ sans-serif; font-size:13px; line-height:150%; text-align:left; border-coll=
+apse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; padding-top:25px=
+; padding-left:50px; padding-bottom:25px; background-color:#005776">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"top" colspan=3D"12" wi=
+dth=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%; -ms=
+-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso=
+-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-Light=
+', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; lin=
+e-height:1.5em; color:#333333">
+                            <div class=3D"widget-span widget-type-linked_im=
+age " style=3D"" data-widget-type=3D"linked_image">
+                                <div class=3D"layout-widget-wrapper">
+                                  <a href=3D"https://web.altair.com/e2t/tc/=
+VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4Bm3lGmcV1-WJV7CgDKhW6GBFc07PdsTX=
+Vzv90P4JG6TfW5mjHdf2ZBmrsW93-ncq9gBzZQW99l8cd5_MBBqW4GDRQ625RqKkW8Q8TDH6bR1=
+b3W8xlRSm2H6KfnW6yD6jg4gxyHTW7cc05F6tgSRmW7sdwRY65CHxCV1Ll5C27F6C5W2zFlTl7b=
+mdS9W5gP1Nx120XnnW2Ht9mP60khYwW8bQDRM7Th3m6W5-4VKd3xcgpGW4Mc00K5WFmdY3q0R1"=
+ id=3D"hs-link-module_14549500004752676" style=3D"-webkit-text-size-adjust:=
+100%; -ms-text-size-adjust:100%; color:#333333; font-weight:normal; padding=
+-bottom:1px; text-decoration:underline; border-width:0px; border:0px" data-=
+hs-link-id=3D"0" target=3D"_blank"><img src=3D"https://cdn2.hubspot.net/hub=
+/47251/hubfs/template%20files/Altair_in_60_header.png?upscale=3Dtrue&amp;wi=
+dth=3D640&amp;upscale=3Dtrue&amp;name=3DAltair_in_60_header.png" class=3D"h=
+s-image-widget " style=3D"vertical-align:bottom; -ms-interpolation-mode:bic=
+ubic; max-height:50px; max-width:320px; border-width:0px; border:0px" width=
+=3D"320" alt=3D"Altair in 60 Seconds" title=3D"Altair in 60 Seconds" srcset=
+=3D"https://cdn2.hubspot.net/hub/47251/hubfs/template%20files/Altair_in_60_=
+header.png?upscale=3Dtrue&amp;upscale=3Dtrue&amp;width=3D640&amp;upscale=3D=
+true&amp;name=3DAltair_in_60_header.png 320w, https://cdn2.hubspot.net/hub/=
+47251/hubfs/template%20files/Altair_in_60_header.png?upscale=3Dtrue&amp;ups=
+cale=3Dtrue&amp;width=3D1280&amp;upscale=3Dtrue&amp;name=3DAltair_in_60_hea=
+der.png 640w" sizes=3D"(max-width: 320px) 100vw, 320px"></a>
+                             =20
+                              </div><!--end layout-widget-wrapper -->
+                            </div><!--end widget-span -->
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+<!--end header wrapper -->
+                                </tbody></table>
+                                <!-- End Template Preheader -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align=3D"center" valign=3D"top" id=3D"conte=
+ntCell" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; =
+border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; backg=
+round-color:transparent; padding:0 !important" bgcolor=3D"transparent">
+                                <!-- Begin Template Wrapper -->
+                                <!-- This separates the preheader which usu=
+ally contains the "open in browser, etc" content
+                                from the actual body of the email. Can alte=
+rnatively contain the footer too, but I choose not
+                                to so that it stays outside of the border. =
+-->
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" id=3D"contentTableOuter" style=3D"-webkit-text-=
+size-adjust:100%; -ms-text-size-adjust:100%; mso-table-lspace:0pt; mso-tabl=
+e-rspace:0pt; border-collapse:separate !important; background-color:transpa=
+rent; box-shadow:none; padding:0" bgcolor=3D"transparent">
+                                    <tbody><tr>
+                                        <td align=3D"center" valign=3D"top"=
+ class=3D"vertPadding" style=3D"-webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rs=
+pace:0pt; padding-top:30px; padding-bottom:30px">
+                                            <div class=3D"body-container-wr=
+apper">
+        </div><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D=
+"contentTableInner" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-a=
+djust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspac=
+e:0pt; width:100% !important" width=3D"100%">
+                                                <tbody><tr id=3D"row1">
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent lefRight=
+Padding75 bottomPadding20" width=3D"100%" colspan=3D"12" style=3D"-webkit-t=
+ext-size-adjust:100%; -ms-text-size-adjust:100%; color:#333333; font-family=
+:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', san=
+s-serif; font-size:13px; line-height:150%; text-align:left; border-collapse=
+:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; padding:0 70px; padd=
+ing-bottom:20px">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+            <td align=3D"left" valign=3D"top" colspan=3D"12" width=3D"100.0=
+%" class=3D"a60-news column" style=3D"-webkit-text-size-adjust:100%; -ms-te=
+xt-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-ta=
+ble-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-Light', =
+'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line-h=
+eight:1.5em; color:#333333">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:10=
+0%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"top" class=3D"bodyCont=
+ent" width=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; =
+-ms-text-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue=
+-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13p=
+x; line-height:150%; text-align:left; border-collapse:collapse; mso-table-l=
+space:0pt; mso-table-rspace:0pt">
+                            <table cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-te=
+xt-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; m=
+so-table-lspace:0pt; mso-table-rspace:0pt">
+                                <tbody><tr>
+                                    <td align=3D"left" valign=3D"top" colsp=
+an=3D"12" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt; text-align:left; font-family:Arial, 'Helveti=
+caNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-si=
+ze:13px; line-height:1.5em; color:#333333">
+                                        <div class=3D"widget-span widget-ty=
+pe-section_header " style=3D"" data-widget-type=3D"section_header">
+                                            <div class=3D"layout-widget-wra=
+pper">
+                                            <div id=3D"hs_cos_wrapper_modul=
+e_14549433884516528" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_w=
+rapper_type_section_header" style=3D"color: inherit; font-size: inherit; li=
+ne-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"section_header"><div class=3D"page-header section-header"></div></div>
+                                            </div><!--end layout-widget-wra=
+pper -->
+                                        </div><!--end widget-span -->
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=3D"left" valign=3D"top" class=3D"bodyCont=
+ent" width=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; =
+-ms-text-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue=
+-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13p=
+x; line-height:150%; text-align:left; border-collapse:collapse; mso-table-l=
+space:0pt; mso-table-rspace:0pt">
+                            <table cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0" width=3D"100%" class=3D"templateColumnWrapper" id=3D"altair-news" =
+style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                <tbody><tr>
+                                    <td align=3D"left" valign=3D"top" colsp=
+an=3D"4" width=3D"33.3333333333%" class=3D"column rightPadding20" style=3D"=
+-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:c=
+ollapse; mso-table-lspace:0pt; mso-table-rspace:0pt; padding-right:20px; te=
+xt-align:left; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Li=
+ght', 'Lucida Grande', sans-serif; font-size:13px; line-height:1.5em; color=
+:#333333">
+                                        <div class=3D"widget-span widget-ty=
+pe-linked_image " style=3D"" data-widget-type=3D"linked_image">
+                                            <div class=3D"layout-widget-wra=
+pper">
+                                            <div id=3D"hs_cos_wrapper_modul=
+e_14549434225357800" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_w=
+rapper_type_linked_image" style=3D"color: inherit; font-size: inherit; line=
+-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"=
+linked_image"><a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486=
+ZdcRPW8kTzPf4nLqQvN8pR4D73lGn_V1-WJV7CgTGRW2NYQMW6CwPMsW4RDdbG1BkmMJW4jW0Sw=
+4SxXSZN6Hd57c6tZW3W5Nsqcf6d2XH3M3sd9KCpGqyVpLCGL5zf4Z5W3WRrJp1r40C9W1W_BcT2=
+MX2zdW3YT-GH88snLbW1B0J0m5r9dGBW4pCgRQ74QnB_W67MTGJ6L_S7XN7GxNy5cHVmtW4zFKg=
+Y7DTTzBW2DQnx_4t53YJW7M9nc52J0GkPN5wyTZ9nQ2hFMXvg42xV0LBW82pq4S709bglW5Kj9p=
+t2n2tdtW29_d4b7sWq8WVN2MkY3LSyklVYdXKB55H-mWW8qxTpV8CLQCZW76Djqz54z31RV3nPS=
+_5Zxh_BW5ysLHb49jJ63W4TPlW-76cZ30W25HKyj4Klmf73hCF1" target=3D"_blank" id=
+=3D"hs-link-module_14549434225357800" rel=3D"noopener" style=3D"-webkit-tex=
+t-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font-weight:n=
+ormal; padding-bottom:1px; text-decoration:underline; border-width:0px; bor=
+der:0px" data-hs-link-id=3D"0"><img src=3D"https://web.altair.com/hs-fs/hub=
+fs/A60_Thumb_Altair_GruppoCimbali_Top_500x500.jpg?width=3D1000&amp;upscale=
+=3Dtrue&amp;name=3DA60_Thumb_Altair_GruppoCimbali_Top_500x500.jpg" class=3D=
+"hs-image-widget " style=3D"vertical-align:bottom; -ms-interpolation-mode:b=
+icubic; width:180px; height:180px; max-height:500px; max-width:500px; borde=
+r-width:0px; border:0px" width=3D"180" alt=3D"A60_Thumb_Altair_GruppoCimbal=
+i_Top_500x500" title=3D"A60_Thumb_Altair_GruppoCimbali_Top_500x500" srcset=
+=3D"https://web.altair.com/hs-fs/hubfs/A60_Thumb_Altair_GruppoCimbali_Top_5=
+00x500.jpg?upscale=3Dtrue&amp;width=3D1000&amp;upscale=3Dtrue&amp;name=3DA6=
+0_Thumb_Altair_GruppoCimbali_Top_500x500.jpg 500w, https://web.altair.com/h=
+s-fs/hubfs/A60_Thumb_Altair_GruppoCimbali_Top_500x500.jpg?upscale=3Dtrue&am=
+p;width=3D2000&amp;upscale=3Dtrue&amp;name=3DA60_Thumb_Altair_GruppoCimbali=
+_Top_500x500.jpg 1000w" sizes=3D"(max-width: 500px) 100vw, 500px" height=3D=
+"180"></a></div>
+                                           </div><!--end layout-widget-wrap=
+per -->
+                                        </div><!--end widget-span -->
+                                <div class=3D"widget-span widget-type-rich_=
+text " style=3D"" data-widget-type=3D"rich_text">
+                                            <div class=3D"layout-widget-wra=
+pper">
+                                            <div id=3D"hs_cos_wrapper_modul=
+e_14549434285018224imagecaption" class=3D"hs_cos_wrapper hs_cos_wrapper_wid=
+get hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inhe=
+rit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos=
+-type=3D"rich_text"><h1 style=3D"color:#333333; display:block; font-family:=
+Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans=
+-serif; line-height:100%; margin-top:0; margin-right:0; margin-bottom:10px;=
+ margin-left:0; text-align:left; font-weight:bold; font-size:18px" align=3D=
+"left">Altair Boosts Barista Business with Digital Twin</h1>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">Altair is collaborating with one of=
+ Italy=E2=80=99s leading coffee machine manufacturers to put data, simulati=
+on, and IoT at the core of its innovation efforts, reducing the need for ph=
+ysical tests, shortening time-to-market, and increasing energy efficiency.&=
+nbsp;</p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4D73lGn_V1-WJV7CgN8bW3hLnx5=
+32hXRkW139S0h2fpR5RN1fK9fQg1SZqW1czySg2SvT06W64nzCg82fnhYW4Ws3Fv3RV634W2XLQ=
+wc81GDG8W4_NTbs88FB-wW60JC-f2wSDx8W5fGsmd49Kn60W6bG8-b77p23DW6rwnST2f_ZSvW5=
+D54bh14S_NqVX5Vfq5FJ8hPN89mc9fWRQfmW4lqD6z2XQpdqW14zJS36kVYSMW3PSzTP711Ly-W=
+2Y1FSc3CqmpBW3-f_pc42Rq-bW85ZH-k4gP_NkVbGbsX97mNvWW4Hl-cz5dBh7DW9ldYfW7SYvY=
+3W1PvQQ691fscDW4nbjPp8p9SSLW5bmLMD7NksKmW1wM4z88Mc74zW824Y2S8ywT89V6JRbw1Zh=
+47-3k7f1" rel=3D"noopener" style=3D"-webkit-text-size-adjust:100%; -ms-text=
+-size-adjust:100%; color:#005776; font-weight:normal; padding-bottom:1px; t=
+ext-decoration:underline" data-hs-link-id=3D"1" target=3D"_blank">Learn mor=
+e</a></p></div>
+                                            </div><!--end layout-widget-wra=
+pper -->
+                                        </div><!--end widget-span -->
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" colsp=
+an=3D"8" width=3D"66.6666666667%" id=3D"news-links" class=3D"column" style=
+=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collap=
+se:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; text-align:left; f=
+ont-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Gr=
+ande', sans-serif; font-size:13px; line-height:1.5em; color:#333333">
+                                        <div class=3D"widget-span widget-ty=
+pe-rich_text " style=3D"" data-widget-type=3D"rich_text">
+                                            <div class=3D"layout-widget-wra=
+pper">
+                                            <div id=3D"hs_cos_wrapper_modul=
+e_14549434285018224" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_w=
+rapper_type_rich_text" style=3D"color: inherit; font-size: inherit; line-he=
+ight: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"ric=
+h_text"><p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-=
+text-size-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.alta=
+ir.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4CS3lGnJV1-WJV7CgMx=
+sW8scW0K6DCXQDW1FCM294Gd_f3W6XnNPM6hWWhHW8glZ-k7sTrwdW5rQx1d1x01MxW13lLT18L=
+NLDVW4V1ggs5QYRTMW3NpCS137F_DvW1FdTnx2DwBRBW6b1_922fT5xwN5Xq0VkbqkcLN7-_t2d=
+GsfQgW3hj6q43frk22W8m6XXY2BYNv0W1g0hC_7Dc9BDW6jRy4d4Vn0LBW18VWRn4tdFHkW4vJy=
+_B4S8YRPW8fJTC37Jk8SrW6sdxHb3zc4npW3-Nwr-7R0dH7W9dcD-x3dgDXnW6YtjcL5H7zJlW4=
+vpCgx6xF5sBW5xJ-_R5BLTSXW50TDFN4GQDDKW47Mmv93d8lyTW66qtXN1-NS-03ns41" style=
+=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776=
+; font-weight:normal; padding-bottom:1px; text-decoration:underline" data-h=
+s-link-id=3D"0" target=3D"_blank">How are Your Industry Peers Using Technol=
+ogy to Get Ahead?</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4CS3lGnJV1-WJV7CgYL9VPpdKz4=
+lCkxlW5R5Nfn20gvk7N4gxWyXxGbXzW7gRrXY36TFMYN2bw1hPj9QZqW1S8qwJ1PGY0_W5G1Q_x=
+2htPf_W7sSrJP1Z1P09W8qsHzq2_TvB_W7_VQfN2m02BVW6vsLCw1JTZG8W10gcRL1w9Q1lW4s1=
+zXc90XNfyW6FrPqM2pQXXDW1SdqZh6d6TSQN3Ghw-jvQS5CW3SvpzJ4QGwplW3wrbKJ52Qyl_W2=
+c4ZC53k0rY6W8gNW5Y8NsfjDW3HR1Xt8LqMfQN2LS3MkYgBC4W5S0x4t5KGbgCV__KCd4Qpg0cW=
+6gtY1J607qmQV8X_Sd963--XVLTZN692FCvPW7PwPKM5vfjTP3gvM1" rel=3D"noopener" st=
+yle=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005=
+776; font-weight:normal; padding-bottom:1px; text-decoration:underline" dat=
+a-hs-link-id=3D"0" target=3D"_blank">What's New in Altair EDEM?</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4Cy3lGnpV1-WJV7Cg-WTW5H194c=
+2D9rWDW3cjXhq42YRHlW4XtQp98vfNK9W6__nn-2gqCS7W1yYZfY1P5sLxVd5T-m2f6g5DW26BD=
+9w4BpXyfW6ZkDKH8c0Q11W5bv6j446_85CW4bGWrR6BYs48W93n-p86-By1pW38GZyl4CgPVlVb=
+fC196T1S3_W6Ts39X13Tvr3W7NN72975KtqQW4n_rrX6GDfRwW46pg874PzS6YW25mLtg9961mT=
+W6gKX1Z1JNXn3T63g399bdKhN929F-X2Dx19W6C0WLT1-1xVSW6h1XNp51CXXGW3G3BqZ99ykQ6=
+W8H8s1p70mXwdW4QxSgp7zJvg23gP41" rel=3D"noopener" style=3D"-webkit-text-siz=
+e-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font-weight:normal=
+; padding-bottom:1px; text-decoration:underline" data-hs-link-id=3D"0" targ=
+et=3D"_blank">Rising Renewables: How Simulation and Modeling are Helping Re=
+newable Energy (page 26)</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4B35kbT5V3Zsc37CgPz9W4vGY49=
+5G7-JbW1r_7Vn2bL7S8W4_cjWJ6695l5W2F1Y2H5qGwCwW3xPGXl3hhMx-W2YTTZB7MTQvJW6m3=
+n9m5XCP9GW2GGpnF7qP8FXW2t3L456jZn-hW8vyXBz7HLw0GW2bQgzC4JknKSW7Bb54k6dJvwsW=
+3SG5063Wk7X3W7h9BpK833V7CW7JqkKX5_DrvBW2c5Bg36Ppw1FW2zwgd588jVpXW40wx_58qCB=
+fgW50_Rrd8kSb9ZVC1jwY8lr6tFW82xw5n4WLv86VrSzPY2hPrnXW7hT1n57QGbwbVhgC4F3bjf=
+1XW5P1kls70-3XbN8ccDfVqjjN5W8FwdXZ2M6R0GW2dNtBR7hxQ5VW5Mw_TX8q4xKXW4TpmR31c=
+V5x-N6wsK8y9Pg3FW7ndYWT53FQMz3bhw1" style=3D"-webkit-text-size-adjust:100%;=
+ -ms-text-size-adjust:100%; color:#005776; font-weight:normal; padding-bott=
+om:1px; text-decoration:underline" data-hs-link-id=3D"0" target=3D"_blank">=
+Five Essential Tips to Keep a Lid on Spending When Running Oil and Gas Simu=
+lations in the Cloud</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4D73lGn_V1-WJV7Cg-gzW2TTS--=
+7FVtWGVq2nKH62twpCV_gr6p7ZcdkSW5RBMj965WB25W5N0Lb_8v-SpjN3HmVSlKJ_bPW7QPG9M=
+3s7-JxW7WBrvC13bxG-W6kxxKN7fjtbXVg5HKD6McN05W5yT8Bw85G1kXW8TDkvd67GsfFVqBMK=
+g5JpCTFW8ZwZ_G4czdJyW3sCy-F2nDkSmN6dn9wBvncf7W6FHGcT7RhLD-W2CRPN27rpWc_VjCx=
+kz3KTZTZW3VppC91mdRNhW1yb6nV9k6Dv8W5H1jYK5Wn0tZW4VZgfq45yBcDW7fkTQj6hhqRxW6=
+VMy8W2y68RBW2XWVQL4gtR7gVMCphH7ZQ3hRW7gT1c68KhvBPW59WT851ydDj2W4NxjrL6dX6qC=
+39SR1" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; c=
+olor:#005776; font-weight:normal; padding-bottom:1px; text-decoration:under=
+line" data-hs-link-id=3D"0" target=3D"_blank">Altair Black Employee Resourc=
+e Network Drives Impact, Engagement, and Diversity</a></p></div>
+                                            </div><!--end layout-widget-wra=
+pper -->
+                                        </div><!--end widget-span -->
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+                                                  <tr id=3D"row3">
+    <td align=3D"left" valign=3D"top" class=3D"bodyContent lefRightPadding7=
+5" width=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; -m=
+s-text-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-L=
+ight', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px;=
+ line-height:150%; text-align:left; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt; padding:0 70px; padding-top:20px; padding-bo=
+ttom:20px">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%" class=3D"templateColumnWrapper" id=3D"featured-table" style=3D"-webkit-=
+text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse;=
+ mso-table-lspace:0pt; mso-table-rspace:0pt">
+            <tbody><tr>
+    <td align=3D"left" valign=3D"top" colspan=3D"6" width=3D"50.0%" class=
+=3D"a60-video column rightPadding20" style=3D"-webkit-text-size-adjust:100%=
+; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt=
+; mso-table-rspace:0pt; padding-right:20px; text-align:left; font-family:Ar=
+ial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-s=
+erif; font-size:13px; line-height:1.5em; color:#333333">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+            <tbody><tr>
+                <td align=3D"left" valign=3D"top" class=3D"bodyContent  " w=
+idth=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; -ms-te=
+xt-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Light=
+', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; lin=
+e-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace:=
+0pt; mso-table-rspace:0pt">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-=
+adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table=
+-lspace:0pt; mso-table-rspace:0pt">
+                        <tbody><tr>
+                            <td align=3D"left" valign=3D"top" colspan=3D"12=
+" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%;=
+ -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-L=
+ight', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px;=
+ line-height:1.5em; color:#333333">
+                                <div class=3D"widget-span widget-type-secti=
+on_header " style=3D"" data-widget-type=3D"section_header">
+                                    <div class=3D"layout-widget-wrapper">
+                                    <div id=3D"hs_cos_wrapper_module_145494=
+357804713799" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_=
+type_section_header" style=3D"color: inherit; font-size: inherit; line-heig=
+ht: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"secti=
+on_header"><div class=3D"page-header section-header"><h1 style=3D"color:#33=
+3333; display:block; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica N=
+eue Light', 'Lucida Grande', sans-serif; line-height:100%; margin-top:0; ma=
+rgin-right:0; margin-bottom:10px; margin-left:0; text-align:left; font-weig=
+ht:bold; font-size:18px" align=3D"left">Altair Enlighten Award</h1></div></=
+div>
+                                    </div><!--end layout-widget-wrapper -->
+                                </div><!--end widget-span -->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td align=3D"left" valign=3D"top" class=3D"bodyContent bott=
+omPadding20" width=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjus=
+t:100%; -ms-text-size-adjust:100%; color:#333333; font-family:Arial, 'Helve=
+ticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-=
+size:13px; line-height:150%; text-align:left; border-collapse:collapse; mso=
+-table-lspace:0pt; mso-table-rspace:0pt; padding-bottom:20px">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-=
+adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table=
+-lspace:0pt; mso-table-rspace:0pt">
+                        <tbody><tr>
+                            <td align=3D"left" valign=3D"top" colspan=3D"12=
+" width=3D"100%" class=3D"column img-responsive" style=3D"-webkit-text-size=
+-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-tabl=
+e-lspace:0pt; mso-table-rspace:0pt; width:100%; height:auto; text-align:lef=
+t; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucid=
+a Grande', sans-serif; font-size:13px; line-height:1.5em; color:#333333" he=
+ight=3D"auto">
+                                <div class=3D"widget-span widget-type-linke=
+d_image " style=3D"" data-widget-type=3D"linked_image">
+                                    <div class=3D"layout-widget-wrapper">
+                                    <div id=3D"hs_cos_wrapper_module_145494=
+358683114662" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_=
+type_linked_image" style=3D"color: inherit; font-size: inherit; line-height=
+: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"linked_=
+image"><a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8=
+kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgCt1W3VQ8hX8jctLtW3FZdxR4MPJbbW8blpX63xJK8hV=
+cc5XY162Ph4W3JMGYg16CHQSW9dx0nQ2y6LchW7lR9dg90HBm8W7w1HLf7LHpqTW2tPcRM1jg63=
+wW3YQ6DZ8tXc91W6hKf1K4ZDLJmW3-wpG-6j6rtZW4hVLhc3wJxlmW4wbl6M3Yj2WxW2rdwRv1z=
+jlXpW8n99XL8yMtW3W1l38MQ8WyxC8W52_d5Y5bzx16W2hPXY97-cd-ZW8CfmYl4yDD8p3mGb1"=
+ target=3D"_blank" id=3D"hs-link-module_145494358683114662" rel=3D"noopener=
+" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-w=
+eight:normal; padding-bottom:1px; text-decoration:underline; color:#005776;=
+ font-size:13px; border-width:0px; border:0px" data-hs-link-id=3D"0"><img s=
+rc=3D"https://web.altair.com/hs-fs/hubfs/A60_thumb_EnlightenAward_Bottom_50=
+0x375.png?width=3D500&amp;upscale=3Dtrue&amp;name=3DA60_thumb_EnlightenAwar=
+d_Bottom_500x375.png" class=3D"hs-image-widget " style=3D"vertical-align:bo=
+ttom; -ms-interpolation-mode:bicubic; max-height:188px; max-width:250px; bo=
+rder-width:0px; border:0px" width=3D"250" alt=3D"A60_thumb_EnlightenAward_B=
+ottom_500x375" title=3D"A60_thumb_EnlightenAward_Bottom_500x375" srcset=3D"=
+https://web.altair.com/hs-fs/hubfs/A60_thumb_EnlightenAward_Bottom_500x375.=
+png?upscale=3Dtrue&amp;width=3D500&amp;upscale=3Dtrue&amp;name=3DA60_thumb_=
+EnlightenAward_Bottom_500x375.png 250w, https://web.altair.com/hs-fs/hubfs/=
+A60_thumb_EnlightenAward_Bottom_500x375.png?upscale=3Dtrue&amp;width=3D1000=
+&amp;upscale=3Dtrue&amp;name=3DA60_thumb_EnlightenAward_Bottom_500x375.png =
+500w" sizes=3D"(max-width: 250px) 100vw, 250px"></a></div>
+                                    </div><!--end layout-widget-wrapper -->
+                                </div><!--end widget-span -->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td align=3D"left" valign=3D"top" class=3D"bodyContent " wi=
+dth=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; -ms-tex=
+t-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Light'=
+, 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line=
+-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace:0=
+pt; mso-table-rspace:0pt">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-=
+adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table=
+-lspace:0pt; mso-table-rspace:0pt">
+                        <tbody><tr>
+                            <td align=3D"left" valign=3D"top" colspan=3D"12=
+" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%;=
+ -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-L=
+ight', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px;=
+ line-height:1.5em; color:#333333">
+                                <div class=3D"widget-span widget-type-rich_=
+text " style=3D"" data-widget-type=3D"rich_text">
+                                    <div class=3D"layout-widget-wrapper">
+                                    <div id=3D"hs_cos_wrapper_module_145494=
+359956316032" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_=
+type_rich_text" style=3D"color: inherit; font-size: inherit; line-height: i=
+nherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_text"=
+><h1 id=3D"MainContent_MainContent_h2BodyCopyHeader" style=3D"color:#333333=
+; display:block; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue =
+Light', 'Lucida Grande', sans-serif; line-height:100%; margin-top:0; margin=
+-right:0; margin-bottom:10px; margin-left:0; text-align:left; font-weight:b=
+old; font-size:18px" align=3D"left">Great Minds Think Light</h1>
+<div>The annual Altair Enlighten Award is officially open for nominations. =
+This year, the Award will honor the greatest sustainability and lightweight=
+ing advancements that show a successful commitment to reducing the carbon f=
+ootprint, mitigating water and energy consumption, as well as successful ef=
+forts in material reuse and recycling.&nbsp;</div>
+<div>&nbsp;</div>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgTCbW7tDVSz=
+8Yh-h-W9fBdj16cLGyKW71G94s22xhRnMmNFMZ1r3YQW3-nN9M5mLfLQW1tdf2d2Y1GlWW2R3hf=
+t3CvM2jN6MK307FMvCSW8217F97sc6m_W4-Kt7x1HtJ5WW8BzFt251_4pVN6HKBr7-H7fBW9hDS=
+2_5WjV4HW4rbpJb74nYTxW7_B28X5l1cpBN2CGr1L4xdFWW7ylylH7yZMwbV9qX2b6DqHK4W2rC=
+d6B7R0c-FW4xpTZ9686bZR3kHL1" rel=3D"noopener" style=3D"-webkit-text-size-ad=
+just:100%; -ms-text-size-adjust:100%; font-weight:normal; padding-bottom:1p=
+x; text-decoration:underline; color:#005776; font-size:13px" data-hs-link-i=
+d=3D"1" target=3D"_blank">Learn More</a></p></div>
+                                    </div><!--end layout-widget-wrapper -->
+                                </div><!--end widget-span -->
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+    </td>
+<td align=3D"left" valign=3D"top" colspan=3D"6" width=3D"50.0%" class=3D"a6=
+0-featured-client column" style=3D"-webkit-text-size-adjust:100%; -ms-text-=
+size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table=
+-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-Light', 'He=
+lvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line-heig=
+ht:1.5em; color:#333333">
+    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" =
+style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+        <tbody><tr>
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent" width=
+=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; -ms-text-s=
+ize-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Light', '=
+Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line-he=
+ight:150%; text-align:left; border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"top" colspan=3D"12" wi=
+dth=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%; -ms=
+-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso=
+-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-Light=
+', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; lin=
+e-height:1.5em; color:#333333">
+                            <div class=3D"widget-span widget-type-section_h=
+eader " style=3D"" data-widget-type=3D"section_header">
+                                <div class=3D"layout-widget-wrapper">
+                                <div id=3D"hs_cos_wrapper_module_1454943581=
+13014234" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type=
+_section_header" style=3D"color: inherit; font-size: inherit; line-height: =
+inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"section_h=
+eader"><div class=3D"page-header section-header"><h1 style=3D"color:#333333=
+; display:block; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue =
+Light', 'Lucida Grande', sans-serif; line-height:100%; margin-top:0; margin=
+-right:0; margin-bottom:10px; margin-left:0; text-align:left; font-weight:b=
+old; font-size:18px" align=3D"left">Featured Presentation</h1></div></div>
+                                </div><!--end layout-widget-wrapper -->
+                            </div><!--end widget-span -->
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent bottomPa=
+dding20" width=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:10=
+0%; -ms-text-size-adjust:100%; color:#333333; font-family:Arial, 'Helvetica=
+Neue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size=
+:13px; line-height:150%; text-align:left; border-collapse:collapse; mso-tab=
+le-lspace:0pt; mso-table-rspace:0pt; padding-bottom:20px">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"top" colspan=3D"12" wi=
+dth=3D"100%" class=3D"column img-responsive" style=3D"-webkit-text-size-adj=
+ust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-ls=
+pace:0pt; mso-table-rspace:0pt; width:100%; height:auto; text-align:left; f=
+ont-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Gr=
+ande', sans-serif; font-size:13px; line-height:1.5em; color:#333333" height=
+=3D"auto">
+                            <div class=3D"widget-span widget-type-linked_im=
+age " style=3D"" data-widget-type=3D"linked_image">
+                                <div class=3D"layout-widget-wrapper" id=3D"=
+featured-client-image">
+                                <div id=3D"hs_cos_wrapper_module_1454943590=
+13015115" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type=
+_linked_image" style=3D"color: inherit; font-size: inherit; line-height: in=
+herit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"linked_imag=
+e"><a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzP=
+f4nLqQvN8pR4Cy3lGnpV1-WJV7Cg-BPW6P7vc-1JN12GN3R35Fm2KljXW52rTXx6_mpLVW1-lTZ=
+y7q4tPBW3bPKvr4XJgypW18P4B96lG6JMW1hgqy_97RblwW1TKHHK1j_fZSW6DkyHy3qyq_CW1x=
+yvzx5KWSKNW2LFtBk50PMg8V6XMDD3qW-XPW82g2l55h-tVxW241N6x4H1r5CW3JsGNS1__16VW=
+3G5B2t8Gt397VCtgrt208HkXW8nH5836mFhk-W1K_cH44hpF0TW8Rc8N-3lF5ZCVZQQ-D55C5fY=
+W6jCbhX5cj6xwW80Dw0B3Qp6qBW1YNhCB8sKM-rW50sMl68bpHsqW385FnY8Vxb6N32Qs1" tar=
+get=3D"_blank" id=3D"hs-link-module_145494359013015115" rel=3D"noopener" st=
+yle=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-weigh=
+t:normal; padding-bottom:1px; text-decoration:underline; color:#005776; fon=
+t-size:13px; border-width:0px; border:0px" data-hs-link-id=3D"0"><img src=
+=3D"https://web.altair.com/hs-fs/hubfs/A60_Thumb_FutureNeedsComputationalSc=
+ience_Bottom_500x375.jpg?width=3D500&amp;upscale=3Dtrue&amp;name=3DA60_Thum=
+b_FutureNeedsComputationalScience_Bottom_500x375.jpg" class=3D"hs-image-wid=
+get " style=3D"vertical-align:bottom; -ms-interpolation-mode:bicubic; max-h=
+eight:188px; max-width:250px; border-width:0px; border:0px" width=3D"250" a=
+lt=3D"A60_Thumb_FutureNeedsComputationalScience_Bottom_500x375" title=3D"A6=
+0_Thumb_FutureNeedsComputationalScience_Bottom_500x375" srcset=3D"https://w=
+eb.altair.com/hs-fs/hubfs/A60_Thumb_FutureNeedsComputationalScience_Bottom_=
+500x375.jpg?upscale=3Dtrue&amp;width=3D500&amp;upscale=3Dtrue&amp;name=3DA6=
+0_Thumb_FutureNeedsComputationalScience_Bottom_500x375.jpg 250w, https://we=
+b.altair.com/hs-fs/hubfs/A60_Thumb_FutureNeedsComputationalScience_Bottom_5=
+00x375.jpg?upscale=3Dtrue&amp;width=3D1000&amp;upscale=3Dtrue&amp;name=3DA6=
+0_Thumb_FutureNeedsComputationalScience_Bottom_500x375.jpg 500w" sizes=3D"(=
+max-width: 250px) 100vw, 250px"></a></div>
+                                </div><!--end layout-widget-wrapper -->
+                            </div><!--end widget-span -->
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr>
+            <td align=3D"left" valign=3D"top" class=3D"bodyContent" width=
+=3D"100%" colspan=3D"12" style=3D"-webkit-text-size-adjust:100%; -ms-text-s=
+ize-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Light', '=
+Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line-he=
+ight:150%; text-align:left; border-collapse:collapse; mso-table-lspace:0pt;=
+ mso-table-rspace:0pt">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wid=
+th=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adju=
+st:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt">
+                    <tbody><tr>
+                        <td align=3D"left" valign=3D"top" colspan=3D"12" wi=
+dth=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:100%; -ms=
+-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso=
+-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaNeue-Light=
+', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; lin=
+e-height:1.5em; color:#333333">
+                            <div class=3D"widget-span widget-type-rich_text=
+ " style=3D"" data-widget-type=3D"rich_text">
+                                <div class=3D"layout-widget-wrapper">
+                                <div id=3D"hs_cos_wrapper_module_1454943596=
+23015565" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type=
+_rich_text" style=3D"color: inherit; font-size: inherit; line-height: inher=
+it;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_text"><h1=
+ style=3D"color:#333333; display:block; font-family:Arial, 'HelveticaNeue-L=
+ight', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; line-height:100=
+%; margin-top:0; margin-right:0; margin-bottom:10px; margin-left:0; text-al=
+ign:left; font-weight:bold; font-size:18px" align=3D"left"><span>The Future=
+ Needs Computational Science and Engineering</span></h1>
+<div>Professor Karen Willcox, director of the Oden Institute for Computatio=
+nal Engineering and Sciences, University of Texas at Austin explores&nbsp;t=
+he critical role of computational science -- an interdisciplinary field tha=
+t at its core involves mathematical models and simulations to understand ph=
+ysical and natural systems -- in a data-intensive future for engineering an=
+d science.</div>
+<div id=3D"hubspot-gated-form">
+<div id=3D"MainContent_MainContent_HubSpotGate_Gate">
+<div>&nbsp;</div>
+</div>
+</div>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4Cy3lGnpV1-WJV7CgzJ3VGdxNP4=
+szxWcW6rh8Mx1njFg3W418cX75-h_4vW6ZwDwC4jNRMzW6V07Cb3jcjhxW2CvhR69kgm1fW9bgH=
+Gh2XPsCrVP3jbb351hkJN31jXl2G5VD0W6scmST3XqRhTW3BPVmX37sB7ZW6srH0v38sxkjN5Nh=
+mG6n67nVW4-ZtS27h-g5-W7gV0S77KYKryW7r1DhL2p90qLW3mmLTF6S49DYN6DYRQF9MgyXW8x=
+2KHC5BR_7SW6BSYDQ1JjbgGVJ25tS3Hl8YQV5F__M5DCd2DW1xMCdl6RGpK1W5lX0Hs5zSr-bW6=
+0Dn0x1R0gjzW8QzFF83F-B_T3hSL1" rel=3D"noopener" style=3D"-webkit-text-size-=
+adjust:100%; -ms-text-size-adjust:100%; font-weight:normal; padding-bottom:=
+1px; text-decoration:underline; color:#005776; font-size:13px" data-hs-link=
+-id=3D"1" target=3D"_blank">Watch Now</a></p></div>
+                                </div><!--end layout-widget-wrapper -->
+                            </div><!--end widget-span -->
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody></table>
+</td>
+    </tr>
+</tbody></table>
+</td>
+</tr>
+                                                 =20
+    <tr id=3D"row2">
+        <!-- start two col table  -->
+        </tr></tbody></table><table cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" width=3D"100%" style=3D"-webkit-text-size-adjust:100%; -ms-text-s=
+ize-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-=
+rspace:0pt">
+          <tbody><tr style=3D"background-color: #eaebec;">
+        <!-- start events col  -->
+        <td align=3D"left" valign=3D"top" class=3D"bodyContent" style=3D"-w=
+ebkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#333333; font=
+-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grand=
+e', sans-serif; font-size:13px; line-height:150%; text-align:left; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; padding-left:=
+0px; padding-right:0px" width=3D"50%" colspan=3D"6">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adjust=
+:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt">
+                <tbody><tr>
+        <td align=3D"left" valign=3D"top" colspan=3D"12" width=3D"100.0%" c=
+lass=3D"a60-events column" style=3D"-webkit-text-size-adjust:100%; -ms-text=
+-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-tabl=
+e-rspace:0pt; background-color:#eaebec; padding:20px; text-align:left; font=
+-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grand=
+e', sans-serif; font-size:13px; line-height:1.5em; color:#333333" id=3D"gra=
+y" bgcolor=3D"#eaebec">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"100%" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%=
+; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"bodyContent"=
+ width=3D"100%" colspan=3D"6" style=3D"-webkit-text-size-adjust:100%; -ms-t=
+ext-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Ligh=
+t', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; li=
+ne-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text=
+-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso=
+-table-lspace:0pt; mso-table-rspace:0pt">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" colspan=
+=3D"6" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:=
+100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaN=
+eue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:=
+13px; line-height:1.5em; color:#333333">
+                                    <div class=3D"widget-span widget-type-s=
+ection_header " style=3D"" data-widget-type=3D"section_header">
+                                        <div class=3D"layout-widget-wrapper=
+">
+                                        <div id=3D"hs_cos_wrapper_module_14=
+549434793379289" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapp=
+er_type_section_header" style=3D"color: inherit; font-size: inherit; line-h=
+eight: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"se=
+ction_header"><div class=3D"page-header section-header"><h1 style=3D"color:=
+#333333; display:block; font-family:Arial, 'HelveticaNeue-Light', 'Helvetic=
+a Neue Light', 'Lucida Grande', sans-serif; line-height:100%; margin-top:0;=
+ margin-right:0; margin-bottom:10px; margin-left:0; text-align:left; font-w=
+eight:bold; font-size:18px" align=3D"left">Upcoming Events</h1></div></div>
+                                        </div><!--end layout-widget-wrapper=
+ -->
+                                    </div><!--end widget-span -->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align=3D"left" valign=3D"top" class=3D"bodyContent"=
+ width=3D"100%" colspan=3D"6" style=3D"-webkit-text-size-adjust:100%; -ms-t=
+ext-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Ligh=
+t', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; li=
+ne-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text=
+-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso=
+-table-lspace:0pt; mso-table-rspace:0pt">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" colspan=
+=3D"6" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:=
+100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaN=
+eue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:=
+13px; line-height:1.5em; color:#333333">
+                                    <div class=3D"widget-span widget-type-r=
+ich_text " style=3D"" data-widget-type=3D"rich_text">
+                                        <div class=3D"layout-widget-wrapper=
+">
+                                        <div id=3D"hs_cos_wrapper_module_14=
+549434837979721" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapp=
+er_type_rich_text" style=3D"color: inherit; font-size: inherit; line-height=
+: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_te=
+xt"><p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text=
+-size-adjust:100%; padding:0; margin-top:0"><span style=3D"color: inherit; =
+font-size: inherit;">March 5&nbsp;| Industry event - <a  href=3D"https://we=
+b.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJ=
+V7CgQCwW2CvwHZ1RszX-VNRRFR98-0fbW91W2p85W20g1W6f-98N5hH7b1W3VQtmq8q_GNGW7t7=
+w0k4lrXxtVcjyvz4BXv7hVQmx-N2LzFXqW5S0WM390xRFhW7cMj_B2WYFvSW4DDDBj33x2qmW1C=
+GLqh7fyHVNW7S7LQq8P73ZFW6Ypcrr46Y4kzW3y9KsG6dV_PFW20lLWC8HMptgW4dgRr-5qbZxX=
+VgJGVg69C91hW2c5FVx5T4DTqN6W931wpLZ363hH31" rel=3D"noopener" style=3D"-webk=
+it-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font-we=
+ight:normal; padding-bottom:1px; text-decoration:underline" data-hs-link-id=
+=3D"0" target=3D"_blank">Oil &amp; Gas High Performance Computing Conferenc=
+e</a></span></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><span style=3D"color: inherit; font=
+-size: inherit;">March 10 | Altair event - <a href=3D"https://web.altair.co=
+m/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4Bm3lGmcV1-WJV7CgT-mW8k3=
+HJZ1XXF8CW4x59Ws46NPcQW8TfM8N4z3lwfV8Pc142MCFx6W69PLrf1tlGBxN4g8bC-w5GNBW4c=
+-2WL8_1hN8W6R87MT46z2BgW4VKfVG4QwltmW1xWrPz1g9xvXW2tm7Tn2_KyKGW1Pj6Yz86HXxs=
+W3V6Qs91NXZtVW36yZNR2w5hx7W6fNn602ZhcjMW7y6PY53J9cZTV4GZFR5hKYqRW3d7nC44kYf=
+Lr3dK01" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;=
+ color:#005776; font-weight:normal; padding-bottom:1px; text-decoration:und=
+erline" data-hs-link-id=3D"0" target=3D"_blank">Knowledge Studio Spotlight =
+Series: Fraud Detection &amp; Prevention: A Data-Driven Approach</a></span>=
+</p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><span style=3D"color: inherit; font=
+-size: inherit;">March 11 | Altair event - <a href=3D"https://web.altair.co=
+m/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4Bm50yVcV3Zsc37CgGQgVWpl=
+nX4DmfnPVb7KZp7tbRfdW8yM2-k4YssRyW6CXvrc4pMkLVW32GcJ02rRBqgW86Npyz4p4NlXW12=
+WtPX3mmd7yW3w2bkl2t-wQDW9hK-Qx9gvqcSW1V4-K960nVSGW6ZfPM67jskX1W7hTvfH7bJ-Sl=
+W66b1CK19pR4nW7fvBs96ldZtwW3qh23h2fT1WwVPQ-434NyvwmN86czpGtK96JW5t6tdv7X5-d=
+bW1WBQtM4VWztNW8J8ZK44svjB-W1hwzYw52YCYpW9m30Wt1KzYFrW5PY03k2y2XdWW6k5Lr13k=
+PD52W1CRKzN616JWHW7-XH5s9f6n59N4SSn_jJwG7dW8dZlnV21pSjDW2BKJYP4RLR3bW1DYlmY=
+1nNJ29W3752Bd25z7gnW7BpnKY1zNvgkN2HdRQv240tVW2s2pYg4cBf-h3cj21" style=3D"-w=
+ebkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font=
+-weight:normal; padding-bottom:1px; text-decoration:underline" data-hs-link=
+-id=3D"0" target=3D"_blank">Accelerate Heat Transfer and Fluid Flow Using Q=
+uickerSim's CFD Toolbox for Compose</a></span></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><span style=3D"color: inherit; font=
+-size: inherit;">March 16 | Altair event - <a href=3D"https://web.altair.co=
+m/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BG5kbTJV3Zsc37CgHvrW9f4=
+zT56kPnmjW1CNJNm6hSFPqW3t13303jYMrxW4f8xc44kB12TW7zbg-T6rbvSNW4Dbfy28Z-L21W=
+6WjyHd4JzqR1W9cVrMv7kBg6dW52kbkM4nnl8SW448k-D8vKc9-W7hMc_-75Tmg5W5KvK6N6pnY=
+6mW9jKtXy8YsqvQW4-jYMC6nzVpnW3r8rTB4sP7RhW3H5c0r5vfPMGW7fGMx_6wxt1TW3G-2s95=
+0MjlDW3wPQXF8Z53NvW5-P-8x93pll9W7sy2rH32wT2CVsLSnD1R3QwtW5-VX6r4Yt5zDW5n6Gj=
+J650d-hW2yH9rx2NYfXHW3BqT_j3x6pZ6W4TJMWm5sb_hmN2Y0QGCTjj0CW7_pY_l2pyGVtW20w=
+cRd8sfxx-W7qZmnn40nYHcW1RxmPl7b6lTzW223KHj3dC_LsW7h6HP45zxbn7W56Mf9N8j-L9kW=
+1pkr7-9f4JC633Yl1" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-ad=
+just:100%; color:#005776; font-weight:normal; padding-bottom:1px; text-deco=
+ration:underline" data-hs-link-id=3D"0" target=3D"_blank">Save 20% on your =
+Engineering Software License Costs with Altair SAO</a>&nbsp;</span></p></di=
+v>
+                                        </div><!--end layout-widget-wrapper=
+ -->
+                                    </div><!--end widget-span -->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+            </tr>
+        </tbody></table>
+    </td><!-- /Events  -->
+        <!-- start training col  -->
+        <td align=3D"left" valign=3D"top" class=3D"bodyContent" style=3D"-w=
+ebkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#333333; font=
+-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grand=
+e', sans-serif; font-size:13px; line-height:150%; text-align:left; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; padding-right=
+:0px; padding-left:0" width=3D"50%" colspan=3D"6">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text-size-adjust=
+:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt">
+                <tbody><tr>
+        <td align=3D"left" valign=3D"top" colspan=3D"6" width=3D"100.0%" cl=
+ass=3D"a60-events column" style=3D"-webkit-text-size-adjust:100%; -ms-text-=
+size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table=
+-rspace:0pt; background-color:#eaebec; padding:20px; text-align:left; font-=
+family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Lucida Grande=
+', sans-serif; font-size:13px; line-height:1.5em; color:#333333" id=3D"gray=
+" bgcolor=3D"#eaebec">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"100%" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%=
+; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"bodyContent"=
+ width=3D"100%" colspan=3D"6" style=3D"-webkit-text-size-adjust:100%; -ms-t=
+ext-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Ligh=
+t', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; li=
+ne-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text=
+-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso=
+-table-lspace:0pt; mso-table-rspace:0pt">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" colspan=
+=3D"6" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust:=
+100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt; text-align:left; font-family:Arial, 'HelveticaN=
+eue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:=
+13px; line-height:1.5em; color:#333333">
+                                    <div class=3D"widget-span widget-type-s=
+ection_header " style=3D"" data-widget-type=3D"section_header">
+                                        <div class=3D"layout-widget-wrapper=
+">
+                                        <div id=3D"hs_cos_wrapper_module_a6=
+0_training_header" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wra=
+pper_type_section_header" style=3D"color: inherit; font-size: inherit; line=
+-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"=
+section_header"><div class=3D"page-header section-header"><h1 style=3D"colo=
+r:#333333; display:block; font-family:Arial, 'HelveticaNeue-Light', 'Helvet=
+ica Neue Light', 'Lucida Grande', sans-serif; line-height:100%; margin-top:=
+0; margin-right:0; margin-bottom:10px; margin-left:0; text-align:left; font=
+-weight:bold; font-size:18px" align=3D"left">Upcoming Online Training</h1><=
+/div></div>
+                                        </div><!--end layout-widget-wrapper=
+ -->
+                                    </div><!--end widget-span -->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align=3D"left" valign=3D"top" class=3D"bodyContent"=
+ width=3D"100%" colspan=3D"6" style=3D"-webkit-text-size-adjust:100%; -ms-t=
+ext-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-Ligh=
+t', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; li=
+ne-height:150%; text-align:left; border-collapse:collapse; mso-table-lspace=
+:0pt; mso-table-rspace:0pt">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D"-webkit-text=
+-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso=
+-table-lspace:0pt; mso-table-rspace:0pt">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" colspan=
+=3D"12" width=3D"100.0%" class=3D"column" style=3D"-webkit-text-size-adjust=
+:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; text-align:left; font-family:Arial, 'Helvetica=
+Neue-Light', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size=
+:13px; line-height:1.5em; color:#333333">
+                                    <div class=3D"widget-span widget-type-r=
+ich_text " style=3D"" data-widget-type=3D"rich_text">
+                                        <div class=3D"layout-widget-wrapper=
+">
+                                        <div id=3D"hs_cos_wrapper_module_a6=
+0_training_text" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapp=
+er_type_rich_text" style=3D"color: inherit; font-size: inherit; line-height=
+: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_te=
+xt"><p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text=
+-size-adjust:100%; padding:0; margin-top:0">March 8-12 - <a href=3D"https:/=
+/web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1=
+-WJV7CgTrtW18Z4yG13MFMhW5tnfcT5bSSdcF1pZQtYFmzzW5kz8P57ZrJbDW3dcTst2knSn9W6=
+xfS882hyqr6W8fkqZH6RhPZkW2chLX08CcYK7W5JbM5R39lqBsW3jpv0K2pH1yZW9l6Vj-2lPPQ=
+sN6XgDc7SJ3RtW5SZ4mb7QDSPjW1C4pvj2r3P-kW6RFt7720p7FjN93lW14mS9FzW421smB2B3K=
+9dN5xhMZ2JGc5rW8vrqkD4HyJ8MW4pG3T43fzL_WW34RNsC7F3c1xN57LVFLK7h9D3lbz1" sty=
+le=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#0057=
+76; font-weight:normal; padding-bottom:1px; text-decoration:underline" data=
+-hs-link-id=3D"0" target=3D"_blank">Analysis of Electric Motors using Flux<=
+/a>&nbsp;<a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRP=
+W8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7CgQbPW8_d6RX1X0bKHLWqjzX9rRkW3Xy8N-7HYvHXN1=
+SxpqYBV0SQMf4fhHnQxV-W23sgg54-5BqHW24yfcD4bncBmW8lwTts1CJb8NW6xZ4sc3cPJxDW6=
+9WVZs1j8nMgW87rtmZ1lkLlBW9klQZ18_6l_wW1gJBKn4bLWcXW9fFYJq17SGTDVdCxf07-ddts=
+W40lRzd4B58l-W4F2yJv3mtfVvW1439qN22fkd0N57PHXpwC0pyW4C3v8d7S_337W3DL3vB29YS=
+18W4_-mzd1PLHqf3myN1" style=3D"-webkit-text-size-adjust:100%; -ms-text-size=
+-adjust:100%; color:#005776; font-weight:normal; padding-bottom:1px; text-d=
+ecoration:underline" data-hs-link-id=3D"0" target=3D"_blank"></a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">March 8-10 - <a  href=3D"https://we=
+b.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJ=
+V7CgQ4CVm0CFH4Vqcs3W2bNfZ-8V-yYmW2MfzH55tw-8jW9hn14d6W8LvJW7pChl95qcFwcW6f-=
+fDT4jg_gbN1TM4pJWTQJDN6rXsd9Dc9sbN2gMy8gNqVyMW651Lx37WC-1QW3tSSbJ7J2dvMW4xD=
+dYd6T2cHRW7D6Tdx8cRqqRW5qysy01gY4t9W6P9zYZ6_V4hzW6l-Nh-5k2rTtW4F_bv546kTNtW=
+7JWp5d5WVqBQW1XtDtz2k4WxBN5JGf6jBhm6PW1B5N7532XjTqW8_SkJR657vHs3hfQ1" style=
+=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776=
+; font-weight:normal; padding-bottom:1px; text-decoration:underline" data-h=
+s-link-id=3D"0" target=3D"_blank">HyperWorks 2020 Introduction</a>&nbsp;</p=
+>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0"><a href=3D"https://web.altair.com/e=
+2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7CgXlZW40z2bC=
+7d2ZZ7VHGD3S8M5vtzW6dxRfv6FvrCLW7VpCyh5CJVn4VJVL5h7xLR4JW8VMH336Spr_GW8qCSV=
+24f1F4KW8jgLSJ48PDrmW6tyKqx32_D-kW1hCBFC34Ytq_W7KSRjP3vr62bW1jZRbb6KL11cW8n=
+HXwV7FBWSTW2nGmBQ8JPSvKN6d0LKHryrCFW74rXZ15D-b1kW5dHF2g8JyhHVW7x6R9w5lGHHwW=
+4gkL_d7KphVBW97Rdz175BrcFW45RzTt46LS8lW80F8Ny3cMWLV38vj1" style=3D"-webkit-=
+text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font-weigh=
+t:normal; padding-bottom:1px; text-decoration:underline" data-hs-link-id=3D=
+"0" target=3D"_blank"></a>March 9 - <a href=3D"https://web.altair.com/e2t/t=
+c/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7Cg-kkW50g3JJ492M=
+V0W75tG0p1V-wCjW6T5xTZ1RcWv9N5PrsvLzCFZRW4lhZ3358H0--W5VCC8J1f1Y1kW192H3L1t=
+fNGtW63kWsl1qkTXpW4vGdtz4fQ9P8W27d0z02Xfn0jN571nD2x1DTDW7zJfVR3g9FtmN5yRgcn=
+rY33PW5-Jl8c64n5zfW5DM4SY48z6W5W4WP9sk1f02rVW4QdnYw55GhpSW4CqsgZ1kRKcyW8tsh=
+g-6mz0J7W276Kdk1Q8c5gVRPJz438XxTdW3wZjLF4GDkVp3mcx1" style=3D"-webkit-text-=
+size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; font-weight:nor=
+mal; padding-bottom:1px; text-decoration:underline" data-hs-link-id=3D"0" t=
+arget=3D"_blank">Electric Machine and Actuator Analysis using Flux - Geomet=
+ry and Mesh</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">March 9-10 - <a  href=3D"https://we=
+b.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJ=
+V7CgS8lW8SZS2y73KSwGW2L5Tn31j30njW2bNv0p5Ws1NdW5kFyRc5LZJP7W43G6Lb4Vl_Q4W1F=
+GvvD2zq-QQW5wg1NJ7Y5hRkW89fWL253DDGDW32Qwbr8lC0zKW6L5_0J2tQ-7LW334PTt5ySyWQ=
+W3PYH5J18tPBrW352NlW7yFdZsVnt2bN11RXmKN9c-0qp6Hnv0V-vk_26pmvP3W6xcPGx929z-B=
+W5d7ydJ6Ksf-3W5ZSC2P6c1XpfW2d8Lsf1bFtn5W7THxMc7MJHXxN7srYk83Wsx337gF1" styl=
+e=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#00577=
+6; font-weight:normal; padding-bottom:1px; text-decoration:underline" data-=
+hs-link-id=3D"0" target=3D"_blank">Inspire Mold</a><a href=3D"https://web.a=
+ltair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7C=
+gC62W64pVhh1ykTVLW5q42sg8Mhn7GW2m3H986HrJsxW8bpR9Q45JfffW1lJlSt8bzFmlW5kP9t=
+Y5QmnG-N8X_xj_v-8WDM7D4n87ZRsfW4NZkqD5v2pMcW79w6Gp8tb7CwT-pfH23JRwDW36_WJ05=
+YlcZNW8P8Y671KxJp1W8dG9m28lWynyW8z7PX5912XbRVmX1GN4FXG2sW3kg2h76Rzy-kW3p0XQ=
+F61kCdKW8byLrv1qSZcWW2cMjZd54Zr2MW2Mc4h62G2dxPN8yFMYzblD763jP31" id=3D"acti=
+on_link5ff48e909eab814" style=3D"-webkit-text-size-adjust:100%; -ms-text-si=
+ze-adjust:100%; color:#005776; font-weight:normal; padding-bottom:1px; text=
+-decoration:underline" data-hs-link-id=3D"1" target=3D"_blank"></a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">March 9 - <a href=3D"https://web.al=
+tair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7Cg=
+LKJW3B_fpy6pPksFW7C3LZL5Zmv3RW20Z5nn5CxPxFW98RGWY1Zh0B6W4hZ50_3Q6zhTW11DKMH=
+8mDBlMN5wYVwL4Hc7XW3CJpb-5WJVHNN8fX2VpBBgKhW2vTCRg8WRF6KW4nb_XQ5ns_gWW2kVln=
+Z3hdQ8cW5bbYmH59SpRmW4FKPDj78YZcGW42wLnW292LZ4W7v_HBl6YcVLGW5nZFrw4GRR3yW73=
+136q4FQ8D9W3sTdxp96JqsGW64lNPz7tjXlpW6YwWWF8wnM5TF68z4MQDmb73g3_1" style=3D=
+"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; f=
+ont-weight:normal; padding-bottom:1px; text-decoration:underline" data-hs-l=
+ink-id=3D"0" target=3D"_blank">SimSolid Introduction</a>&nbsp;</p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">March 9 - <a href=3D"https://web.al=
+tair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7Cg=
+VzQW59VNc43KwgpLW2HQtrz932ZXsW5hJW3d8YWCv0W3w2SNG7p99qXW1TYlmL9cxCKJW75pDvb=
+499D37W8DTh6w71nscYN6pjKfgRz-vnW2047FQ3C7R0-W93bbfr3_TN-xW72VxZQ74fwdzN5X24=
+YlRh_v8N2ntdkx_byXxN3VKKJ66PMMjW6vWrL94_0cpfW2TlgmD7nh9fgN45-X2SxjHcvW1Tp1s=
+J10XJ3wW7GZBsB62x3VcW6K5WY541LVRwW15pFYm27-Cl2W8sJmk-7dVTCc3gSC1" style=3D"=
+-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776; fo=
+nt-weight:normal; padding-bottom:1px; text-decoration:underline" data-hs-li=
+nk-id=3D"0" target=3D"_blank">OptiStruct for Linear Analysis</a></p>
+<p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-text-siz=
+e-adjust:100%; padding:0; margin-top:0">March 9 - <a href=3D"https://web.al=
+tair.com/e2t/tc/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7Cg=
+zMsW2Qryk43hTs41W3KVy-D8YbJT4W48KVnN76GQGjW10tQcD8mFsNXW1GqR9T3-YWq3W9dTG3Z=
+2932pBW1HwWrY5XxwbTW7Zgc081LH7B2W9hshC23TYKWnW8f4ShP2g1gMtW8qX0Y069t6rSW6f9=
+_MT1Qr1bzW1y4W_Q8HHkLnW1PNcnr3_4sLkW2qqB6m8296RKN5SZlyCFpt84W43GD6K26QKNNW8=
+_xnwp8v6Gc_N2_tfxPW2z74W89NhkX1lvMP9W8VSpcf6XtR9bW47Gwj_41dSxs376t1" style=
+=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#005776=
+; font-weight:normal; padding-bottom:1px; text-decoration:underline" data-h=
+s-link-id=3D"0" target=3D"_blank">Electric Motor Analysis using FluxMotor</=
+a>&nbsp;</p></div>
+                                        </div><!--end layout-widget-wrapper=
+ -->
+                                    </div><!--end widget-span -->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+            </tr>
+        </tbody></table>
+    </td><!--/training -->
+  </tr>
+  <tr style=3D"background-color: #eaebec;">
+      <td colspan=3D"6" width=3D"50%" style=3D"-webkit-text-size-adjust:100=
+%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0p=
+t; mso-table-rspace:0pt">
+          <p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -m=
+s-text-size-adjust:100%; padding:0; margin-top:0; margin-left:20px; padding=
+-bottom:10px"><a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486=
+ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgLCkW3TPXYj35-spsW553_nv7-FNvSW3Xz1wZ=
+3M8PWDN5MD_q98NwWZN1hXCRzpMp8bMJRCL6xl49yW6rt1Fl7_1JcsW5h0py92gmH_-W3GfM_J6=
+b7Z38W72MhKD1Ll6h5W4L4_JT6hCDnsW6Xct_c1Y0_cTW7vP_nB65Rt0dW8x0DDv8Gk9GdW5P3r=
+fG6XP846W87jpw01Xbq3dW5zk9Fq5k6RWJW3gTpsZ4rNw13W4xtmy17S25CKW13StyP6wlCpJ3k=
+Rk1" class=3D"red" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-ad=
+just:100%; font-weight:normal; padding-bottom:1px; text-decoration:underlin=
+e; color:#005776; font-size:13px" data-hs-link-id=3D"0" target=3D"_blank">C=
+lick here for more events</a></p>
+      </td>
+      <td colspan=3D"6" width=3D"50%" style=3D"-webkit-text-size-adjust:100=
+%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-lspace:0p=
+t; mso-table-rspace:0pt">
+        <p style=3D"margin-bottom: 1em; -webkit-text-size-adjust:100%; -ms-=
+text-size-adjust:100%; padding:0; margin-top:0; margin-left:20px; padding-b=
+ottom:10px"><a href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW486Zd=
+cRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7CgSfZN7Pzq3TRPrNJW7-Qwwc721BHPVJ7mWP56GG=
+PZVPcWvy3N7J-5W6zGhr240BYVTW8NjGq17ZWN1NVsHwJg2RXx3rW8JQFx31-9JJ-VGtS7021MV=
+y1W8sP62b2_rqy5W3_6xRg1TK9BlVSgbcv5DkZDBW3pd4n_98c4dKW49xxsw8xRFB_W85rXyh1L=
+z8TcW81ZTl999rb3sW4MYgsh8LPktyW96r2W38dGND8W5fWKFp7tyYPWW7n3XFY46dHjdW7ywJh=
+T1P-d1mW1lgnGD7fqhJR36831" class=3D"red" style=3D"-webkit-text-size-adjust:=
+100%; -ms-text-size-adjust:100%; font-weight:normal; padding-bottom:1px; te=
+xt-decoration:underline; color:#005776; font-size:13px" data-hs-link-id=3D"=
+0" target=3D"_blank">Click here for more training </a></p>
+      </td>
+    </tr>
+  </tbody></table>
+</td></tr>
+<!--end body wrapper -->
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <!-- End Template Wrapper -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"-w=
+ebkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:col=
+lapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                <!-- Begin Template Footer -->
+  <!-- #############################
+                Begin Template Footer
+                ############################# -->
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" id=3D"footerTable" style=3D"-webkit-text-size-a=
+djust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; mso-table-=
+lspace:0pt; mso-table-rspace:0pt; background-color:transparent; color:#9999=
+99; font-family:Arial, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Luci=
+da Grande', sans-serif; font-size:12px; line-height:120%; padding-top:0; pa=
+dding-right:0; padding-bottom:0; padding-left:0; text-align:center" bgcolor=
+=3D"transparent" align=3D"center">
+                                  <tbody><tr>
+                                    <td align=3D"left" valign=3D"top" class=
+=3D"bodyContent " width=3D"100%" style=3D"-webkit-text-size-adjust:100%; -m=
+s-text-size-adjust:100%; color:#333333; font-family:Arial, 'HelveticaNeue-L=
+ight', 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px;=
+ line-height:150%; text-align:left; border-collapse:collapse; mso-table-lsp=
+ace:0pt; mso-table-rspace:0pt; padding-top:0">
+                                      <table cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%" class=3D"templateColumnWrapper" style=3D=
+"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:=
+collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                        <tbody><tr>
+                                          <td valign=3D"top" style=3D"-webk=
+it-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collap=
+se; mso-table-lspace:0pt; mso-table-rspace:0pt; text-align:left; padding-le=
+ft:20px; padding-right:20px; padding-bottom:20px; padding-top:0; font-famil=
+y:" ms sans-serif", arial, sans-serif; font-size: 15px; line-height: 1.5em;=
+ color: #444444; " align=3D"left">
+                          <div class=3D" widget-span widget-type-email_can_=
+spam " data-widget-type=3D" email_can_spam">
+                            <div id=3D"hs_cos_wrapper_footer" class=3D"hs_c=
+os_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color=
+: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-general-t=
+ype=3D"widget" data-hs-cos-type=3D"module"><table cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"100%" style=3D"-webkit-text-size-adjust:100%; -ms-text-=
+size-adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table=
+-rspace:0pt">
+<tbody><tr>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; display:n=
+one; color:#e5e5e5; overflow:hidden; mso-hide:all; margin:0; font-size:0">
+Altair 1820 E Big Beaver  Troy, MI 48083 United States https://web.altair.c=
+om/hs/manage-preferences/unsubscribe?d=3DVncJJ98QxxTCW3H8bnL3T0pxnW1N4jCr3_=
+R592N1JxwY5XgZTzN1fkvKFkyx5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771W1HWGWn7=
+jDJDWW7WZxTg8xHvfSW6F59L32Dnb-zf8XL32p04&amp;v=3D3
+</td>
+</tr>
+</tbody></table>
+<table id=3D"footer" cellspacing=3D"0" cellpadding=3D"" width=3D"100%" styl=
+e=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-colla=
+pse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+<tbody><tr>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:100=
+.0%; text-align:center; padding:0; font-family:Arial, 'HelveticaNeue-Light'=
+, 'Helvetica Neue Light', 'Lucida Grande', sans-serif; font-size:13px; line=
+-height:1.3em; color:#333333" width=3D"100.0%" align=3D"center">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" cl=
+ass=3D"social-table" style=3D"-webkit-text-size-adjust:100%; -ms-text-size-=
+adjust:100%; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+<tbody><tr>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; vertical-=
+align:middle; line-height:25px; padding-right:15px">
+<a class=3D"social" href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW=
+486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7Cg-PrV9lGCt92kkWgW3WyKFB5hgkPzW2cHF=
+qN505K-dW3jy8Lf90Z6K-W4dMzzp6sqdQmW8l2t-l8hj2tjW4Sd4LZ17vhtzW3mkBRZ7LB8BdW5=
+YkPPY4KcppcW37VRnQ6ldbxdN7pHYrwN4v8mW3W3fYV7F160JW7cZk0z6s3ny6W4_d7vd3GXG0x=
+W2wQSSV97r8j5W3qC7y23wDjGWW3CNFWW1jPQRTW8XPc357fb0YYN8LVN33vDNrQW5wsnZk2mTR=
+T13hjJ1" style=3D"-ms-text-size-adjust:100%; padding-bottom:1px; color:#999=
+999; -webkit-text-size-adjust:none; font-weight:normal; border:none !import=
+ant; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank"><img src=
+=3D"https://web.altair.com/hs-fs/hubfs/icons/facebook_social_media_icons.pn=
+g?noresize&amp;width=3D50&amp;upscale=3Dtrue&amp;name=3Dfacebook_social_med=
+ia_icons.png" width=3D"25" style=3D"-ms-interpolation-mode:bicubic; border:=
+none !important; width:25px; font-size:0; vertical-align:middle; mso-vertic=
+al-align-special:middle"></a></td>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; vertical-=
+align:middle; line-height:25px; padding-right:15px">
+<a class=3D"social" href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW=
+486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgFS9W3G8mZZ77QXBkW7vP5P553R5TwW8k-=
+Ks93vllrtW4bmNK041j6_pW74cf1y72-DHQW4Klxm98l7YFDW4sp8k_8bnshqW7qzBc91Xy-vYN=
+2RhkJsqvJGpW7fHGpn3NKhNNV9lrCv5TyPtCW8z83LL4vNJzBN6C5KgmxbH-VVHs7YW1brZmRW8=
+GmFJX4bqyPfW8Cd80M4R831KMNdnM4FmLhtVYJ7l_4R_RmBW1YJD9G7J3wKWV9wbSL6hj1WH3gT=
+N1" style=3D"-ms-text-size-adjust:100%; padding-bottom:1px; color:#999999; =
+-webkit-text-size-adjust:none; font-weight:normal; border:none !important; =
+text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank"><img src=3D"h=
+ttps://web.altair.com/hs-fs/hubfs/icons/instagram_social_media_icons.png?no=
+resize&amp;width=3D50&amp;upscale=3Dtrue&amp;name=3Dinstagram_social_media_=
+icons.png" width=3D"25" style=3D"-ms-interpolation-mode:bicubic; border:non=
+e !important; width:25px; font-size:0; vertical-align:middle; mso-vertical-=
+align-special:middle"></a>
+</td>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; vertical-=
+align:middle; line-height:25px; padding-right:15px">
+<a class=3D"social" href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW=
+486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgZSwW588-w87PxggVW1B31f18R8mZPW7p6=
+2gc5s0LrKW8wt3ZZ1tSM7_W60W1zf1FS6fBVxcZxD5LHyH5W2lFv437Ly3ZWW4PMY2T8pvNttW3=
+H_nFV8gSnF9VDCGBc5-VCHfW4-51dx3SmFNzV2zlSC2X4qGLVys8Fw95Wjp3W7zhT1T57QqCnW1=
+s0bdz8c82CPW3Hp6Nd1_cKXnW6VR4Q02T47M5W5m0Djh38kdPxW8FLzmT1BBGH3W6_d_bs208P_=
+t38V31" style=3D"-ms-text-size-adjust:100%; padding-bottom:1px; color:#9999=
+99; -webkit-text-size-adjust:none; font-weight:normal; border:none !importa=
+nt; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank"><img src=
+=3D"https://web.altair.com/hs-fs/hubfs/icons/linkedin_social_media_icon.png=
+?noresize&amp;width=3D50&amp;upscale=3Dtrue&amp;name=3Dlinkedin_social_medi=
+a_icon.png" width=3D"25" style=3D"-ms-interpolation-mode:bicubic; border:no=
+ne !important; width:25px; font-size:0; vertical-align:middle; mso-vertical=
+-align-special:middle"></a>
+</td>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; vertical-=
+align:middle; line-height:25px; padding-right:15px">
+<a class=3D"social" href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW=
+486ZdcRPW8kTzPf4nLqQvN8pR4BG3lGmwV1-WJV7CgYF2W66VQ6N24zzbCW5SMkYC3VCqd9W55W=
+Mhh58GySpW6SMCZX5J_nfJW28HB675691l4W47ym1X2BbfV7W3wyr2p9cnf5HW3FFFxJ5mS9LyW=
+1-k6d17jfMHTW7-N2JD3lgxTFV2J5D447_St2W3VbSBN4zXmf_W4vNGHn5npcQsW5PwjVZ6XP6q=
+LW8jRk1W300bddW7txgPh5BhsYJW6v4p0j2Tn7NMW4-94BM48YccKN3TJllrdL4ZzW1rQ4R81XT=
+0t73d941" style=3D"-ms-text-size-adjust:100%; padding-bottom:1px; color:#99=
+9999; -webkit-text-size-adjust:none; font-weight:normal; border:none !impor=
+tant; text-decoration:none" data-hs-link-id=3D"0" target=3D"_blank"><img sr=
+c=3D"https://web.altair.com/hs-fs/hubfs/icons/twitter_social_media_icons.pn=
+g?noresize&amp;width=3D50&amp;upscale=3Dtrue&amp;name=3Dtwitter_social_medi=
+a_icons.png" width=3D"25" style=3D"-ms-interpolation-mode:bicubic; border:n=
+one !important; width:25px; font-size:0; vertical-align:middle; mso-vertica=
+l-align-special:middle"></a></td>
+<td style=3D"-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; vertical-=
+align:middle; line-height:25px">
+<a class=3D"social" href=3D"https://web.altair.com/e2t/tc/VW_Tf570PPtgW4rVW=
+486ZdcRPW8kTzPf4nLqQvN8pR4BZ3lGmQV1-WJV7CgBqyW6tCJFw72HrzcVN0c_C3sjR4KW7sBP=
+ZL6ypT1tW5gRCSC8gyb7CW1zznD-3S0X3sN4p1BMC1mH36W26Jd212yhGkdW644Mpm8MbN7SN4T=
+1tFWQbM53W5mXdjB758MHQW4p4sb04NsfHsW4_t0-l80FBHwN88SsN8yj4CmW2nTBMf3npC2LW1=
+wytKq2MnHHZVt8HrB43pmS3W2-9KGM8hxNZyVzKmDb4dFhKpW1W0n4z1pcVpbW3CrrMv7LhFD0W=
+8pB-Qk7VRGwHW3513bp6GWdwz3pk21" style=3D"-ms-text-size-adjust:100%; padding=
+-bottom:1px; color:#999999; -webkit-text-size-adjust:none; font-weight:norm=
+al; border:none !important; text-decoration:none" data-hs-link-id=3D"0" tar=
+get=3D"_blank"><img src=3D"https://web.altair.com/hs-fs/hubfs/icons/youtube=
+_social_media_icons.png?noresize&amp;width=3D50&amp;upscale=3Dtrue&amp;name=
+=3Dyoutube_social_media_icons.png" width=3D"25" style=3D"-ms-interpolation-=
+mode:bicubic; border:none !important; width:25px; font-size:0; vertical-ali=
+gn:middle; mso-vertical-align-special:middle"></a>
+</td>
+</tr>
+</tbody></table>
+<p class=3D"email-actions" style=3D"-webkit-text-size-adjust:100%; -ms-text=
+-size-adjust:100%; padding:0; text-align:center; line-height:1.2; margin-to=
+p:10px; margin-bottom:10px" align=3D"center">
+<a target=3D"_blank" href=3D"https://web.altair.com/hs/manage-preferences/u=
+nsubscribe?d=3DVncJJ98QxxTCW3H8bnL3T0pxnW1N4jCr3_R592N1JxwY5XgZTzN1fkvKFkyx=
+5QW8fJdTl6Mb6-jW96tBMZ9m2wnsW7PgRW67Z_771W1HWGWn7jDJDWW7WZxTg8xHvfSW6F59L32=
+Dnb-zf8XL32p04&amp;v=3D3&amp;utm_source=3Dhs_email&amp;utm_medium=3Demail&a=
+mp;utm_content=3D113965926&amp;_hsenc=3Dp2ANqtz-_pOavL2JBaggT1BNvKKXZISQd4I=
+qmalAAk8dt99vrQAKszXnyuQaeaOQ5YXApQjyc_KHWr_NLGoZX-gSbLc-vYbxgqlg&amp;_hsmi=
+=3D113965590" data-unsubscribe=3D"true" style=3D"-ms-text-size-adjust:100%;=
+ padding-bottom:1px; color:#999999; -webkit-text-size-adjust:none; font-wei=
+ght:normal; text-decoration:none" data-hs-link-id=3D"0">Manage subscription=
+ settings</a>=E2=80=82<span>|</span>=E2=80=82<a target=3D"_blank" href=3D"h=
+ttps://web.altair.com/hs/manage-preferences/unsubscribe-all?d=3DVncJJ98QxxT=
+CW3H8bnL3T0pxnW1N4jCr3_R592N1JxwY5XgZTzN1fkvKFkyx5QW8fJdTl6Mb6-jW96tBMZ9m2w=
+nsW7PgRW67Z_771W1HWGWn7jDJDWW7WZxTg8xHvfSW6F59L32Dnb-zf8XL32p04&amp;v=3D3&a=
+mp;utm_source=3Dhs_email&amp;utm_medium=3Demail&amp;utm_content=3D113965926=
+&amp;_hsenc=3Dp2ANqtz-_pOavL2JBaggT1BNvKKXZISQd4IqmalAAk8dt99vrQAKszXnyuQae=
+aOQ5YXApQjyc_KHWr_NLGoZX-gSbLc-vYbxgqlg&amp;_hsmi=3D113965590" data-unsubsc=
+ribe=3D"true" style=3D"-ms-text-size-adjust:100%; padding-bottom:1px; color=
+:#999999; -webkit-text-size-adjust:none; font-weight:normal; text-decoratio=
+n:none" data-hs-link-id=3D"0">Unsubscribe</a>
+</p>
+<p style=3D"padding:0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:=
+100%; margin-top:0; color:#6d6d70; font-family:'Open Sans', 'Helvetica Neue=
+', Helvetica, Arial, sans-serif; line-height:1.3; margin-bottom:10px; text-=
+align:center; font-size:12px" align=3D"center">Altair World Headquarters 18=
+20 Big Beaver =E2=80=82<span>|</span>=E2=80=82Troy, MI 48083 United States<=
+br>
+=C2=A9 2021 Altair Engineering, Inc. All Rights Reserved. Nasdaq: ALTR</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+              </div>
+              <!--end widget-span -->
+          </td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+  </tbody></table>
+  <!-- End Template Footer -->
+                </td>
+            </tr>
+        </tbody></table>
+   =20
+<img src=3D"https://web.altair.com/e2t/to/VW_Tf570PPtgW4rVW486ZdcRPW8kTzPf4=
+nLqQvf8pR4l_22" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"dis=
+play:none!important;min-height:1px!important;width:1px!important;border-wid=
+th:0!important;margin-top:0!important;margin-bottom:0!important;margin-righ=
+t:0!important;margin-left:0!important;padding-top:0!important;padding-botto=
+m:0!important;padding-right:0!important;padding-left:0!important"></body></=
+html>
+------=_Part_25498_1705089010.1614821485659--
+

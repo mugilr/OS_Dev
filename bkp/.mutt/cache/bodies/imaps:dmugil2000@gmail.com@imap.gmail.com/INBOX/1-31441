@@ -1,0 +1,431 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp834434eja;
+        Sat, 6 Mar 2021 22:54:38 -0800 (PST)
+X-Received: by 2002:a5d:8d94:: with SMTP id b20mr14369983ioj.200.1615100078729;
+        Sat, 06 Mar 2021 22:54:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615100078; cv=none;
+        d=google.com; s=arc-20160816;
+        b=isLPv3UunjdwuksH5qOcrjrjD8zmf88HDnY+GSBIMniU3rtLpKBkX6LgxQrcxIpuM3
+         Wlso6tL8r4vspRt2Pxmh4V9PK92BulhyOoQpcnxwk0qJKg6Xibe5gSdmxt0XQukSMJdZ
+         FSeeWA1I7BJZDuDWOQZQ0HbgHvPqyVA2ZvXjskRAPAkFQSUnecgdilSRtKAPLgROTMxp
+         sO+wQ0BCSwVizyR2THOzqDOISAkc2zFW6avenkS+9xeB8Sv+bWB74ibPqFChyx501zll
+         1uFrHluK251omteh1F6QfzMmrqE+KAaZXdeoSD7BPP8kEpkX7EnjehRfYNcE9hduOE9G
+         EwsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:mime-version:dkim-signature;
+        bh=Jlk3yITBEUDg0skqJ6bgWmSGcdZzkQkK01ZM9TB6pGU=;
+        b=FLUSVRIDFRQ4eoF6g2ZhENqu2sqEf/L3WZ4OkO7YqA1kuQBZtorwQBASZktRPiSWkT
+         oyWLvJG9zr+e6zXd+bmkfxfoqDlm4WD5lFjWCpyc4aYvk4PJfEvZWxK/OIsXh7EqHyJm
+         /o4k7yHlDcdQ5znLi0QzllwOOzASCXjoLZE8s4j+ymFLtTv3x5PebnIGqrOPxd5Ho4Pd
+         GRTc6ZlmiJoT+ksTgXbQPEy5Izq3Cs+BBdZ4+qEKGdMh3Oqwe3aSY21ffppHH7zwkyW8
+         Z5GRTLJAaIoaA8Ee+P77PENNqEzyKkGiclYSHk0+aLUK8vH+nc875smUp8F2gsNdntz8
+         0N9w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=V6P13MuB;
+       spf=pass (google.com: domain of 3rnheybykcrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflzhk.bnl@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3rnhEYBYKCrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflZhk.bnl@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3rnhEYBYKCrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflZhk.bnl@trix.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id j8sor4311485iow.98.2021.03.06.22.54.38
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Sat, 06 Mar 2021 22:54:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3rnheybykcrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflzhk.bnl@trix.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=V6P13MuB;
+       spf=pass (google.com: domain of 3rnheybykcrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflzhk.bnl@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3rnhEYBYKCrkenqlr-qdbdhosr-mnqdokxfnnfkd.bnlcltfhk1zzzflZhk.bnl@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:message-id:date:subject:from:to;
+        bh=Jlk3yITBEUDg0skqJ6bgWmSGcdZzkQkK01ZM9TB6pGU=;
+        b=V6P13MuB6NS/W0Q5mnxQNtH2OZAn2ZqMblnsvRqbtVeT8NMG7+G/Ig3/M1qJJtsNuM
+         B3HD1cAKBHiJVi0bF1HzoQY8hZkUk96kARIw5EdcwNuTqtsLX48A79oQX/wBAjv5ZGmD
+         XYpwoOeelUeAUa9BW08EP/c8bEBUgqhW0+qsZOQIL5CEEyP+8KO88Hovw5T4UB2EpL4a
+         LV0QWrVRezDRq5HadN0IbzLwitvfrNICb2cqhH4Ilh5PdejG11US4miJUBmDczkUM2dV
+         yoG78vXJF639MFonWzAlLegGd2jNxPM1p5kjrvtyBF+BXtLV3brpTtpCN6WjnnKv4W2n
+         y9Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:message-id:date:subject:from:to;
+        bh=Jlk3yITBEUDg0skqJ6bgWmSGcdZzkQkK01ZM9TB6pGU=;
+        b=tl74Mxg9kckBhJF798XTqDpC3uRiptCUULAkwmXMqWupCW0tdAgab0QrKPvM3VjyNU
+         p+ny9JSYIRiglY8lS4aolMhO9IL6ZiMVNU5fvqLz3j7TLvXoO+vtHfZ+ZW4noYJ60Pxl
+         xbb4xgMET9rws2UKpUXsIAFySdIZisvy020AE6NPRXZtx/Gr6gErOMvINLuSR6F7M6EO
+         WrL04zqgNth9UUuTkWUxyit+iTO2TaNsUhlucOgtfmp90Kekd6uF6QubCIa0+LjQU2Df
+         yWLsa8EmVRw6nGye1S4z67LylMa/lK9Px2L8BXb5dEnHU/AzGIV1M8Tk47E/Vnr8zTkH
+         gR/w==
+X-Gm-Message-State: AOAM530nZZEd7d0FZGoo1Qwdsl2X2XHjEnahQHibhVPGeUQGRrNsOL+p
+	R33VjqAjmOGARUJTIkHbyXl+4S85IL8TPa8ukmIcUA==
+X-Google-Smtp-Source: ABdhPJzU883YMMAuy/DwXfIGgedhSxHV7kTeL9utAWk0CehYQdXaItjitcR1JtDAkbxmc5jzVIwxs/Cgtoi1o4/y7eLLWA==
+MIME-Version: 1.0
+X-Received: by 2002:a6b:f308:: with SMTP id m8mr3127733ioh.193.1615100078065;
+ Sat, 06 Mar 2021 22:54:38 -0800 (PST)
+Message-ID: <0000000000006e104005bceccaf6@google.com>
+Date: Sun, 07 Mar 2021 06:54:38 +0000
+Subject: Cyber Security Works Registration Form
+From: Google Forms <forms-receipts-noreply@google.com>
+To: dmugil2000@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000006e103305bceccaf3"
+
+--0000000000006e103305bceccaf3
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Google Forms
+
+
+Thanks for filling out Cyber Security Works Registration Form
+Here's what we got from you:
+
+
+Cyber Security Works Registration Form
+
+
+Email address *
+
+
+dmugil2000@gmail.com
+
+
+Name *
+
+
+MUGILRAJ D
+
+
+Gender *
+
+
+Male
+
+
+Female
+
+
+Other:
+
+
+Date of birth *
+
+
+MM
+
+01
+
+
+/
+
+
+DD
+
+23
+
+
+/
+
+
+YYYY
+
+2000
+
+
+Roll No *
+
+
+110117057
+
+
+Contact Number *
+
+
+7373809531
+
+
+UG Department *
+
+
+ICE
+
+
+PG Department *
+
+
+Na
+
+
+PG Specialization *
+
+
+Na
+
+
+10th Percentage *
+
+
+84
+
+
+12th Percentage *
+
+
+82
+
+
+UG CGPA/Percentage *
+
+
+6.4
+
+
+PG CGPA *
+
+
+0
+
+
+Resume (PDF Format) *
+
+File Name: Roll No_Name
+
+
+Submitted files
+
+
+
+PDF 110117057_Mugilraj - Mugil Raj.pdf
+
+
+Create your own Google Form
+
+
+
+--0000000000006e103305bceccaf3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style nonce=3D"Ns62/e3BHLlMI8E0BBak1w">@import url(https://fon=
+ts.googleapis.com/css?family=3DGoogle+Sans:400,500|Roboto:300,400,400i,500,=
+700&subset=3Dlatin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-e=
+xt);</style><style nonce=3D"Ns62/e3BHLlMI8E0BBak1w">[class=3D"x_body-conten=
+t-wrapper"] * {white-space: normal !important;}</style></head><body dir=3D"=
+ltr" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 14px; font-weight: 400; line-height: 20px;text-align: start; wo=
+rd-wrap: break-word; margin: 0; padding: 0; height: 100%; width: 100%;"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background-co=
+lor:rgb(103,58,183);" width=3D"100%" role=3D"presentation"><tbody><tr heigh=
+t=3D"64px"><td style=3D"padding: 0 24px;"><img alt=3D"Google Forms" height=
+=3D"26px" style=3D"display: inline-block; margin: 0; vertical-align: middle=
+;" width=3D"143px" src=3D"https://www.gstatic.com/docs/forms/google_forms_l=
+ogo_lockup_white_2x.png"></td></tr></tbody></table><div class=3D"body-conte=
+nt-wrapper" style=3D"padding: 12px; background-color: rgb(237,231,246);"><d=
+iv style=3D"margin: 0 auto; max-width: 640px; min-width: 154px;"><div style=
+=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; b=
+order-radius: 8px; margin-bottom: 12px;padding: 20px;"><h1 style=3D"color: =
+#202124;font-family: &#39;Google Sans&#39;,Roboto,Helvetica,Arial,sans-seri=
+f;font-size: 20px; font-weight: 400; line-height: 28px;margin: 0 0 12px;">T=
+hanks for filling out <a href=3D"https://docs.google.com/forms/d/e/1FAIpQLS=
+eKaFt1ZiKYpzbOLq-qDB_gV5SVf-a8GqecMbOiooCnaHg2rw/viewform?usp=3Dmail_form_l=
+ink" target=3D"_blank" style=3D"white-space: pre-wrap;">Cyber Security Work=
+s Registration Form</a></h1>Here's what we got from you:</div><div style=3D=
+"border-bottom: 1px solid #dadce0; border-left: 1px solid #dadce0; border-r=
+ight: 1px solid #dadce0; border-top: 8px solid rgb(103,58,183); padding: 20=
+px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;"><h1 di=
+r=3D"ltr" style=3D"font-family: &#39;Google Sans&#39;,Roboto,Helvetica,Aria=
+l,sans-serif;font-size: 32px; font-weight: 400; line-height: 42px;white-spa=
+ce: pre-wrap;margin: 0 0 12px;">Cyber Security Works Registration Form</h1>=
+<div style=3D"white-space: pre-wrap;margin-bottom: 12px;"></div></div><form=
+ action=3D'' method=3D'GET'><div style=3D"border: 1px solid #dadce0; paddin=
+g: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12p=
+x;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" st=
+yle=3D"color: #202124;font-family: &#39;Google Sans&#39;,Roboto,Helvetica,A=
+rial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-=
+space: pre-wrap;margin: 0 0 16px;">Email address<span style=3D"color: #d930=
+25;" aria-label=3D"Required question"> *</span></h2></div><div style=3D"pad=
+ding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white=
+-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 =
+8px; min-height: 20px;display: inline-block; max-width: 100%; min-width: 50=
+%;">dmugil2000@gmail.com</div></div></div></div><div style=3D"border: 1px s=
+olid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px=
+; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"=
+><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#39=
+;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line=
+-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Name<span style=3D"c=
+olor: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div s=
+tyle=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" sty=
+le=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);marg=
+in: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; mi=
+n-width: 50%;">MUGILRAJ D</div></div></div></div><div style=3D"border: 1px =
+solid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8p=
+x; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;=
+"><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#3=
+9;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; lin=
+e-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Gender<span style=
+=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2></div><=
+div style=3D"padding: 0 12px;"><div style=3D"margin-top: 16px;"><table styl=
+e=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-siz=
+e: 14px; font-weight: 400; line-height: 20px;margin-top: 8px; table-layout:=
+ fixed;"><tr><td><div role=3D"radio" aria-checked=3D"true" aria-label=3D"Ma=
+le" style=3D"border: solid 2px #5f6368; height: 16px; width: 16px; border-r=
+adius: 50%;"><div style=3D"background-color: #5f6368; border: solid 5px #5f=
+6368; border-radius: 50%; margin: 3px; height: 0; width: 0;"></div></div></=
+td><td style=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;"=
+>Male</td></tr></table></div><div style=3D"margin-top: 16px;"><table style=
+=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size=
+: 14px; font-weight: 400; line-height: 20px;color: #70757a;margin-top: 8px;=
+ table-layout: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"false" a=
+ria-label=3D"Female" style=3D"border: solid 2px #9aa0a6; height: 16px; widt=
+h: 16px; border-radius: 50%;"></div></td><td style=3D"min-width: 8px;"></td=
+><td style=3D"word-break: break-word;">Female</td></tr></table></div><div s=
+tyle=3D"margin-top: 16px;"><table style=3D"color: #202124;font-family: Robo=
+to,Helvetica,Arial,sans-serif;font-size: 14px; font-weight: 400; line-heigh=
+t: 20px;color: #70757a;margin-top: 8px; table-layout: fixed;"><tr><td><div =
+role=3D"radio" aria-checked=3D"false" aria-label=3D"Other: " style=3D"borde=
+r: solid 2px #9aa0a6; height: 16px; width: 16px; border-radius: 50%;"></div=
+></td><td style=3D"min-width: 8px;"></td><td style=3D"white-space: nowrap;"=
+>Other:&nbsp;&nbsp;</td><td style=3D"word-break: break-word;border-bottom: =
+1px dotted rgba(0,0,0,0.38);width: 99%;"></td></tr></table></div></div></di=
+v><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-co=
+lor: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><d=
+iv style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font=
+-family: &#39;Google Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size:=
+ 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0;=
+">Date of birth<span style=3D"color: #d93025;" aria-label=3D"Required quest=
+ion"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"disp=
+lay: inline-block; margin-top: 20px;"><div style=3D"display: inline-block; =
+margin: 0 2px; min-width: 14px; text-align: center;"><div style=3D"color: #=
+70757a;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 12px; font=
+-weight: 400; letter-spacing: .25px; line-height: 16px;margin-bottom: 12px;=
+ text-align: start;" aria-label=3D"Month">MM</div><div style=3D"border-bott=
+om: 1px solid rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2px; whit=
+e-space: pre;">01</div></div> <div style=3D"display: inline-block; margin: =
+0 2px; min-width: 5px; text-align: center;"><div style=3D"font-weight: 700;=
+">/</div></div> <div style=3D"display: inline-block; margin: 0 2px; min-wid=
+th: 14px; text-align: center;"><div style=3D"color: #70757a;font-family: Ro=
+boto,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-s=
+pacing: .25px; line-height: 16px;margin-bottom: 12px; text-align: start;" a=
+ria-label=3D"Day of the month">DD</div><div style=3D"border-bottom: 1px sol=
+id rgba(0, 0, 0, 0.12);height: 20px; letter-spacing: 0.2px; white-space: pr=
+e;">23</div></div> <div style=3D"display: inline-block; margin: 0 2px; min-=
+width: 5px; text-align: center;"><div style=3D"font-weight: 700;">/</div></=
+div> <div style=3D"display: inline-block; margin: 0 2px; min-width: 28px; t=
+ext-align: center;"><div style=3D"color: #70757a;font-family: Roboto,Helvet=
+ica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spacing: .25=
+px; line-height: 16px;margin-bottom: 12px; text-align: start;" aria-label=
+=3D"Year">YYYY</div><div style=3D"border-bottom: 1px solid rgba(0, 0, 0, 0.=
+12);height: 20px; letter-spacing: 0.2px; white-space: pre;">2000</div></div=
+></div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 1=
+2px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-=
+bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"co=
+lor: #202124;font-family: &#39;Google Sans&#39;,Roboto,Helvetica,Arial,sans=
+-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pr=
+e-wrap;margin: 0 0 16px;">Roll No<span style=3D"color: #d93025;" aria-label=
+=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;">=
+<div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wra=
+p;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height=
+: 20px;display: inline-block; max-width: 100%; min-width: 50%;">110117057</=
+div></div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20p=
+x 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;marg=
+in-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D=
+"color: #202124;font-family: &#39;Google Sans&#39;,Roboto,Helvetica,Arial,s=
+ans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space:=
+ pre-wrap;margin: 0 0 16px;">Contact Number<span style=3D"color: #d93025;" =
+aria-label=3D"Required question"> *</span></h2></div><div style=3D"padding:=
+ 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-spac=
+e: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; =
+min-height: 20px;display: inline-block; max-width: 100%; min-width: 50%;">7=
+373809531</div></div></div></div><div style=3D"border: 1px solid #dadce0; p=
+adding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom=
+: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"aut=
+o" style=3D"color: #202124;font-family: &#39;Google Sans&#39;,Roboto,Helvet=
+ica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;w=
+hite-space: pre-wrap;margin: 0 0 16px;">UG Department<span style=3D"color: =
+#d93025;" aria-label=3D"Required question"> *</span></h2></div><div style=
+=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=
+=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin=
+: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; min-=
+width: 50%;">ICE</div></div></div></div><div style=3D"border: 1px solid #da=
+dce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin=
+-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=
+=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#39;,Roboto=
+,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height:=
+ 24px;white-space: pre-wrap;margin: 0 0 16px;">PG Department<span style=3D"=
+color: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div =
+style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" st=
+yle=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);mar=
+gin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; m=
+in-width: 50%;">Na</div></div></div></div><div style=3D"border: 1px solid #=
+dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; marg=
+in-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 d=
+ir=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#39;,Robo=
+to,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-heigh=
+t: 24px;white-space: pre-wrap;margin: 0 0 16px;">PG Specialization<span sty=
+le=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2></div=
+><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"au=
+to" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.3=
+8);margin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 1=
+00%; min-width: 50%;">Na</div></div></div></div><div style=3D"border: 1px s=
+olid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px=
+; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"=
+><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sans&#39=
+;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line=
+-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">10th Percentage<span=
+ style=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2><=
+/div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=
+=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0=
+,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block; max-wi=
+dth: 100%; min-width: 50%;">84</div></div></div></div><div style=3D"border:=
+ 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-radiu=
+s: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 =
+12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Google Sa=
+ns&#39;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400=
+; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">12th Percentag=
+e<span style=3D"color: #d93025;" aria-label=3D"Required question"> *</span>=
+</h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div=
+ dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba=
+(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block; ma=
+x-width: 100%; min-width: 50%;">82</div></div></div></div><div style=3D"bor=
+der: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-r=
+adius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding=
+: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Googl=
+e Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight:=
+ 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">UG CGPA/Pe=
+rcentage<span style=3D"color: #d93025;" aria-label=3D"Required question"> *=
+</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%=
+;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dott=
+ed rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-bl=
+ock; max-width: 100%; min-width: 50%;">6.4</div></div></div></div><div styl=
+e=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; =
+border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D=
+"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#=
+39;Google Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font=
+-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">PG=
+ CGPA<span style=3D"color: #d93025;" aria-label=3D"Required question"> *</s=
+pan></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;">=
+<div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted =
+rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block=
+; max-width: 100%; min-width: 50%;">0</div></div></div></div><div style=3D"=
+border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; borde=
+r-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padd=
+ing: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: &#39;Go=
+ogle Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weig=
+ht: 400; line-height: 24px;white-space: pre-wrap;margin: 0;">Resume (PDF Fo=
+rmat)<span style=3D"color: #d93025;" aria-label=3D"Required question"> *</s=
+pan></h2><div style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,s=
+ans-serif;font-size: 12px; font-weight: 400; letter-spacing: .25px; line-he=
+ight: 16px;white-space: pre-wrap;margin: 4px 0 20px;" dir=3D"auto">File Nam=
+e: Roll No_Name</div></div><div style=3D"padding: 0 12px;">Submitted files<=
+div role=3D"list" aria-label=3D"Submitted files"><div dir=3D"auto" style=3D=
+"border: 1px solid #dadce0; border-radius: 4px; margin-top: 8px; padding: 8=
+px;"><table role=3D"listitem"><tr><td><img src=3D"https://ssl.gstatic.com/d=
+ocs/doclist/images/mediatype/icon_3_pdf_x32.png" alt=3D"PDF" style=3D"heigh=
+t: 16px; width: 16px;"></td><td style=3D"min-width: 4px;"></td><td style=3D=
+"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 1=
+4px; font-weight: 400; line-height: 20px;; word-break: break-word;">1101170=
+57_Mugilraj - Mugil Raj.pdf</td></tr></table></div></div></div></div></form=
+></div><table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"max-width: 672px; min-width: 154px;" width=3D"100%" role=3D"presentation">=
+<tbody><tr height=3D"24px"><td></td></tr><tr><td><a href=3D"https://docs.go=
+ogle.com/forms?usp=3Dmail_form_link" style=3D"color: #424242; font-size: 13=
+px;">Create your own Google Form</a></td></tr></tbody></table></div></body>=
+</html>
+--0000000000006e103305bceccaf3--

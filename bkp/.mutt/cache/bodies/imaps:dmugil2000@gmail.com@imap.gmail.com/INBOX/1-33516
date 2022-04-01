@@ -1,0 +1,81 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:18e9:0:0:0:0 with SMTP id e9csp1869593ejf;
+        Sun, 8 Aug 2021 03:41:12 -0700 (PDT)
+X-Received: by 2002:a05:6512:400d:: with SMTP id br13mr4441907lfb.563.1628419272239;
+        Sun, 08 Aug 2021 03:41:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628419272; cv=none;
+        d=google.com; s=arc-20160816;
+        b=uPTxqMvRDL+dJpucisRE/yubulCf1H1rc96gJ8NCJmAOqTqiECNg1lWQ5ir/Z4kBjj
+         OCicLS5GL07R0PSh+9soUKhlk/KRC7Bhy5lZ4YZ+KIxT+40E5A5IviTdIlfxTJsoNymH
+         xNfW6Dzst2kD5IuUBF663ROdQcQ7g1YdgxFyR31At07crk1CAmC0q/N9i6JDJwgO5Qbe
+         Yn6kYqJmQODJqfoi8vn0kjvaH+n2fefIjondA6yNZAA1/yK3oXdhwt3aAtdNamGHzDqy
+         PhQRsfhvAghwQpdFkgw/LvUzqEvqlA2/5co0/nymaTv1CUDlGk43tQ/bzwcuwbQEa8F8
+         7cCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=sVSJ3LQfOJrxnTsNfVi6md1+BiK9KHrbW9fh3KGrrGc=;
+        b=hMebhQBL21lr4vpAfCxTNxzVdU9JgiyQ+Na9mKuTV7xOjpDJctDzub71nY/7doIlbx
+         XiOttRU4zv9/haLKb6Or2OUjmEK7HueB72YFlBKORh4/o8XhtuHiYYLDL1p2nu0fCudL
+         fc0iQDubL0W+4yNcGqWH5+M6+QPHzdMBm00ke+Fq5IO5iJaGsubPm/daTi2JTYKM8kra
+         l/uuYCqQoFhDbuO7JubTWcLDV+OaxxvhV/5aRPuRX93pWGvwKFTcNApvq94e4o4VT0bu
+         flw1Q+1tVf7j/jkDtRYVmHrv/ZEPcnDU51yl9rwOTm/FGmEimQn/nNKlNVPSTpNwv6lg
+         c8Rw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VOuzlhJU;
+       spf=pass (google.com: domain of dmugilraj@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dmugilraj@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <dmugilraj@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id p25sor5881203ljg.45.2021.08.08.03.41.12
+        for <dmugil2000@gmail.com>
+        (Google Transport Security);
+        Sun, 08 Aug 2021 03:41:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dmugilraj@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VOuzlhJU;
+       spf=pass (google.com: domain of dmugilraj@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=dmugilraj@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=sVSJ3LQfOJrxnTsNfVi6md1+BiK9KHrbW9fh3KGrrGc=;
+        b=VOuzlhJUILVT0PFo9f2MOGfb+GjlDKDJ9pwgoZUHGgh0Rh35wyJOYCbY6TbSi4tyRj
+         WGUu1hjgosvlQ5sHOTltTSEbXI/ZT7wr9KDewnTmND4vaZKBMERqvUVcYBnWQBSZaCnI
+         glIdGBgbFs4unnZH85lzkQvtUZU1WIrAptoIboS7qH5EcmVVEtQdm6mRwl565uv96/i1
+         vKKx2cQItwh/f+T9YsNsuOaUULAmbHJMmWf26k66BFt6IE/2uroZW7he+gBGjrhJ04nB
+         Kf2MFJS781LqTZOmIOFM66RofT+vlzZF2l1if55iQsYS6nRZSMgt7vwMKwPSzdg9KKzn
+         92EA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=sVSJ3LQfOJrxnTsNfVi6md1+BiK9KHrbW9fh3KGrrGc=;
+        b=UaVnumsuEfClBDwUHODVwQ2m/3WjQY1QJrXlcwctFgBZs8YW5sJAdM8klDI4lkq0Ah
+         JTvmxKfuHjrmiVSpnpza3l5+Vgkjytn7tzkKA2xiN0I6Kiy4dY2pCbuOXoPFwrKDypyj
+         Co6QFuyT1rHq7WD7zEXn3/2DAXX8aPAoYgoJ3pCLDAXKVWHa87M0e+rnwD4vip6PrsFV
+         ZZXuZLSoLRaGLiAxeAwCzNlK+DwlNmULV6Fk5F8CRfBqFbCsr5FhJ3BYemqrJ3BgKF4Q
+         suv9u0IIn4+hzkkAbVYNKwm1GT7SFjY9BG2kKpzD6nAq/hH7BfTPJmB+VSzI1ZjS1AIZ
+         JvgA==
+X-Gm-Message-State: AOAM533bCTmWo42ADyKdK9u3UW2YS50yjoLLe1SPJm9iIGpvANaGZsvn
+	Sv1Ewj7TlWkHOc1HOztWf3whH9lRi1LZdfmI9hkVjHgh
+X-Google-Smtp-Source: ABdhPJwLUooTe2v51jLWrID95bt/7lsLCD4fKf3jCkhPvL13B0uSfT5319m7tiwkc7SjcAdva+FO32Y+k6ck0qV2Ufg=
+X-Received: by 2002:a2e:9881:: with SMTP id b1mr11978211ljj.53.1628419271621;
+ Sun, 08 Aug 2021 03:41:11 -0700 (PDT)
+MIME-Version: 1.0
+From: Mugil Raj <dmugilraj@gmail.com>
+Date: Sun, 8 Aug 2021 16:11:00 +0530
+Message-ID: <CAOAukLnbRXakgx=A14mB3YkzdU+x105EL5y0yUBCBp+4KeUNVQ@mail.gmail.com>
+Subject: Test
+To: MugilRaj <dmugil2000@gmail.com>, 110117057@nitt.edu
+Content-Type: multipart/alternative; boundary="0000000000003b010305c909e868"
+
+--0000000000003b010305c909e868
+Content-Type: text/plain; charset="UTF-8"
+
+dkdskl
+
+--0000000000003b010305c909e868
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">dkdskl</div>
+
+--0000000000003b010305c909e868--

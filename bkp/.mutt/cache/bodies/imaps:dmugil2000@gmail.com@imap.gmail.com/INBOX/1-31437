@@ -1,0 +1,869 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:1103:0:0:0:0 with SMTP id h3csp445543eja;
+        Sat, 6 Mar 2021 08:09:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwhhgoWQtiL0R8cEn4xabrFG5rYdfbvV2LVxPIPFsMV7ts3VYL1dSEFpWl4Q9dzjVi7Ei+t
+X-Received: by 2002:a9d:7457:: with SMTP id p23mr12073878otk.315.1615046979448;
+        Sat, 06 Mar 2021 08:09:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615046979; cv=none;
+        d=google.com; s=arc-20160816;
+        b=C6k/DW6YfAI7qZTIM03F38q72tRelbyI7+4fE0kBGfD+w2EmPFPln7Jz6r+JATj40K
+         Xgkbj119Rur7IDbDrFQUb2tQERvg1EwN1tGTGdWg1v77nFtFJLsiQ/nHayoxJDndhljO
+         r4Um80L4C6V1SaKSoFgWn3ku3GOSWRq/fA7UvVBVb7F0EKin+hHbSlDytrj7AvGGoaFP
+         yCfrEAfcVZ8NekAjXigmkqEOAx+c0fpXuo2HHGkQaJdto09ggq3QWNufEqp33bLQj+U5
+         PsFHbpd7cC/hdTXBpLyQ/R/v1dzDgv//d00j/TfXgXIOzQjrT53ZenuPI8c8RJBhMJKM
+         7NwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:message-id:to:reply-to:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=oE2fAaH16EVeaYm97kcWW2Nzt0zWMlKi9xeo+3/XDLM=;
+        b=pxFgxsIx+/ncBQWtXwM5xYWSUWrVUYKatqJi5+FA1RViJfpfROxk9yL4ZGug3UvJyq
+         7VpZO7Z6bpbXaPZfqkPumfdqd/DxzlxwLiKQSfw1rZiGg0OG5s5gcv54JQUdsxfqCTzF
+         bnVH9ZMo7fatPGOxwd4hJQux4tUUMD6wZDDHMPVUEwu+s02885fuhPaMCwpZPZYOgDjL
+         aQP9JGeh+m8oBewtWTWWkSoqePERKuzpd2bgjl1mVBeq1FrkkIi5M7ppCeRcmi6249pF
+         GSEzYK1B+6s4NnjVf/IsG+W8Bf+PVN8L2ZGq47c1288mDxLLbtpTwafzmZDpfcdnjgpd
+         ZW9A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@glassdoor.com header.s=s1 header.b=GST1SOUl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=Zx+ZYWY6;
+       spf=pass (google.com: domain of bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com designates 50.31.57.91 as permitted sender) smtp.mailfrom="bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=glassdoor.com
+Return-Path: <bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com>
+Received: from o6.mail8.glassdoor.com (o6.mail8.glassdoor.com. [50.31.57.91])
+        by mx.google.com with ESMTPS id n9si5258406oib.233.2021.03.06.08.09.38
+        for <dmugil2000@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 06 Mar 2021 08:09:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com designates 50.31.57.91 as permitted sender) client-ip=50.31.57.91;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@glassdoor.com header.s=s1 header.b=GST1SOUl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=Zx+ZYWY6;
+       spf=pass (google.com: domain of bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com designates 50.31.57.91 as permitted sender) smtp.mailfrom="bounces+361267-8389-dmugil2000=gmail.com@mail9.glassdoor.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=glassdoor.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=glassdoor.com; 
+	h=content-type:from:mime-version:reply-to:to:subject; s=s1; 
+	bh=oE2fAaH16EVeaYm97kcWW2Nzt0zWMlKi9xeo+3/XDLM=; b=GST1SOUlj1lGR
+	ToAx6Pta7ici+/XcIYHT004zTcUWzA6YV2IL7xw7Cb4dKABbiChF8bgCUqBf+QnF
+	Z/pLePe6FH5PVgs09dhY8A7CVuikDPwUx+GzW+caKfy7Tvi4TARSu4yQo33jiakj
+	qIS5dheQLekqsTaKmhCbX1AKYZazoE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:from:mime-version:reply-to:to:subject:x-feedback-id; 
+	s=smtpapi; bh=oE2fAaH16EVeaYm97kcWW2Nzt0zWMlKi9xeo+3/XDLM=; b=Zx
+	+ZYWY6LjFRI3mO9yiZ9FPn2M1z+gkYDjWgiTZQYeR2WizClb/JcAU/GbQLJZ6VoV
+	nHxJllPoLmCXUuSmuUxeRte6i1jSc+OZAyobY8u340nmuLQStigSOz5SirJx+wRj
+	vqSYh2uuh/wVzGpC8PDYxgaGJ8Y7P4tb+5Wp+2Iuc=
+Received: by filter2338p1mdw1.sendgrid.net with SMTP id filter2338p1mdw1-1577-6043A942-1D
+        2021-03-06 16:09:38.686875484 +0000 UTC m=+446533.232408307
+Received: from MzYxMjY3 (unknown)
+	by ismtpd0164p1iad2.sendgrid.net (SG) with HTTP id enuuTjQzT7ibWa9UsPOHhg
+	Sat, 06 Mar 2021 16:09:38.637 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=87d9d5b42f38f527d703144267aa5e9ca0dfad771e6ab86669829dfb3d70
+Date: Sat, 06 Mar 2021 16:09:38 +0000 (UTC)
+From: "Glassdoor" <noreply@glassdoor.com>
+Mime-Version: 1.0
+Reply-to: noreply@glassdoor.com
+To: dmugil2000@gmail.com
+Message-ID: <enuuTjQzT7ibWa9UsPOHhg@ismtpd0164p1iad2.sendgrid.net>
+Subject: It's Been A While...
+X-SG-EID: 8cHo1McgdtsgsC/v+00RjBch0nZ0lYxprs9RXAE8SB1ZGmfcKpUz0sAiR9caqmKn2o537Hftq7x7Td
+ +OeHjt15Q2XcWH1S4FP3lz5qUJWrAOVsnJg62DCvSNQVNVtdNxZNqmCGnl6mYop2bopDek5HTkhZog
+ xgRrqUiPMsjwziGqgUFYSG7jyujooejTuvixMAMge5PiI3UqcKEDuBYOnZG2+sbdAY8shh3CvcXV5K
+ o=
+X-SG-ID: NMHL7tc+AxXN/stbBh9h7D71ZZdyOrsS4Q7QB3zVXvk0gc7EKsJKX3gkcZYlL12aNlHKnFXKBODuJW
+ FVqlNTTntAKwb1V+lKI3mLH3Qw/GCHxajAvoenqKnSsRSeZ6YZASgktdDdJE7BJTZ5ah2XqWo3gpcT
+ uRqklQUXI5oKM1m+2qXKX05to3G3Eq4NJw/3STtneLFKEe8d88q8lqTgOci/i+MTTSdwUhVXkqi9SW
+ dqw+3kaGXWFNJjpthYxo7iGhdtbP3m+E1uRvLksWoOXg==
+X-Entity-ID: 3VjuPFUzwNK607OE0OaELw==
+X-Feedback-ID: 361267:3hDJO1tdpU20T+UDmVzn9xWj0ifCc1Rxyoj9wbWvb6k=:8EuCj+vCSyTX3+MXNHHHkA==:SG
+
+--87d9d5b42f38f527d703144267aa5e9ca0dfad771e6ab86669829dfb3d70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You can use your Glassdoor CV to easily apply to thousands of jobs from any=
+where including =E2=80=9CApply on Mobile=E2=80=9D. Just sign in and your CV=
+ will be set as your default =E2=80=9CApply Now=E2=80=9D option.
+
+<a href=3D"https://www.glassdoor.co.nz/Job/index.htm">Find a Job</a>
+
+Get a free CV evaluation
+
+Avoid common CV mistakes. Request free, professional resume help from our p=
+artners at TopCV. You will receive suggestions for improvements within thre=
+e days.
+Learn more about <a href=3DTopResume style=3D"text-decoration: none; color:=
+ #1861bf;">TopCV's Terms of Service</a>
+75% of Glassdoor participants found this service helpful
+
+<a href=3D"https://www.glassdoor.co.nz/member/profile/uploadResume.htm?user=
+ValidationKey=3DAboOapn:Cd2nZ0i1kcP8dEpzIpD1LQ&sendToTopResume=3Dtrue">Get =
+CV Advice</a>
+
+Get hired. Love your job.
+The Glassdoor Team=
+
+--87d9d5b42f38f527d703144267aa5e9ca0dfad771e6ab86669829dfb3d70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta name=3D"format-detection" content=3D"address=3Dno">
+<title>It's Been A While...</title>
+<link href=3D"https://fonts.googleapis.com/css?family=3DLato" rel=3D"styles=
+heet" type=3D"text/css">
+<!-- Master Email CSS -->
+<style type=3D"text/css">
+div, p, a, li, td { -webkit-text-size-adjust:none; }
+#GDEmail p,
+body#GDEmail {
+margin: 0;
+padding: 0;
+font-size: 14px;
+font-family: Arial, sans-serif; }
+#GDEmail td {
+border-spacing: inherit;
+line-height: inherit; }
+/* Client-specific Styles */
+#outlook a {padding:0;} /* Force Outlook to provide a "view in browser" men=
+u link. */
+body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-ad=
+just:100%; margin:0; padding:0;}
+/* Prevent Webkit and Windows Mobile platforms from changing default font s=
+izes, while not breaking desktop design. */
+.ExternalClass {width:100%;} /* Force Hotmail to display emails at full wid=
+th */
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font,=
+ .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmai=
+l to display normal line spacing. More on that: http://www.emailonacid.com/=
+forum/viewthread/43/ */
+/* End reset */
+.ExternalClass p {
+margin-bottom: 0.5em;
+}
+*[class=3Dappdownload] {
+display: none !important;
+}
+*[class=3Dappdownload] td {
+border-spacing: 0px;
+line-height: 0px;
+}
+*[class=3Dappdownloadtext] {
+line-height: 0px;
+font-size: 0px;
+display: none;
+}
+/* Temp fix for outlook.com webmail client. */
+.appdownloadtext img {
+height: 0px !important;
+}
+.ecxmobileHide {
+margin: 0px !important;
+}
+.mobileShow {
+display: none !important;
+font-size: 0 !important;
+max-height: 0 !important;
+line-height: 0 !important;
+padding: 0 !important;
+mso-hide: all !important;
+}
+@media only screen and (max-device-width: 480px), screen and (max-width: 48=
+0px) {
+*[class=3DmainTable] {
+width:100% !important;
+}
+*[class=3DnextTable],
+*[class=3DbigWidth] {
+width:95% !important;
+margin:0px auto;
+}
+div[id=3DGDEmailWrapper] .appdownload {
+display: inline-block !important;
+}
+div[id=3DGDEmailWrapper] .appdownload td {
+line-height: 12px;
+}
+div[id=3DGDEmailWrapper] .appdownloadtext {
+font-weight: bold;
+line-height: 12px !important;
+font-size: 12px !important;
+display: inline !important;
+}
+div[id=3DGDEmailWrapper] .appdownload img {
+display: inline !important;
+height: 18px !important;
+}
+div[id=3DGDEmailWrapper] .colPadding {
+width:0px !important;
+}
+.links {
+display: none;
+}
+h1[class=3Dy] {
+line-height:16px !important;
+font-size: 14px !important;
+/*margin: 0 0 12px;
+padding: 0 0 13px 0;*/
+}
+p[class=3Dy] {
+font-size:12px !important;
+}
+br[class=3DbrBreak] {
+line-height: 0px !important;
+display: none !important;
+}
+div[id=3DGDEmailWrapper] #Logo {
+width:100px !important;
+height: 21px !important;
+}
+div[id=3DGDEmailWrapper] p.footer {
+font-size:10px !important;
+} }
+</style><!-- Core Email CSS -->
+<style type=3D"text/css">
+/*************
+* SPACERS
+************ *//*************
+* LAYOUT
+************ */
+td.col1 {
+min-width:105px;
+width:105px;
+}
+.flushed {
+width: 100%;
+}
+/*************
+* FONT
+* *********** */
+div[id=3DGDEmailWrapper] p.alignLeft {
+text-align: left !important;
+}
+/*************
+* ELEMENTS
+************ */
+img.ecxfbCompanyLogo {
+width:75px;
+height:75px;
+max-width:75px;
+}
+td.squareLogo {
+width:75px;
+max-width:75px;
+}
+div.uploadResumeHeader {
+display: block;
+}
+table.ecxrecommendedAlerts {
+padding-left: 20px;
+padding-bottom: 20px;
+border-spacing: 5px;
+}
+p.footer {
+text-align: center;
+}
+table.ecxhtmlButton p {
+margin-bottom: 0px !important;
+margin: 0 0 0 0 !important;
+}
+table.noBorder {
+border: 0px !important;
+}
+</style><!-- Core Mobile Email CSS -->
+<style type=3D"text/css">
+@media only screen and (max-device-width: 480px) ,screen and (max-width: 48=
+0px) {
+/*************
+* SPACERS
+************ */
+div[id=3DGDEmailWrapper] .noMobilePad {
+padding: 0 !important;
+}
+div[id=3DGDEmailWrapper] .mobileBlock {
+display: block !important;
+margin-bottom: 3px;
+}
+div[id=3DGDEmailWrapper] .mobileCenter {
+text-align: center !important;
+}
+div[id=3DGDEmailWrapper] td.spacer {
+width: 10px !important;
+}
+div[id=3DGDEmailWrapper] td div[class=3Dvspacer],
+div[id=3DGDEmailWrapper] td.squareLogo div[class=3Dvspacer],
+div[id=3DGDEmailWrapper] td.aboutJob div[class=3Dvspacer] {
+height:10px !important;
+font-size:10px !important;
+line-height:10px !important;
+}
+div[id=3DGDEmailWrapper] .hspacer {
+min-width: 5px !important;
+width: 5px !important;
+}
+div[id=3DGDEmailWrapper] .flexHdr div[class=3Dhspacer] {
+max-height: 0px !important;
+height: 0px !important;
+overflow: hidden;
+}
+div[id=3DGDEmailWrapper] .flexHdr div[class=3Dvspacer] {
+height: 10px !important;
+}
+div[id=3DGDEmailWrapper] .flexHdr tr[class=3Dhspacer] {
+height: 0px !important;
+}
+div[id=3DGDEmailWrapper] .flexBody td[class=3Dhspacer] {
+width: 0.2em !important;
+}
+div[id=3DGDEmailWrapper] .flexFtr *[class=3Dhspacer] {
+width: 10px !important;
+}
+table[class=3DspacerTable] tr,
+table[class=3DspacerTable] td {
+height: 10px !important;
+max-height: 10px !important;
+border-spacing: 0px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidth5 {
+width: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidth10 {
+width: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobWidthFull {
+width: 100% !important;
+}
+div[id=3DGDEmailWrapper] input[type=3Dtext].mobWidthFull {
+width: 100% !important;
+box-sizing: border-box !important;
+}
+div[id=3DGDEmailWrapper] .mobH5 {
+height: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobH10 {
+height: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot5 {
+margin-bottom: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot10 {
+margin-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot15 {
+margin-bottom: 15px !important;
+}
+div[id=3DGDEmailWrapper] .mobMargBot20 {
+margin-bottom: 20px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot5 {
+padding-bottom: 5px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot10 {
+padding-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] .mobPadBot15 {
+padding-bottom: 15px !important;
+}
+div[id=3DGDEmailWrapper] .vspacerMacro {
+height: 15px !important;
+}
+/*************
+* LAYOUT
+************ */
+*[class=3Dwrapper] {
+margin-bottom: 0px !important;
+}
+*[class=3DbigWidth] {
+width:93% !important;
+margin:0px auto;
+}
+*[class=3DfullWidthHeader] {
+width:100% !important;
+margin:0px auto;
+}
+td[class=3DcontainerTopPadding] {
+height: 12px !important;
+}
+div[id=3DGDEmailWrapper] td.col1 {
+min-width:0px !important;
+width:0px !important;
+}
+*[class=3DflexHdr] .flexHdrCol1 {
+width: 100% !important;
+display: block !important;
+}
+*[class=3DflexHdr] .flexHdrCol2 {
+width: 100% !important;
+display: block !important;
+}
+*[class=3DflexHdr] .flexHdrCol2 table {
+margin-top: 5px;
+}
+*[class=3DflexHdr] .flexHdrCol2 table td {
+text-align: left !important;
+}
+table[class=3DflexBody] {
+margin-left: 10px !important;
+width: 92% !important;
+}
+table[class=3DflexBody] td.flexBodyCol1,
+table[class=3DflexBody] td.flexBodyCol2 {
+width: 100% !important;
+display: block !important;
+padding-left: 0.2em !important;
+}
+table[class=3DflexBody] td.flexBodyCol2 {
+margin-top: 20px !important;
+margin-bottom: 20px !important;
+}
+*[class=3DflexBody] td.hspacer {
+display: none !important;
+}
+/* Collapsing */
+div[id=3DGDEmailWrapper] table.collapseMobile > tr > td,
+div[id=3DGDEmailWrapper] table.collapseMobile > tbody > tr > td {
+width: 100% !important;
+display: block !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile > tr > td.mobileHide,
+div[id=3DGDEmailWrapper] table.collapseMobile > tbody > tr > td.mobileHide {
+display: none !important;
+font-size: 0 !important;
+max-height: 0 !important;
+line-height: 0 !important;
+padding: 0 !important;
+mso-hide: all !important; /* hide elements in Outlook 2007-2013 */
+}
+div[id=3DGDEmailWrapper] table.collapseMobile p {
+text-align: center !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile .collapseAlignLeft {
+text-align: left !important;
+}
+div[id=3DGDEmailWrapper] table.collapseMobile p.alignLeft {
+text-align: left !important;
+}
+div[id=3DGDEmailWrapper] .mobileShow {
+display: block !important;
+font-size: 12px !important;
+max-height: none !important;
+line-height: 1.5 !important;
+}/*************
+* FONT
+* *********** */
+div[id=3DGDEmailWrapper] p.y {
+font-size:14px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobTitle,
+div[id=3DGDEmailWrapper] p.y.jobLocation,
+div[id=3DGDEmailWrapper] p.y.jobMeta {
+margin: 0px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobTitle {
+font-size: 14px !important;
+line-height: 18px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobLocation {
+font-size: 12px !important;
+line-height: 20px !important;
+}
+div[id=3DGDEmailWrapper] p.y.jobMeta {
+font-size: 11px !important;
+line-height: 16px !important;
+}
+div[id=3DGDEmailWrapper] .highlightContent p.y {
+float:none !important;
+text-align:center !important;
+margin:0 !important;
+width:auto;
+display:block;
+line-height:1em !important;
+margin-left:0 !important;
+margin-top:0.4em !important;
+}
+div[id=3DGDEmailWrapper] p.flexHdrLine1 {
+font-size: 20px !important;
+margin-bottom: 10px !important;
+}
+div[id=3DGDEmailWrapper] h1.heading {
+line-height: 20px;
+}
+div[id=3DGDEmailWrapper] p.subHeading {
+line-height: 20px;
+}
+div[id=3DGDEmailWrapper] table.block p.subHeading {
+margin-bottom: 10px !important;
+}/*************
+* ELEMENTS
+************ */
+div[id=3DGDEmailWrapper] .viewJob,
+div[id=3DGDEmailWrapper] .mobileHide {
+display: none !important;
+}
+div[id=3DGDEmailWrapper] .mobileBlock {
+display: block !important;
+margin-bottom: 3px;
+}
+*[class=3DmobileOnly] td {
+display : block !important;
+width : auto !important;
+max-height: inherit !important;
+overflow : visible !important;
+float : none !important;
+}
+*[class=3DlinkButton] a {
+font-size: .8em !important;
+}
+*[class=3DlinkButton] td {
+padding-left: .5em !important;
+padding-right: .5em !important;
+}
+.highlightContent {
+margin-bottom:1em
+}
+.highlightContent .linkButton {
+float:none !important;
+text-align:center !important;
+margin:0 !important;
+width:auto;
+display:block;
+}
+div[class=3DuploadResumeHeader] {
+display: none !important;
+}
+div[id=3DGDEmailWrapper] *[class=3D"headerTitleMobile"] {
+font-size: 12px !important;
+color: #ffffff !important;
+line-height: 12px !important;
+height: auto !important;
+}
+div[id=3DGDEmailWrapper] .htmlButton.fullWidthBtn {
+width: 100% !important;
+} }
+</style><!--[if gte mso 9]>
+<style type=3D"text/css">
+a {
+font-family: Arial,sans-serif;
+}
+table[class=3DrecommendedAlerts] td {
+padding: 5px;
+}
+div[class=3DrecommendItem] {
+margin: 0px;
+margin-right: 0px;
+}
+.mobileOnly {
+display: none !important;
+visibility: hidden !important;
+mso-hide: all !important;
+}
+table.htmlButton td {border-collapse: collapse;}
+table.htmlButton { border-collapse:collapse; mso-table-lspace:0pt; mso-tabl=
+e-rspace:0pt; }
+</style>
+<![endif]--><!-- Email Theme CSS -->
+<style type=3D"text/css">
+/*************
+* Theme 2014
+* Green header + Card style body content + Boxed Footer
+************ */
+.gmailfix {
+display:none;
+display:none!important;
+}
+</style>
+<style type=3D"text/css">
+@media screen and (min-width:600px) {
+[class=3D"vertPadding"] {
+padding-bottom: 10px;
+}
+[class=3D"horzPadding"] {
+padding-left: 10px;
+}
+}
+#GDEmail td { font-family: Arial, sans-serif; }
+</style>
+</head>
+<body bgcolor=3D"#f3f3f3" id=3D"GDEmail" yahoofix class=3D"yahoofix">
+<div id=3D"GDEmailWrapper" style=3D"margin: 0; padding: 0; font-size: 12px;=
+ font-family: Arial, sans-serif">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wid=
+th=3D"100%" bgcolor=3D"#f3f3f3" style=3D"min-width: 100%;">
+<tr>
+<td class=3D'vertPadding'></td>
+</tr>
+<tr>
+<td class=3D"horzPadding"></td>
+<td align=3D"center" valign=3D"top">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"600" bgcolor=3D"#ffffff"
+style=3D"border-top: 1px solid #d4d4d4; border-bottom: 1px solid #d4d4d4; b=
+order-left: 1px solid #d4d4d4; border-right: 1px solid #d4d4d4;">
+<tr>
+<td align=3D"left" valign=3D"middle" height=3D"75" style=3D"padding-left: 8=
+.5%; padding-right: 8.5%; padding-top: 10px">
+<a href=3D"https://www.glassdoor.co.nz/index.htm?utm_medium=3Demail&utm_sou=
+rce=3DjobAlert&utm_campaign=3DjobAlertReactivation&utm_content=3Dja-reactiv=
+ate-logo&utm_term=3D" target=3D"_blank" style=3D"text-decoration: none" uni=
+versal=3D"true">
+<img src=3D"https://www.glassdoor.com/crs/mail/logos/gdlogoHw_2x.png" id=3D=
+"Logo"
+alt=3D"Glassdoor" title=3D"Glassdoor" height=3D"30" width=3D"142"
+style=3D"border: none">
+</a>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td style=3D"padding-left: 8.5%; padding-right: 8.5%; padding-bottom: 20px;=
+">
+<h1 class=3D"heading " style=3D"line-height:18px; font-family: Arial, sans-=
+serif; font-weight: bold; font-size: 18px; color: #2c2c2c; margin: 0 0 0px;=
+ margin-bottom: 8px; margin-left:0px; padding: 0 0 0 0;">
+We noticed you haven't been using your job alert lately...
+</h1>
+<style>
+h1.ecxheading {margin-bottom: 0;}
+</style>
+<hr style=3D"height: 1px; color: #e7e7e7; background-color: #e7e7e7; border=
+: none; margin-top:5px; margin-bottom:0px; margin-left: 0px; margin-right: =
+0px;">
+<p style=3D"font-family: Arial, sans-serif; font-size: 14px; line-height: 1=
+8px; margin: 0; margin-top: 0px; margin-bottom: 0px;; margin-bottom:15px;;m=
+argin-top:10px;;">
+Glassdoor is committed to helping you find the job you love. If you are no =
+longer interested in receiving job alerts for <strong>Embaded Engineer</str=
+ong> jobs, you can update your frequency or edit your job alert here.
+</p>
+<table class=3D"htmlButton fullWidthBtn" width=3D"160" cellspacing=3D"0" ce=
+llpadding=3D"0" bgcolor=3D"#4e9ad4" style=3D'border-radius:2px; border: 1px=
+ solid #3f92d1;'>
+<tr>
+<td align=3D"center" style=3D"min-height:32px;" height=3D"32">
+<div style=3D"font-family: Arial, sans-serif; font-size: 14px; line-height:=
+ 14px; color: white; margin:0px; margin-top: 0px; margin-bottom: 0px;">
+<a class=3D"" href=3D"https://www.glassdoor.co.nz/profile/editJobAlert_inpu=
+t.htm?JAK=3D5lCI9aA-BzqGQphURr6VAA:bxt1FJRmH0EknBHYHdG0-8IfZVIABcbXLZJdPk1h=
+8ltHtzQm3Zj_HMnv74CnVj8I:_oFzjJd7W8LdTE3H10zhDOBBN7nNIYsZfZY4G_UGgT4&amp;ke=
+y=3DnyiPymh:fPRYLw4pqq9eFbtfqEvvuQ&amp;reactivation=3Dtrue&utm_medium=3Dema=
+il&utm_source=3DjobAlert&utm_campaign=3DjobAlertReactivation&utm_content=3D=
+ja-reactivate-editalert-reactivation&utm_term=3D" style=3D"padding-left: 5p=
+x; padding-right: 5px; color:#ffffff; white-space:nowrap; font-size: 14px; =
+font-weight: normal; font-family: Arial, sans-serif; text-decoration:none; =
+display:block; line-height: 32px; height: 32px;">
+Edit Job Alert
+</a>
+</div>
+</td></tr>
+</table>
+<p style=3D"font-family: Arial, sans-serif; font-size: 14px; color: #2c2c2c=
+; line-height: 18px; margin: 0; margin-top: 0px; margin-bottom: 0px;; margi=
+n-top:10px;;">
+<strong>Get hired. Love your job.</strong> <br/>
+The Glassdoor Team
+</p>
+</td>
+</tr>
+<tr>
+<td style=3D"background-color: transparent; padding-top: 25px; padding-bott=
+om: 25px; padding-left: 8.5%; padding-right: 8.5%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wid=
+th=3D"100%" style=3D"min-width: 100%;">
+<tr>
+<td style=3D"font-family: Arial, sans-serif; font-size: 10px; color: #7F7F7=
+F; line-height: 18px; margin: 0; margin-top: 0px; margin-bottom: 0px;; text=
+-align: center;">
+<span style=3D"color: #7F7F7F">
+This message was sent to <a href=3D"mailto:dmugil2000@gmail.com" style=3D"c=
+olor:#1861BF;">dmugil2000@gmail.com</a>.
+</span>
+<br>
+<a href=3D"https://www.glassdoor.co.nz/about/privacy.htm?utm_medium=3Demail=
+&utm_source=3DjobAlert&utm_campaign=3DjobAlertReactivation&utm_content=3Dja=
+-reactivate-footer-privacy&utm_term=3D" style=3D"color: #1861BF;">Privacy P=
+olicy</a>
+<span style=3D"color: #7F7F7F;">&nbsp;|&nbsp;</span>
+<a href=3D"https://www.glassdoor.co.nz/member/account/emailSettings_input.h=
+tm?utm_medium=3Demail&utm_source=3DjobAlert&utm_campaign=3DjobAlertReactiva=
+tion&utm_content=3Dja-reactivate-emailpreference&utm_term=3D" style=3D"colo=
+r: #1861BF;">
+Manage Settings
+</a>
+<span style=3D"color: #7F7F7F;">&nbsp;|&nbsp;</span>
+<a href=3D"https://www.glassdoor.co.nz/profile/unsubscribeEmail.htm?JAK=3D5=
+lCI9aA-BzqGQphURr6VAA:bxt1FJRmH0EknBHYHdG0-8IfZVIABcbXLZJdPk1h8ltHtzQm3Zj_H=
+Mnv74CnVj8I:_oFzjJd7W8LdTE3H10zhDOBBN7nNIYsZfZY4G_UGgT4&key=3DAboOapn:Cd2nZ=
+0i1kcP8dEpzIpD1LQ&emailType=3DJOB_ALERT&emailCategory=3DJOB_ALERT&utm_mediu=
+m=3Demail&utm_source=3DjobAlert&utm_campaign=3DjobAlertReactivation&utm_con=
+tent=3Dja-reactivate-unsubscribe&utm_term=3D" style=3D"color: #1861BF;">Uns=
+ubscribe</a>
+<br>
+<span style=3D"color: #7F7F7F;">
+<a href=3D"www.glassdoor.co.nz" target=3D"_blank" style=3D"color: #1861BF">=
+Glassdoor</a> &nbsp;|&nbsp; 100 Shoreline Highway Bldg. B, Ste. 295, Mill V=
+alley, CA 94941
+</span>
+<br>
+<span style=3D"color: #7F7F7F;">
+Copyright =C2=A9 2008-2021, Glassdoor, Inc. "Glassdoor" and logo are regist=
+ered trademarks of Glassdoor, Inc.
+</span>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td class=3D'horzPadding'></td>
+</tr>
+<tr>
+<td class=3D'vertPadding'></td>
+</tr>
+</table>
+</div>
+
+<img src=3D"https://mail8.glassdoor.com/wf/open?upn=3DtJpSVQbifjFFPwAxsBgIm=
+wi2u2Eiz1jIuBXwGEGfkE97YUmpxFsCLD2FaYgugfe02Pdl4-2FsgGXMSA0wFfV9CSQDPcppl-2=
+BbZxktdLtnEhhW6nK8ksGNXgZRM1cvVQl-2Fjsv79Q-2BAwWQmQVOBjJQIY9mjYZOdBKrZ-2FvT=
+xvC8LskqmuH4MO8HmyuHbOX-2BfGZt-2BWHOT5wdS0zJNYC5gQUx91tzrflwg7i7uLlYZSlUm3-=
+2FZzEo-2F-2FLb8V5r2YCrwl8afOdDoWpbjSaOyXqyOSqW-2BL8jFg93kjta5jmOEDCPf1S-2FX=
+-2F67OcyN08FIe4bnNuhGj0CPG9lWrJJC1lBI7luTAt10QbfNdjAwu7i1Zna-2FboCFEvwlkc9R=
+06Au-2FsDBkM72-2BJPcmdEJhz9bcPcs-2BK8Q9fEgrrhlykhwN9myNMhUInzGBTkiFnNo0FusQ=
+iFGm45hwlQoGaOCame6RzJ4TE7CM-2Bw-2BMkqJoh3Zw53eZ8XuEbxCEFE-3D" alt=3D"" wid=
+th=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px=
+ !important;border-width:0 !important;margin-top:0 !important;margin-bottom=
+:0 !important;margin-right:0 !important;margin-left:0 !important;padding-to=
+p:0 !important;padding-bottom:0 !important;padding-right:0 !important;paddi=
+ng-left:0 !important;"/>
+</body>
+</html>
+
+--87d9d5b42f38f527d703144267aa5e9ca0dfad771e6ab86669829dfb3d70--

@@ -1,0 +1,120 @@
+Delivered-To: dmugil2000@gmail.com
+Received: by 2002:a17:906:3b82:0:0:0:0 with SMTP id u2csp477448ejf;
+        Thu, 11 Mar 2021 06:01:38 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJynkH7ezsXwgTFs0vmBbCVRU4KNn66cXT8vpOSmkiluaW7lG3/kFfH3bLllszlhWLXHpZXu
+X-Received: by 2002:aa7:c957:: with SMTP id h23mr4089804edt.301.1615471298338;
+        Thu, 11 Mar 2021 06:01:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615471298; cv=none;
+        d=google.com; s=arc-20160816;
+        b=S12N29/rG6572anFhS0OgNh1QBnu/zbD8h3VD/NNFGZgNXAhewzZ9oAOCrTDKxvwOJ
+         1MJxHT0R0rBp2Sh0x97nM6tbzqiRlqVRMcYSKOprQSVvHMbgMSHbqFB8fPHwn1+In35x
+         umLwBlhwKpUP6EujeamioDaWNpAZ7OsREWDkLdWptUQSNUrmxMq6cbLKi8aGSTq7GnEX
+         Y6hkFYXG2leqCwqH+OL6HxZc+Eh1qQMqnDEgMzGeeF6St8zcJma7Cx3jRGcABwPHMkqe
+         VipmHuFDNDllD0PGnWZ2/0QlxL6Uj0vxcfbdNCB54sXcuTREtb80C0a6pt+UO41WAyCT
+         E8uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-id:precedence:content-transfer-encoding:content-language
+         :in-reply-to:mime-version:user-agent:date:message-id:from:references
+         :to:subject;
+        bh=xGFYUz1NIT8fKv3toQLTLqdgirK/YhwxxbscXqWNfAA=;
+        b=LBHrHcnoC/z8hU4dH2MT2Iaew16i6ukRRzx1WoRbmTPLK/yH8nr2ZIn3mIskb+WGYt
+         H/kjK2utTuiQj2A63B/Qjf0fUfEDYJWZXvihOK7w9Kx+wekyLfo4+lI8iU0U6hv/5OKx
+         bs3P4y9hicDFv+4AK3VW8r9e3uJJYY2v/lYr88gg+Rhan/5jCKqeTTCNZu7DJJdbA7SK
+         FNI3n7cOYQUcQey38+2rm0qpLK67YEw0dsjU96PDCqlzGOlFPcOje56zp68FWTSkTJ5b
+         nB+nf4qOGfWUp+PfMP7DmgaTgaFRZI07QAGML1cTaynk+1A7S6PVxk4KHxSQFg7QivVw
+         fYtA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) smtp.mailfrom=linux-iio-owner@vger.kernel.org
+Return-Path: <linux-iio-owner@vger.kernel.org>
+Received: from vger.kernel.org (vger.kernel.org. [23.128.96.18])
+        by mx.google.com with ESMTP id q21si1863556ejo.166.2021.03.11.06.00.56;
+        Thu, 11 Mar 2021 06:01:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) client-ip=23.128.96.18;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of linux-iio-owner@vger.kernel.org designates 23.128.96.18 as permitted sender) smtp.mailfrom=linux-iio-owner@vger.kernel.org
+Received: (majordomo@vger.kernel.org) by vger.kernel.org via listexpand
+        id S233664AbhCKOAW (ORCPT <rfc822;dmugil2000@gmail.com> + 99 others);
+        Thu, 11 Mar 2021 09:00:22 -0500
+Received: from mout.kundenserver.de ([212.227.17.10]:50481 "EHLO
+        mout.kundenserver.de" rhost-flags-OK-OK-OK-OK) by vger.kernel.org
+        with ESMTP id S230493AbhCKN76 (ORCPT
+        <rfc822;linux-iio@vger.kernel.org>); Thu, 11 Mar 2021 08:59:58 -0500
+Received: from [192.168.1.155] ([77.4.9.157]) by mrelayeu.kundenserver.de
+ (mreue109 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MmDAc-1m2S7B0CQa-00iFI0; Thu, 11 Mar 2021 14:59:57 +0100
+Subject: Re: GSoC IIO project: Mugil
+To:     Mugil Raj <dmugil2000@gmail.com>, linux-iio@vger.kernel.org,
+        utkarshverma294@gmail.com
+References: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+From:   "Enrico Weigelt, metux IT consult" <info@metux.net>
+Message-ID: <708e557e-8318-9141-ccab-c564249a7264@metux.net>
+Date:   Thu, 11 Mar 2021 14:59:55 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.0
+MIME-Version: 1.0
+In-Reply-To: <CAOgtOjMwnwsiXd8rPeGBBTVkZUeabQ5nLtPts2RQDDMc-TDgKA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: tl
+Content-Transfer-Encoding: 8bit
+X-Provags-ID: V03:K1:sVOsgnyX+X0OPOZKcq4UQw8WoQOlT5qJhFSqGFHSlgj/tVNLREc
+ vZkluYDnxD0LGCU0SX9Un786P74iV2DjHTlkI725N9fNEVN/4qJhAx3MyPFsW43ZheXTRE1
+ 9EfK/Uoczeg0TABVPIpMRFg9IVwOz9nTy2xzZ6nsgQv3gltXVu8b9/i6zbjEmyMGYpT2ESv
+ jgkRHbq7IukjWIDiLT6nw==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:K6emM1s/jOg=:V4zzOCj+NhUNGrYM7uz6Cf
+ ORhKrN8/8VT4cWGTgQowp9RSC+yknMTfbUEXNOpGAgEIf8v5915Fp821i3915n6Xz8KaF5fMJ
+ sOWIiJU52DPbYp+vF9pcrzO+IuEsAw3JHFIyfoApGP1kaiMG4g9neay271epd5RIzExaXSUU5
+ SN2yEcGofrMrCV6RYNNnU4WZ/+QeAq/N4RUkvkF49S7JtVcHyUkA0+5y/okYmCg1At4GNs0oQ
+ vKyNAbZTjjs75FhRgGsRLP/YvwDxru7cU7MVdHQJ6z3h3DQLV6rv7Qo3BDeEnfVaS7B8o9h01
+ O/mZqY2qve1/IEtukNEsBSYarj+YcdCf6EZmaiQBhYCm9W10M/AfRBZOQEK4FjxbxjKmsnf5h
+ MiRPhM//cpEck/5HwO31FH2vp2fgVGRCiPvEcLd8yOF/iNKrL3hGg6FW8GhST
+Precedence: bulk
+List-ID: <linux-iio.vger.kernel.org>
+X-Mailing-List: linux-iio@vger.kernel.org
+
+On 11.03.21 08:01, Mugil Raj wrote:
+
+Hi,
+
+[ CC'ing Utkarsh, who's got a similar question ]
+
+> This is Mugilraj, an undergrad at NIT Trichy, India. I'm applying to
+> GSoC'21 for the project IIO driver. So, I need help from you guys with
+> the application process and finding the device to develop a driver.
+
+Since you're not very experienced, I suggest starting with some
+simple device like plain ADCs. Several vendors like TI or AD offer
+a huge range of ADCs where we no drivers for.
+
+I'd start w/ the simple SPI based devices. It seems they've got quite
+some overlap (quite simiar protocols), so parts of that maybe could be
+consolidated into some common library code.
+
+
+For simple ADCs, I've also got yet another(more complex) idea:
+
+Create some 'simple-ADC' subsys, which gives a *simple* API for the
+*simple* cases that's bridged to iio and hwmon (maybe even other
+subsys's). The idea is getting actual hw drivers for those devices very
+simple and small, make them usable in IIO as well as hwmon.
+
+An interesting question here, that needs some deeper thoughs, is the
+driver instantiation into the actual subsystems.
+
+For example, if some DT says, there's some "ti,adcXYZABC" on the board,
+what does that actually mean for us ? Where (eg. in which subsys) shall
+it appear ? Is it an IIO or hwmon device ? Shall that decision even be
+made only by DT, or do we rely on some other configuration layer ?
+
+
+--mtx
+
+-- 
+---
+Hinweis: unverschlüsselte E-Mails können leicht abgehört und manipuliert
+werden ! Für eine vertrauliche Kommunikation senden Sie bitte ihren
+GPG/PGP-Schlüssel zu.
+---
+Enrico Weigelt, metux IT consult
+Free software and Linux embedded engineering
+info@metux.net -- +49-151-27565287
